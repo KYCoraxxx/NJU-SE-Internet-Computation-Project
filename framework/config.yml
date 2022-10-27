@@ -1,12 +1,12 @@
-baseURL: https://www.sulvblog.cn # 绑定的域名
-languageCode: zh-cn # en-us
+baseURL: https://www.sulvblog.cn
+languageCode: zh-cn
 title: 互联网计算Web开发指南
-theme: hugo-theme-stack  # 主题名字，和themes文件夹下的一致
+# theme: hugo-theme-stack
 
 enableInlineShortcodes: true
-enableEmoji: true # 允许使用 Emoji 表情，建议 true
-enableRobotsTXT: true # 允许爬虫抓取到搜索引擎，建议 true
-hasCJKLanguage: true # 自动检测是否包含 中文日文韩文 如果文章中使用了很多中文引号的话可以开启
+enableEmoji: true
+enableRobotsTXT: true
+hasCJKLanguage: true
 
 buildDrafts: false
 buildFuture: false
@@ -208,7 +208,6 @@ related:
 markup:
     goldmark:
         renderer:
-            ## Set to true if you have HTML content inside Markdown
             unsafe: false
     tableOfContents:
         endLevel: 4
