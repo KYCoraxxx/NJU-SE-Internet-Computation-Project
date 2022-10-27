@@ -22,14 +22,12 @@ permalinks:
   post: /p/:slug/
   page: /:slug/
 
-defaultContentLanguage: en
-defaultContentLanguageInSubdir: true
-
 params:
     mainSections:
         - posts
     featuredImageField: images
     rssFullContent: true
+    favicon:
 
     footer:
         since: 2020
@@ -41,7 +39,7 @@ params:
 
     sidebar:
         emoji: 🍥
-        subtitle: 最怕你一生碌碌无为,还安慰自己平凡可贵
+        subtitle: Celestial
         avatar:
             enabled: true
             local: true
@@ -56,7 +54,7 @@ params:
             default: Licensed under CC BY-NC-SA 4.0
 
     comments:
-        enabled: true
+        enabled: false
         provider: disqus
 
         disqusjs:
@@ -174,20 +172,53 @@ params:
         content:
             enabled: true
 
-languages:
-  en:
-    languageName: "English"
-    weight: 1
-    profileMode:
-      enabled: true
-    menu:
-      main:
-        - identifier: posts
-          name: 文章 Article
-          url: posts
-          weight: 10
-        - identifier: about
-          name: 关于 About Us
-          url: about
-          weight: 10
-        
+menu:
+    main: []
+
+    social:
+        - identifier: github
+          name: GitHub
+          url: https://github.com/KYCoraxxx/NJU-SE-Internet-Computation-Project
+          params:
+              icon: brand-github
+
+        - identifier: twitter
+          name: Twitter
+          url: https://twitter.com
+          params:
+              icon: brand-twitter
+        - identifier: bilibili
+          name: Bilibili
+          url: https://space.bilibili.com/330247538?spm_id_from=333.1007.0.0
+          params:
+              icon: link
+
+
+related:
+    includeNewer: true
+    threshold: 60
+    toLower: false
+    indices:
+        - name: tags
+          weight: 100
+
+        - name: categories
+          weight: 200
+
+markup:
+    goldmark:
+        renderer:
+            ## Set to true if you have HTML content inside Markdown
+            unsafe: false
+    tableOfContents:
+        endLevel: 4
+        ordered: true
+        startLevel: 2
+    highlight:
+        noClasses: false
+        codeFences: true
+        guessSyntax: true
+        lineNoStart: 1
+        lineNos: true
+        lineNumbersInTable: true
+        tabWidth: 4

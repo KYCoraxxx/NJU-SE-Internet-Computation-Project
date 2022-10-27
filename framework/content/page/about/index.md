@@ -1,5 +1,5 @@
 ---
-title: "关于网站"
+title: "关于我们"
 layout: about
 date: 2022-10-26T14:57:28+08:00
 hidemeta: true
@@ -14,6 +14,12 @@ showToc: false # 显示目录
 TocOpen: false # 自动展开目录
 disableShare: true # 底部不显示分享栏
 showbreadcrumbs: false
+menu:
+    main:
+        name: 关于我们
+        weight: -100
+        params:
+            icon: user
 ---
 
 ## 简要介绍
