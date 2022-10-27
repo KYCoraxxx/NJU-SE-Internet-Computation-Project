@@ -26,6 +26,8 @@ Repository for group project in course Internet Computation. Created for both we
 
 (最新的记录请参照之前的格式记录在最上方)
 
+2022/10/27 @`TTHA`(张铭铭) 加入了仓库，并修改了 *content\page\about\index.md*
+
 2022/10/27 @`KYCoraxxx`(张哲恺) 上传web开发指南网站模板，添加网站介绍，邀请其他成员加入仓库
 
 2022/10/26 @`KYCoraxxx`(张哲恺) 创建github仓库，完善README文档
