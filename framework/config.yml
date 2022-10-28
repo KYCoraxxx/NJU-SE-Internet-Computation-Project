@@ -2,6 +2,10 @@ baseURL: https://www.sulvblog.cn
 languageCode: zh-cn
 title: 互联网计算Web开发指南
 # theme: hugo-theme-stack
+module:
+    hugoVersion:
+        extended: true
+        min: "0.87.0"
 
 enableInlineShortcodes: true
 enableEmoji: true
@@ -25,7 +29,7 @@ permalinks:
 params:
     mainSections:
         - posts
-    featuredImageField: images
+    featuredImageField: image
     rssFullContent: true
     favicon:
 

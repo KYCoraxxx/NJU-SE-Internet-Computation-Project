@@ -1,8 +1,8 @@
 ---
 title: "Github的使用注意事项"
 description: 
-date: 2022-10-27T23:36:06+08:00
-image: 
+date: 2022-10-28
+image: cover.jpg
 math: 
 license: 
 categories: 工具
