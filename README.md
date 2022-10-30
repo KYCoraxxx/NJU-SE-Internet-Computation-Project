@@ -28,7 +28,7 @@ Repository for group project in course Internet Computation. Created for both we
 
 2022/10/30
 
-@`KYCoraxxx`(张哲恺) 编写如何将网站部署到服务器
+@`KYCoraxxx`(张哲恺) 编写如何将网站部署到服务器，安装SSL证书
 
 2022/10/28
 
