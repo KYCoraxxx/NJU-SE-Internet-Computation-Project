@@ -26,6 +26,10 @@ Repository for group project in course Internet Computation. Created for both we
 
 (最新的记录请参照之前的格式记录在最上方)
 
+2022/10/30
+
+@`KYCoraxxx`(张哲恺) 编写如何将网站部署到服务器
+
 2022/10/28
 
 @`KYCoraxxx`(张哲恺) 编写github使用说明和HUGO使用说明，调整网站配置文件 
