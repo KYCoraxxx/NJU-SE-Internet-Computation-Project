@@ -168,7 +168,7 @@ http{
         ssl_ciphers ECDHE-RSA-AES128-GCM-SHA256:HIGH:!aNULL:!MD5:!RC4:!DHE;
         ssl_prefer_server_ciphers on;
         location / {
-			root ...;
+            root ...;
             index ...;
         }
         #如果你的页面中有php等其他文件，需要再添加其他配置
