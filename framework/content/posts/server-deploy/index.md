@@ -1,7 +1,7 @@
 ---
 title: "如何将网站部署到服务器"
 description: 
-date: 2022-10-30
+date: 2022-10-31
 image: cover.jpg
 math: 
 license: 
@@ -70,7 +70,39 @@ draft: true
 
 `Nginx`是一个高性能HTTP和反向代理web服务器，提供了诸如**网站一键部署，反向代理，负载均衡**的强大功能，在使用时，你只需要简单地更改配置文件中的`server`语法块即可完成网站的部署
 
-具体的配置更改需要根据需要自行摸索，Google中也有对`nginx.conf`文件语法的详细解析，这里就不再展开
+具体的配置更改需要根据需要自行摸索，Google中也有对`nginx.conf`文件语法的详细解析，这里仅稍作解释
+
+~~~~nginx
+user	root; #将nginx的调用者修改为root
+http{ #http语法块
+	server { #新增服务器配置语法块
+		listen 80; #监听端口号，这里以80端口(HTTP)为例
+		server_name _; #域名，如果没有可以用_标识
+		
+		###########################
+		#如果有域名需要额外配置其他内容#
+		###########################
+		
+		location / { #网站根目录语法块
+			root /usr/share/nginx/html; #网站根目录路径，根据个人存放位置而定
+			index index.html index.htm; #网站首页文件，根据个人网站文件而定
+		}
+        
+        #如果你的页面中有php等其他文件，需要再添加其他配置
+	}
+	##############
+	#SSL Settings#
+	##############
+	#配置SSL证书内容，如果没有则不需要配置
+	
+	######################
+	#Virtual Host Configs#
+	######################
+	#注意需要注释掉这两条语句，否则你的设置很可能和默认配置冲突
+	#include /etc/nginx/conf.d/*.conf;
+	#include /etc/nginx/sites-enabled/*;
+}
+~~~~
 
 在服务器上安装Nginx只需要一条命令即可，你也可以在命令的后面跟上-y参数，这样就不用在安装的过程中再次确认
 
@@ -93,3 +125,69 @@ kill <pid>	#如果不能用service重启，就只能通过kill命令强行终止
 ~~~~
 
 呃呃作者暂时就想到这么多😴
+
+## SSL证书安装
+
+如果你有一些闲💴，又正好没什么事干，在访问你的网站时总是被提醒**不安全**🤬，那么你就可以为你的网站安装SSL证书
+
+不安全的原因主要有两个：
+
+- 基于HTTP协议的网站通信没有经过加密
+- 直接使用公网ip访问网站会暴露服务器位置
+
+安装SSL的步骤如下：
+
+### 购买域名
+
+你需要前往前面提到的各大云服务器平台购买域名，并按照这些平台提供的引导完成域名备案，域名审核以及SSL证书的申请😴
+
+### 添加记录
+
+在域名分配下发完成之后，你需要为域名开启DNS域名解析服务，具体来说，你需要为这个域名添加一条记录，说明这个域名将定向到哪个公网ip😄
+
+### 下载证书
+
+接下来你就可以在域名控制台下载SSL证书，并将它传输到服务器上
+
+### 开放服务器端口
+
+然后，你需要在云服务器的控制台上开放服务器相应端口的**防火墙**或者**安全组**选项
+
+然后在服务器的nginx配置文件中说明需要为这两个端口提供怎样的服务，具体操作如下：
+
+~~~~nginx
+http{
+    server{
+    	listen 443 ssl; #监听443(HTTPS)端口
+        server_name yourwebsite.cn; #你的域名
+        ssl_certificate _; #按照最下面的配置即可
+        ssl_certificate_key _; #按照最下面的配置即可
+        #下面的按照配置进行即可，注意根据nginx版本不同有的配置可能不同
+    	ssl_session_timeout 5m;
+        ssl_protocols TLSv1.2 TLSv1.3;
+        ssl_ciphers ECDHE-RSA-AES128-GCM-SHA256:HIGH:!aNULL:!MD5:!RC4:!DHE;
+        ssl_prefer_server_ciphers on;
+        location / {
+			root ...;
+            index ...;
+        }
+        #如果你的页面中有php等其他文件，需要再添加其他配置
+    }
+    
+    server{ #将80端口的访问重定向到443端口的加密链接进行访问
+        listen 80;
+        server_name yourwebsite.cn; #你的域名
+        return 301 https://$host$request_uri; #301是HTTP状态码，标识正常访问
+    }
+    ###
+    #SSL Settings
+    ###
+    #如果是国密证书，配置会有一些不同，具体可以按照相关云服务器平台的文档来操作
+    ssl_certificate yourwebsite.cn_bundle.crt; #填写你的证书文件路径
+    ssl_certificate_key yourwebsite.cn.key; #填写你的证书文件密钥
+}
+~~~~
+
+### 测试域名连通性
+
+你可以进入`DNSPod`系统检测你的域名解析和服务器的连接是否正常，能否Ping通等，如果可以，就可以使用域名访问你的网站辣🌶
