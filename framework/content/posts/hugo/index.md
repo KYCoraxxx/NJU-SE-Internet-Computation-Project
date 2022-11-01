@@ -6,7 +6,7 @@ math: true
 license: 
 categories: 工具
 image: cover.jpg
-tags: [ HUGO ]
+tags: [ HUGO , HTML, CSS, JavaScript ]
 readingTime: true
 hidemeta: true
 hidden: false

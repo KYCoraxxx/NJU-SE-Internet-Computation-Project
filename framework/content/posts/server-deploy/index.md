@@ -6,7 +6,7 @@ image: cover.jpg
 math: 
 license: 
 categories: 综合
-tags: [server]
+tags: [ server, Nginx ]
 hidden: false
 comments: true
 draft: true
