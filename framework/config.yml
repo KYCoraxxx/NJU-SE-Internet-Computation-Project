@@ -1,4 +1,4 @@
-baseURL: https://www.sulvblog.cn
+baseURL: https://internet-computation.icu
 languageCode: zh-cn
 title: 互联网计算Web开发指南
 # theme: hugo-theme-stack
@@ -50,7 +50,7 @@ params:
             src: img/avatar.png
 
     article:
-        math: false
+        math: true
         toc: true
         readingTime: true
         license:
