@@ -1,6 +1,6 @@
 ---
 title: "HTML的简单使用"
-description: 
+description: 本页将介绍HTML的概要和简单的标签使用
 date: 2022-11-01
 image: cover.jpg
 math: true
@@ -11,6 +11,8 @@ hidden: false
 comments: true
 draft: false
 ---
+
+学习web开发不能纸上谈兵，请多动手尝试和阅读他人代码
 
 ## HTML简介
 

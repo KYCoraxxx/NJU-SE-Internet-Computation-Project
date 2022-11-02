@@ -1,6 +1,6 @@
 ---
 title: "使用HUGO快速搭建静态网站"
-description: 
+description: 本页面将简要介绍如何使用HUGO搭建静态网站
 date: 2022-10-30
 math: true
 license: 

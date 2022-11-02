@@ -1,6 +1,6 @@
 ---
 title: "如何将网站部署到服务器"
-description: 
+description: 本页面将简要介绍如何使用nginx搭建个人网站服务器
 date: 2022-10-31
 image: cover.jpg
 math: 

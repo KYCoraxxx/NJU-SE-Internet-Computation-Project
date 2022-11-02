@@ -1,6 +1,6 @@
 ---
 title: "Github的使用注意事项"
-description: 
+description: 本页面将简要介绍github的简单使用和团队合作时需要注意的事项
 date: 2022-10-28
 image: cover.jpg
 math: 
