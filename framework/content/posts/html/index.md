@@ -164,7 +164,7 @@ HTML的注释同样也使用标签进行标识，标签语法为`<!--  -->`，�
 <head>
 	<link rel="stylesheet" type="text/css" href="style.css"/>
     	<!--
-	这是一个指向stylesheet目录中文件名为style.css的text/css类型的文件的链接
+	这是一个关联样式表，指向文件名为style.css的text/css类型的文件的链接
 	标签后面的部分为link标签的属性，将在下面提到
 	link标签同样也是空标签，用于链接多文件和代码库
 	-->
