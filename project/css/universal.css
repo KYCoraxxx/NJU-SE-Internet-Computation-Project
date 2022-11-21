@@ -41,11 +41,10 @@ input {
     border-color: #25b3ff;
     border-width: 1px;
     font-family: "楷体";
-    background-color: rgb(255, 255, 255);
     box-shadow: #1c1d21 1px 1px 1px;
     margin: 5%;
 }
-.register-form input{
+.register-form input {
     height: 6%;
     width: 50%;
     font-size: 15px;
@@ -53,7 +52,6 @@ input {
     border-color: #25b3ff;
     border-width: 1px;
     font-family: "楷体";
-    background-color: rgb(255, 255, 255);
     box-shadow: #1c1d21 1px 1px 1px;
     margin: 3%;
 }
@@ -76,7 +74,7 @@ input {
     flex-direction: column;
     align-items: center;
     margin-left: 30%;
-    background-color: #2e9fff;
+    background: linear-gradient(to bottom, cornflowerblue, mediumpurple);
     transition: 0.6s ease-in-out;
 }
 .img-box {
@@ -97,6 +95,10 @@ input {
 }
 #change:hover {
     cursor: pointer;
+}
+.btn {
+    color: #FFFFFF;
+    background-color: #9f9eff;
 }
 .btn:hover {
     cursor: pointer;

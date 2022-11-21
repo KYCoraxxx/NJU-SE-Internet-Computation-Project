@@ -17,7 +17,7 @@
 <body>
     <div class="box">
         <div class="cover-box">
-            <div class="article-title" style="color:white">要来和阿尼亚一起玩吗(☆▽☆)</div>
+            <div class="article-title" style="color:white">要和阿尼亚玩吗(☆▽☆)</div>
             <div class="img-box">
                 <img src="img/usr.jpg"/>
             </div>
@@ -26,40 +26,20 @@
         <form class="login-form">
             <div class="article-title">登录</div>
             <div class="article-subtitle">ご主人様お帰りなさいませ</div>
-            <input type="text" name="username" class="login-box" placeholder="用户名"/>
-            <input type="password" name="password" class="login-box" placeholder="密码" onfocus="changePicture(0)" onblur="changePicture(1)"/>
-            <input type="button" class="btn" value="\芝麻开门/" style="width: 25%">
+            <input type="text" name="logusr" placeholder="用户名"/>
+            <input type="password" name="logpwd" placeholder="密码" onfocus="changePicture(0)" onblur="changePicture(1)"/>
+            <input type="button" class="btn" value="\芝麻开门/" style="width: 25%; border: #9f9eff; height: 10%;">
         </form>
         <form class="register-form">
             <div class="article-title">注册</div>
             <div class="article-subtitle">新しいご主人様を歓迎します</div>
-            <input type="text" name="username" class="register-box" placeholder="用户名"/>
-            <input type="password" name="password" class="info-box" placeholder="密码" onfocus="changePicture(0)" onblur="changePicture(1)"/>
-            <input type="password" name="ensurepwd" class="info-box" placeholder="确认密码" onfocus="changePicture(0)" onblur="changePicture(1)"/>
-            <input type="button" class="btn" value="\绝赞转生/" style="width: 25%;">
+            <input type="text" name="regusr" class="register-box" placeholder="用户名"/>
+            <input type="password" name="regpwd" placeholder="密码" onfocus="changePicture(0)" onblur="changePicture(1)"/>
+            <input type="password" name="enspwd" placeholder="确认密码" onfocus="changePicture(0)" onblur="changePicture(1)"/>
+            <input type="button" class="btn" value="\绝赞转生/" style="width: 25%; border: #9f9eff; height: 10%;" onclick="matchPwd()">
         </form>
     </div>
     <script src="js/jquery-3.6.1.js"></script>
-    <script>
-        let cover = true;
-        var changePicture = function(flag){
-            if(flag === 0)
-                $("img").attr("src", "img/psw.jpg");
-            else
-                $("img").attr("src", "img/usr.jpg");
-        }
-        var moveBlock = function(){
-            if(cover === true){
-                $(".cover-box").css("margin-left", "0");
-                $("#change").attr("value", "直接来罢>_<");
-                cover = false;
-            }
-            else{
-                $(".cover-box").css("margin-left", "30%");
-                $("#change").attr("value", "注个册先('◡')");
-                cover = true;
-            }
-        }
-    </script>
+    <script src="js/login.js"></script>
 </body>
 </html>
