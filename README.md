@@ -20,11 +20,15 @@ Repository for group project in course Internet Computation. Created for both we
 
 ## 项目内容
 
-待定
+类似于跳蚤市场的模拟购物网页
 
 ## CHANGE_LOG
 
 (最新的记录请参照之前的格式记录在最上方)
+
+2022/11/20
+
+@`Begonia`(杨海涛) 上传产品ui设计
 
 2022/11/01
 
