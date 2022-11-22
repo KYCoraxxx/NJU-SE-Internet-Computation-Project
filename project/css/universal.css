@@ -41,7 +41,6 @@ input {
     border-color: #25b3ff;
     border-width: 1px;
     font-family: "楷体";
-    box-shadow: #1c1d21 1px 1px 1px;
     margin: 5%;
 }
 .register-form input {
@@ -52,7 +51,6 @@ input {
     border-color: #25b3ff;
     border-width: 1px;
     font-family: "楷体";
-    box-shadow: #1c1d21 1px 1px 1px;
     margin: 3%;
 }
 .box {

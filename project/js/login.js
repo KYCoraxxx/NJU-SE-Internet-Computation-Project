@@ -18,19 +18,38 @@ var moveBlock = function(){
         cover = true;
     }
 }
-var matchPwd = function (){
+var postInfo = function (){
     if(cover === false){
-        var pwd = $("input[name='regpwd']")[0].value;
-        var enpwd = $("input[name='enspwd']")[0].value;
-        if(pwd !== enpwd){
-            error = $('<span>前后密码不一致！</span>');
-            error.css({"color" : "red", "font-family" : "楷体", "font-size" : "15px"});
-            error.attr("id", "dismatch");
-            $(".register-form").append(error);
+        var usr = $("input[name='regusr']");
+        var pwd = $("input[name='regpwd']");
+        var enpwd = $("input[name='enspwd']");
+        if(usr[0].value === "") {
+            error = $('<span>请输入用户名！</span>');
+            usr.css("border-color", "red");
         }
-        else{
-            if(error !== undefined)
-                error.remove();
+        else if(pwd[0].value === "" && $("#error").remove() && usr.css("border-color", "#25b3ff")) {
+            error = $('<span>请输入密码！</span>');
+            pwd.css("border-color", "red");
+        }
+        else if(enpwd[0].value === "" && $("#error").remove() && pwd.css("border-color", "#25b3ff")) {
+            error = $('<span>请确认密码！</span>');
+            enpwd.css("border-color", "red");
+        }
+        else if(pwd[0].value !== enpwd[0].value && $("#error").remove()) {
+            error = $('<span>前后密码不一致！</span>');
+            pwd.css("border-color", "red");
+            enpwd.css("border-color", "red");
+        }
+        else {
+            $("#error").remove();
+            pwd.css("border-color", "#25b3ff");
+            enpwd.css("border-color", "#25b3ff");
+        }
+        if(error !== undefined){
+            error.css({"color" : "red", "font-family" : "楷体", "font-size" : "15px"});
+            error.attr("id", "error");
+            $(".register-form").append(error);
+            error = undefined;
         }
     }
 }
