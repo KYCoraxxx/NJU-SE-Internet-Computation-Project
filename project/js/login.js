@@ -24,24 +24,43 @@ var postInfo = function (){
         var pwd = $("input[name='regpwd']");
         var enpwd = $("input[name='enspwd']");
         if(usr[0].value === "") {
+            if(error !== undefined)
+                error.remove();
             error = $('<span>请输入用户名！</span>');
             usr.css("border-color", "red");
+            pwd.css("border-color", "#25b3ff");
+            enpwd.css("border-color", "#25b3ff");
         }
-        else if(pwd[0].value === "" && $("#error").remove() && usr.css("border-color", "#25b3ff")) {
+        else if(pwd[0].value === "") {
+            if(error !== undefined)
+                error.remove();
             error = $('<span>请输入密码！</span>');
+            usr.css("border-color", "#25b3ff");
             pwd.css("border-color", "red");
+            enpwd.css("border-color", "#25b3ff");
         }
-        else if(enpwd[0].value === "" && $("#error").remove() && pwd.css("border-color", "#25b3ff")) {
+        else if(enpwd[0].value === "") {
+            if(error !== undefined)
+                error.remove();
             error = $('<span>请确认密码！</span>');
+            usr.css("border-color", "#25b3ff");
+            pwd.css("border-color", "#25b3ff");
             enpwd.css("border-color", "red");
         }
-        else if(pwd[0].value !== enpwd[0].value && $("#error").remove()) {
+        else if(pwd[0].value !== enpwd[0].value) {
+            if(error !== undefined)
+                error.remove();
             error = $('<span>前后密码不一致！</span>');
+            usr.css("border-color", "#25b3ff");
             pwd.css("border-color", "red");
             enpwd.css("border-color", "red");
         }
         else {
-            $("#error").remove();
+            if(error !== undefined) {
+                error.remove();
+                error = undefined;
+            }
+            usr.css("border-color", "#25b3ff");
             pwd.css("border-color", "#25b3ff");
             enpwd.css("border-color", "#25b3ff");
         }
@@ -49,7 +68,6 @@ var postInfo = function (){
             error.css({"color" : "red", "font-family" : "楷体", "font-size" : "15px"});
             error.attr("id", "error");
             $(".register-form").append(error);
-            error = undefined;
         }
     }
 }
