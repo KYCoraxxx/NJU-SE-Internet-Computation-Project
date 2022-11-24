@@ -3,9 +3,9 @@ var reg_error;
 var log_error;
 var changePicture = function(flag){
     if(flag === 0)
-        $("img").attr("src", "img/psw.jpg");
+        $("img").attr("src", "/img/psw.jpg");
     else
-        $("img").attr("src", "img/usr.jpg");
+        $("img").attr("src", "/img/usr.jpg");
 }
 var moveBlock = function(){
     if(cover === true){
@@ -64,7 +64,7 @@ var postInfo = function (){
             usr.css("border-color", "#25b3ff");
             pwd.css("border-color", "#25b3ff");
             enpwd.css("border-color", "#25b3ff");
-            $.post('js/data.json', function (data){
+            $.post('/js/data.json', function (data){
                 let userExist = false;
                 for(var i in data){
                     if(data[i].username === user[0].value){
@@ -107,7 +107,7 @@ var postInfo = function (){
             }
             user.css("border-color", "#25b3ff");
             password.css("border-color", "#25b3ff");
-            $.post('js/data.json', function (data){
+            $.post('/js/data.json', function (data){
                 let userExist = false;
                 for(var i in data){
                     if(data[i].username === user[0].value){
