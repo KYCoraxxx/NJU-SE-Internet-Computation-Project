@@ -64,10 +64,10 @@ var postInfo = function (){
             usr.css("border-color", "#25b3ff");
             pwd.css("border-color", "#25b3ff");
             enpwd.css("border-color", "#25b3ff");
-            $.post('/js/data.json', function (data){
+            $.post('http://localhost/all', function (data){
                 let userExist = false;
                 for(var i in data){
-                    if(data[i].username === user[0].value){
+                    if(data[i].name === user[0].value){
                         userExist = true;
                         alert("主人重名了啦……(；′⌒`)");
                         break;
@@ -107,10 +107,10 @@ var postInfo = function (){
             }
             user.css("border-color", "#25b3ff");
             password.css("border-color", "#25b3ff");
-            $.post('/js/data.json', function (data){
+            $.post('http://localhost/all', function (data){
                 let userExist = false;
                 for(var i in data){
-                    if(data[i].username === user[0].value){
+                    if(data[i].name === user[0].value){
                         userExist = true;
                         if(data[i].password === password[0].value)
                             alert("欢迎主人回家！o(*￣▽￣*)ブ");
