@@ -67,7 +67,7 @@ var postInfo = function (){
             $.post('http://localhost/all', function (data){
                 let userExist = false;
                 for(var i in data){
-                    if(data[i].name === user[0].value){
+                    if(data[i].name === usr[0].value){
                         userExist = true;
                         alert("主人重名了啦……(；′⌒`)");
                         break;
