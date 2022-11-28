@@ -64,18 +64,26 @@ var postInfo = function (){
             usr.css("border-color", "#25b3ff");
             pwd.css("border-color", "#25b3ff");
             enpwd.css("border-color", "#25b3ff");
-            $.post('http://localhost/all', function (data){
-                let userExist = false;
-                for(var i in data){
-                    if(data[i].name === usr[0].value){
-                        userExist = true;
+            $.ajax({
+                type:"post",
+                url:"http://localhost/UserChecker",
+                data:{
+                    "inputName": usr[0].value,
+                    "inputPwd":pwd[0].value
+                },
+                success: function(data)
+                {
+                    console.log(data);
+                    if(data.isExist)
+                    {
                         alert("主人重名了啦……(；′⌒`)");
-                        break;
+                    }else
+                    {
+                        alert("欢迎来到新世界o(*￣▽￣*)ブ");
                     }
                 }
-                if(!userExist)
-                    alert("欢迎来到新世界o(*￣▽￣*)ブ");
-            });
+            }
+            )
         }
         if(reg_error !== undefined){
             reg_error.css({"color" : "red", "font-family" : "楷体", "font-size" : "15px"});
@@ -107,21 +115,29 @@ var postInfo = function (){
             }
             user.css("border-color", "#25b3ff");
             password.css("border-color", "#25b3ff");
-            $.post('http://localhost/all', function (data){
-                let userExist = false;
-                for(var i in data){
-                    if(data[i].name === user[0].value){
-                        userExist = true;
-                        if(data[i].password === password[0].value)
-                            alert("欢迎主人回家！o(*￣▽￣*)ブ");
-                        else
-                            alert("咒语记错了啦……┭┮﹏┭┮");
-                        break;
+            $.ajax({
+                type:"post",
+                url:"http://localhost/UserChecker",
+                data:{
+                    "inputName": user[0].value,
+                    "inputPwd":password[0].value
+                },
+                success: function(data)
+                {
+                    console.log(data);
+                    if(data.isExist&&data.isPwdRigth)
+                    {
+                        alert("欢迎主人回家！o(*￣▽￣*)ブ");
+                    }else if(data.isExist&&!data.isPwdRigth)
+                    {
+                        alert("咒语记错了啦……┭┮﹏┭┮");
+                    }else
+                    {
+                        alert("你真的是这个世界的人嘛(・∀・(・∀・(・∀・*)");
                     }
                 }
-                if(!userExist)
-                    alert("你真的是这个世界的人嘛(・∀・(・∀・(・∀・*)");
-            });
+            }
+            )
         }
         if(log_error !== undefined){
             log_error.css({"color" : "red", "font-family" : "楷体", "font-size" : "15px"});
