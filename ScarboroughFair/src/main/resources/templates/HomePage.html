@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="../static/css/HomePageCSS.css">
+</head>
+    <body>
+        <div class="head">
+            <div class="headCol logo">
+                <h1>LOGO</h1>
+            </div>
+            <div class="headCol headSearch">
+                <form action="#" target="_blank">
+                    <!--This place should invoke search function-->
+                    <img class="searchImg" src="../static/img/searchImg.png" alt="搜索图片">
+                    <input class="searchInput" id="headSearchInput" type="search" placeholder="搜索商品" >
+                </form>
+            </div>
+            <div class="headCol portrait">
+                <a href="#" target="_blank" onmouseover="showClientInfo(0)">
+                    <img class="portImg" src="../static/img/login.jpg" alt="头像图片">
+                </a>
+            </div>
+            <div class="clientIfo" onmouseout="showClientInfo(1)"></div>
+        </div>
+        <div class="body">
+            <div class="col leftCol">
+                <button class="navButt" onclick="showNav()"><img src="../static/img/navImg.png" alt="sad" width="50px" height="50px"></button>
+            </div>
+            <div class="col rightCol">sadsadasd</div>
+        </div>
+    </body>
+    <script src="../static/js/jquery-3.6.1.js"></script>
+    <script src="../static/js/HomePageJS.js"></script>
+</html>

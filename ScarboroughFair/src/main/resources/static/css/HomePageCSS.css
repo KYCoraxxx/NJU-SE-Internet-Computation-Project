@@ -1,0 +1,117 @@
+*{
+    margin: 0 auto;
+    padding: 0;
+}
+
+/*头部栏---------------------------------------------------------------------------------------------------------*/
+.head{
+    width: 100%;
+    height: 120px;
+    background-color: darkseagreen;
+    overflow: hidden;
+}
+
+.headCol{
+    float: left;
+    margin-left: 2%;
+}
+
+/*LOGO------------------------------------------*/
+.logo{
+    width: 20%;
+    text-indent: 1em;
+    line-height: 120px;
+    font-size: 30px;
+}
+/*搜索栏----------------------------------------*/
+.headSearch{
+    width: 62%;
+    line-height: 120px;
+}
+
+.searchImg{
+    position: absolute;
+    width: 2.7%;
+    height: 3.7%;
+    top: 44px;
+}
+
+.searchInput{
+    width: 50%;
+    line-height: 40px;
+    outline: none;
+    border: none;
+    padding: 0 0 0 7%;
+    font-size: 25px;
+    text-align: center;
+    border-radius: 8px;
+    box-shadow: 0 100px 100px rgb(0 0 0 / 10%);
+}
+
+/*头像------------------------------------------------------*/
+.portrait{
+    position: absolute;
+    left: 80%;
+    width: 6.5% ;
+    line-height: 120px;
+    margin-right: 4%;
+    margin-top: 1.5%;
+    z-index: 666;
+}
+
+.portImg{
+    width: 100%;
+    height: 100%;
+    border-radius: 100%;
+    transition: 0.6s ease-in-out;
+}
+
+.clientIfo{
+    position: absolute;
+    background-color: red;
+    width: 300px;
+    height: 400px;
+    visibility: hidden;
+    transition: 0.6s ease-in-out;
+    margin-top: 1.5%;
+    left:67%;
+    z-index: 600;
+    border-radius: 10%;
+}
+
+
+/*主体栏---------------------------------------------------------------------------------------------------------*/
+.body{
+    overflow: hidden;
+}
+
+
+.col{
+}
+
+/*左栏------------------------------------------------------*/
+.navButt{
+    width: 30%;
+    height: 10%;
+    border-radius: 50%;
+    margin-left: -15%;
+}
+
+.leftCol{
+    width: 20%;
+    background-color: grey;
+    height: 900px;
+    position: absolute;
+}
+/*右栏--------------------------------------------------------*/
+.rightCol{
+    width: 78%;
+    background-color: blue;
+    margin-left: 21%;
+    margin-right: 1%;
+    height: 2000px;
+    transition: 0.6s ease-in-out;
+}
+
+
+
