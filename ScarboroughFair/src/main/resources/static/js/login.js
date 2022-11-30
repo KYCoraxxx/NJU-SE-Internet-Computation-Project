@@ -66,21 +66,14 @@ var postInfo = function (){
             enpwd.css("border-color", "#25b3ff");
             $.ajax({
                 type:"post",
-                url:"http://localhost/UserChecker",
+                url:"http://localhost/userService/addUser",
                 data:{
                     "inputName": usr[0].value,
                     "inputPwd":pwd[0].value
                 },
                 success: function(data)
                 {
-                    console.log(data);
-                    if(data.isExist)
-                    {
-                        alert("主人重名了啦……(；′⌒`)");
-                    }else
-                    {
-                        alert("欢迎来到新世界o(*￣▽￣*)ブ");
-                    }
+                    alert(data.message);
                 }
             }
             )
@@ -117,20 +110,13 @@ var postInfo = function (){
             password.css("border-color", "#25b3ff");
             $.ajax({
                 type:"post",
-                url:"http://localhost/UserChecker",
+                url:"http://localhost/userService/checkUser",
                 data:{
                     "inputName": user[0].value,
                     "inputPwd":password[0].value
                 },
                 success: function(data) {
-                    console.log(data);
-                    if(data.isUserExist && data.isPasswordRight) {
-                        alert("欢迎主人回家！o(*￣▽￣*)ブ");
-                    }else if(data.isUserExist && !data.isPasswordRight) {
-                        alert("咒语记错了啦……┭┮﹏┭┮");
-                    }else {
-                        alert("你真的是这个世界的人嘛(・∀・(・∀・(・∀・*)");
-                    }
+                    alert(data.message);
                 }
             }
             )

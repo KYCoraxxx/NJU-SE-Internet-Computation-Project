@@ -25,6 +25,9 @@ Repository for group project in course Internet Computation. Created for both we
 ## CHANGE_LOG
 
 (最新的记录请参照之前的格式记录在最上方)
+2022/11/30
+
+@`Begonia`(杨海涛) 完成注册功能，完成更完善的用户服务系统
 
 2022/11/20
 
