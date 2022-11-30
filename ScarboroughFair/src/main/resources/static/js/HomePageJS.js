@@ -128,3 +128,33 @@ loop.onmouseleave = function (){
     play();
 }
 
+
+/*分类栏运动*/
+
+var cateLeftSide = 0;
+var cateList = $(".cateList:nth-child(1)");
+var cateLeftBtn = $(".leftCateBtn");
+var cateRightBtn = $(".rightCateBtn");
+
+var cateLeftMove = function (){
+    if(cateLeftSide > 0){
+        cateLeftSide--;
+        cateList.css("margin-left",-cateLeftSide * 20 + "%");
+        cateRightBtn.css("opacity","1");
+    }
+    if(cateLeftSide === 0){
+        cateLeftBtn.css("opacity","0");
+    }
+}
+
+var cateRightMove = function (){
+    if(cateLeftSide < 4){
+        cateLeftSide++;
+        cateList.css("margin-left",-cateLeftSide * 20 + "%");
+        cateLeftBtn.css("opacity","1");
+    }
+    if(cateLeftSide === 4){
+        cateRightBtn.css("opacity","0");
+    }
+}
+
