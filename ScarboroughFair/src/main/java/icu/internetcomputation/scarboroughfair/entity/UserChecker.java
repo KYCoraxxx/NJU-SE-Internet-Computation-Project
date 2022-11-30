@@ -1,12 +1,12 @@
 package icu.internetcomputation.scarboroughfair.entity;
 
 public class UserChecker {
-    public boolean isExist;
-    public boolean isPwdRight;
+    public boolean isUserExist;
+    public boolean isPasswordRight;
 
-    public UserChecker(boolean isExist,boolean isPwdRight)
+    public UserChecker(boolean isUserExist,boolean isPasswordRight)
     {
-        this.isExist = isExist;
-        this.isPwdRight = isPwdRight;
+        this.isUserExist = isUserExist;
+        this.isPasswordRight = isPasswordRight;
     }
 }
