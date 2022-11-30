@@ -19,6 +19,7 @@
             </div>
             <div class="headCol portrait">
                 <a href="#" target="_blank" onmouseover="showClientInfo(0)">
+                    <!--This place should be linked to client information page-->
                     <img class="portImg" src="../static/img/login.jpg" alt="头像图片">
                 </a>
             </div>
@@ -26,9 +27,41 @@
         </div>
         <div class="body">
             <div class="col leftCol">
-                <button class="navButt" onclick="showNav()"><img src="../static/img/navImg.png" alt="sad" width="50px" height="50px"></button>
+                <ul class="leftList">
+                    <!--This place should be linked to other pages-->
+                    <li><a href="#" target="_blank"><img class="icon" src="../static/img/HomeIMG.png" alt="主页">主页</a></li>
+                    <li><a href="#" target="_blank"><img class="icon" src="../static/img/DiscussIMG.png" alt="灌水">灌水</a></li>
+                    <li><a href="#" target="_blank"><img class="icon" src="../static/img/CusServiceIMG.png" alt="客服">客服</a></li>
+                    <li><a href="#" target="_blank"><img class="icon" src="../static/img/HotIMG.png" alt="火爆">火爆</a></li>
+
+                </ul>
+                <button class="navButt" onclick="showNav()"><img src="../static/img/navImg.png" alt="Nav" width="50px" height="50px"></button>
             </div>
-            <div class="col rightCol">sadsadasd</div>
+            <div class="col rightCol">
+                <div class="carousel">
+                    <!--组图-->
+                    <div class="loopPic">
+                        <ul class="loopList">
+                            <li class="loopItem active"><a href=""></a></li>
+                            <li class="loopItem"><a href=""></a></li>
+                            <li class="loopItem"><a href=""></a></li>
+                            <li class="loopItem"><a href=""></a></li>
+                            <li class="loopItem"><a href=""></a></li>
+                        </ul>
+                    </div>
+                    <!--旋钮-->
+                    <div class="loopBut loopLeftBut" id="leftBtn"><img src="../static/img/leftArrow.png" alt="左箭头" onclick="leftSwitch()"></div>
+                    <div class="loopBut loopRightBut" id="rightBtn"><img src="../static/img/rightArrow.png" alt="右箭头" onclick="rightSwitch()"></div>
+                    <!--计数器-->
+                    <ul class="pointList">
+                        <li class="loopPoint active" data-index=0></li>
+                        <li class="loopPoint" data-index=1></li>
+                        <li class="loopPoint" data-index=2></li>
+                        <li class="loopPoint" data-index=3></li>
+                        <li class="loopPoint" data-index=4></li>
+                    </ul>
+                </div>
+            </div>
         </div>
     </body>
     <script src="../static/js/jquery-3.6.1.js"></script>
