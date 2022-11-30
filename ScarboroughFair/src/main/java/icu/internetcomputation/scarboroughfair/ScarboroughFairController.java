@@ -23,6 +23,10 @@ public class ScarboroughFairController {
         return "login";
     }
 
+    @GetMapping("/HomePage")
+    public String HomePage(Model model){
+        return "HomePage";
+    }
 
     // @RequestMapping(path = "/all")
     // public @ResponseBody Iterable<User> getAllUser() {

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <link rel="stylesheet" type="text/css" href="../static/css/HomePageCSS.css">
+    <link rel="stylesheet" type="text/css" href="/css/HomePageCSS.css">
 </head>
     <body>
         <div class="head">
@@ -13,14 +13,14 @@
             <div class="headCol headSearch">
                 <form action="#" target="_blank">
                     <!--This place should invoke search function-->
-                    <img class="searchImg" src="../static/img/searchImg.png" alt="搜索图片">
+                    <img class="searchImg" src="/img/searchImg.png" alt="搜索图片">
                     <input class="searchInput" id="headSearchInput" type="search" placeholder="搜索商品" >
                 </form>
             </div>
             <div class="headCol portrait">
                 <a href="#" target="_blank" onmouseover="showClientInfo(0)">
                     <!--This place should be linked to client information page-->
-                    <img class="portImg" src="../static/img/portraitIMG.png" alt="头像图片">
+                    <img class="portImg" src="/img/portraitIMG.png" alt="头像图片">
                 </a>
             </div>
             <div class="clientIfo" onmouseleave="showClientInfo(1)">
@@ -55,13 +55,13 @@
             <div class="col leftCol">
                 <ul class="leftList">
                     <!--This place should be linked to other pages-->
-                    <li><a href="#" target="_blank"><img class="icon" src="../static/img/HomeIMG.png" alt="主页">主页</a></li>
-                    <li><a href="#" target="_blank"><img class="icon" src="../static/img/DiscussIMG.png" alt="灌水">灌水</a></li>
-                    <li><a href="#" target="_blank"><img class="icon" src="../static/img/CusServiceIMG.png" alt="客服">客服</a></li>
-                    <li><a href="#" target="_blank"><img class="icon" src="../static/img/HotIMG.png" alt="火爆">火爆</a></li>
+                    <li><a href="#" target="_blank"><img class="icon" src="/img/HomeIMG.png" alt="主页">主页</a></li>
+                    <li><a href="#" target="_blank"><img class="icon" src="/img/DiscussIMG.png" alt="灌水">灌水</a></li>
+                    <li><a href="#" target="_blank"><img class="icon" src="/img/CusServiceIMG.png" alt="客服">客服</a></li>
+                    <li><a href="#" target="_blank"><img class="icon" src="/img/HotIMG.png" alt="火爆">火爆</a></li>
 
                 </ul>
-                <button class="navButt" onclick="showNav()"><img src="../static/img/navImg.png" alt="Nav" width="50px" height="50px"></button>
+                <button class="navButt" onclick="showNav()"><img src="/img/navImg.png" alt="Nav" width="50px" height="50px"></button>
             </div>
             <div class="col rightCol">
                 <div class="carousel">
@@ -76,8 +76,8 @@
                         </ul>
                     </div>
                     <!--旋钮-->
-                    <div class="loopBut loopLeftBut" id="leftBtn"><img src="../static/img/leftArrow.png" alt="左箭头" onclick="leftSwitch()"></div>
-                    <div class="loopBut loopRightBut" id="rightBtn"><img src="../static/img/rightArrow.png" alt="右箭头" onclick="rightSwitch()"></div>
+                    <div class="loopBut loopLeftBut" id="leftBtn"><img src="/img/leftArrow.png" alt="左箭头" onclick="leftSwitch()"></div>
+                    <div class="loopBut loopRightBut" id="rightBtn"><img src="/img/rightArrow.png" alt="右箭头" onclick="rightSwitch()"></div>
                     <!--计数器-->
                     <ul class="pointList">
                         <li class="loopPoint active" data-index=0></li>
@@ -90,18 +90,18 @@
                 <div class="category">
                     <ul class="cateList">
                         <!--This place should be able to switch the goods below in goodsLayer according to the category click-->
-                        <li class="cateItem"><img src="../static/img/category2.png" alt="分类1"><h3>分类1</h3></li>
-                        <li class="cateItem"><img src="../static/img/category3.png" alt="分类1"><h3>分类1</h3></li>
-                        <li class="cateItem"><img src="../static/img/category4.png" alt="分类1"><h3>分类1</h3></li>
-                        <li class="cateItem"><img src="../static/img/category2.png" alt="分类1"><h3>分类1</h3></li>
-                        <li class="cateItem"><img src="../static/img/category2.png" alt="分类1"><h3>分类1</h3></li>
-                        <li class="cateItem"><img src="../static/img/category2.png" alt="分类1"><h3>分类1</h3></li>
-                        <li class="cateItem"><img src="../static/img/category2.png" alt="分类1"><h3>分类1</h3></li>
-                        <li class="cateItem"><img src="../static/img/category2.png" alt="分类1"><h3>分类1</h3></li>
+                        <li class="cateItem"><img src="/img/category2.png" alt="分类1"><h3>分类1</h3></li>
+                        <li class="cateItem"><img src="/img/category3.png" alt="分类1"><h3>分类1</h3></li>
+                        <li class="cateItem"><img src="/img/category4.png" alt="分类1"><h3>分类1</h3></li>
+                        <li class="cateItem"><img src="/img/category2.png" alt="分类1"><h3>分类1</h3></li>
+                        <li class="cateItem"><img src="/img/category2.png" alt="分类1"><h3>分类1</h3></li>
+                        <li class="cateItem"><img src="/img/category2.png" alt="分类1"><h3>分类1</h3></li>
+                        <li class="cateItem"><img src="/img/category2.png" alt="分类1"><h3>分类1</h3></li>
+                        <li class="cateItem"><img src="/img/category2.png" alt="分类1"><h3>分类1</h3></li>
                     </ul>
                     <div class="cateBtn">
-                        <div class="leftCateBtn"><img src="../static/img/leftCate.png" alt="左箭头" onclick="cateLeftMove()"></div>
-                        <div class="rightCateBtn"><img src="../static/img/rightCate.png" alt="右箭头" onclick="cateRightMove()"></div>
+                        <div class="leftCateBtn"><img src="/img/leftCate.png" alt="左箭头" onclick="cateLeftMove()"></div>
+                        <div class="rightCateBtn"><img src="/img/rightCate.png" alt="右箭头" onclick="cateRightMove()"></div>
                     </div>
                 </div>
                 <div class="goodsLayer">
@@ -111,7 +111,7 @@
                         <a class="goodLink" href="#" target="_blank">
                             <!--This place should invoke js to determine which url(which is also should be dragged from database with js) should be jumped into-->
                             <div class="goodImg">
-                                <img src="../static/img/login.jpg" alt="">
+                                <img src="/img/login.jpg" alt="">
                             </div>
                             <!--The rest of the info should be drag from database-->
                             <div class="goodName">Name</div>
@@ -179,6 +179,6 @@
             </div>
         </div>
     </body>
-    <script src="../static/js/jquery-3.6.1.js"></script>
-    <script src="../static/js/HomePageJS.js"></script>
+    <script src="/js/jquery-3.6.1.js"></script>
+    <script src="/js/HomePageJS.js"></script>
 </html>
