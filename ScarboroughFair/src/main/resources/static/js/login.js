@@ -122,17 +122,13 @@ var postInfo = function (){
                     "inputName": user[0].value,
                     "inputPwd":password[0].value
                 },
-                success: function(data)
-                {
+                success: function(data) {
                     console.log(data);
-                    if(data.isExist&&data.isPwdRigth)
-                    {
+                    if(data.isUserExist && data.isPasswordRight) {
                         alert("欢迎主人回家！o(*￣▽￣*)ブ");
-                    }else if(data.isExist&&!data.isPwdRigth)
-                    {
+                    }else if(data.isUserExist && !data.isPasswordRight) {
                         alert("咒语记错了啦……┭┮﹏┭┮");
-                    }else
-                    {
+                    }else {
                         alert("你真的是这个世界的人嘛(・∀・(・∀・(・∀・*)");
                     }
                 }

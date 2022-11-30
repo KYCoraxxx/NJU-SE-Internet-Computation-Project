@@ -27,26 +27,26 @@ public class ScarboroughFairController {
     // public @ResponseBody Iterable<User> getAllUser() {
     //     return userRepository.findAll();
     // }
-    @RequestMapping(path = "/UserChecker")
+    @PostMapping(path = "/UserChecker")
     @ResponseBody
     public UserChecker UserChecker(String inputName,String inputPwd)
     {
         Iterable<User> userList=userRepository.findAll();
-        boolean isExist=false;boolean isPwdRight=false;
+        boolean isUserExist=false;
+        boolean isPasswordRight=false;
         for(User user:userList)
         {
             if(user.getName().equals(inputName))
             {
-                isExist=true;
+                isUserExist=true;
                 if(user.getPassword().equals(inputPwd))
                 {
-                    isPwdRight=true;
+                    isPasswordRight=true;
                     break;
                 }
             }
         }
-
-        return new UserChecker(isExist,isPwdRight);
+        return new UserChecker(isUserExist,isPasswordRight);
             
     }
 }
