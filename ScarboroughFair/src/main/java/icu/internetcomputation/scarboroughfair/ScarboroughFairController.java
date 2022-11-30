@@ -72,5 +72,12 @@ public class ScarboroughFairController {
         {
             return userService.add(userName, userPassword);
         }
+
+        @RequestMapping(path = "/editUser")
+        @ResponseBody
+        public Message editUser(@RequestParam(value="inputName") String userName , @RequestParam(value="inputPwd") String userPassword){
+            // TODO:修改用户名和密码
+            return null;
+        }
     }
 }
