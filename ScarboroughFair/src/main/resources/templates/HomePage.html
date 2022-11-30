@@ -23,7 +23,33 @@
                     <img class="portImg" src="../static/img/portraitIMG.png" alt="头像图片">
                 </a>
             </div>
-            <div class="clientIfo" onmouseout="showClientInfo(1)"></div>
+            <div class="clientIfo" onmouseleave="showClientInfo(1)">
+                <div class="client clientName">
+                    <h3>Name</h3>
+                </div>
+                <br>
+                <div>
+                    <ul class="buyAndCollection">
+                        <!--This place should find the good user have bought and collected-->
+                        <li><a href="#" target="_blank"><h2>1</h2>购买</a></li>
+                        <li><a href="#" target="_blank"><h2>2</h2>收藏</a></li>
+                    </ul>
+                </div>
+                <div class="client clientTrace">
+                    <!--This place should be linked to the user page-->
+                    <a class="clientLink" href="#" target="_self"><img class="clientIcon" src="../static/img/quitLogin.png" alt="用户中心">用户中心</a>
+                </div>
+                <div class="client clientCollection">
+                    <a class="clientLink" href="#" target="_self"><img class="clientIcon" src="../static/img/quitLogin.png" alt="商品收藏">商品收藏</a>
+                </div>
+                <div class="client becomeSeller">
+                    <a class="clientLink" href="#" target="_self"><img class="clientIcon" src="../static/img/quitLogin.png" alt="成为卖家">成为卖家</a>
+                </div>
+                <div class="client quitLogin">
+                    <!--This place should be linked to login page-->
+                    <a class="clientLink" href="#" target="_self"><img class="clientIcon" src="../static/img/quitLogin.png">退出登录</a>
+                </div>
+            </div>
         </div>
         <div class="body">
             <div class="col leftCol">
@@ -78,8 +104,79 @@
                         <div class="rightCateBtn"><img src="../static/img/rightCate.png" alt="右箭头" onclick="cateRightMove()"></div>
                     </div>
                 </div>
-                <div class="goodsLayer"></div>
-                <div class="pageSwitch"></div>
+                <div class="goodsLayer">
+                    <!--good model-->
+                    <div class="goodItem">
+                        <!--This place should be linked to the good page-->
+                        <a class="goodLink" href="#" target="_blank">
+                            <div class="goodImg">
+                                <img src="../static/img/login.jpg" alt="">
+                            </div>
+                            <!--The rest of the info should be drag from database-->
+                            <div class="goodName">Name</div>
+                            <div class="goodInfo">
+                                <ul class="goodInfoTags">
+                                    <li>tagOne</li>
+                                    <li>|</li>
+                                    <li>tagTwo</li><!--a doesn't support nesting-->
+                                </ul>
+                            </div>
+                            <div class="goodPrice">$ ?114?:-(</div>
+                            <div class="goodFoot">
+
+                            </div>
+                        </a>
+                    </div>
+                    <div class="goodItem">
+                        <!--This place should be linked to the good page-->
+                        <a href="#" target="_blank">
+                            <div class="goodImg"></div>
+                            <div class="goodInfo"></div>
+                            <div class="goodPrice"></div>
+                            <div class="goodFoot"></div>
+                        </a>
+                    </div>
+
+                    <div class="goodItem">
+                        <!--This place should be linked to the good page-->
+                        <a href="#" target="_blank">
+                            <div class="goodImg"></div>
+                            <div class="goodInfo"></div>
+                            <div class="goodPrice"></div>
+                            <div class="goodFoot"></div>
+                        </a>
+                    </div>
+                    <div class="goodItem">
+                        <!--This place should be linked to the good page-->
+                        <a href="#" target="_blank">
+                            <div class="goodImg"></div>
+                            <div class="goodInfo"></div>
+                            <div class="goodPrice"></div>
+                            <div class="goodFoot"></div>
+                        </a>
+                    </div>
+                    <div class="goodItem">
+                        <!--This place should be linked to the good page-->
+                        <a href="#" target="_blank">
+                            <div class="goodImg"></div>
+                            <div class="goodInfo"></div>
+                            <div class="goodPrice"></div>
+                            <div class="goodFoot"></div>
+                        </a>
+                    </div>
+                    <div class="goodItem">
+                        <!--This place should be linked to the good page-->
+                        <a href="#" target="_blank">
+                            <div class="goodImg"></div>
+                            <div class="goodInfo"></div>
+                            <div class="goodPrice"></div>
+                            <div class="goodFoot"></div>
+                        </a>
+                    </div>
+                </div>
+                <div class="pageSwitch">
+
+                </div>
             </div>
         </div>
     </body>

@@ -62,8 +62,8 @@
 }
 
 .portImg{
-    width: 50%;
-    height: 50%;
+    width: 55%;
+    height: 55%;
     border-radius: 100%;
     transition: 0.6s ease-in-out;
 }
@@ -71,16 +71,65 @@
 .clientIfo{
     position: absolute;
     background-color: antiquewhite;
-    width: 300px;
-    height: 400px;
+    width: 25%;
+    height: 50%;
     visibility: hidden;
     transition: 0.6s ease-in-out;
     margin-top: 1.5%;
-    left:77%;
+    left:75%;
     z-index: 600;
     border-radius: 10%;
+    display: flex;
+    flex-direction: column;
+
 }
 
+/*用户信息栏-------------------------*/
+.client{
+    width: 80%;
+    margin-top: 5%;
+}
+
+.clientName{
+    height: 10%;
+    font-size: 25px;
+    text-indent: 5em;
+    font-weight: bold;
+    font-style: italic;
+}
+
+.buyAndCollection{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    list-style: none;
+}
+
+.buyAndCollection li{
+    width: 100px;
+    text-align: center;
+}
+
+.buyAndCollection li a{
+    text-decoration: none;
+}
+
+.quitLogin{
+    height: 7%;
+}
+
+.clientLink{
+    font-family: 微软雅黑, serif;
+    font-size: 20px;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.clientIcon{
+    width: 10%;
+    height: 60%;
+    margin-right: 60%;
+}
 
 /*主体栏---------------------------------------------------------------------------------------------------------*/
 .body{
@@ -148,6 +197,11 @@
     margin-right: 1%;
     height: 2000px;
     transition: 0.6s ease-in-out;
+}
+
+.rightCateBtn hr{
+    position: absolute;
+    top: 2%;
 }
 
 /*轮播图---------------------------------*/
@@ -312,6 +366,106 @@
 .rightCateBtn{
     float: right;
 }
+
+/*商品栏------------------------------------*/
+
+.goodsLayer{
+    position: relative;
+    top: 7%;
+    width: 95%;
+    height: 66%;
+    background-color: lightcyan;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    border-radius: 2%;
+}
+
+.goodItem{
+    margin-top: 1%;
+    width: 32%;
+    height: 15%;
+    border-radius: 5%;
+    background-color: darkslateblue;
+    position: relative;
+}
+
+.goodsLayer a{
+    display: inline-block;/*fil the whole back ground*/
+    width: 100%;
+    height: 100%;
+    text-decoration: none;
+}
+/*商品图片------------------------------*/
+.goodImg img{
+    position: absolute;
+    width: 45%;
+    height: 80%;
+    left: 5%;
+    top: 10%;
+    border-radius: 10%;
+    border: 4px solid rebeccapurple;
+}
+/*商品名称-------------------------------*/
+.goodName{
+    position: absolute;
+    width: 20%;
+    height: 10%;
+    left: 70%;
+    top: 15%;
+    font-size: 22px;
+    color: whitesmoke;
+}
+
+/*两个Tag--------------------------------*/
+.goodInfo{
+    position: absolute;
+    width: 35%;
+    height: 10%;
+    left: 60%;
+    top: 30%;
+}
+
+.goodInfoTags{
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+}
+
+.goodInfoTags li{
+    text-align: center;
+    font-size: 15px;
+    color: grey;
+}
+
+/*商品价格*/
+
+.goodPrice{
+    position: absolute;
+    width: 40%;
+    height: 15%;
+    top: 50%;
+    left: 65%;
+    color: whitesmoke;
+    font-size: 22px;
+}
+
+/*商品*/
+
+
+
+
+/*翻页工具------------------------------*/
+.pageSwitch{
+    width: 30%;
+    height: 2%;
+    position: relative;
+    top: 8%;
+    border: 1px solid green;
+    margin-left: 67%;
+}
+
+
 
 
 
