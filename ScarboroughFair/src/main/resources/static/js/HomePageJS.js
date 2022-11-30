@@ -158,3 +158,14 @@ var cateRightMove = function (){
     }
 }
 
+/*商品栏变化----------------------------------------------------------------------------*/
+
+var goodItemChangeStatus = function (flag){
+    var goodItem = $(this);
+    if(flag === 1) {
+        this.css("background-color", "black");
+    } else {
+        this.css("background-color", "darkslateblue");
+    }
+}
+

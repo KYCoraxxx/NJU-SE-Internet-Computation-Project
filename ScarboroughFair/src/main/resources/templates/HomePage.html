@@ -106,9 +106,10 @@
                 </div>
                 <div class="goodsLayer">
                     <!--good model-->
-                    <div class="goodItem">
+                    <div class="goodItem" onmouseover="goodItemChangeStatus(1)" onmouseleave="goodItemChangeStatus(0)">
                         <!--This place should be linked to the good page-->
                         <a class="goodLink" href="#" target="_blank">
+                            <!--This place should invoke js to determine which url(which is also should be dragged from database with js) should be jumped into-->
                             <div class="goodImg">
                                 <img src="../static/img/login.jpg" alt="">
                             </div>
@@ -122,9 +123,7 @@
                                 </ul>
                             </div>
                             <div class="goodPrice">$ ?114?:-(</div>
-                            <div class="goodFoot">
-
-                            </div>
+                            <div class="goodFoot">seller</div>
                         </a>
                     </div>
                     <div class="goodItem">

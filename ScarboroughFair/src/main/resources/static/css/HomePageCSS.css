@@ -388,14 +388,10 @@
     border-radius: 5%;
     background-color: darkslateblue;
     position: relative;
+    overflow: hidden;
 }
 
-.goodsLayer a{
-    display: inline-block;/*fil the whole back ground*/
-    width: 100%;
-    height: 100%;
-    text-decoration: none;
-}
+
 /*商品图片------------------------------*/
 .goodImg img{
     position: absolute;
@@ -452,6 +448,15 @@
 
 /*商品*/
 
+.goodFoot{
+    position: absolute;
+    width: 30%;
+    height: 10%;
+    top:80%;
+    left: 85%;
+    font-size: 20px;
+    color: whitesmoke;
+}
 
 
 
@@ -463,6 +468,7 @@
     top: 8%;
     border: 1px solid green;
     margin-left: 67%;
+
 }
 
 
