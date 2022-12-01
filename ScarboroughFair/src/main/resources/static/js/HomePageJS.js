@@ -41,13 +41,12 @@ var showClientInfo = function (flag){
 }
 /*左侧栏固定-----------------------------------------------------------------------*/
 window.onscroll = function (){
-    var scrollPos = 0
+    var scrollPos;
     if(document.documentElement&&document.documentElement.scrollTop){
         scrollPos = document.documentElement.scrollTop;
     }else if(document.body) {
         scrollPos = document.body.scrollTop;
     }
-    console.log(scrollPos);
     var leftCol = $(".leftCol");
     if(scrollPos >= 200){
         leftCol.css("transition","0s");
@@ -58,6 +57,25 @@ window.onscroll = function (){
         leftCol.css("transition","0s");
         leftCol.css("position","absolute");
         leftCol.css("margin-top","0px")
+    }
+    /*This place should get the goods' number to decide whether to expand the good layer or not------------------------------------*/
+    var pageDown = $(".pageDown");
+    var pageEnd = $(".pageEnd");
+    var rightCol = $(".rightCol")
+    var expandTime = 0;
+    if(scrollPos + document.documentElement.clientHeight >= document.documentElement.scrollHeight){
+        expandTime++;
+        if(expandTime < 1){
+            rightCol.css("height","3000px")
+        }
+        else {
+            pageDown.css("opacity","0");
+            pageEnd.css("opacity","1");
+        }
+    }
+    else {
+        pageDown.css("opacity","1");
+        pageEnd.css("opacity","0");
     }
 }
 
@@ -120,7 +138,7 @@ function play(){
 
 play();
 
-loop.onmousemove = function (){
+loop.onmouseover = function (){
     clearInterval(timer);
 }
 
