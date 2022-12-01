@@ -23,6 +23,10 @@ public class ScarboroughFairController {
         return "login";
     }
 
+    @GetMapping("/HomePage")
+    public String HomePage(Model model){
+        return "HomePage";
+    }
 
     // @RequestMapping(path = "/all")
     // public @ResponseBody Iterable<User> getAllUser() {
@@ -67,6 +71,13 @@ public class ScarboroughFairController {
         public Message addUser(@RequestParam(value="inputName") String userName , @RequestParam(value="inputPwd") String userPassword)
         {
             return userService.add(userName, userPassword);
+        }
+
+        @RequestMapping(path = "/editUser")
+        @ResponseBody
+        public Message editUser(@RequestParam(value="inputName") String userName , @RequestParam(value="inputPwd") String userPassword){
+            // TODO:修改用户名和密码
+            return null;
         }
     }
 }

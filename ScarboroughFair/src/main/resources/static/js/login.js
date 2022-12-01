@@ -19,6 +19,9 @@ var moveBlock = function(){
         cover = true;
     }
 }
+var tmpfunc = function(){
+    return true;
+}
 var postInfo = function (){
     if(cover === false){
         var usr = $("input[name='regusr']");
@@ -67,6 +70,7 @@ var postInfo = function (){
             $.ajax({
                 type:"post",
                 url:"http://localhost/userService/addUser",
+                // url:"http://localhost:8080/userService/addUser",
                 data:{
                     "inputName": usr[0].value,
                     "inputPwd":pwd[0].value
@@ -111,11 +115,16 @@ var postInfo = function (){
             $.ajax({
                 type:"post",
                 url:"http://localhost/userService/checkUser",
+                // url:"http://localhost:8080/userService/checkUser",
                 data:{
                     "inputName": user[0].value,
                     "inputPwd":password[0].value
                 },
                 success: function(data) {
+                    if(data.isSucceed)
+                    {
+                        window.location.href="/HomePage"
+                    }
                     alert(data.message);
                 }
             }
