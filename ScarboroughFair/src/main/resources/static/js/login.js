@@ -19,9 +19,6 @@ var moveBlock = function(){
         cover = true;
     }
 }
-var tmpfunc = function(){
-    return true;
-}
 var postInfo = function (){
     if(cover === false){
         var usr = $("input[name='regusr']");
@@ -115,7 +112,6 @@ var postInfo = function (){
             $.ajax({
                 type:"post",
                 url:"http://localhost/userService/checkUser",
-                // url:"http://localhost:8080/userService/checkUser",
                 data:{
                     "inputName": user[0].value,
                     "inputPwd":password[0].value
@@ -123,7 +119,7 @@ var postInfo = function (){
                 success: function(data) {
                     if(data.isSucceed)
                     {
-                        window.location.href="/HomePage"
+                        window.location.href="/homepage"
                     }
                     alert(data.message);
                 }

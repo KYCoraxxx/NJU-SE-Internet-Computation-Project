@@ -5,15 +5,12 @@ import icu.internetcomputation.scarboroughfair.entity.User;
 import icu.internetcomputation.scarboroughfair.entity.Message;
 import java.util.Optional;
 
-import org.springframework.beans.factory.annotation.Autowired;
 public class UserService {
-
     UserRepository userRepository;
     public UserService(UserRepository userRepository)
     {
         this.userRepository = userRepository;
     }
-
 
     public Iterable<User> findAll()
     {
@@ -26,38 +23,33 @@ public class UserService {
        return userOp.orElse(null);
     }
 
-    public User findByUsername(String username)
+    public User findByUserName(String username)
     {
         Iterable<User> userTable = findAll();
-        User res = null;
         for (User user : userTable) 
         {
             if(user.getName().equals(username))
             {
-                res = user;
-                break;
+                return user;
             }
         }
-        return res;
+        return null;
     }
 
-
-    public Message add(String userName, String userPassword)
+    public Message addUser(String userName, String userPassword)
     {
-        User u = findByUsername(userName);
+        User u = findByUserName(userName);
         if(u != null)
         {
             return new Message(false,"主人重名了啦……(；′⌒`)");
         }
-        int id = (int)userRepository.count();
+        int id = (int)userRepository.count() + 1;
         User user = new User(id, userName, userPassword);
         userRepository.save(user);
         return new Message(true,"欢迎来到新世界o(*￣▽￣*)ブ");
-        
     }
 
-
-    public Message delete(int id)
+    public Message deleteUser(int id)
     {
         User user = findById(id);
         if(user == null) 
@@ -66,12 +58,11 @@ public class UserService {
         }
         userRepository.deleteById(id);
         return new Message(true,"再见了~");
-        
     }
 
-    public Message checker(String userName, String userPassword)
+    public Message checkUser(String userName, String userPassword)
     {
-        User user = findByUsername(userName);
+        User user = findByUserName(userName);
         if(user == null)
         {
             return new Message(false, "你真的是这个世界的人嘛(・∀・(・∀・(・∀・*)");
@@ -87,7 +78,7 @@ public class UserService {
     
     public Message edit(User newUser)
     {
-        delete(newUser.getId());
+        deleteUser(newUser.getId());
         userRepository.save(newUser);
         return new Message(true,"改好了~");
     }

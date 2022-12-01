@@ -4,14 +4,11 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
 public class User {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     @Getter
     @Setter
     private Integer id;
@@ -31,7 +28,7 @@ public class User {
         this.password = password;
     }
 
-    User()
+    public User()
     {
         this.id = null;
         this.name = null;
