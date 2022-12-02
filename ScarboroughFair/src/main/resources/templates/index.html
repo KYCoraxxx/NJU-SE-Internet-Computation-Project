@@ -1,55 +1,70 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>斯卡布罗集市</title>
-    <link rel="stylesheet" type="text/css" href="/css/index.css">
-</head>
+<!--控制缩进-->
+    <head>
+        <meta charset="UTF-8">
+
+        <!--设置页面标题-->
+        <title>斯卡布罗集市</title>
+
+        <!--使用Spring-boot内置URLHandler-->
+        <!--使用./mvnw spring-boot:run命令运行后使用浏览器预览-->
+        <link rel="stylesheet" type="text/css" href="../static/css/index.css">
+        <link rel="stylesheet" type="text/css" href="../static/css/universal.css">
+    </head>
     <body>
-        <div class="header">
-            <div class="headCol logo">
-                <h1>斯卡布罗集市</h1>
+        <div class="headBar">
+            <div class="logo">斯卡布罗集市</div>
+            <div class="searchBar">
+                <input type="text" placeholder="搜索"/>
             </div>
-            <div class="headCol headSearch">
-                <form action="#" target="_blank">
-                    <!--This place should invoke search function-->
-                    <img class="searchImg" src="/img/searchImg.png" alt="搜索图片">
-                    <input class="searchInput" id="headSearchInput" type="search" placeholder="搜索商品" >
-                </form>
+            <!--预留给附加功能-->
+            <div style="width: 40%"></div>
+            <div style="width: 10%; height: 100%;">
+                <div class="avator"><img src="../static/img/defaultUser.png"></div>
             </div>
-            <div class="headCol portrait">
-                <a href="#" target="_blank" onmouseover="showClientInfo(0)">
-                    <!--This place should be linked to client information page-->
-                    <img class="portImg" src="/img/portraitIMG.png" alt="头像图片">
-                </a>
-            </div>
-            <div class="clientIfo" onmouseleave="showClientInfo(1)">
-                <div class="client clientName">
-                    <h3>Name</h3>
-                </div>
-                <br>
-                <div>
-                    <ul class="buyAndCollection">
-                        <!--This place should find the good user have bought and collected-->
-                        <li><a href="#" target="_blank"><h2>1</h2>购买</a></li>
-                        <li><a href="#" target="_blank"><h2>2</h2>收藏</a></li>
-                    </ul>
-                </div>
-                <div class="client clientTrace">
-                    <!--This place should be linked to the user page-->
-                    <a class="clientLink" href="#" target="_self"><img class="clientIcon" src="/img/quitLogin.png" alt="用户中心">用户中心</a>
-                </div>
-                <div class="client clientCollection">
-                    <a class="clientLink" href="#" target="_self"><img class="clientIcon" src="/img/quitLogin.png" alt="商品收藏">商品收藏</a>
-                </div>
-                <div class="client becomeSeller">
-                    <a class="clientLink" href="#" target="_self"><img class="clientIcon" src="/img/quitLogin.png" alt="成为卖家">成为卖家</a>
-                </div>
-                <div class="client quitLogin">
-                    <!--This place should be linked to login page-->
-                    <a class="clientLink" href="#" target="_self"><img class="clientIcon" src="/img/quitLogin.png">退出登录</a>
-                </div>
-            </div>
+            <!--预留给附加功能（如发布商品等）-->
+            <div style="width: 10%"></div>
+<!--            <div>-->
+<!--                <form action="#" target="_blank">-->
+<!--                    &lt;!&ndash;This place should invoke search function&ndash;&gt;-->
+<!--                    <img class="searchImg" src="/img/searchImg.png" alt="搜索图片">-->
+<!--                    <input class="searchInput" id="headSearchInput" type="search" placeholder="搜索商品" >-->
+<!--                </form>-->
+<!--            </div>-->
+<!--            <div class="headCol portrait">-->
+<!--                <a href="#" target="_blank" onmouseover="showClientInfo(0)">-->
+<!--                    &lt;!&ndash;This place should be linked to client information page&ndash;&gt;-->
+<!--                    <img class="portImg" src="/img/portraitIMG.png" alt="头像图片">-->
+<!--                </a>-->
+<!--            </div>-->
+<!--            <div class="clientIfo" onmouseleave="showClientInfo(1)">-->
+<!--                <div class="client clientName">-->
+<!--                    <h3>Name</h3>-->
+<!--                </div>-->
+<!--                <br>-->
+<!--                <div>-->
+<!--                    <ul class="buyAndCollection">-->
+<!--                        &lt;!&ndash;This place should find the good user have bought and collected&ndash;&gt;-->
+<!--                        <li><a href="#" target="_blank"><h2>1</h2>购买</a></li>-->
+<!--                        <li><a href="#" target="_blank"><h2>2</h2>收藏</a></li>-->
+<!--                    </ul>-->
+<!--                </div>-->
+<!--                <div class="client clientTrace">-->
+<!--                    &lt;!&ndash;This place should be linked to the user page&ndash;&gt;-->
+<!--                    <a class="clientLink" href="#" target="_self"><img class="clientIcon" src="/img/quitLogin.png" alt="用户中心">用户中心</a>-->
+<!--                </div>-->
+<!--                <div class="client clientCollection">-->
+<!--                    <a class="clientLink" href="#" target="_self"><img class="clientIcon" src="/img/quitLogin.png" alt="商品收藏">商品收藏</a>-->
+<!--                </div>-->
+<!--                <div class="client becomeSeller">-->
+<!--                    <a class="clientLink" href="#" target="_self"><img class="clientIcon" src="/img/quitLogin.png" alt="成为卖家">成为卖家</a>-->
+<!--                </div>-->
+<!--                <div class="client quitLogin">-->
+<!--                    &lt;!&ndash;This place should be linked to login page&ndash;&gt;-->
+<!--                    <a class="clientLink" href="#" target="_self"><img class="clientIcon" src="/img/quitLogin.png">退出登录</a>-->
+<!--                </div>-->
+<!--            </div>-->
         </div>
         <div class="body">
             <div class="col leftCol">
@@ -180,6 +195,6 @@
             </div>
         </div>
     </body>
-    <script src="/js/jquery-3.6.1.js"></script>
-    <script src="/js/index.js"></script>
+    <script src="../static/js/jquery-3.6.1.js"></script>
+    <script src="../static/js/index.js"></script>
 </html>

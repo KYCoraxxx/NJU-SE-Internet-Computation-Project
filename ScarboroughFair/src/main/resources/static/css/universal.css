@@ -17,76 +17,6 @@ input {
     letter-spacing: 3px;
     font-size: 20px;
 }
-.login-form {
-    line-height: 300%;
-    width: 50%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-.register-form {
-    line-height: 300%;
-    width: 50%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-.login-form input {
-    height: 6%;
-    width: 50%;
-    font-size: 15px;
-    border-radius: 8px;
-    border-color: #25b3ff;
-    border-width: 1px;
-    margin: 5%;
-}
-.register-form input {
-    height: 6%;
-    width: 50%;
-    font-size: 15px;
-    border-radius: 8px;
-    border-color: #25b3ff;
-    border-width: 1px;
-    margin: 3%;
-}
-.box {
-    width: 60%;
-    height: 60%;
-    margin: auto;
-    border-radius: 20px;
-    background-color: rgba(255, 255, 255, 0.8);
-    display: flex;
-    flex-direction: row;
-    text-align: center;
-}
-.cover-box {
-    width: 30%;
-    height: 60%;
-    border-radius: 20px;
-    position: absolute;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-left: 30%;
-    background: linear-gradient(to bottom, cornflowerblue, mediumpurple);
-    transition: 0.6s ease-in-out;
-}
-.img-box {
-    width: 50%;
-    aspect-ratio: 1;
-    border-radius: 50%;
-    display: flex;
-    overflow: hidden;
-}
-#change {
-    width: 30%;
-    height: 8%;
-    font-size: 15px;
-    border-radius: 10px;
-    margin: auto;
-}
 .btn {
     color: #FFFFFF;
     background-color: #9f9eff;
@@ -95,4 +25,52 @@ input {
 }
 .btn:hover {
     cursor: pointer;
+}
+/*公用组件置于universal中*/
+.headBar{
+    width: 100%;
+    height: 70px;
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    background: linear-gradient(to right, cornflowerblue, #FFFFFF);
+    /*设置始终为头部栏*/
+    position: fixed;
+    z-index: 1024;
+    box-shadow: 0 2px 4px #00000024;
+    overflow: hidden;
+}
+.logo{
+    width: 20%;
+    /*使用百分比设置宽高度以自适应*/
+    letter-spacing: 4px;
+    font-size: 30px;
+    color: #FFFFFF;
+    margin: auto 0;
+    text-align: center;
+    font-family: "华文新魏";
+}
+.searchBar{
+    width: 20%;
+    height: 50%;
+    margin: auto 0;
+}
+.searchBar input{
+    width: 100%;
+    height: 100%;
+    font-size: 15px;
+    background-color: white;
+    padding: 0 0 0 3%;
+    border: white;
+    border-radius: 10px;
+}
+.avator{
+    /*确定不管用户如何缩放页面都不改变大小的才用像素做单位*/
+    height: 50px;
+    width: 50px;
+    background-color: white;
+    margin: 10px auto;
+    display: flex;
+    align-content: center;
+    border-radius: 50%;
 }
