@@ -1,8 +1,12 @@
+*{
+    transition: 0.3s ease-in-out;
+}
 html, body {
     height: 100%;
     width: auto;
     margin: 0;
     padding: 0;
+    z-index: 0;
 }
 input {
     outline: none;
@@ -37,18 +41,14 @@ input {
     /*设置始终为头部栏*/
     position: fixed;
     z-index: 1024;
-    box-shadow: 0 2px 4px #00000024;
-    overflow: hidden;
+    box-shadow: 0 4px 10px #00000024;
 }
 .logo{
-    width: 20%;
+    height: 100%;
+    width: 340px;
     /*使用百分比设置宽高度以自适应*/
-    letter-spacing: 4px;
-    font-size: 30px;
-    color: #FFFFFF;
-    margin: auto 0;
+    margin: auto 10px;
     text-align: center;
-    font-family: "华文新魏";
 }
 .searchBar{
     width: 20%;
@@ -64,13 +64,67 @@ input {
     border: white;
     border-radius: 10px;
 }
+.userBox{
+    width: 50px;
+    height: 410px;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+}
 .avator{
     /*确定不管用户如何缩放页面都不改变大小的才用像素做单位*/
     height: 50px;
     width: 50px;
-    background-color: white;
     margin: 10px auto;
     display: flex;
     align-content: center;
     border-radius: 50%;
+}
+.avator img{
+    height: 100%;
+    width: 100%;
+}
+.avator img:hover{
+    cursor: pointer;
+}
+.navBar{
+    height: 100%;
+    width: 15%;
+    min-width: 200px;
+    box-shadow: 0 4px 10px #00000024;
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+}
+.optionBox{
+    height: 100px;
+    width: 100%;
+    font-size: 15px;
+    letter-spacing: 5px;
+    display: flex;
+    flex-direction: row;
+}
+.optionBox:hover {
+    cursor: pointer;
+}
+.optionBox span{
+    margin: auto 0;
+}
+.optionBox img{
+    margin: auto 20%;
+    width: 30px;
+    height: 30px;
+}
+.dropDown {
+    height: 350px;
+    width: 300px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px #00000024;
+    text-align: center;
+    margin-top: 10px;
+    margin-left: -100px;
+    z-index: -1;
+    opacity: 0;
 }
