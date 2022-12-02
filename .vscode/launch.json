@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-ScarboroughFairApplication<ScarboroughFair>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "icu.internetcomputation.scarboroughfair.ScarboroughFairApplication",
+            "projectName": "ScarboroughFair",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}
