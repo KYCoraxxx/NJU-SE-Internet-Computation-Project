@@ -37,7 +37,7 @@ input {
     display: flex;
     flex-direction: row;
     align-content: center;
-    background: linear-gradient(to right, cornflowerblue, #FFFFFF);
+    background: linear-gradient(to right, #FFFFFF, cornflowerblue);
     /*设置始终为头部栏*/
     position: fixed;
     z-index: 1024;
@@ -54,6 +54,8 @@ input {
     width: 20%;
     height: 50%;
     margin: auto 0;
+    display: flex;
+    flex-direction: row;
 }
 .searchBar input{
     width: 100%;
@@ -63,6 +65,13 @@ input {
     padding: 0 0 0 3%;
     border: white;
     border-radius: 10px;
+}
+.searchBar img{
+    height: 35px;
+    width: 35px;
+}
+.searchBar img:hover{
+    cursor: pointer;
 }
 .userBox{
     width: 50px;
