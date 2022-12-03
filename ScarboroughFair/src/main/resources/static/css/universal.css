@@ -88,7 +88,7 @@ input {
 }
 .userBox{
     width: 50px;
-    height: 410px;
+    height: 70px;
     margin: 0 60px;
     display: flex;
     flex-direction: column;
