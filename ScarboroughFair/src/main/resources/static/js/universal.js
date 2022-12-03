@@ -1,3 +1,4 @@
+var musicOpacity = 0;
 var avatorScaler = function (size){
     $(".avator img").css("width", size);
     $(".avator img").css("height", size);
@@ -25,4 +26,14 @@ var changeSearch = function (state){
         $(".searchBar").css("background-color", "#0000001a");
     else
         $(".searchBar").css("background-color", "#0000000a");
+}
+var changeMusic = function (){
+    var music = $("#music");
+    if(music.length === 0){
+        $(".navBar").append($("<audio src='../static/music/ScarboroughFair.mp3' id='music' style='bottom: 0; position: absolute' controls></audio>"));
+    }
+    else{
+        musicOpacity ^= 1;
+        music.css("opacity", musicOpacity === 1 ? "1" : "0");
+    }
 }
