@@ -165,14 +165,12 @@ function play(){
     },100);
 }
 
-play();
-
-loop.onmouseover = function (){
-    clearInterval(timer);
+var loopPlay = function (){
+    play();
 }
 
-loop.onmouseleave = function (){
-    play();
+var loopStop = function (){
+    clearInterval(timer);
 }
 
 

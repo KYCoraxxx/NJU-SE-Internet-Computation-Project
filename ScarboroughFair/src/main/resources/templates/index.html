@@ -25,9 +25,9 @@
             <!--预留给附加功能-->
             <div class="settingBar">
                 <ul style="">
-                    <li><img src="../static/img/setting.png"/></li>
-                    <li><img src="../static/img/music.png"/></li>
-                    <li><img src="../static/img/link.png"/></li>
+                    <li><img src="../static/img/setting.png" alt="设置"/></li>
+                    <li><img src="../static/img/music.png" alt="音乐"/></li>
+                    <li><img src="../static/img/link.png" alt="链接"/></li>
                 </ul>
             </div>
             <div class="userBox" onmouseleave="imgScaler('50px')">
@@ -47,25 +47,25 @@
         <div class="navBar">
             <div style="height: 70px"></div>
             <div class="optionBox" style="background-color: #00000024">
-                <img src="../static/img/homeIcon.png"/>
+                <img src="../static/img/HomePage.png" alt="主页"/>
                 <span style="color: mediumpurple">主页</span>
             </div>
             <div class="optionBox">
-                <img src="../static/img/DiscussIcon.png"/>
+                <img src="../static/img/DiscussPage.png" alt="灌水"/>
                 <span>灌水</span>
             </div>
             <div class="optionBox">
-                <img src="../static/img/earPhoneIcon.png"/>
+                <img src="../static/img/HelpPage.png" alt="帮助"/>
                 <span>帮助</span>
             </div>
             <div class="optionBox">
-                <img src="../static/img/fireIcon.png"/>
+                <img src="../static/img/HotPage.png" alt="热门"/>
                 <span>热门</span>
             </div>
         </div>
 
         <div class="contentBox">
-            <div class="carousel">
+            <div class="carousel" onmouseover="loopStop()" onmouseout="loopPlay()">
                 <!--组图-->
                 <ul class="loopList">
                     <li class="loopItem active"><a href=""></a></li>
@@ -76,9 +76,8 @@
                 </ul>
                 <!--旋钮-->
                 <div class="loopBut">
-                    <div class="loopRightBut" id="rightBtn"><img src="/img/rightArrow.png" onclick="rightSwitch()"></div>
-                    <div class="loopLeftBut" id="leftBtn"><img src="/img/leftArrow.png" onclick="leftSwitch()"></div>
-
+                    <div class="loopRightBut" id="rightBtn"><img src="../static/img/rightArrow.png" onclick="rightSwitch()" alt="右箭头"></div>
+                    <div class="loopLeftBut" id="leftBtn"><img src="../static/img/leftArrow.png" onclick="leftSwitch()" alt="左箭头"></div>
                 </div>
                 <!--计数器-->
                 <ul class="pointList">
