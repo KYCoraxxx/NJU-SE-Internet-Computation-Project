@@ -42,7 +42,7 @@ input {
     background-color: #FFFFFF;
     /*设置始终为头部栏*/
     position: fixed;
-    z-index: 1024;
+    z-index: 10;
     box-shadow: 0 4px 10px #00000024;
 }
 .logo{
@@ -93,6 +93,7 @@ input {
     display: flex;
     flex-direction: column;
     align-content: center;
+    z-index: -1;
 }
 .avator{
     /*确定不管用户如何缩放页面都不改变大小的才用像素做单位*/
@@ -148,7 +149,6 @@ input {
     margin-top: 10px;
     margin-left: -100px;
     z-index: -1;
-    opacity: 0;
 }
 .settingBar{
     width: 30%;
@@ -169,21 +169,12 @@ input {
 .settingBar ul li img:hover{
     cursor: pointer;
 }
-.columnFlex{
-    width: 100%;
-    height: auto;
-    display: flex;
-    flex-direction: column;
-}
-.rowFlex{
-    width: 100%;
-    height: auto;
-    display: flex;
-    flex-direction: row;
-}
 .container{
     width: calc(100% - 200px);
     height: auto;
+    position: absolute;
+    top: 70px;
+    left: 200px;
     display: flex;
     flex-direction: column;
     justify-content: center;

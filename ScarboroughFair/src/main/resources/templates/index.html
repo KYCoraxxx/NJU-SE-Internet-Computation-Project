@@ -34,7 +34,6 @@
                 <div class="avator">
                     <img src="../static/img/defaultUser.png" onmouseover="avatorScaler('100px')">
                 </div>
-                <div class="dropDown"></div>
             </div>
             <!--预留给附加功能（如发布商品等）-->
             <div style="width: 280px; display: flex; align-content: center">
@@ -64,35 +63,29 @@
             </div>
         </div>
 
-        <div class="columnFlex">
-            <div style="width: 100%; height: 70px"></div>
-            <div class="rowFlex">
-                <div style="width: 200px; height: auto"></div>
-                <div class="container">
-                    <div class="carousel" onmouseover="loopStop()" onmouseleave="loopPlay()">
-                        <!--组图-->
-                        <ul class="loopList">
-                            <li class="loopItem active"><a href=""></a></li>
-                            <li class="loopItem next"><a href=""></a></li>
-                            <li class="loopItem"><a href=""></a></li>
-                            <li class="loopItem"><a href=""></a></li>
-                            <li class="loopItem pre"><a href=""></a></li>
-                        </ul>
-                        <!--旋钮-->
-                        <div class="loopBut">
-                            <div id="leftBtn"><img src="../static/img/leftArrow.png" onclick="leftSwitch()"></div>
-                            <div id="rightBtn"><img src="../static/img/rightArrow.png" onclick="rightSwitch()"></div>
-                        </div>
-                        <!--计数器-->
-                        <ul class="pointList">
-                            <li class="loopPoint active" data-index=0></li>
-                            <li class="loopPoint" data-index=1></li>
-                            <li class="loopPoint" data-index=2></li>
-                            <li class="loopPoint" data-index=3></li>
-                            <li class="loopPoint" data-index=4></li>
-                        </ul>
-                    </div>
+        <div class="container">
+            <div class="carousel" onmouseover="loopStop()" onmouseleave="loopPlay()">
+                <!--组图-->
+                <ul class="loopList">
+                    <li class="loopItem active"><a href=""></a></li>
+                    <li class="loopItem next"><a href=""></a></li>
+                    <li class="loopItem"><a href=""></a></li>
+                    <li class="loopItem"><a href=""></a></li>
+                    <li class="loopItem pre"><a href=""></a></li>
+                </ul>
+                <!--旋钮-->
+                <div class="loopBut">
+                    <div id="leftBtn"><img src="../static/img/leftArrow.png" onclick="leftSwitch()"></div>
+                    <div id="rightBtn"><img src="../static/img/rightArrow.png" onclick="rightSwitch()"></div>
                 </div>
+                <!--计数器-->
+                <ul class="pointList">
+                    <li class="loopPoint active" data-index=0></li>
+                    <li class="loopPoint" data-index=1></li>
+                    <li class="loopPoint" data-index=2></li>
+                    <li class="loopPoint" data-index=3></li>
+                    <li class="loopPoint" data-index=4></li>
+                </ul>
             </div>
         </div>
 <!--        <div class="body">-->

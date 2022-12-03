@@ -7,11 +7,14 @@ var avatorScaler = function (size){
         deleteDropDown();
 }
 var deleteDropDown = function (){
-    $(".dropDown").css("opacity", "0");
+    $(".userBox").css("height", "70px");
+    $(".dropDown").remove();
 }
 var appendDropDown = function (){
-    var dropDown = $(".dropDown");
-    dropDown.css("opacity", "1");
+    var dropDown = $("<div class='dropDown'></div>");
+    var userBox = $(".userBox");
+    userBox.css("height", "410px");
+    userBox.append(dropDown);
 }
 var changeSearch = function (state){
     if(state === 0)
