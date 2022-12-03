@@ -1,0 +1,58 @@
+.goodBox {
+    width: calc(100% - 210px);
+    height: auto;
+    display: flex;
+    background-color: #FFFFFF;
+    position: absolute;
+    left: 210px;
+}
+.goodBox img{
+    height: 300px;
+    width: 300px;
+    margin-left: 10%;
+    margin-top: 20px;
+}
+.goodInfo{
+    height: 300px;
+    width: 100%;
+    margin-left: 5%;
+    margin-top: 20px;
+}
+.goodName{
+    height: 100px;
+    letter-spacing: 4px;
+    font-size: 30px;
+    line-height: 400%;
+    font-weight: bold;
+    margin-top: 20px;
+    text-align: left;
+}
+.goodPrice{
+    color: red;
+    font-size: 25px;
+    font-weight: bold;
+    height: auto;
+    width: 100%;
+    text-align: left;
+    line-height: 200%;
+    margin-top: 0px;
+}
+.goodProvider{
+    color: mediumpurple;
+    font-weight: bold;
+    height: auto;
+    width: 100%;
+    text-align: left;
+    line-height: 200%;
+    margin-top: 10px;
+}
+.goodDetail{
+    width: calc(100% - 210px);
+    height: 500px;
+    display: flex;
+    background-color: #FFFFFF;
+    position: absolute;
+    left: 210px;
+    top: 400px;
+}
+/*todo: 增加商品详情*/
