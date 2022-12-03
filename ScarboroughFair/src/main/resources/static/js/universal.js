@@ -12,6 +12,7 @@ var deleteDropDown = function (){
     $(".dropDown").remove();
 }
 var appendDropDown = function (){
+    if($(".dropDown").length > 0)return;
     var dropDown = $("<div class='dropDown'></div>");
     var userBox = $(".userBox");
     userBox.css("height", "410px");
@@ -30,7 +31,7 @@ var changeSearch = function (state){
 var changeMusic = function (){
     var music = $("#music");
     if(music.length === 0){
-        $(".navBar").append($("<audio src='../static/music/ScarboroughFair.mp3' id='music' style='bottom: 0; position: absolute' controls></audio>"));
+        $(".navBar").append($("<audio src='/music/ScarboroughFair.mp3' id='music' style='bottom: 0; position: absolute' controls></audio>"));
     }
     else{
         musicOpacity ^= 1;
