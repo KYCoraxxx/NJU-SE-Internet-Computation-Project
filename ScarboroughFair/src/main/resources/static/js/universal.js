@@ -12,6 +12,7 @@ var deleteDropDown = function (){
     $(".dropDown").remove();
 }
 var appendDropDown = function (){
+    if($(".dropDown").length > 0)return;
     var dropDown = $("<div class='dropDown'></div>");
     var userBox = $(".userBox");
     userBox.css("height", "410px");
