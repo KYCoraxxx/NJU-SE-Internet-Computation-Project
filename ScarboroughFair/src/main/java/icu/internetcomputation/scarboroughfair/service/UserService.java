@@ -13,10 +13,7 @@ import org.springframework.stereotype.Service;
 public class UserService {
     @Resource
     UserRepository userRepository;
-    // public UserService(UserRepository userRepository)
-    // {
-    //     this.userRepository = userRepository;
-    // }
+
 
     public Iterable<User> findAll()
     {
@@ -25,8 +22,7 @@ public class UserService {
 
     public User findById(int id)
     {
-       Optional<User> userOp = userRepository.findById(id);
-       return userOp.orElse(null);
+       return userRepository.findById(null).orElse(null);
     }
 
     public User findByUserName(String username)
