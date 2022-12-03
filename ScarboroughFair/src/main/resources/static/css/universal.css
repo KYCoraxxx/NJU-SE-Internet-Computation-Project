@@ -173,8 +173,15 @@ input {
     width: calc(100% - 200px);
     height: auto;
     position: absolute;
+    background-color: #eeeeee40;
     top: 70px;
     left: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+#music{
     display: flex;
     flex-direction: column;
     justify-content: center;
