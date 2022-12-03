@@ -153,6 +153,7 @@ input {
 .settingBar{
     width: 30%;
     min-width: 100px;
+    margin: auto 0;
 }
 .settingBar ul{
     display: flex;
@@ -162,19 +163,29 @@ input {
 }
 .settingBar ul li img{
     margin: auto 15px;
-    height: 35px;
-    width: 35px;
+    height: 20px;
+    width: 20px;
 }
 .settingBar ul li img:hover{
     cursor: pointer;
 }
-.contentBox{
-    width: calc(100% - 200px);
+.columnFlex{
+    width: 100%;
     height: auto;
-    left: 200px;
-    top: 70px;
-    position: absolute;
+    display: flex;
+    flex-direction: column;
+}
+.rowFlex{
+    width: 100%;
+    height: auto;
     display: flex;
     flex-direction: row;
-    align-content: center;
+}
+.container{
+    width: calc(100% - 200px);
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }

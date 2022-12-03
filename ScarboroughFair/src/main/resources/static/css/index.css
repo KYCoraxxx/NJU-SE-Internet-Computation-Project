@@ -1,13 +1,11 @@
 
 /*轮播图---------------------------------*/
 .carousel{
-    margin: 0 auto;
+    margin: 2% 0;
     width: 60%;
-    height: 300px;
+    height: 350px;
     position: relative;
-    top: 2%;
     transition: 0.6s ease-in-out;
-    margin-bottom: 5%;
 }
 
 .loopList{
@@ -20,13 +18,13 @@
 }
 
 .loopItem{
-    width: 70%;
+    width: 60%;
     height: 100%;
-    left: 15%;
+    left: 20%;
     opacity: 0;
-    top: 10%;
     position: absolute;
     background-size: cover;
+    z-index: -1;
 }
 
 .loopItem:nth-child(1){
@@ -53,28 +51,27 @@
     opacity: 1;
     z-index: 3;
 }
+.loopItem.active:hover{
+    cursor: pointer;
+}
 .loopItem.pre{
     opacity: 0.3;
-    top: 10%;
     left: 0;
-    z-index: 2;
 }
 .loopItem.next{
     opacity: 0.3;
-    top: 10%;
-    left: 30%;
-    z-index: 2;
+    left: 40%;
 }
 
 /*按钮------------------*/
 .loopBut{
     width: 100%;
     height: 25px;
-    position: absolute;
-    top: 55%;
-    z-index: 4;
+    bottom: 200px;
+    position: relative;
     display: flex;
     flex-direction: row;
+    z-index: 5;
 }
 
 .loopBut img{
@@ -83,18 +80,18 @@
     cursor: pointer;
 }
 
-.loopLeftBut{
+#leftBtn{
     position: absolute;
     width: 25px;
     height: 25px;
-    left: 5%;
+    left: 10%;
 }
 
-.loopButRight{
+#rightBtn{
     position: absolute;
     width: 25px;
     height: 25px;
-    right: 5%;
+    right: 10%;
 }
 
 /*计数器----------------*/
@@ -104,6 +101,7 @@
     display: flex;
     flex-direction: row;
     list-style: none;
+    bottom: 15%;
     position: relative;
     margin: 0 auto;
     transition: 0.6s ease-in-out;
