@@ -112,6 +112,7 @@ var postInfo = function (){
             $.ajax({
                 type:"post",
                 url:"http://localhost/userService/checkUser",
+                // url:"http://localhost:8080/userService/checkUser",
                 data:{
                     "inputName": user[0].value,
                     "inputPwd":password[0].value
@@ -119,7 +120,7 @@ var postInfo = function (){
                 success: function(data) {
                     if(data.isSucceed)
                     {
-                        window.location.href="/homepage"
+                        window.location.href="/index"
                     }
                     alert(data.message);
                 }
