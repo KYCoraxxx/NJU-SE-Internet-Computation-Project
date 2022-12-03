@@ -1,4 +1,4 @@
-package icu.internetcomputation.scarboroughfair;
+package icu.internetcomputation.scarboroughfair.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;

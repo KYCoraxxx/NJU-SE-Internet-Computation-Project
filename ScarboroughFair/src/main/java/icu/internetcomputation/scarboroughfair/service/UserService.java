@@ -5,12 +5,18 @@ import icu.internetcomputation.scarboroughfair.entity.User;
 import icu.internetcomputation.scarboroughfair.entity.Message;
 import java.util.Optional;
 
+import javax.annotation.Resource;
+
+import org.springframework.stereotype.Service;
+
+@Service
 public class UserService {
+    @Resource
     UserRepository userRepository;
-    public UserService(UserRepository userRepository)
-    {
-        this.userRepository = userRepository;
-    }
+    // public UserService(UserRepository userRepository)
+    // {
+    //     this.userRepository = userRepository;
+    // }
 
     public Iterable<User> findAll()
     {
