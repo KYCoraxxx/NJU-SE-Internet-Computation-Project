@@ -24,7 +24,9 @@ input {
 .btn {
     color: #FFFFFF;
     background-color: #9f9eff;
-    min-width: 120px;
+    width: 120px;
+    height: 40px;
+    border-radius: 10px;
     border: #9f9eff;
 }
 .btn:hover {
@@ -37,7 +39,7 @@ input {
     display: flex;
     flex-direction: row;
     align-content: center;
-    background: linear-gradient(to right, #FFFFFF, cornflowerblue);
+    background-color: #FFFFFF;
     /*设置始终为头部栏*/
     position: fixed;
     z-index: 1024;
@@ -45,30 +47,41 @@ input {
 }
 .logo{
     height: 100%;
-    width: 340px;
-    /*使用百分比设置宽高度以自适应*/
+    width: 360px;
     margin: auto 10px;
-    text-align: center;
+}
+.logo img{
+    height: 70px;
+    width: 360px;
+}
+.logo:hover{
+    cursor: pointer;
 }
 .searchBar{
-    width: 20%;
+    width: 15%;
+    min-width: 300px;
     height: 50%;
     margin: auto 0;
     display: flex;
     flex-direction: row;
+    background-color: #0000000a;
+    border: white;
+    border-radius: 10px;
 }
 .searchBar input{
     width: 100%;
     height: 100%;
     font-size: 15px;
-    background-color: white;
     padding: 0 0 0 3%;
-    border: white;
-    border-radius: 10px;
+    background-color: #FFFFFF00;
+    border: #FFFFFF00;
 }
 .searchBar img{
-    height: 35px;
-    width: 35px;
+    height: 30px;
+    width: 30px;
+    margin: auto 5px;
+    background-color: #00000000;
+    border-radius: 10px;
 }
 .searchBar img:hover{
     cursor: pointer;
@@ -76,6 +89,7 @@ input {
 .userBox{
     width: 50px;
     height: 410px;
+    margin: 0 60px;
     display: flex;
     flex-direction: column;
     align-content: center;
@@ -84,7 +98,7 @@ input {
     /*确定不管用户如何缩放页面都不改变大小的才用像素做单位*/
     height: 50px;
     width: 50px;
-    margin: 10px auto;
+    margin: 10px 0;
     display: flex;
     align-content: center;
     border-radius: 50%;
@@ -98,8 +112,7 @@ input {
 }
 .navBar{
     height: 100%;
-    width: 15%;
-    min-width: 200px;
+    width: 200px;
     box-shadow: 0 4px 10px #00000024;
     position: fixed;
     display: flex;
@@ -136,4 +149,32 @@ input {
     margin-left: -100px;
     z-index: -1;
     opacity: 0;
+}
+.settingBar{
+    width: 30%;
+    min-width: 100px;
+}
+.settingBar ul{
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    list-style: none;
+}
+.settingBar ul li img{
+    margin: auto 15px;
+    height: 35px;
+    width: 35px;
+}
+.settingBar ul li img:hover{
+    cursor: pointer;
+}
+.contentBox{
+    width: calc(100% - 200px);
+    height: auto;
+    left: 200px;
+    top: 70px;
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+    align-content: center;
 }

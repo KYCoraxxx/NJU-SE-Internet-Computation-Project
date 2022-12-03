@@ -13,6 +13,16 @@ var appendDropDown = function (){
     var dropDown = $(".dropDown");
     dropDown.css("opacity", "1");
 }
+var changeSearch = function (state){
+    if(state === 0)
+        $(".searchBar img").css("background-color", "#00000024");
+    else if(state === 1)
+        $(".searchBar img").css("background-color", "#00000000");
+    else if(state === 2)
+        $(".searchBar").css("background-color", "#0000001a");
+    else
+        $(".searchBar").css("background-color", "#0000000a");
+}
 //
 //
 // /*左侧栏隐藏-----------------------------------------------------------------------------*/
@@ -94,74 +104,78 @@ var appendDropDown = function (){
 //     }
 // }
 //
-// /*轮播图-----------------------------------------------------------------------------*/
-//
-// var items = document.querySelectorAll(".loopItem");
-// var points = document.querySelectorAll(".loopPoint");
-// var left = document.getElementById(".leftBtn");
-// var right = document.getElementById(".rightBtn");
-// var loop = document.querySelector(".carousel");
-// var index = 0;
-// var time = 0;//用于定时换图
-//
-// var inValidAll = function (){
-//     for(i = 0;i < items.length;i++){
-//         items[i].className = "loopItem";
-//     }
-//     for(i = 0;i < points.length;i++){
-//         points[i].className = "loopPoint";
-//     }
-// }
-//
-// var activateIndex = function (){
-//     inValidAll();
-//     items[index].className = "loopItem active";
-//     points[index].className = "loopPoint active";
-// }
-//
-// var leftSwitch = function (){
-//     if(index === 0){
-//         index = 4;
-//     }
-//     else {
-//         index--;
-//     }
-//     activateIndex();
-// }
-//
-// var rightSwitch = function (){
-//     if(index === 4){
-//         index = 0;
-//     }
-//     else {
-//         index++;
-//     }
-//     activateIndex();
-// }
-//
-// var timer;
-//
-// function play(){
-//     timer = setInterval(() => {
-//         time++;
-//         if(time === 20){
-//             rightSwitch();
-//             time = 0;
-//         }
-//     },100);
-// }
-//
-// play();
-//
-// loop.onmouseover = function (){
-//     clearInterval(timer);
-// }
-//
-// loop.onmouseleave = function (){
-//     play();
-// }
-//
-//
+/*轮播图-----------------------------------------------------------------------------*/
+
+var items = $(".loopItem");
+var points = $(".loopPoint");
+var left = $("#leftBtn");
+var right = $("#rightBtn");
+var loop = $(".carousel");
+var index = 0;
+var time = 0;//用于定时换图
+
+var inValidAll = function (){
+    for(i = 0;i < items.length;i++){
+        items[i].className = "loopItem";
+    }
+    for(i = 0;i < points.length;i++){
+        points[i].className = "loopPoint";
+    }
+}
+
+var activateIndex = function (){
+    inValidAll();
+    items[index].className = "loopItem active";
+    items[getNext()].className = "loopItem next";
+    items[getPre()].className = "loopItem pre";
+    points[index].className = "loopPoint active";
+}
+
+var getNext = function (){
+    if(index + 1 >= items.length)
+        return 0;
+    else return index + 1;
+}
+
+var getPre = function (){
+    if(index - 1 < 0)
+        return items.length - 1;
+    else return index - 1;
+}
+
+var leftSwitch = function (){
+    index = getPre();
+    activateIndex();
+}
+
+var rightSwitch = function (){
+    index = getNext();
+    activateIndex();
+}
+
+var timer;
+
+function play(){
+    timer = setInterval(() => {
+        time++;
+        if(time === 20){
+            rightSwitch();
+            time = 0;
+        }
+    },100);
+}
+
+play();
+
+loop.onmouseover = function (){
+    clearInterval(timer);
+}
+
+loop.onmouseleave = function (){
+    play();
+}
+
+
 // /*分类栏运动*/
 //
 // var cateLeftSide = 0;

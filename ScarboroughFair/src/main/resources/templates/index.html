@@ -13,16 +13,23 @@
         <link rel="stylesheet" type="text/css" href="../static/css/universal.css">
     </head>
     <body>
+
         <div class="headBar">
             <div class="logo">
-                <img src="../static/img/logo.png" style="height: 70px; width: 140px; scale: 250%"/>
+                <img src="../static/img/logo.png"/>
             </div>
-            <div class="searchBar">
-                <input type="text" placeholder="翻翻集市里都有些什么叭~"/>
-                <img src="../static/img/searchImg.png"/>
-            </div>
+            <form class="searchBar">
+                <input type="text" placeholder="翻翻集市里都有些什么叭~" onfocus="changeSearch(2)" onblur="changeSearch(3)"/>
+                <img src="../static/img/searchImg.png" onmouseover="changeSearch(0)" onmouseleave="changeSearch(1)"/>
+            </form>
             <!--预留给附加功能-->
-            <div style="width: 40%"></div>
+            <div class="settingBar">
+                <ul style="">
+                    <li><img src="../static/img/setting.png"/></li>
+                    <li><img src="../static/img/music.png"/></li>
+                    <li><img src="../static/img/link.png"/></li>
+                </ul>
+            </div>
             <div class="userBox" onmouseleave="imgScaler('50px')">
                 <div class="avator">
                     <img src="../static/img/defaultUser.png" onmouseover="imgScaler('100px')">
@@ -30,48 +37,13 @@
                 <div class="dropDown"></div>
             </div>
             <!--预留给附加功能（如发布商品等）-->
-            <div style="width: 10%"></div>
-<!--            <div>-->
-<!--                <form action="#" target="_blank">-->
-<!--                    &lt;!&ndash;This place should invoke search function&ndash;&gt;-->
-<!--                    <img class="searchImg" src="/img/searchImg.png" alt="搜索图片">-->
-<!--                    <input class="searchInput" id="headSearchInput" type="search" placeholder="搜索商品" >-->
-<!--                </form>-->
-<!--            </div>-->
-<!--            <div class="headCol portrait">-->
-<!--                <a href="#" target="_blank" onmouseover="showClientInfo(0)">-->
-<!--                    &lt;!&ndash;This place should be linked to client information page&ndash;&gt;-->
-<!--                    <img class="portImg" src="/img/portraitIMG.png" alt="头像图片">-->
-<!--                </a>-->
-<!--            </div>-->
-<!--            <div class="clientIfo" onmouseleave="showClientInfo(1)">-->
-<!--                <div class="client clientName">-->
-<!--                    <h3>Name</h3>-->
-<!--                </div>-->
-<!--                <br>-->
-<!--                <div>-->
-<!--                    <ul class="buyAndCollection">-->
-<!--                        &lt;!&ndash;This place should find the good user have bought and collected&ndash;&gt;-->
-<!--                        <li><a href="#" target="_blank"><h2>1</h2>购买</a></li>-->
-<!--                        <li><a href="#" target="_blank"><h2>2</h2>收藏</a></li>-->
-<!--                    </ul>-->
-<!--                </div>-->
-<!--                <div class="client clientTrace">-->
-<!--                    &lt;!&ndash;This place should be linked to the user page&ndash;&gt;-->
-<!--                    <a class="clientLink" href="#" target="_self"><img class="clientIcon" src="/img/quitLogin.png" alt="用户中心">用户中心</a>-->
-<!--                </div>-->
-<!--                <div class="client clientCollection">-->
-<!--                    <a class="clientLink" href="#" target="_self"><img class="clientIcon" src="/img/quitLogin.png" alt="商品收藏">商品收藏</a>-->
-<!--                </div>-->
-<!--                <div class="client becomeSeller">-->
-<!--                    <a class="clientLink" href="#" target="_self"><img class="clientIcon" src="/img/quitLogin.png" alt="成为卖家">成为卖家</a>-->
-<!--                </div>-->
-<!--                <div class="client quitLogin">-->
-<!--                    &lt;!&ndash;This place should be linked to login page&ndash;&gt;-->
-<!--                    <a class="clientLink" href="#" target="_self"><img class="clientIcon" src="/img/quitLogin.png">退出登录</a>-->
-<!--                </div>-->
-<!--            </div>-->
+            <div style="width: 280px; display: flex; align-content: center">
+                <form style="height: 40px; width: 120px; margin: auto auto;">
+                    <input type="button" value="上架商品" class="btn" style="background-color: deeppink; font-weight: bold;"/>
+                </form>
+            </div>
         </div>
+
         <div class="navBar">
             <div style="height: 70px"></div>
             <div class="optionBox" style="background-color: #00000024">
@@ -84,11 +56,38 @@
             </div>
             <div class="optionBox">
                 <img src="../static/img/earPhoneIcon.png"/>
-                <span>客服</span>
+                <span>帮助</span>
             </div>
             <div class="optionBox">
                 <img src="../static/img/fireIcon.png"/>
-                <span>火爆</span>
+                <span>热门</span>
+            </div>
+        </div>
+
+        <div class="contentBox">
+            <div class="carousel">
+                <!--组图-->
+                <ul class="loopList">
+                    <li class="loopItem active"><a href=""></a></li>
+                    <li class="loopItem next"><a href=""></a></li>
+                    <li class="loopItem"><a href=""></a></li>
+                    <li class="loopItem"><a href=""></a></li>
+                    <li class="loopItem pre"><a href=""></a></li>
+                </ul>
+                <!--旋钮-->
+                <div class="loopBut">
+                    <div class="loopRightBut" id="rightBtn"><img src="/img/rightArrow.png" onclick="rightSwitch()"></div>
+                    <div class="loopLeftBut" id="leftBtn"><img src="/img/leftArrow.png" onclick="leftSwitch()"></div>
+
+                </div>
+                <!--计数器-->
+                <ul class="pointList">
+                    <li class="loopPoint active" data-index=0></li>
+                    <li class="loopPoint" data-index=1></li>
+                    <li class="loopPoint" data-index=2></li>
+                    <li class="loopPoint" data-index=3></li>
+                    <li class="loopPoint" data-index=4></li>
+                </ul>
             </div>
         </div>
 <!--        <div class="body">-->
@@ -219,7 +218,7 @@
 <!--                </div>-->
 <!--            </div>-->
 <!--        </div>-->
+        <script src="../static/js/jquery-3.6.1.js"></script>
+        <script src="../static/js/index.js"></script>
     </body>
-    <script src="../static/js/jquery-3.6.1.js"></script>
-    <script src="../static/js/index.js"></script>
 </html>
