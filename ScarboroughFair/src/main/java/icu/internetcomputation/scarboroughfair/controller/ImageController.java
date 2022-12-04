@@ -13,7 +13,7 @@ public class ImageController {
     @PostMapping("/upload")
     public Object upload(MultipartFile fileUpload){
 
-        String baseDir = "/testImageBalabala/hha";//相对路径 以项目路径为准
+        String baseDir = "C:/D/Program/web/NJU-SE-Internet-Computation-Project/ScarboroughFair/testImageBalabala/hha";//相对路径 以项目路径为准
 
         String fileName = fileUpload.getOriginalFilename();
 
