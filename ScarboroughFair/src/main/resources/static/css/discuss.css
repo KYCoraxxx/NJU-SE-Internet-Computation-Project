@@ -3,34 +3,95 @@
     width: 100%;
     height: 100%;
     background-image: url("../img/login.jpg");
-    position: relative;
+    position: fixed;
 }
 
 .infoContainer{
     width: 80%;
     height: 100%;
-    position: absolute;
+    position: relative;
     left: 10%;
-
+    top: 9%;
     display: flex;
     flex-direction: row;
-    background-color: blue;
+    background-color:rgba(255,255,255,0.2);
+
+
 }
-
+/*左栏------------------------------------*/
 .infoNavBar{
-
+    width: 20%;
+    height: 100%;
+    background-color: white;
+    position: absolute;
     display: flex;
     flex-direction: column;
-    align-items: stretch;
 
 }
 
+.navTitle{
+    display: flex;
+    flex-direction: row;
+}
+
+
+.navIcon{
+    position: absolute;
+    width: 12%;
+    height: 4%;
+    left: 25%;
+    top: 2%;
+}
+
+.titleText{
+    position: absolute;
+    left: 40%;
+    top: 2.5%;
+    font-weight: bold;
+
+    font-size: 100%;
+}
+
+.navList{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 10%;
+    left: 10%;
+}
+
+
+.navList li{
+    width: 70%;
+    line-height: 400%;
+    font-size: 150%;
+    text-align: center;
+    cursor: pointer;
+    transition: 0.6s ease-in-out;
+}
+
+.navList li:hover{
+    color: #2e9fff;
+}
+
+
+.infoSetting{
+    width: 100%;
+    height: 10%;
+    position: absolute;
+    top: 60%;
+    left: 5%;
+}
+/*右栏------------------------------------*/
 .infoContentBar{
 
     display: flex;
     flex-direction: column;
     justify-content: center;
 }
+
+
 
 
 
