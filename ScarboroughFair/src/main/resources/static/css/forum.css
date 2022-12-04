@@ -1,94 +1,119 @@
-
-.infoBody{
+.bg{
     width: 100%;
-    height: 100%;
-    background-image: url("../img/login.jpg");
+    height: 1000px;
     position: fixed;
+    top: 70px;
+    left: 200px;
+    background-image: url("../img/login.jpg");
 }
 
-.infoContainer{
-    width: 80%;
-    height: 100%;
+.forumContent{
+    width: 60%;
+    height: auto;
     position: relative;
-    left: 10%;
-    top: 9%;
+    background-color: rgba(255,255,255,0.2);
+
+    min-height: 700px;
+}
+/*标题栏---------------------------------*/
+.forumTitle{
+    width: 100%;
+    position: relative;
     display: flex;
     flex-direction: row;
-    background-color:rgba(255,255,255,0.2);
-}
-/*左栏------------------------------------*/
-.infoNavBar{
-    width: 20%;
-    height: 100%;
-    background-color: white;
-    position: absolute;
-    display: flex;
-    flex-direction: column;
-
-}
-
-.navTitle{
-    display: flex;
-    flex-direction: row;
-}
-
-
-.navIcon{
-    position: absolute;
-    width: 12%;
-    height: 4%;
-    left: 25%;
-    top: 2%;
-}
-
-.titleText{
-    position: absolute;
-    left: 40%;
-    top: 2.5%;
-    font-weight: bold;
-
-    font-size: 100%;
-}
-
-.navList{
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    position: absolute;
-    top: 10%;
-    left: 10%;
-}
-
-
-.navList li{
-    width: 70%;
-    line-height: 400%;
-    font-size: 150%;
-    text-align: center;
-    cursor: pointer;
-    transition: 0.6s ease-in-out;
-}
-
-.navList li:hover{
-    color: #2e9fff;
-}
-
-
-.infoSetting{
-    width: 100%;
-    height: 10%;
-    position: absolute;
-    top: 60%;
-    left: 5%;
-}
-/*右栏------------------------------------*/
-.infoContentBar{
-
-    display: flex;
-    flex-direction: column;
     justify-content: center;
+    padding-top: 5%;
 }
 
+
+/*列表-------------------------------*/
+.forumList{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+}
+
+.forumItem{
+    width: 100%;
+    height: auto;
+    background-color: whitesmoke;
+    line-height: 200px;
+    margin-top: 3%;
+    border-radius: 3%;
+    min-height: 300px;
+    display: flex;
+    flex-direction: column;
+}
+
+.itemMain{
+    width: 100%;
+    min-height: 200px;
+    background-color: rebeccapurple;
+
+    display: flex;
+    flex-direction: row;
+}
+
+.itemMain_header{
+    width: 100%;
+    height: 50px;
+    position: relative;
+    /*todo:why on earth is the pic int the middle?????*/
+}
+
+.itemMain_header_IMG{
+    position: absolute;
+    height: 100%;
+    left: 10%;
+    top: -100%;
+}
+
+.itemMain_header_details{
+    position: absolute;
+    width: 50%;
+    height: 100%;
+    left: 25%;
+    top:-150%;
+    display: flex;
+    flex-direction: column;
+}
+
+.itemMain_header_report{
+    position: absolute;
+    height: 100%;
+    right: 3%;
+    top: -120%;
+}
+
+.itemMain_header_report:hover{
+    cursor: pointer;
+}
+
+.itemMain_header_details_name{
+    position: absolute;
+    font-size: 20px;
+}
+
+.itemMain_header_details_date{
+    position: absolute;
+    top: 50%;
+    font-size: 15px;
+    color: dimgrey;
+}
+
+.itemMain_body{
+
+}
+
+.itemCritics{
+    width: 100%;
+    background-color: dodgerblue;
+    min-height: 100px;
+
+    display: flex;
+    flex-direction: column;
+}
 
 
 
