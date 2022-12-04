@@ -10,11 +10,11 @@ import java.util.UUID;
 @RestController
 public class ImageController {
 
-    @PostMapping("/upload")
+    @PostMapping("/uploadres")
     public Object upload(MultipartFile fileUpload){
 
         
-        //相对路径 以项目路径为准
+        //绝对路径
         // String baseDir = "C:/D/Program/web/NJU-SE-Internet-Computation-Project/ScarboroughFair/testImageBalabala/hha";
         String baseDir = "/testImageBalabala/haha";
 
@@ -33,10 +33,10 @@ public class ImageController {
 
             fileUpload.transferTo(f.getAbsoluteFile());
 
-            return new Message(true,"上传成功");
+            return new Message(true,"上传成功",f.getAbsolutePath());
         } catch (Exception e) {
             e.printStackTrace();
-            return new Message(false,"上传失败");
+            return new Message(false,"上传失败",null);
         }
     }
 }
