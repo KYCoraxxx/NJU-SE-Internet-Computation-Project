@@ -4,7 +4,7 @@
     <head>
         <meta charset = "UTF-8">
 
-        <title>商店开张，来看看货</title>
+        <title>商店开张，来看看货(゜-゜)つロ</title>
 
 
         <link rel = "stylesheet" type = "text/css" href = "../static/css/universal.css">
@@ -61,26 +61,33 @@
             </div>
         </div>
 
-        <div style = "height: 70px;"></div>
-        <div class = "goodBox">
-            <img src = "../static/img/demo5.jpg"/>
-            <div class = "goodInfo">
-                <div class = "goodName">迷迭香</div>
-                <div class = "goodPrice">￥25</div>
-                <div class = "goodProvider">admin</div>
-                <div style="width: 280px; display: flex; align-content: center">
-                    <form style="height: 40px; width: 120px; margin-top: 20px;">
-                        <input type="button" value="立即购买" class="btn" style="background-color: deeppink; font-weight: bold;"/>
-                    </form>
+        <div class = "container">
+            <div class = "goodBar">
+                <img src = "../static/img/demo5.jpg"/>
+                <div class = "goodInfo">
+                    <div class = "goodName">迷迭香</div>
+                    <div class = "goodTag">食材|香料</div>
+                    <div class = "goodPrice">￥25</div>
+                    <div class = "goodProvider">
+                        <div style = "width: 40px;">商家：</div>
+                        <div class = "goodProviderLink" onmouseover = "changeProviderLink(1)" onmouseleave = "changeProviderLink(0)">root</div>
+                        <!--todo: 获取商家id和主页链接-->
+                    </div>
+                    <div style="width: 280px; display: flex; align-content: center; margin-top: 20px;">
+                        <form style="height: 40px; width: 120px;">
+                            <input type="button" value="立即购买" class="btn" style="background-color: deeppink; font-weight: bold;"/>
+                        </form>
+                    </div>
                 </div>
+            </div>
+            <div class = "goodDetail">
+                
             </div>
         </div>
 
-        <div class = "goodDetail"></div>
 
 
-
-
+        <script src="../static/js/detail.js"></script>
         <script src="../static/js/universal.js"></script>
         <script src="../static/js/jquery-3.6.1.js"></script>
         <script src="../static/js/index.js"></script>
