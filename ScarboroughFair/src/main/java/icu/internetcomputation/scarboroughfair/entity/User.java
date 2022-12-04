@@ -23,11 +23,15 @@ public class User {
     @Setter
     private String password;
     
-    public User(Integer id, String name, String password) 
+    @Getter
+    @Setter
+    private String avatorUrl;
+    public User(Integer id, String name, String password,String avatorUrl) 
     {
         this.id = id;
         this.name = name;
         this.password = password;
+        this.avatorUrl = avatorUrl;
     }
 
     public User()
@@ -35,5 +39,6 @@ public class User {
         this.id = null;
         this.name = null;
         this.password = null;
+        this.avatorUrl = null;
     }
 }
