@@ -38,7 +38,7 @@ public class UserService {
         return null;
     }
 
-    public Message addUser(String userName, String userPassword)
+    public Message addUser(String userName, String userPassword, String avatorUrl)
     {
         User u = findByUserName(userName);
         if(u != null)
@@ -46,7 +46,7 @@ public class UserService {
             return new Message(false,"主人重名了啦……(；′⌒`)");
         }
         int id = (int)userRepository.count() + 1;
-        User user = new User(id, userName, userPassword);
+        User user = new User(id, userName, userPassword, avatorUrl);
         userRepository.save(user);
         return new Message(true,"欢迎来到新世界o(*￣▽￣*)ブ");
     }
@@ -80,7 +80,6 @@ public class UserService {
     
     public Message edit(User newUser)
     {
-        deleteUser(newUser.getId());
         userRepository.save(newUser);
         return new Message(true,"改好了~");
     }

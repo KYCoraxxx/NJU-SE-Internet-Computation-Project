@@ -23,9 +23,10 @@ public class UserController
 
     @RequestMapping(path = "/addUser", method = RequestMethod.POST)
     @ResponseBody
-    public Message addUser(@RequestParam(value="inputName") String userName , @RequestParam(value="inputPwd") String userPassword)
+    public Message addUser(@RequestParam(value="inputName") String userName , @RequestParam(value="inputPwd") String userPassword,
+     @RequestParam(value="inputPwd") String avatorUrl)
     {
-        return userService.addUser(userName, userPassword);
+        return userService.addUser(userName, userPassword,avatorUrl);
     }
 
     @RequestMapping(path = "/editUser", method = RequestMethod.POST)
