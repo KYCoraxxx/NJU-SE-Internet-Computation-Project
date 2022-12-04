@@ -1,58 +1,55 @@
-.goodBox {
-    width: calc(100% - 210px);
-    height: auto;
+.goodBar{
+    height: 300px;
+    width: 100%;
     display: flex;
-    background-color: #FFFFFF;
-    position: absolute;
-    left: 210px;
+    flex-direction: row;
+    margin-left: 0px;
+    margin-top: 50px;
+    justify-content: center;
+    align-items: center;
 }
-.goodBox img{
+.goodBar img{
     height: 300px;
     width: 300px;
-    margin-left: 10%;
-    margin-top: 20px;
+    padding-bottom: 30px;
 }
 .goodInfo{
     height: 300px;
-    width: 100%;
+    width: 50%;
     margin-left: 5%;
-    margin-top: 20px;
+    margin-top: 30px;
+    flex-direction: column;
 }
 .goodName{
-    height: 100px;
     letter-spacing: 4px;
     font-size: 30px;
-    line-height: 400%;
+    line-height: 200%;
     font-weight: bold;
-    margin-top: 20px;
-    text-align: left;
+}
+.goodTag{
+    letter-spacing: 2px;
+    font-size: 20px;
+    line-height: 200%;
 }
 .goodPrice{
-    color: red;
+    letter-spacing: 3px;
     font-size: 25px;
-    font-weight: bold;
-    height: auto;
-    width: 100%;
-    text-align: left;
     line-height: 200%;
-    margin-top: 0px;
+    color: red;
 }
 .goodProvider{
-    color: mediumpurple;
-    font-weight: bold;
-    height: auto;
-    width: 100%;
-    text-align: left;
-    line-height: 200%;
-    margin-top: 10px;
-}
-.goodDetail{
-    width: calc(100% - 210px);
-    height: 500px;
+    letter-spacing: 1px;
+    font-size: 10px;
+    line-height: 300%;
     display: flex;
-    background-color: #FFFFFF;
-    position: absolute;
-    left: 210px;
-    top: 400px;
+    flex-direction: row;
 }
-/*todo: 增加商品详情*/
+.goodProviderLink{
+    letter-spacing: 1px;
+    font-size: 10px;
+    line-height: 300%;
+    color: black;
+}
+.goodProviderLink:hover{
+    cursor: pointer;
+}

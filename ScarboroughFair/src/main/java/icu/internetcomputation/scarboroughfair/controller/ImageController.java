@@ -1,6 +1,8 @@
 package icu.internetcomputation.scarboroughfair.controller;
 
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 import icu.internetcomputation.scarboroughfair.entity.Message;
@@ -10,10 +12,14 @@ import java.util.UUID;
 @RestController
 public class ImageController {
 
-    @PostMapping("/upload")
-    public Object upload(MultipartFile fileUpload){
+    @RequestMapping(path="/uploadres", method = RequestMethod.POST, produces = "application/json")
+    public Message upload(@RequestParam(value = "file") MultipartFile fileUpload){
 
-        String baseDir = "/testImageBalabala/hha";//相对路径 以项目路径为准
+        
+        //绝对路径
+        // String baseDir = "C:/D/Program/web/NJU-SE-Internet-Computation-Project/ScarboroughFair/testImageBalabala/hha";
+        String baseDir = "/testImageBalabala/haha";
+
 
         String fileName = fileUpload.getOriginalFilename();
 
@@ -29,10 +35,10 @@ public class ImageController {
 
             fileUpload.transferTo(f.getAbsoluteFile());
 
-            return new Message(true,"上传成功");
+            return new Message(true,"上传成功",f.getAbsolutePath());
         } catch (Exception e) {
             e.printStackTrace();
-            return new Message(false,"上传失败");
+            return new Message(false,"上传失败",null);
         }
     }
 }
