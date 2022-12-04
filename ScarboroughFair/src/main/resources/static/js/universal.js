@@ -17,6 +17,13 @@ var appendDropDown = function (){
     var userBox = $(".userBox");
     userBox.css("height", "410px");
     userBox.append(dropDown);
+    setTimeout(function (){
+        dropDown.append($("<div class='article-subtitle' style='height: 10%'>DefaultUser</div>"));
+        dropDown.append($("<div class='saying'>最怕你一生碌碌无为，还安慰自己平凡可贵</div>"));
+        dropDown.append($("<button class='dropDownBtn'><img src='/img/userCenter.png'/>个人中心</button>"));
+        dropDown.append($("<button class='dropDownBtn'><img src='/img/good.png'/>上架管理</button>"));
+        dropDown.append($("<button class='dropDownBtn'><img src='/img/exit.png'/>退出登录</button>"));
+    }, 300);
 }
 var changeSearch = function (state){
     if(state === 0)
