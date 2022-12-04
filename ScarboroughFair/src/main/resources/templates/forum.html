@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Discuss</title>
-    <link rel="stylesheet" href="../static/css/universal.css">
-    <link rel="stylesheet" href="../static/css/forum.css">
-</head>
-<body>
+    <head>
+        <meta charset="UTF-8">
+        <title>灌水论坛(゜-゜)つロ</title>
+        <link rel="stylesheet" href="../static/css/universal.css"/>
+        <link rel="stylesheet" href="../static/css/forum.css"/>
+    </head>
+    <body>
+
         <div class="headBar">
           <div class="logo">
             <img src="../static/img/logo.png"/>
@@ -20,7 +21,7 @@
             <ul>
               <li><img src="../static/img/setting.png"/></li>
               <li><a href="https://github.com/KYCoraxxx/NJU-SE-Internet-Computation-Project" target="_blank"><img src="../static/img/link.png"/></a><li>
-              <li onclick="changeMusic()"><img src="/img/music.png"/></li>
+              <li onclick="changeMusic()"><img src="../static/img/music.png"/></li>
             </ul>
           </div>
           <div class="userBox" onmouseleave="avatorScaler('50px')">
@@ -35,47 +36,30 @@
             </form>
           </div>
         </div>
-        <div class="infoBody">
-            <div class="infoContainer">
-              <div class="infoNavBar">
-                  <div class="navTitle">
-                      <div><img class="navIcon" src="../static/img/info.png"></div>
-                      <div class="titleText">消息中心</div>
-                  </div>
-                  <ul class="navList">
-                      <!--todo:This place should be able to cause the change in content zone-->
-                      <li>商家消息</li>
-                      <li>系统通知</li>
-                      <li>收到的赞</li>
-                  </ul>
-                  <hr style="position: absolute;top: 50%;left: 10%;width: 80%;">
-                  <div class="infoSetting">
-                      <img src="../static/img/setting.png" style="width: 10%;height: 25%;position: absolute;left: 10%">
-                  </div>
-              </div>
-              <div class="infoContentBar">
-                  <div class="contentTop"></div>
-                  <div class="contentBottom">
-                      <ul class="infoBlock" >
-                          <!--There are three types of -->
-                          <li class="infoBar">
-                              <div class="singleInfo">
-                                  <div class="name"></div>
-                                  <div class="tag"></div>
-                                  <div class="message"></div>
-                                  <button class="reply"></button>
-                                  <button class="like"></button>
-                              </div>
-                          </li>
-                          <li>
 
-
-                          </li>
-                          <li></li>
-                      </ul>
-                  </div>
-              </div>
+        <div class="navBar">
+            <div style="height: 70px"></div>
+            <div class="optionBox">
+                <img src="/img/homeIcon.png"/>
+                <span>主页</span>
+            </div>
+            <div class="optionBox" style="background-color: #00000024">
+                <img src="/img/discussIcon.png"/>
+                <span style="color: mediumpurple">灌水</span>
+            </div>
+            <div class="optionBox">
+                <img src="/img/helpIcon.png"/>
+                <span>帮助</span>
+            </div>
+            <div class="optionBox">
+                <img src="/img/fireIcon.png"/>
+                <span>热门</span>
             </div>
         </div>
-</body>
+
+        <div class="container">
+        </div>
+        <script src="../static/js/universal.js"></script>
+        <script src="../static/js/jquery-3.6.1.js"></script>
+    </body>
 </html>
