@@ -48,7 +48,7 @@ public class UserService {
         int id = (int)userRepository.count() + 1;
         User user = new User(id, userName, userPassword, avatorUrl);
         userRepository.save(user);
-        return new Message(true,"欢迎来到新世界o(*￣▽￣*)ブ");
+        return new Message(true,"欢迎来到新世界o(*￣▽￣*)ブ",null,id);
     }
 
     public Message deleteUser(int id)
@@ -59,7 +59,7 @@ public class UserService {
             return new Message(false,"找不到主人哦");
         }
         userRepository.deleteById(id);
-        return new Message(true,"再见了~");
+        return new Message(true,"再见了~",null,id);
     }
 
     public Message checkUser(String userName, String userPassword)
@@ -74,7 +74,7 @@ public class UserService {
             return new Message(false,"咒语记错了啦……┭┮﹏┭┮");
         }else
         {
-            return new Message(true,String.format("欢迎回家！ %s さま~o(*￣▽￣*)ブ",user.getName()));
+            return new Message(true,String.format("欢迎回家！ %s さま~o(*￣▽￣*)ブ",user.getName()),null,user.getId());
         }
     }
     

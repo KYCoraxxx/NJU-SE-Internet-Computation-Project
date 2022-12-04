@@ -1,6 +1,8 @@
 package icu.internetcomputation.scarboroughfair.controller;
 
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 import icu.internetcomputation.scarboroughfair.entity.Message;
@@ -10,8 +12,8 @@ import java.util.UUID;
 @RestController
 public class ImageController {
 
-    @PostMapping("/uploadres")
-    public Object upload(MultipartFile fileUpload){
+    @RequestMapping(path="/uploadres", method = RequestMethod.POST, produces = "application/json")
+    public Message upload(@RequestParam(value = "file") MultipartFile fileUpload){
 
         
         //绝对路径
