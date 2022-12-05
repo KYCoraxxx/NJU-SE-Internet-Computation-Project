@@ -2,8 +2,9 @@ package icu.internetcomputation.scarboroughfair.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
-
+import icu.internetcomputation.scarboroughfair.entity.User;
 import icu.internetcomputation.scarboroughfair.entity.Message;
+import icu.internetcomputation.scarboroughfair.entity.dropDown;
 import icu.internetcomputation.scarboroughfair.service.UserService;
 import javax.annotation.Resource;
 
@@ -36,5 +37,11 @@ public class UserController
         return null;
     }
 
-
+    @RequestMapping(path = "/getDropdown", method = RequestMethod.POST)
+    @ResponseBody
+    public dropDown getDropdown(@RequestParam(value="userId") int id)
+    {
+        User user = userService.findById(id);
+        return new dropDown(user.getName(),user.getId(),user.getAvatorUrl());
+    }
 }

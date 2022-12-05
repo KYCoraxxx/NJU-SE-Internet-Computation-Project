@@ -22,7 +22,7 @@ public class UserService {
 
     public User findById(int id)
     {
-       return userRepository.findById(null).orElse(null);
+       return userRepository.findById(id).orElse(null);
     }
 
     public User findByUserName(String username)
@@ -74,7 +74,7 @@ public class UserService {
             return new Message(false,"咒语记错了啦……┭┮﹏┭┮");
         }else
         {
-            return new Message(true,String.format("欢迎回家！ %s さま~o(*￣▽￣*)ブ",user.getName()),null,user.getId());
+            return new Message(true,String.format("欢迎回家！ %s さま~o(*￣▽￣*)ブ",user.getName()),null, user.getId());
         }
     }
     

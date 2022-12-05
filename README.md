@@ -26,6 +26,10 @@ Repository for group project in course Internet Computation. Created for both we
 
 (最新的记录请参照之前的格式记录在最上方)
 
+2022/12/5
+
+@`Logician`(刘汉弈) 完成了商品页面的设计
+
 2022/12/1
 
 @`TTHA`(张铭铭) 摸了个通用的页面跳转功能
