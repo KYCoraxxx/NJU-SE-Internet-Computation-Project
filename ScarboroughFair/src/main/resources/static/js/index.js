@@ -1,3 +1,7 @@
+if(userID === undefined){
+    window.location.href="/login";
+}
+
 var items = $(".loopItem");
 var points = $(".loopPoint");
 var left = $("#leftBtn");
@@ -47,7 +51,7 @@ var rightSwitch = function (){
 
 var timer;
 
-function play(){
+var loopPlay = function (){
     timer = setInterval(() => {
         time++;
         if(time === 30){
@@ -57,9 +61,7 @@ function play(){
     },100);
 }
 
-var loopPlay = function (){
-    play();
-}
+loopPlay();
 
 var loopStop = function (){
     clearInterval(timer);

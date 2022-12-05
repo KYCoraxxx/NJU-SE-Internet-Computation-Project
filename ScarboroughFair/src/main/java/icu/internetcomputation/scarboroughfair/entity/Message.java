@@ -4,6 +4,7 @@ public class Message {
     public boolean isSucceed = false;
     public String message = null;
     public String url = null;
+
     public int id = 0;
     public Message(boolean isSucceed , String message) 
     {
