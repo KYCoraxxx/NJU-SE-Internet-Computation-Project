@@ -54,12 +54,16 @@
                 <span>热门</span>
             </div>
         </div>
+        <!--todo: the textarea in the critical zone lacks of ids-->
         <div class="container">
-            <div class="bg"></div>
+            <div class="bg">
+                <div class="returnTopBtn" onclick="returnTop()">
+                    <img src="../static/img/returnTopBtn.png" style="width: 50px;height: 50px;">
+                </div>
+            </div>
             <div class="forumContent">
                 <div class="forumTitle">
-                    <img src="../static/img/info.png" style="width: 50px;height: 50px;">
-                    <div style="text-indent: 2em;font-size: 30px;font-weight: bold;font-family: 幼圆,serif;padding-top: 10px">愉快灌水</div>
+                    <img src="../static/img/info.png" style="width: 50px;height: 50px; border-radius: 50%;">
                 </div>
                 <div class="forumList">
                     <div class="forumItem">
@@ -72,15 +76,24 @@
                                     <div class="itemMain_header_details_name">DefaultUser</div>
                                     <div class="itemMain_header_details_date">Published On 2022.12.04</div>
                                 </div>
-                                <div class="itemMain_header_report">
-                                    <img src="../static/img/ellipsisVertical.png" style="width: 30px;height: 30px">
+                                <div class="itemMain_header_report" onmouseover="appendReport(this)" onmouseleave="removeReport()">
+                                    <img src="../static/img/ellipsisVertical.png" style="width: 30px;height: 30px;margin-top: 10px;">
                                 </div>
                             </div>
                             <div class="itemMain_body">
                                 <div class="itemMain_body_content">灌水灌水灌水灌水灌水灌水灌水灌水灌水灌水灌水灌水灌水灌水灌水灌水灌水灌水灌水灌水</div>
                                 <div class="itemMain_body_IMG">
-                                    <!--todo: This place should put the good to be talked about-->
-                                    <img src="../static/img/login.jpg" style="width: 150px;height: 150px;">
+                                    <!--todo:add an index to every item to ease the clearAll function-->
+                                    <img class="itemMain_body_IMG_singleIMG" src="../static/img/login.jpg" onclick="picRespond(this)" >
+                                    <img class="itemMain_body_IMG_singleIMG" src="../static/img/login.jpg" onclick="picRespond(this)">
+                                    <img class="itemMain_body_IMG_singleIMG" src="../static/img/login.jpg" onclick="picRespond(this)">
+                                    <img class="itemMain_body_IMG_singleIMG" src="../static/img/login.jpg" onclick="picRespond(this)">
+                                    <img class="itemMain_body_IMG_singleIMG" src="../static/img/login.jpg" onclick="picRespond(this)">
+                                    <img class="itemMain_body_IMG_singleIMG" src="../static/img/login.jpg" onclick="picRespond(this)">
+                                    <img class="itemMain_body_IMG_singleIMG" src="../static/img/login.jpg" onclick="picRespond(this)">
+                                    <img class="itemMain_body_IMG_singleIMG" src="../static/img/login.jpg" onclick="picRespond(this)">
+                                    <img class="itemMain_body_IMG_singleIMG" src="../static/img/login.jpg" onclick="picRespond(this)">
+
                                 </div>
                             </div>
                             <div class="itemMainFooter">
@@ -102,29 +115,352 @@
                         </div>
                         <div class="itemCritics">
                             <form class="itemCritics_Form" action="#" method="post">
-                                <div class="itemCritics_Form_user"><img src="../static/img/defaultUser.png" style="width: 30px;height: 30px"></div>
-                                <textarea name="itemCriticsForm" id="itemCriticsForm" rows="5" placeholder="灌下你的水" minlength="1" maxlength="80" ></textarea>
+                                <div class="itemCritics_Form_user"><img src="../static/img/defaultUser.png" style="width:40px;height: 40px"></div>
+                                <textarea name="itemCriticsForm" id="itemCriticsForm"  rows="4" placeholder="灌下你的水" minlength="1" maxlength="80" ></textarea>
                                 <button class="commentSubmit" type="submit">灌水</button>
                             </form>
+                            <div class="itemCritics_critics">
+                                <hr style="width: 72%;margin-left: 18%;">
+                                <!--todo:grab latest remarks-->
+                                <div class="itemCritics_criticsList">
+                                    <div class="itemCritics_criticsList_item">
+                                        <div class="itemCritics_criticsList_item_user">
+                                            <img src="../static/img/defaultUser.png" style="width: 40px;height: 40px;">
+                                        </div>
+                                        <div class="itemCritics_criticsList_item_details">
+                                            <div class="itemCritics_criticsList_item_name">DefaultUser</div>
+                                            <div class="itemCritics_criticsList_item_content">评论评论评评论评论评论评论评论评论评论评论</div>
+                                            <div class="itemCritics_criticsList_item_foot">
+                                                <div class="itemCritics_criticsList_item_foot_time">Published on 2022.12.5</div>
+                                                <div class="itemCritics_criticsList_item_foot_like">
+                                                    <img src="../static/img/likeInCritic.png" style="width: 15px; height: 15px; margin-right: 15px;margin-top: 5px">
+                                                    <div class="itemCritics_criticsList_item_foot_like_data">1</div>
+                                                </div>
+                                                <div class="itemCritics_criticsList_item_foot_dislike">
+                                                    <img src="../static/img/dislikeInCritic.png" style="width: 15px; height: 15px; margin-right: 15px;margin-top: 5px">
+                                                    <div class="itemCritics_criticsList_item_foot_dislike_data">2</div>
+                                                </div>
+                                                <div class="itemCritics_criticsList_item_foot_report" onmouseover="appendReport(this)" onmouseleave="removeReport()">
+                                                    <img src="../static/img/ellipsisVertical.png" style="width: 20px; height: 20px; margin-top: 5px">
+                                                </div>
+                                            </div>
+                                            <hr style="width: 90%; margin-left: -2%;">
+                                        </div>
+                                    </div>
+                                    <div class="itemCritics_criticsList_item">
+                                        <div class="itemCritics_criticsList_item_user">
+                                            <img src="../static/img/defaultUser.png" style="width: 40px;height: 40px;">
+                                        </div>
+                                        <div class="itemCritics_criticsList_item_details">
+                                            <div class="itemCritics_criticsList_item_name">DefaultUser</div>
+                                            <div class="itemCritics_criticsList_item_content">评论评论评论评论论评评论评论评论评论评论评论评论评论评论评论评论评论评论评论评论评论论评论评论评论评论</div>
+                                            <div class="itemCritics_criticsList_item_foot">
+                                                <div class="itemCritics_criticsList_item_foot_time">Published on 2022.12.5</div>
+                                                <div class="itemCritics_criticsList_item_foot_like">
+                                                    <img src="../static/img/likeInCritic.png" style="width: 15px; height: 15px; margin-right: 15px;margin-top: 5px">
+                                                    <div class="itemCritics_criticsList_item_foot_like_data">1</div>
+                                                </div>
+                                                <div class="itemCritics_criticsList_item_foot_dislike">
+                                                    <img src="../static/img/dislikeInCritic.png" style="width: 15px; height: 15px; margin-right: 15px;margin-top: 5px">
+                                                    <div class="itemCritics_criticsList_item_foot_dislike_data">2</div>
+                                                </div>
+                                                <div class="itemCritics_criticsList_item_foot_report" onmouseover="appendReport(this)" onmouseleave="removeReport()">
+                                                    <img src="../static/img/ellipsisVertical.png" style="width: 20px; height: 20px; margin-top: 5px">
+                                                </div>
+                                            </div>
+                                            <hr style="width: 90%; margin-left: -2%;">
+                                        </div>
+                                    </div>
+                                    <div class="itemCritics_criticsList_item">
+                                        <div class="itemCritics_criticsList_item_user">
+                                            <img src="../static/img/defaultUser.png" style="width: 40px;height: 40px;">
+                                        </div>
+                                        <div class="itemCritics_criticsList_item_details">
+                                            <div class="itemCritics_criticsList_item_name">DefaultUser</div>
+                                            <div class="itemCritics_criticsList_item_content">评论评论评论评论评评论评论评论评论评论评论论评论评论评论评论</div>
+                                            <div class="itemCritics_criticsList_item_foot">
+                                                <div class="itemCritics_criticsList_item_foot_time">Published on 2022.12.5</div>
+                                                <div class="itemCritics_criticsList_item_foot_like">
+                                                    <img src="../static/img/likeInCritic.png" style="width: 15px; height: 15px; margin-right: 15px;margin-top: 5px">
+                                                    <div class="itemCritics_criticsList_item_foot_like_data">1</div>
+                                                </div>
+                                                <div class="itemCritics_criticsList_item_foot_dislike">
+                                                    <img src="../static/img/dislikeInCritic.png" style="width: 15px; height: 15px; margin-right: 15px;margin-top: 5px">
+                                                    <div class="itemCritics_criticsList_item_foot_dislike_data">2</div>
+                                                </div>
+                                                <div class="itemCritics_criticsList_item_foot_report" onmouseover="appendReport(this)" onmouseleave="removeReport()">
+                                                    <img src="../static/img/ellipsisVertical.png" style="width: 20px; height: 20px; margin-top: 5px">
+                                                </div>
+                                            </div>
+                                            <hr style="width: 90%; margin-left: -2%;">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div class="forumItem">
                         <div class="itemMain">
-                            <div class="itemMain_header"></div>
-                            <div class="itemMain_body"></div>
+                            <div class="itemMain_header">
+                                <div class="itemMain_header_IMG">
+                                    <img src="../static/img/defaultUser.png" style="width: 50px;height: 50px; border-radius: 50%;">
+                                </div>
+                                <div class="itemMain_header_details">
+                                    <div class="itemMain_header_details_name">DefaultUser</div>
+                                    <div class="itemMain_header_details_date">Published On 2022.12.04</div>
+                                </div>
+                                <div class="itemMain_header_report" onmouseover="appendReport(this)" onmouseleave="removeReport()">
+                                    <img src="../static/img/ellipsisVertical.png" style="width: 30px;height: 30px;margin-top: 10px;">
+                                </div>
+                            </div>
+                            <div class="itemMain_body">
+                                <div class="itemMain_body_content">灌水灌水灌水灌水灌水灌水灌水灌水灌水灌水灌水灌水灌水灌水灌水灌水灌水灌水灌水灌水</div>
+                                <div class="itemMain_body_IMG">
+                                    <!--todo:add an index to every item to ease the clearAll function-->
+                                    <img class="itemMain_body_IMG_singleIMG" src="../static/img/login.jpg" onclick="picRespond(this)" >
+                                    <img class="itemMain_body_IMG_singleIMG" src="../static/img/login.jpg" onclick="picRespond(this)">
+                                    <img class="itemMain_body_IMG_singleIMG" src="../static/img/login.jpg" onclick="picRespond(this)">
+                                    <img class="itemMain_body_IMG_singleIMG" src="../static/img/login.jpg" onclick="picRespond(this)">
+                                    <img class="itemMain_body_IMG_singleIMG" src="../static/img/login.jpg" onclick="picRespond(this)">
+
+
+                                </div>
+                            </div>
+                            <div class="itemMainFooter">
+                                <!--todo:This place should link with actual data-->
+                                <div class="itemMainFooter_share">
+                                    <img src="../static/img/shareInForum.png" style="width: 30px; height: 30px;">
+                                    <div class="itemMainFooter_share_data">1</div>
+                                </div>
+                                <div class="itemMainFooter_comment">
+                                    <img src="../static/img/commentInForum.png" style="width: 30px; height: 30px;">
+                                    <div class="itemMainFooter_comment_data">2</div>
+                                </div>
+                                <div class="itemMainFooter_like">
+                                    <img src="../static/img/likeInForum.png" style="width: 30px; height: 30px;">
+                                    <div class="itemMainFooter_like_data">3</div>
+                                </div>
+                            </div>
+                            <hr style="width: 80%; margin-left: 10%;">
                         </div>
-                        <div class="itemCritics"></div>
+                        <div class="itemCritics">
+                            <form class="itemCritics_Form" action="#" method="post">
+                                <div class="itemCritics_Form_user"><img src="../static/img/defaultUser.png" style="width:40px;height: 40px"></div>
+                                <textarea name="itemCriticsForm"   rows="4" placeholder="灌下你的水" minlength="1" maxlength="80" ></textarea>
+                                <button class="commentSubmit" type="submit">灌水</button>
+                            </form>
+                            <div class="itemCritics_critics">
+                                <hr style="width: 72%;margin-left: 18%;">
+                                <!--todo:grab latest remarks-->
+                                <div class="itemCritics_criticsList">
+                                    <div class="itemCritics_criticsList_item">
+                                        <div class="itemCritics_criticsList_item_user">
+                                            <img src="../static/img/defaultUser.png" style="width: 40px;height: 40px;">
+                                        </div>
+                                        <div class="itemCritics_criticsList_item_details">
+                                            <div class="itemCritics_criticsList_item_name">DefaultUser</div>
+                                            <div class="itemCritics_criticsList_item_content">评论评论评评论评论评论评论评论评论评论评论</div>
+                                            <div class="itemCritics_criticsList_item_foot">
+                                                <div class="itemCritics_criticsList_item_foot_time">Published on 2022.12.5</div>
+                                                <div class="itemCritics_criticsList_item_foot_like">
+                                                    <img src="../static/img/likeInCritic.png" style="width: 15px; height: 15px; margin-right: 15px;margin-top: 5px">
+                                                    <div class="itemCritics_criticsList_item_foot_like_data">1</div>
+                                                </div>
+                                                <div class="itemCritics_criticsList_item_foot_dislike">
+                                                    <img src="../static/img/dislikeInCritic.png" style="width: 15px; height: 15px; margin-right: 15px;margin-top: 5px">
+                                                    <div class="itemCritics_criticsList_item_foot_dislike_data">2</div>
+                                                </div>
+                                                <div class="itemCritics_criticsList_item_foot_report" onmouseover="appendReport(this)" onmouseleave="removeReport()">
+                                                    <img src="../static/img/ellipsisVertical.png" style="width: 20px; height: 20px; margin-top: 5px">
+                                                </div>
+                                            </div>
+                                            <hr style="width: 90%; margin-left: -2%;">
+                                        </div>
+                                    </div>
+                                    <div class="itemCritics_criticsList_item">
+                                        <div class="itemCritics_criticsList_item_user">
+                                            <img src="../static/img/defaultUser.png" style="width: 40px;height: 40px;">
+                                        </div>
+                                        <div class="itemCritics_criticsList_item_details">
+                                            <div class="itemCritics_criticsList_item_name">DefaultUser</div>
+                                            <div class="itemCritics_criticsList_item_content">评论评论评论评论论评评论评论评论评论评论评论评论评论评论评论评论评论评论评论评论评论论评论评论评论评论</div>
+                                            <div class="itemCritics_criticsList_item_foot">
+                                                <div class="itemCritics_criticsList_item_foot_time">Published on 2022.12.5</div>
+                                                <div class="itemCritics_criticsList_item_foot_like">
+                                                    <img src="../static/img/likeInCritic.png" style="width: 15px; height: 15px; margin-right: 15px;margin-top: 5px">
+                                                    <div class="itemCritics_criticsList_item_foot_like_data">1</div>
+                                                </div>
+                                                <div class="itemCritics_criticsList_item_foot_dislike">
+                                                    <img src="../static/img/dislikeInCritic.png" style="width: 15px; height: 15px; margin-right: 15px;margin-top: 5px">
+                                                    <div class="itemCritics_criticsList_item_foot_dislike_data">2</div>
+                                                </div>
+                                                <div class="itemCritics_criticsList_item_foot_report" onmouseover="appendReport(this)" onmouseleave="removeReport()">
+                                                    <img src="../static/img/ellipsisVertical.png" style="width: 20px; height: 20px; margin-top: 5px">
+                                                </div>
+                                            </div>
+                                            <hr style="width: 90%; margin-left: -2%;">
+                                        </div>
+                                    </div>
+                                    <div class="itemCritics_criticsList_item">
+                                        <div class="itemCritics_criticsList_item_user">
+                                            <img src="../static/img/defaultUser.png" style="width: 40px;height: 40px;">
+                                        </div>
+                                        <div class="itemCritics_criticsList_item_details">
+                                            <div class="itemCritics_criticsList_item_name">DefaultUser</div>
+                                            <div class="itemCritics_criticsList_item_content">评论评论评论评论评评论评论评论评论评论评论论评论评论评论评论</div>
+                                            <div class="itemCritics_criticsList_item_foot">
+                                                <div class="itemCritics_criticsList_item_foot_time">Published on 2022.12.5</div>
+                                                <div class="itemCritics_criticsList_item_foot_like">
+                                                    <img src="../static/img/likeInCritic.png" style="width: 15px; height: 15px; margin-right: 15px;margin-top: 5px">
+                                                    <div class="itemCritics_criticsList_item_foot_like_data">1</div>
+                                                </div>
+                                                <div class="itemCritics_criticsList_item_foot_dislike">
+                                                    <img src="../static/img/dislikeInCritic.png" style="width: 15px; height: 15px; margin-right: 15px;margin-top: 5px">
+                                                    <div class="itemCritics_criticsList_item_foot_dislike_data">2</div>
+                                                </div>
+                                                <div class="itemCritics_criticsList_item_foot_report" onmouseover="appendReport(this)" onmouseleave="removeReport()">
+                                                    <img src="../static/img/ellipsisVertical.png" style="width: 20px; height: 20px; margin-top: 5px">
+                                                </div>
+                                            </div>
+                                            <hr style="width: 90%; margin-left: -2%;">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     <div class="forumItem">
                         <div class="itemMain">
-                            <div class="itemMain_header"></div>
-                            <div class="itemMain_body"></div>
+                            <div class="itemMain_header">
+                                <div class="itemMain_header_IMG">
+                                    <img src="../static/img/defaultUser.png" style="width: 50px;height: 50px; border-radius: 50%;">
+                                </div>
+                                <div class="itemMain_header_details">
+                                    <div class="itemMain_header_details_name">DefaultUser</div>
+                                    <div class="itemMain_header_details_date">Published On 2022.12.04</div>
+                                </div>
+                                <div class="itemMain_header_report" onmouseover="appendReport(this)" onmouseleave="removeReport()">
+                                    <img src="../static/img/ellipsisVertical.png" style="width: 30px;height: 30px;margin-top: 10px;">
+                                </div>
+                            </div>
+                            <div class="itemMain_body">
+                                <div class="itemMain_body_content">灌水灌水灌水灌水灌水灌水灌水灌水灌水灌水灌水灌水灌水灌水灌水灌水灌水灌水灌水灌水</div>
+                                <div class="itemMain_body_IMG">
+                                    <!--todo:add an index to every item to ease the clearAll function-->
+                                    <img class="itemMain_body_IMG_singleIMG" src="../static/img/login.jpg" onclick="picRespond(this)" >
+                                    <img class="itemMain_body_IMG_singleIMG" src="../static/img/login.jpg" onclick="picRespond(this)">
+                                    <img class="itemMain_body_IMG_singleIMG" src="../static/img/login.jpg" onclick="picRespond(this)">
+                                    <img class="itemMain_body_IMG_singleIMG" src="../static/img/login.jpg" onclick="picRespond(this)">
+                                </div>
+                            </div>
+                            <div class="itemMainFooter">
+                                <!--todo:This place should link with actual data-->
+                                <div class="itemMainFooter_share">
+                                    <img src="../static/img/shareInForum.png" style="width: 30px; height: 30px;">
+                                    <div class="itemMainFooter_share_data">1</div>
+                                </div>
+                                <div class="itemMainFooter_comment">
+                                    <img src="../static/img/commentInForum.png" style="width: 30px; height: 30px;">
+                                    <div class="itemMainFooter_comment_data">2</div>
+                                </div>
+                                <div class="itemMainFooter_like">
+                                    <img src="../static/img/likeInForum.png" style="width: 30px; height: 30px;">
+                                    <div class="itemMainFooter_like_data">3</div>
+                                </div>
+                            </div>
+                            <hr style="width: 80%; margin-left: 10%;">
                         </div>
-                        <div class="itemCritics"></div>
+                        <div class="itemCritics">
+                            <form class="itemCritics_Form" action="#" method="post">
+                                <div class="itemCritics_Form_user"><img src="../static/img/defaultUser.png" style="width:40px;height: 40px"></div>
+                                <textarea name="itemCriticsForm"   rows="4" placeholder="灌下你的水" minlength="1" maxlength="80" ></textarea>
+                                <button class="commentSubmit" type="submit">灌水</button>
+                            </form>
+                            <div class="itemCritics_critics">
+                                <hr style="width: 72%;margin-left: 18%;">
+                                <!--todo:grab latest remarks-->
+                                <div class="itemCritics_criticsList">
+                                    <div class="itemCritics_criticsList_item">
+                                        <div class="itemCritics_criticsList_item_user">
+                                            <img src="../static/img/defaultUser.png" style="width: 40px;height: 40px;">
+                                        </div>
+                                        <div class="itemCritics_criticsList_item_details">
+                                            <div class="itemCritics_criticsList_item_name">DefaultUser</div>
+                                            <div class="itemCritics_criticsList_item_content">评论评论评评论评论评论评论评论评论评论评论</div>
+                                            <div class="itemCritics_criticsList_item_foot">
+                                                <div class="itemCritics_criticsList_item_foot_time">Published on 2022.12.5</div>
+                                                <div class="itemCritics_criticsList_item_foot_like">
+                                                    <img src="../static/img/likeInCritic.png" style="width: 15px; height: 15px; margin-right: 15px;margin-top: 5px">
+                                                    <div class="itemCritics_criticsList_item_foot_like_data">1</div>
+                                                </div>
+                                                <div class="itemCritics_criticsList_item_foot_dislike">
+                                                    <img src="../static/img/dislikeInCritic.png" style="width: 15px; height: 15px; margin-right: 15px;margin-top: 5px">
+                                                    <div class="itemCritics_criticsList_item_foot_dislike_data">2</div>
+                                                </div>
+                                                <div class="itemCritics_criticsList_item_foot_report" onmouseover="appendReport(this)" onmouseleave="removeReport()">
+                                                    <img src="../static/img/ellipsisVertical.png" style="width: 20px; height: 20px; margin-top: 5px">
+                                                </div>
+                                            </div>
+                                            <hr style="width: 90%; margin-left: -2%;">
+                                        </div>
+                                    </div>
+                                    <div class="itemCritics_criticsList_item">
+                                        <div class="itemCritics_criticsList_item_user">
+                                            <img src="../static/img/defaultUser.png" style="width: 40px;height: 40px;">
+                                        </div>
+                                        <div class="itemCritics_criticsList_item_details">
+                                            <div class="itemCritics_criticsList_item_name">DefaultUser</div>
+                                            <div class="itemCritics_criticsList_item_content">评论评论评论评论论评评论评论评论评论评论评论评论评论评论评论评论评论评论评论评论评论论评论评论评论评论</div>
+                                            <div class="itemCritics_criticsList_item_foot">
+                                                <div class="itemCritics_criticsList_item_foot_time">Published on 2022.12.5</div>
+                                                <div class="itemCritics_criticsList_item_foot_like">
+                                                    <img src="../static/img/likeInCritic.png" style="width: 15px; height: 15px; margin-right: 15px;margin-top: 5px">
+                                                    <div class="itemCritics_criticsList_item_foot_like_data">1</div>
+                                                </div>
+                                                <div class="itemCritics_criticsList_item_foot_dislike">
+                                                    <img src="../static/img/dislikeInCritic.png" style="width: 15px; height: 15px; margin-right: 15px;margin-top: 5px">
+                                                    <div class="itemCritics_criticsList_item_foot_dislike_data">2</div>
+                                                </div>
+                                                <div class="itemCritics_criticsList_item_foot_report" onmouseover="appendReport(this)" onmouseleave="removeReport()">
+                                                    <img src="../static/img/ellipsisVertical.png" style="width: 20px; height: 20px; margin-top: 5px">
+                                                </div>
+                                            </div>
+                                            <hr style="width: 90%; margin-left: -2%;">
+                                        </div>
+                                    </div>
+                                    <div class="itemCritics_criticsList_item">
+                                        <div class="itemCritics_criticsList_item_user">
+                                            <img src="../static/img/defaultUser.png" style="width: 40px;height: 40px;">
+                                        </div>
+                                        <div class="itemCritics_criticsList_item_details">
+                                            <div class="itemCritics_criticsList_item_name">DefaultUser</div>
+                                            <div class="itemCritics_criticsList_item_content">评论评论评论评论评评论评论评论评论评论评论论评论评论评论评论</div>
+                                            <div class="itemCritics_criticsList_item_foot">
+                                                <div class="itemCritics_criticsList_item_foot_time">Published on 2022.12.5</div>
+                                                <div class="itemCritics_criticsList_item_foot_like">
+                                                    <img src="../static/img/likeInCritic.png" style="width: 15px; height: 15px; margin-right: 15px;margin-top: 5px">
+                                                    <div class="itemCritics_criticsList_item_foot_like_data">1</div>
+                                                </div>
+                                                <div class="itemCritics_criticsList_item_foot_dislike">
+                                                    <img src="../static/img/dislikeInCritic.png" style="width: 15px; height: 15px; margin-right: 15px;margin-top: 5px">
+                                                    <div class="itemCritics_criticsList_item_foot_dislike_data">2</div>
+                                                </div>
+                                                <div class="itemCritics_criticsList_item_foot_report" onmouseover="appendReport(this)" onmouseleave="removeReport()">
+                                                    <img src="../static/img/ellipsisVertical.png" style="width: 20px; height: 20px; margin-top: 5px">
+                                                </div>
+                                            </div>
+                                            <hr style="width: 90%; margin-left: -2%;">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
+
                 </div>
             </div>
         </div>
+        <script src="../static/js/forum.js"></script>
         <script src="../static/js/universal.js"></script>
         <script src="../static/js/jquery-3.6.1.js"></script>
     </body>
