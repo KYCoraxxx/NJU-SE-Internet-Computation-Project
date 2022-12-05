@@ -68,20 +68,34 @@
                     <div class = "goodName">迷迭香</div>
                     <div class = "goodTag">食材|香料</div>
                     <div class = "goodPrice">￥25</div>
-                    <div class = "goodProvider">
-                        <div style = "width: 40px;">商家：</div>
-                        <div class = "goodProviderLink" onmouseover = "changeProviderLink(1)" onmouseleave = "changeProviderLink(0)">root</div>
-                        <!--todo: 获取商家id和主页链接-->
-                    </div>
                     <div style="width: 280px; display: flex; align-content: center; margin-top: 20px;">
                         <form style="height: 40px; width: 120px;">
                             <input type="button" value="立即购买" class="btn" style="background-color: deeppink; font-weight: bold;"/>
                         </form>
                     </div>
                 </div>
+                <div class = "providerInfoBox">
+                    <div class = "providerSculp">
+                        <img src = "../static/img/defaultUser.png"/>
+                    </div>
+                    <div class = "providerName" onmouseover = "changeProviderName(1)" onmouseleave = "changeProviderName(0)">root</div>
+                    <!--todo: 获取商家id和主页链接-->
+                    <div class = "saying">最怕你一生碌碌无为，还安慰自己平凡可贵</div>
+                    <div class = "providerInfo">商家信用分：100</div>
+                    <div class = "providerInfo">常售卖商品：null</div>
+                    <div class = "providerInfo">买家好评率：0%</div>
+                </div>
             </div>
             <div class = "goodDetail">
-                
+                <div class = "detailOptionBar">
+                    <div class = "detailOption" onclick = "showDetailContent(1)">详细信息</div>
+                    <div class = "detailOption" onclick = "showDetailContent(2)">更多图片</div>
+                </div>
+                    <div class = "detailContent">
+                        <div class = "article-subtitle">原产地：null</div>
+                        <div class = "article-subtitle">保质期：null</div>
+                        <div class = "article-subtitle">用途：null</div>
+                    </div>
             </div>
         </div>
 

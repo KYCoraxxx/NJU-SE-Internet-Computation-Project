@@ -5,24 +5,25 @@
     flex-direction: row;
     margin-left: 0px;
     margin-top: 50px;
-    justify-content: center;
+    justify-content: left;
     align-items: center;
 }
 .goodBar img{
     height: 300px;
     width: 300px;
     padding-bottom: 30px;
+    margin-left: 100px;
 }
 .goodInfo{
     height: 300px;
-    width: 50%;
+    width: 30%;
     margin-left: 5%;
-    margin-top: 30px;
+    margin-top: 0px;
     flex-direction: column;
 }
 .goodName{
     letter-spacing: 4px;
-    font-size: 30px;
+    font-size: 40px;
     line-height: 200%;
     font-weight: bold;
 }
@@ -37,19 +38,90 @@
     line-height: 200%;
     color: red;
 }
-.goodProvider{
-    letter-spacing: 1px;
-    font-size: 10px;
-    line-height: 300%;
-    display: flex;
-    flex-direction: row;
-}
-.goodProviderLink{
-    letter-spacing: 1px;
-    font-size: 10px;
-    line-height: 300%;
-    color: black;
-}
 .goodProviderLink:hover{
     cursor: pointer;
+}
+.providerInfoBox{
+    height: 300px;
+    width: 30%;
+    flex-direction: column;
+    justify-content: center;
+}
+.providerSculp{
+    height: 50px;
+    width: 50px;
+    margin-left: calc(50% - 25px);
+}
+.providerSculp img{
+    height: 50px;
+    width: 50px;
+    margin-left: 0px;
+    padding-left: 0px;
+}
+.providerName{
+    letter-spacing: 2px;
+    font-size: 30px;
+    line-height: 200%;
+    font-weight: bold;
+    text-align: center;
+}
+.providerName:hover{
+    cursor: pointer;
+}
+.providerInfo{
+    letter-spacing: 1px;
+    font-size: 15px;
+    line-height: 200%;
+    font-weight: bold;
+    text-align: center;
+}
+.goodDetail{
+    height: auto;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-left: 0px;
+    margin-top: 30px;
+    justify-content: left;
+    align-items: center;
+}
+.detailOptionBar{
+    height: 60px;
+    width: 100%;
+    align-items: center;
+    flex-direction: row;
+    display: flex;
+}
+.detailOption{
+    width: 20%;
+    margin: 0 15%;
+    font-size: 25px;
+    letter-spacing: 2px;
+    line-height: 150%;
+    font-weight: bold;
+    text-align: center;
+}
+.detailOption:hover{
+    cursor: pointer;
+    background-color: lightgray;
+    color: whitesmoke;
+}
+.detailContent{
+    height: auto;
+    width: 100%;
+    margin-top: 20px;
+    font-size: 20px;
+    letter-spacing: 2px;
+    line-height: 200%;
+    font-weight: normal;
+    text-align: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
+.detailContent img{
+    height: 400px;
+    width: 400px;
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
