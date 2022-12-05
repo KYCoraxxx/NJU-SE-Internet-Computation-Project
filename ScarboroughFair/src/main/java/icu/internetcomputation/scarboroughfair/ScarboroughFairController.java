@@ -17,7 +17,7 @@ public class ScarboroughFairController {
         return "login";
     }
 
-    @RequestMapping(path="/index",method = RequestMethod.POST)
+    @RequestMapping(path="/index",method = RequestMethod.GET)
     public String homepage(Model model){
         return "index";
     }
