@@ -1,5 +1,5 @@
 var musicOpacity = 0;
-var userID = 2;
+var userID;
 var avatorScaler = function (size){
     $(".avator img").css("width", size);
     $(".avator img").css("height", size);
@@ -14,7 +14,7 @@ var deleteDropDown = function (){
 }
 var appendDropDown = function (){
     if($(".dropDown").length > 0)return;
-    if(userID !== 0) {
+    if(userID !== undefined) {
         $.ajax({
                 type: "post",
                 url: "http://localhost/userService/getDropdown",
@@ -27,7 +27,7 @@ var appendDropDown = function (){
                     userBox.css("height", "410px");
                     userBox.append(dropDown);
                     setTimeout(function () {
-                        dropDown.append($("<div class='article-subtitle' style='height: 10%'>{{data.userName}}</div>"));
+                        dropDown.append($("<div class='article-subtitle' style='height: 10%'></div>").text(data.userName));
                         dropDown.append($("<div class='saying'>最怕你一生碌碌无为，还安慰自己平凡可贵</div>"));
                         dropDown.append($("<button class='dropDownBtn'><img src='/img/userCenter.png'/>个人中心</button>"));
                         dropDown.append($("<button class='dropDownBtn'><img src='/img/good.png'/>上架管理</button>"));
@@ -160,8 +160,8 @@ var postInfo = function (){
                     success: function(data) {
                         if(data.isSucceed)
                         {
+                            window.location.replace("http://localhost/index");
                             userID = data.id;
-                            window.open("http://localhost/index");
                         }
                         alert(data.message);
                     }
