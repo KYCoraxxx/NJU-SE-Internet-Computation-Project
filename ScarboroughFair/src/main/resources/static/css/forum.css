@@ -5,15 +5,47 @@
     top: 70px;
     left: 200px;
     background-image: url("../img/login.jpg");
+    overflow: hidden;
+}
+
+
+.returnTopBtn{
+    width: 50px;
+    height: 50px;
+    border-radius: 10px;
+    background-color: whitesmoke;
+    position: absolute;
+    top: 61%;
+    left: 78%;
+    margin-top: 10%;
+    cursor: pointer;
+}
+
+.reportBtn{
+    position: absolute;
+    top: 120%;
+    left: -6px;
+    width: 40px;
+    height: 30px;
+    font-size: 12px;
+    border: 1px solid black;
+    border-radius: 10px;
+    text-align: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.reportBtn:hover{
+    background-color: rgba(0,0,0,0.2);
 }
 
 .forumContent{
-    width: 60%;
+    width: 75%;
     height: auto;
     position: relative;
     background-color: rgba(255,255,255,0.2);
-
     min-height: 700px;
+    overflow: hidden;
 }
 /*标题栏---------------------------------*/
 .forumTitle{
@@ -41,52 +73,60 @@
     line-height: 200px;
     margin-top: 3%;
     border-radius: 3%;
-    min-height: 300px;
+    min-height: 500px;
     display: flex;
     flex-direction: column;
 }
 
 .itemMain{
     width: 100%;
-    min-height: 200px;
-    background-color: rebeccapurple;
-
+    min-height: 300px;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
+    justify-content: space-between;
 }
-
+/*头部栏----------------------------------------------------------*/
 .itemMain_header{
     width: 100%;
     height: 50px;
     position: relative;
-    /*todo:why on earth is the pic int the middle?????*/
+    display: flex;
+    flex-direction: row;
 }
 
 .itemMain_header_IMG{
     position: absolute;
-    height: 100%;
-    left: 10%;
-    top: -100%;
+    width: 50%;
+    left: 5%;
+    top: 25%;
+    line-height: 50px;
 }
 
 .itemMain_header_details{
     position: absolute;
     width: 50%;
     height: 100%;
-    left: 25%;
-    top:-150%;
+    left: 17%;
     display: flex;
     flex-direction: column;
+    line-height: 50px;
 }
 
 .itemMain_header_report{
     position: absolute;
     height: 100%;
+    top: 50%;
     right: 3%;
-    top: -120%;
+    line-height: 50px;
+    border-radius: 20%;
+}
+
+.itemMain_header_report_btn:hover{
+
 }
 
 .itemMain_header_report:hover{
+    background-color: rgba(0,0,0,0.2);
     cursor: pointer;
 }
 
@@ -102,18 +142,214 @@
     color: dimgrey;
 }
 
+
+/*主体栏----------------------------*/
 .itemMain_body{
-
-}
-
-.itemCritics{
-    width: 100%;
-    background-color: dodgerblue;
-    min-height: 100px;
-
+    position: relative;
+    width: 50%;
+    height: auto;
+    left: 16.5%;
+    margin-top: 5%;
     display: flex;
     flex-direction: column;
 }
+/*帖子主体-----------------------------*/
+.itemMain_body_content{
+    font-size: 20px;
+    font-family: 仿宋,serif;
+    text-indent: 1.5em;
+    line-height: 30px;
+}
+
+.itemMain_body_IMG{
+    margin-top: 2%;
+    width: 500px;
+    height: auto;
+    min-height: 100px;
+    line-height: 19px;
+}
+
+.itemMain_body_IMG_singleIMG{
+    width: 150px;
+    height: 150px;
+    cursor: pointer;
+}
+
+.itemMain_body_IMG_singleIMG.active{
+    width: 500px;
+    height: 500px;
+}
+
+/*帖子页脚-------------------------------*/
+
+.itemMainFooter{
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    line-height: 30px;
+    left: 15%;
+    top: 10px;
+    margin-bottom: 2%;
+}
+
+.itemMainFooter div{
+    display: flex;
+    flex-direction: row;
+    margin-left: 20px;
+    transition: 0.2s ease-in-out;
+}
+
+.itemMainFooter div:hover{
+    border-radius: 10%;
+    background-color: rgba(0,0,0,0.2);
+    cursor: pointer;
+}
+/*评论区-----------------------------------------------------------------*/
+.itemCritics{
+    width: 100%;
+    min-height: 200px;
+    display: flex;
+    flex-direction: column;
+}
+
+.itemCritics_Form{
+    position: relative;
+    height: 100px;
+    line-height: 100px;
+}
+
+.itemCritics_Form_user{
+    position: absolute;
+    left: 10%;
+}
+
+.itemCritics_Form textarea{
+    position: absolute;
+    left: 18%;
+    border: 1px dotted grey;
+    border-radius: 5px;
+    width: 60%;
+    resize: none;
+    padding: 2% 0 0 3%;
+
+}
+
+.commentSubmit{
+    position: absolute;
+    right: 8%;
+    width: 10%;
+    height: 77%;
+    background-color: rgba(100,149,237,1);
+    border: none;
+    border-radius: 10px;
+    transition: 0.2s ease-in-out;
+    color: whitesmoke;
+    font-style: italic;
+    font-size: 15px;
+    font-family: 幼圆,serif;
+}
+
+.commentSubmit:hover{
+    border: 1px solid darkslateblue;
+    background-color: rgba(100,149,237,0.5);
+}
+
+/*评论栏----------------------------------------*/
+
+.itemCritics_criticsList{
+    width: 100%;
+    min-height: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    position: relative;
+}
+
+.itemCritics_criticsList_item{
+    width: 100%;
+    min-height: 100px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    position: relative;
+}
+
+.itemCritics_criticsList_item_user{
+    width: 20%;
+    line-height: 100px;
+    position: relative;
+    left: 10%;
+}
+
+.itemCritics_criticsList_item_details{
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.itemCritics_criticsList_item_name{
+    line-height: 20px;
+    position: relative;
+    top: 5%;
+    font-size: 17px;
+}
+
+.itemCritics_criticsList_item_content{
+    width: 80%;
+    top:20%;
+    height: 100px;
+    line-height: 17px;
+    position: relative;
+    font-size: 15px;
+    text-indent: 2em;
+}
+
+.itemCritics_criticsList_item_foot{
+    width: 100%;
+    line-height: 30px;
+    display: flex;
+    flex-direction: row;
+    position: relative;
+}
+
+.itemCritics_criticsList_item_foot div{
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    transition: 0.2s ease-in-out;
+}
+
+.itemCritics_criticsList_item_foot_like{
+    margin-left: 20px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+.itemCritics_criticsList_item_foot_dislike{
+    margin-left: 20px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+
+.itemCritics_criticsList_item_foot_report{
+    margin-left: 50%;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.itemCritics_criticsList_item_foot_like:hover{
+    background-color: rgba(0,0,0,0.2);
+}
+.itemCritics_criticsList_item_foot_dislike:hover{
+    background-color: rgba(0,0,0,0.2);
+}
+.itemCritics_criticsList_item_foot_report:hover{
+    background-color: rgba(0,0,0,0.2);
+}
+
+
+
 
 
 
