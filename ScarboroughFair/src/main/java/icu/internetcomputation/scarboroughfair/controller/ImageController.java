@@ -68,12 +68,11 @@ public class ImageController {
         Date todayDate = new Date();
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
         String today = dateFormat.format(todayDate);
-        
-        // 域名访问的相对路径目录（通过浏览器访问的链接-虚拟路径）
+        //域名访问的相对路径目录，通过浏览器访问的链接（虚拟路径）
         String saveToPath = accessPath + today + "/";
-        // 真实路径，实际储存的目录
+        // 真实的路径，实际储存的目录
         String realPath = realBasePath + today + "/";
-        // 储存文件的物理路径，使用本地路径储存
+        //储存文件的物理路径，建立在本地
         String filepath = realPath + fileName;
         try {
             File f = new File(filepath);
