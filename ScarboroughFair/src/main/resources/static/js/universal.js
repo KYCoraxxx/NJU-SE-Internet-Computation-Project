@@ -2,20 +2,19 @@ var musicOpacity = 0;
 var userID;
 var userName;
 var userAvator;
+if(document.cookie.length === 0)
+    window.location.replace("http://172.24.17.172/login");
 $.ajax({
     type:"post",
-        url:"http://localhost/userService/getData",
+    url:"http://172.24.17.172/userService/getData",
     data:{
-        "page": "universal"
+        "page": "universal",
+        "userID": document.cookie
     },
     success: function(data) {
-        if(data.userID === 0)
-            window.location.replace("http://localhost/login");
-        else {
-            userID = data.userID;
-            userName = data.userName;
-            userAvator = data.avator;
-        }
+        userID = data.userID;
+        userName = data.userName;
+        userAvator = data.avator;
     }
 });
 var avatorScaler = function (size){

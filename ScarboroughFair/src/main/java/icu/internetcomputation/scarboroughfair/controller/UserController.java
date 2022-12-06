@@ -18,6 +18,7 @@ public class UserController
 
     @RequestMapping(path = "/checkUser", method = RequestMethod.POST)
     @ResponseBody
+    @CrossOrigin
     public Message checkUser(@RequestParam(value="inputName") String userName , @RequestParam(value="inputPwd") String userPassword) 
     {
         StringBuilder password = new StringBuilder();
@@ -25,13 +26,12 @@ public class UserController
             password.append(userPassword.charAt(i));
         }
         Message message = userService.checkUser(userName, password.toString());
-        if(message.isSucceed)
-            userService.userID = message.id;
         return message;
     }
 
     @RequestMapping(path = "/addUser", method = RequestMethod.POST)
     @ResponseBody
+    @CrossOrigin
     public Message addUser(@RequestParam(value="inputName") String userName , @RequestParam(value="inputPwd") String userPassword,
      @RequestParam(value="inputPwd") String avatorUrl)
     {
@@ -47,7 +47,8 @@ public class UserController
 
     @RequestMapping(path="/getData", method = RequestMethod.POST)
     @ResponseBody
-    public Data getData(@RequestParam(value = "page") String page, Model model){
-        return userService.getData(page);
+    @CrossOrigin
+    public Data getData(@RequestParam(value = "page") String page, @RequestParam(value = "userID") String id, Model model){
+        return userService.getData(page, Integer.parseInt(id));
     }
 }

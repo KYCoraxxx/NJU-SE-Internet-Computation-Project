@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>pictureUploading</title>
-    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8 ">
+    <title>图片上传测试</title>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
 </head>
 <body>
-<form enctype="multipart/form-data" method="post" action="/uploadres">
-    文件：<input type="file" name="fileUpload"/>
-    <input type="submit" value="上传"/>
-</form>
+    <form>
+        文件：<input type="file" name="fileUpload"/>
+        <button style="height: 100px; width: 100px" onclick="upload()">上传</button>
+    </form>
+    <script src="/js/jquery-3.6.1.js"></script>
+    <script src="/js/upload.js"></script>
 </body>
 </html>

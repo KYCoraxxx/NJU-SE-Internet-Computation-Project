@@ -16,8 +16,6 @@ public class UserService {
     @Resource
     UserRepository userRepository;
 
-    public int userID = 0;
-
     public Iterable<User> findAll()
     {
         return userRepository.findAll();
@@ -54,8 +52,7 @@ public class UserService {
         return new Message(true,"欢迎来到新世界o(*￣▽￣*)ブ",null,id);
     }
 
-    public Data getData(String page){
-        if(userID == 0)return new Data(0, "norman", "noavator");
+    public Data getData(String page, int userID){
         User user = findById(userID);
         return new Data(user.getId(), user.getName(), user.getAvatorUrl());
     }
@@ -72,7 +69,6 @@ public class UserService {
             return new Message(false,"咒语记错了啦……┭┮﹏┭┮");
         }else
         {
-            userID = user.getId();
             return new Message(true,String.format("欢迎回家！ %s さま~o(*￣▽￣*)ブ",user.getName()),null, user.getId());
         }
     }

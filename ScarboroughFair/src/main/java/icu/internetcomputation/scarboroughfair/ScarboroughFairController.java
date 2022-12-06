@@ -23,7 +23,7 @@ public class ScarboroughFairController {
 
     @RequestMapping(path="/detail",method = RequestMethod.GET)
     public String detailpage(Model model){
-        return "detail";
+        return "uploadImg";
     }
    
 }
