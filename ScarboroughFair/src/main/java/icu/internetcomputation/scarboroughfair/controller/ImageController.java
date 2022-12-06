@@ -37,10 +37,7 @@ public class ImageController {
     @PostMapping(path="/upload")
     @ResponseBody
     public Message upload(@RequestParam(value = "file") MultipartFile fileUpload, Model model){
-        //绝对路径
-        // String baseDir = "C:/D/Program/web/NJU-SE-Internet-Computation-Project/ScarboroughFair/testImageBalabala/hha";
-        // String baseDir = "C://Users//Corax//Desktop//upload//image";
-        // System.out.println(fileUpload.toString());
+
         
         // 随便加个检查格式
         // String fileType = fileUpload.getContentType();
@@ -76,15 +73,11 @@ public class ImageController {
         String filepath = realPath + fileName;
         try {
             File f = new File(filepath);
-            // File f=new File(UploadPath);
-            // FileUtil.uploadFile(fileUpload.getBytes(), UploadPath, fileName);
             
-            File targetfile = new File(filepath);
-            if (!targetfile.getParentFile().exists()) {   //create parent file
-                targetfile.getParentFile().mkdirs();
+            if (!f.getParentFile().exists()) {   //create parent file
+                f.getParentFile().mkdirs();
             }
 
-            // fileUpload.transferTo(targetfile);
             fileUpload.transferTo(f.getAbsoluteFile());
 
             return new Message(true,"上传成功", saveToPath+fileName);
