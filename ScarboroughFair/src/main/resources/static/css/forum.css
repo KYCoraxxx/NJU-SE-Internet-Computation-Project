@@ -16,7 +16,7 @@
     background-color: whitesmoke;
     position: absolute;
     top: 61%;
-    left: 78%;
+    left: 80%;
     margin-top: 10%;
     cursor: pointer;
 }
@@ -40,21 +40,50 @@
 }
 
 .forumContent{
-    width: 75%;
+    width: 70%;
     height: auto;
     position: relative;
     background-color: rgba(255,255,255,0.2);
     min-height: 700px;
     overflow: hidden;
 }
+
+
+
 /*标题栏---------------------------------*/
 .forumTitle{
     width: 100%;
+    height: 80px;
     position: relative;
     display: flex;
     flex-direction: row;
-    justify-content: center;
     padding-top: 5%;
+}
+
+@keyframes forumTitleAnimation {
+    40%{
+        margin-left: 42%;
+        background-image: url("../img/forumTitleOne.png");
+    }
+    65%{
+        margin-left: 42%;
+        background-image: url("../img/forumTitleTwo.png");
+    }
+    90%{
+        margin-left: 42%;
+        background-image: url("../img/forumTitleOne.png");
+    }
+    100%{
+        margin-left: 100%;
+    }
+}
+
+.forumTitle_IMG{
+    margin-left: -20%;
+    width: 64px;
+    height: 64px;
+    background-image: url("../img/forumTitleOne.png");
+    animation: forumTitleAnimation 10s infinite;
 }
 
 
@@ -100,6 +129,21 @@
     left: 5%;
     top: 25%;
     line-height: 50px;
+}
+
+/*移动到图标上抖动*/
+
+@keyframes moveUser {
+    25%{
+        margin-top: -2%;
+    }
+    100%{
+        margin-top: 0%;
+    }
+}
+
+.itemMain_header_IMG:hover{
+    animation: moveUser 2s infinite;
 }
 
 .itemMain_header_details{
@@ -274,11 +318,16 @@
     position: relative;
 }
 
+
 .itemCritics_criticsList_item_user{
     width: 20%;
     line-height: 100px;
     position: relative;
     left: 10%;
+}
+
+.itemCritics_criticsList_item_user:hover{
+    animation: moveUser 2s infinite;
 }
 
 .itemCritics_criticsList_item_details{
