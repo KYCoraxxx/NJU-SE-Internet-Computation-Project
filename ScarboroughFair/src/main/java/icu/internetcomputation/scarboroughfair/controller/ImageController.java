@@ -5,7 +5,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import java.text.SimpleDateFormat;
-import icu.internetcomputation.scarboroughfair.FileUtil;
 import icu.internetcomputation.scarboroughfair.entity.Message;
 import java.io.File;
 import java.util.UUID;
@@ -37,6 +36,24 @@ public class ImageController {
     @PostMapping(path="/upload")
     @ResponseBody
     public Message upload(@RequestParam(value = "file") MultipartFile fileUpload, Model model){
+<<<<<<< HEAD
+=======
+
+        // 随便加个检查格式
+        // String fileType = fileUpload.getContentType();
+        // boolean Typeflag = false;
+        // for(String type: uploadImageTypes){
+        //     if(fileType.equals(type)){
+        //         Typeflag = true;
+        //         break;
+        //     }
+        // }
+        // if(!Typeflag){
+        //     return new Message(false, "请选择格式正确的图片", null);
+        // }
+
+        //获取随机文件名
+>>>>>>> fc6739d2ab611a3a83f63bc3c2c06a307a568764
         String fileName = fileUpload.getOriginalFilename();
         String suffixName = fileName.substring(fileName.lastIndexOf("."));
         fileName = UUID.randomUUID()+suffixName;
@@ -44,19 +61,17 @@ public class ImageController {
         Date todayDate = new Date();
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
         String today = dateFormat.format(todayDate);
-        
-        // 域名访问的相对路径目录（通过浏览器访问的链接-虚拟路径）
+        //域名访问的相对路径目录，通过浏览器访问的链接（虚拟路径）
         String saveToPath = accessPath + today + "/";
-        // 真实路径，实际储存的目录
+        // 真实的路径，实际储存的目录
         String realPath = realBasePath + today + "/";
-        // 储存文件的物理路径，使用本地路径储存
+        //储存文件的物理路径，建立在本地
         String filepath = realPath + fileName;
         try {
             File f = new File(filepath);
             
-            File targetfile = new File(filepath);
-            if (!targetfile.getParentFile().exists()) {   //create parent file
-                targetfile.getParentFile().mkdirs();
+            if (!f.getParentFile().exists()) {   //create parent file
+                f.getParentFile().mkdirs();
             }
 
             fileUpload.transferTo(f.getAbsoluteFile());

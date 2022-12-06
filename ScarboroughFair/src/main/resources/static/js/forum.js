@@ -52,12 +52,13 @@ var picRespond = function (obj){
 
 
 /*举报栏的添加------------------------------------------------*/
-var count = 0;
+var inCount = 0;
+var outCount = 0;
 var appendReport = function (obj){
-    if(count === 1){
+    if(inCount === 1){
         return;
     }
-    count++;
+    inCount++;
     var appendItem = $(obj);
     setTimeout(function (){
         // todo: add report info to database
@@ -66,9 +67,12 @@ var appendReport = function (obj){
 }
 
 var removeReport = function (){
-    if(count === 0){
+    outCount = (outCount + 1) % 2;
+    if(inCount === 0){
         return;
     }
-    count--;
-    $(".reportBtn").remove();
+    if(outCount === 0) {
+        inCount--;
+        $(".reportBtn").remove();
+    }
 }
