@@ -5,7 +5,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import java.text.SimpleDateFormat;
-import icu.internetcomputation.scarboroughfair.FileUtil;
 import icu.internetcomputation.scarboroughfair.entity.Message;
 import java.io.File;
 import java.util.UUID;
@@ -38,7 +37,6 @@ public class ImageController {
     @ResponseBody
     public Message upload(@RequestParam(value = "file") MultipartFile fileUpload, Model model){
 
-        
         // 随便加个检查格式
         // String fileType = fileUpload.getContentType();
         // boolean Typeflag = false;
@@ -51,11 +49,6 @@ public class ImageController {
         // if(!Typeflag){
         //     return new Message(false, "请选择格式正确的图片", null);
         // }
-
-
-
-
-
 
         //获取随机文件名
         String fileName = fileUpload.getOriginalFilename();
