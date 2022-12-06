@@ -20,10 +20,5 @@ public class ScarboroughFairController {
     public String homepage(Model model){
         return "index";
     }
-
-    @RequestMapping(path="/detail",method = RequestMethod.GET)
-    public String detailpage(Model model){
-        return "uploadImg";
-    }
    
 }

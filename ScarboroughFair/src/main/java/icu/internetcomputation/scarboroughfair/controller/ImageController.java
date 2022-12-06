@@ -37,30 +37,6 @@ public class ImageController {
     @PostMapping(path="/upload")
     @ResponseBody
     public Message upload(@RequestParam(value = "file") MultipartFile fileUpload, Model model){
-        //绝对路径
-        // String baseDir = "C:/D/Program/web/NJU-SE-Internet-Computation-Project/ScarboroughFair/testImageBalabala/hha";
-        // String baseDir = "C://Users//Corax//Desktop//upload//image";
-        // System.out.println(fileUpload.toString());
-        
-        // 随便加个检查格式
-        // String fileType = fileUpload.getContentType();
-        // boolean Typeflag = false;
-        // for(String type: uploadImageTypes){
-        //     if(fileType.equals(type)){
-        //         Typeflag = true;
-        //         break;
-        //     }
-        // }
-        // if(!Typeflag){
-        //     return new Message(false, "请选择格式正确的图片", null);
-        // }
-
-
-
-
-
-
-        //获取随机文件名
         String fileName = fileUpload.getOriginalFilename();
         String suffixName = fileName.substring(fileName.lastIndexOf("."));
         fileName = UUID.randomUUID()+suffixName;
@@ -77,15 +53,12 @@ public class ImageController {
         String filepath = realPath + fileName;
         try {
             File f = new File(filepath);
-            // File f=new File(UploadPath);
-            // FileUtil.uploadFile(fileUpload.getBytes(), UploadPath, fileName);
             
             File targetfile = new File(filepath);
             if (!targetfile.getParentFile().exists()) {   //create parent file
                 targetfile.getParentFile().mkdirs();
             }
 
-            // fileUpload.transferTo(targetfile);
             fileUpload.transferTo(f.getAbsoluteFile());
 
             return new Message(true,"上传成功", saveToPath+fileName);
@@ -95,26 +68,20 @@ public class ImageController {
         }
     }
 
+    @Configuration
+    public class UploadConfig implements WebMvcConfigurer{
+        @Value("${file.staticAccessPath}")
+        private String staticAccessPath;
 
+        @Value("${file.uploadFolder}")
+        private String uploadFolder;
 
-
-
-@Configuration
-public class UploadConfig implements WebMvcConfigurer{
-
-  @Value("${file.staticAccessPath}")
-  private String staticAccessPath;
-
-  @Value("${file.uploadFolder}")
-  private String uploadFolder;
-
-  @Override
-  public void addResourceHandlers(ResourceHandlerRegistry registry) 
-  {
-   registry.addResourceHandler(staticAccessPath).addResourceLocations("file:" + uploadFolder);
-  }
-
-}
+        @Override
+        public void addResourceHandlers(ResourceHandlerRegistry registry)
+        {
+            registry.addResourceHandler(staticAccessPath).addResourceLocations("file:" + uploadFolder);
+        }
+    }
 
 
 }

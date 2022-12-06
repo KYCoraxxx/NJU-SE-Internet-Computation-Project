@@ -67,7 +67,7 @@ var postInfo = function (){
             enpwd.css("border-color", "#25b3ff");
             $.ajax({
                     type:"post",
-                    url:"http://localhost/userService/addUser",
+                    url:"http://172.24.17.172/userService/addUser",
                     data:{
                         "inputName": usr[0].value,
                         "inputPwd":pwd[0].value
@@ -116,7 +116,7 @@ var postInfo = function (){
             }
             $.ajax({
                     type:"post",
-                    url:"http://localhost/userService/checkUser",
+                    url:"http://172.24.17.172/userService/checkUser",
                     data:{
                         "inputName": user[0].value,
                         "inputPwd": secretpwd
@@ -124,8 +124,8 @@ var postInfo = function (){
                     success: function(data) {
                         if(data.isSucceed)
                         {
-                            document.cookie = data.id;
-                            window.location.href = "http://localhost/index";
+                            $.cookie("userID", data.id);
+                            window.location.href = "http://172.24.17.172/index";
                         }
                         alert(data.message);
                     }

@@ -2,14 +2,15 @@ var musicOpacity = 0;
 var userID;
 var userName;
 var userAvator;
-if(document.cookie.length === 0)
+if($.cookie("userID") === undefined)
     window.location.replace("http://172.24.17.172/login");
 $.ajax({
     type:"post",
     url:"http://172.24.17.172/userService/getData",
+    async: false,
     data:{
         "page": "universal",
-        "userID": document.cookie
+        "userID": $.cookie("userID")
     },
     success: function(data) {
         userID = data.userID;
@@ -17,7 +18,10 @@ $.ajax({
         userAvator = data.avator;
     }
 });
+$(".avator img").prop("src", "http://172.24.17.172"+userAvator);
 var avatorScaler = function (size){
+    $(".avator").css("width", size);
+    $(".avator").css("height", size);
     $(".avator img").css("width", size);
     $(".avator img").css("height", size);
     if(size === "100px")
@@ -28,6 +32,10 @@ var avatorScaler = function (size){
 var deleteDropDown = function (){
     $(".userBox").css("height", "70px");
     $(".dropDown").remove();
+}
+var quitLogin = function (){
+    $.removeCookie("userID", {path: "/"});
+    window.location.replace("http://172.24.17.172/index");
 }
 var appendDropDown = function (){
     if($(".dropDown").length > 0)return;
@@ -40,7 +48,7 @@ var appendDropDown = function (){
         dropDown.append($("<div class='saying'>最怕你一生碌碌无为，还安慰自己平凡可贵</div>"));
         dropDown.append($("<button class='dropDownBtn'><img src='/img/userCenter.png'/>个人中心</button>"));
         dropDown.append($("<button class='dropDownBtn'><img src='/img/good.png'/>上架管理</button>"));
-        dropDown.append($("<button class='dropDownBtn'><img src='/img/exit.png'/>退出登录</button>"));
+        dropDown.append($("<button class='dropDownBtn' onclick='quitLogin()'><img src='/img/exit.png'/>退出登录</button>"));
     }, 300);
 }
 var changeSearch = function (state){
