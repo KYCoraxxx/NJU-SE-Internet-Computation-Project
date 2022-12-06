@@ -9,29 +9,47 @@ import java.util.UUID;
 @RestController
 public class ImageController {
 
+    private String[] uploadImageTypes = { "png", "jpg", "jpeg", "gif"};
+
     @RequestMapping(path="/upload", method = RequestMethod.POST, produces = "application/json")
     @ResponseBody
     public Message upload(@RequestParam(value = "file") MultipartFile fileUpload){
         //绝对路径
         // String baseDir = "C:/D/Program/web/NJU-SE-Internet-Computation-Project/ScarboroughFair/testImageBalabala/hha";
-        String baseDir = "C://Users//Corax//Desktop//upload//image";
-        System.out.println(fileUpload.toString());
+        // String baseDir = "C://Users//Corax//Desktop//upload//image";
+        // System.out.println(fileUpload.toString());
+        
+        // 随便加个检查格式
+        String fileType = fileUpload.getContentType();
+        boolean Typeflag = false;
+        for(String type: uploadImageTypes){
+            if(fileType.equals(type)){
+                Typeflag = true;
+                break;
+            }
+        }
+        if(!Typeflag){
+            return new Message(false, "请选择格式正确的图片", null);
+        }
 
+        String UploadPath = "F:\\Img\\";
         String fileName = fileUpload.getOriginalFilename();
-
         String suffixName = fileName.substring(fileName.lastIndexOf("."));
-
+        String destFileName = UploadPath + fileName;
         fileName = UUID.randomUUID()+suffixName;
         try {
-            File f=new File(baseDir, fileName);
+            // File f=new File(UploadPath);
 
-            if (!f.getParentFile().exists()) {   //create parent file
-                f.getParentFile().mkdirs();
+            
+            File targetfile = new File(destFileName);
+            if (!targetfile.getParentFile().exists()) {   //create parent file
+                targetfile.getParentFile().mkdirs();
             }
 
-            fileUpload.transferTo(f.getAbsoluteFile());
+            fileUpload.transferTo(targetfile);
+            // fileUpload.transferTo(f.getAbsoluteFile());
 
-            return new Message(true,"上传成功",f.getAbsolutePath());
+            return new Message(true,"上传成功", destFileName);
         } catch (Exception e) {
             e.printStackTrace();
             return new Message(false,"上传失败",null);
