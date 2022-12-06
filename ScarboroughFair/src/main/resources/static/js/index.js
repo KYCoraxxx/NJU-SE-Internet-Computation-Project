@@ -1,7 +1,3 @@
-if(userID === undefined){
-    window.location.href="/login";
-}
-
 var items = $(".loopItem");
 var points = $(".loopPoint");
 var left = $("#leftBtn");

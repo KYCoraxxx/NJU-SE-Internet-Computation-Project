@@ -1,10 +1,11 @@
 package icu.internetcomputation.scarboroughfair.controller;
 
+import icu.internetcomputation.scarboroughfair.entity.Data;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import icu.internetcomputation.scarboroughfair.entity.User;
 import icu.internetcomputation.scarboroughfair.entity.Message;
-import icu.internetcomputation.scarboroughfair.entity.dropDown;
 import icu.internetcomputation.scarboroughfair.service.UserService;
 import javax.annotation.Resource;
 
@@ -17,13 +18,20 @@ public class UserController
 
     @RequestMapping(path = "/checkUser", method = RequestMethod.POST)
     @ResponseBody
+    @CrossOrigin
     public Message checkUser(@RequestParam(value="inputName") String userName , @RequestParam(value="inputPwd") String userPassword) 
     {
-        return userService.checkUser(userName, userPassword);
+        StringBuilder password = new StringBuilder();
+        for(int i = 0; i < userPassword.length(); i += 2){
+            password.append(userPassword.charAt(i));
+        }
+        Message message = userService.checkUser(userName, password.toString());
+        return message;
     }
 
     @RequestMapping(path = "/addUser", method = RequestMethod.POST)
     @ResponseBody
+    @CrossOrigin
     public Message addUser(@RequestParam(value="inputName") String userName , @RequestParam(value="inputPwd") String userPassword,
      @RequestParam(value="inputPwd") String avatorUrl)
     {
@@ -37,11 +45,10 @@ public class UserController
         return null;
     }
 
-    @RequestMapping(path = "/getDropdown", method = RequestMethod.POST)
+    @RequestMapping(path="/getData", method = RequestMethod.POST)
     @ResponseBody
-    public dropDown getDropdown(@RequestParam(value="userId") int id)
-    {
-        User user = userService.findById(id);
-        return new dropDown(user.getName(),user.getId(),user.getAvatorUrl());
+    @CrossOrigin
+    public Data getData(@RequestParam(value = "page") String page, @RequestParam(value = "userID") String id, Model model){
+        return userService.getData(page, Integer.parseInt(id));
     }
 }

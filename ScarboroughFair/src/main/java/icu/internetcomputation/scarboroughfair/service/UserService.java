@@ -1,19 +1,20 @@
 package icu.internetcomputation.scarboroughfair.service;
 
 import icu.internetcomputation.scarboroughfair.UserRepository;
+import icu.internetcomputation.scarboroughfair.entity.Data;
 import icu.internetcomputation.scarboroughfair.entity.User;
 import icu.internetcomputation.scarboroughfair.entity.Message;
 import java.util.Optional;
 
 import javax.annotation.Resource;
 
+import lombok.Getter;
 import org.springframework.stereotype.Service;
 
 @Service
 public class UserService {
     @Resource
     UserRepository userRepository;
-
 
     public Iterable<User> findAll()
     {
@@ -51,15 +52,9 @@ public class UserService {
         return new Message(true,"欢迎来到新世界o(*￣▽￣*)ブ",null,id);
     }
 
-    public Message deleteUser(int id)
-    {
-        User user = findById(id);
-        if(user == null) 
-        {
-            return new Message(false,"找不到主人哦");
-        }
-        userRepository.deleteById(id);
-        return new Message(true,"再见了~",null,id);
+    public Data getData(String page, int userID){
+        User user = findById(userID);
+        return new Data(user.getId(), user.getName(), user.getAvatorUrl());
     }
 
     public Message checkUser(String userName, String userPassword)

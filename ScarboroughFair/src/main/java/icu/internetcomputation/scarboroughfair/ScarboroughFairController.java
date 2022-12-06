@@ -10,7 +10,6 @@ import org.springframework.ui.Model;
 
 @Controller
 public class ScarboroughFairController {
-    
 
     @GetMapping("/login")
     public String login(Model model) {
@@ -24,7 +23,7 @@ public class ScarboroughFairController {
 
     @RequestMapping(path="/detail",method = RequestMethod.GET)
     public String detailpage(Model model){
-        return "detail";
+        return "uploadImg";
     }
    
 }
