@@ -21,7 +21,6 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 @CrossOrigin
 public class ImageController {
 
-    // private String[] uploadImageTypes = { "png", "jpg", "jpeg", "gif"};
 
     @Value("${file.uploadFolder}")
     private String realBasePath;
@@ -36,24 +35,6 @@ public class ImageController {
     @PostMapping(path="/upload")
     @ResponseBody
     public Message upload(@RequestParam(value = "file") MultipartFile fileUpload, Model model){
-<<<<<<< HEAD
-=======
-
-        // 随便加个检查格式
-        // String fileType = fileUpload.getContentType();
-        // boolean Typeflag = false;
-        // for(String type: uploadImageTypes){
-        //     if(fileType.equals(type)){
-        //         Typeflag = true;
-        //         break;
-        //     }
-        // }
-        // if(!Typeflag){
-        //     return new Message(false, "请选择格式正确的图片", null);
-        // }
-
-        //获取随机文件名
->>>>>>> fc6739d2ab611a3a83f63bc3c2c06a307a568764
         String fileName = fileUpload.getOriginalFilename();
         String suffixName = fileName.substring(fileName.lastIndexOf("."));
         fileName = UUID.randomUUID()+suffixName;
