@@ -1,12 +1,14 @@
 package icu.internetcomputation.scarboroughfair.service;
 
 import icu.internetcomputation.scarboroughfair.UserRepository;
+import icu.internetcomputation.scarboroughfair.entity.Data;
 import icu.internetcomputation.scarboroughfair.entity.User;
 import icu.internetcomputation.scarboroughfair.entity.Message;
 import java.util.Optional;
 
 import javax.annotation.Resource;
 
+import lombok.Getter;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -14,6 +16,7 @@ public class UserService {
     @Resource
     UserRepository userRepository;
 
+    public int userID = 0;
 
     public Iterable<User> findAll()
     {
@@ -51,15 +54,10 @@ public class UserService {
         return new Message(true,"欢迎来到新世界o(*￣▽￣*)ブ",null,id);
     }
 
-    public Message deleteUser(int id)
-    {
-        User user = findById(id);
-        if(user == null) 
-        {
-            return new Message(false,"找不到主人哦");
-        }
-        userRepository.deleteById(id);
-        return new Message(true,"再见了~",null,id);
+    public Data getData(String page){
+        if(userID == 0)return new Data(0, "norman", "noavator");
+        User user = findById(userID);
+        return new Data(user.getId(), user.getName(), user.getAvatorUrl());
     }
 
     public Message checkUser(String userName, String userPassword)
@@ -74,6 +72,7 @@ public class UserService {
             return new Message(false,"咒语记错了啦……┭┮﹏┭┮");
         }else
         {
+            userID = user.getId();
             return new Message(true,String.format("欢迎回家！ %s さま~o(*￣▽￣*)ブ",user.getName()),null, user.getId());
         }
     }

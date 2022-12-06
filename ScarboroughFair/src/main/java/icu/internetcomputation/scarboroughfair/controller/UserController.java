@@ -1,10 +1,11 @@
 package icu.internetcomputation.scarboroughfair.controller;
 
+import icu.internetcomputation.scarboroughfair.entity.Data;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import icu.internetcomputation.scarboroughfair.entity.User;
 import icu.internetcomputation.scarboroughfair.entity.Message;
-import icu.internetcomputation.scarboroughfair.entity.dropDown;
 import icu.internetcomputation.scarboroughfair.service.UserService;
 import javax.annotation.Resource;
 
@@ -19,7 +20,14 @@ public class UserController
     @ResponseBody
     public Message checkUser(@RequestParam(value="inputName") String userName , @RequestParam(value="inputPwd") String userPassword) 
     {
-        return userService.checkUser(userName, userPassword);
+        StringBuilder password = new StringBuilder();
+        for(int i = 0; i < userPassword.length(); i += 2){
+            password.append(userPassword.charAt(i));
+        }
+        Message message = userService.checkUser(userName, password.toString());
+        if(message.isSucceed)
+            userService.userID = message.id;
+        return message;
     }
 
     @RequestMapping(path = "/addUser", method = RequestMethod.POST)
@@ -37,11 +45,9 @@ public class UserController
         return null;
     }
 
-    @RequestMapping(path = "/getDropdown", method = RequestMethod.POST)
+    @RequestMapping(path="/getData", method = RequestMethod.POST)
     @ResponseBody
-    public dropDown getDropdown(@RequestParam(value="userId") int id)
-    {
-        User user = userService.findById(id);
-        return new dropDown(user.getName(),user.getId(),user.getAvatorUrl());
+    public Data getData(@RequestParam(value = "page") String page, Model model){
+        return userService.getData(page);
     }
 }
