@@ -22,10 +22,26 @@ public class User {
     @Getter
     @Setter
     private String password;
+
+    @Getter
+    @Setter
+    private String signature;
+    //个性签名
+    
     
     @Getter
     @Setter
     private String avatorUrl;
+    //头像
+    public User(Integer id, String name, String password,String avatorUrl, String signature) 
+    {
+        this.id = id;
+        this.name = name;
+        this.password = password;
+        this.avatorUrl = avatorUrl;
+        this.signature = signature;
+    }
+
     public User(Integer id, String name, String password,String avatorUrl) 
     {
         this.id = id;

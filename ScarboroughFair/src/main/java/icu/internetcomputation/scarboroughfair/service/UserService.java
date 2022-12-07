@@ -73,9 +73,12 @@ public class UserService {
         }
     }
     
-    public Message edit(User newUser)
+    public Message editUser(Integer id, String avatorUrl, String name, String signature)
     {
-        userRepository.save(newUser);
+        User user = findById(id);
+        user.setName(name);
+        user.setAvatorUrl(avatorUrl);
+        user.setSignature(signature);
         return new Message(true,"改好了~");
     }
 }
