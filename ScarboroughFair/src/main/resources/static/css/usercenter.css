@@ -9,7 +9,7 @@
 .avatorBox{
     width: 30%;
     height: auto;
-    padding: 100px 0;
+    margin: 100px 0;
     display: flex;
     flex-direction: column;
     align-content: center;
@@ -37,6 +37,19 @@
     display: flex;
     flex-direction: row;
     align-content: center;
+}
+#upl_avator{
+    width: 120px;
+    height: 50px;
+    position: absolute;
+}
+.avatorBox div{
+    margin: auto auto;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
 }
 .title{
     width: 15em;

@@ -61,7 +61,10 @@
         <form enctype="multipart/form-data" method="post" action="/upload">
             <div class="avatorBox">
                 <img id="avator" src="/img/defaultUser.png"/>
-                <input type="file" value="修改头像"/>
+                <div class="btn" style="background-color: deeppink; font-weight: bold;">
+                    上传头像
+                    <input id="upl_avator" type="file" style="opacity: 0; cursor: pointer" oninput="displayNewAvator(this)" name="avator"/>
+                </div>
             </div>
             <div id="infoBox">
                 <div>
@@ -73,6 +76,10 @@
                     <textarea class="multitext" name="saying"></textarea>
                 </div>
             </div>
+            <div style="width: 100%; height: 50px;">
+                <button class="btn" style="font-weight: bold; width: 150px; height: 50px">保存更改</button>
+            </div>
+            <div name="userID" id="getUserID" style="width: 0; height: 0;"></div>
         </form>
     </div>
     <script src="/js/jquery-3.6.1.js"></script>
