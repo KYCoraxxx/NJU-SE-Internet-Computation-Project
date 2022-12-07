@@ -26,13 +26,13 @@ public class GoodService {
         int id = (int)goodRepository.count()+1;
         Good good = new Good(id,name,price,picture,description);
         goodRepository.save(good);
-        return new Message(true,"上架成功！");
+        return new Message(true,"您的宝贝，堂堂上架！");
     }
 
     public Message buyGood(int id)
     {
         goodRepository.deleteById(id);
-        return new Message(true,"购买成功！");
+        return new Message(true,"购买成功！霖之助桑感谢您的惠顾ヾ(ﾟ∀ﾟゞ)");
     }
 
     public Message deleteGood(int id)

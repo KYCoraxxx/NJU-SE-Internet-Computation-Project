@@ -58,7 +58,7 @@
 
     <div class="container">
         <!--更换请求url-->
-        <form enctype="multipart/form-data" method="post" action="/UserUpload">
+        <form>
             <div style="display: flex; flex-direction: row">
                 <div class="avatorBox">
                     <img id="avator" src="/img/defaultUser.png"/>
@@ -78,8 +78,7 @@
                     </div>
                 </div>
             </div>
-            <button class="btn" style="font-weight: bold;margin: auto auto">保存更改</button>
-            <input name="userID" id="getUserID" style="width: 0; height: 0;" />
+            <button class="btn" style="font-weight: bold;margin: auto auto" onclick="uploadUserInfo()">保存更改</button>
         </form>
     </div>
     <script src="/js/jquery-3.6.1.js"></script>
