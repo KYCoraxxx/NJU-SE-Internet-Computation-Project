@@ -61,7 +61,7 @@ public class UploadController {
     /*
      * 商品信息 <<<上传>>> 的接口，包括商品图片，商品名称，商品价格，商品描述
      */
-    @PostMapping(path="/GoodUpload")
+    @PostMapping(path="/goodupload")
     @ResponseBody
     public Message GoodUpload(@RequestParam(value = "file") MultipartFile fileUpload, 
     @RequestParam(value = "name") String name, @RequestParam(value = "price") String price,
@@ -77,21 +77,22 @@ public class UploadController {
     /*
      * 用户个人信息 <<<修改>>> 的接口，包括头像，昵称，个性签名（不包括密码！！！）
      */
-    @PostMapping(path="UserUpload")
+    @PostMapping(path="/userupload")
     @ResponseBody
-    public Message UserUpload(@RequestParam(value = "avator") MultipartFile fileUpload,
-    @RequestParam(value = "nickname") String name, @RequestParam(value = "saying") String signature,
-    @RequestParam(value = "userID") String ID, Model model){
+    public Message UserUpload(@RequestParam(value = "avator") MultipartFile avator,
+    @RequestParam(required = false) String nickname, @RequestParam(required = false) String saying,
+    @RequestParam(required = false) String userID, Model model){
+        System.out.println(userID);
         String avatorUrl = null;
-        if(fileUpload != null)
+        if(avator != null)
         {
-            avatorUrl = Imgupload(fileUpload);
+            avatorUrl = Imgupload(avator);
         }
         // if(avatorUrl == null){
         //     return new Message(false, "图片好像上传失败了w(ﾟДﾟ)w");
         // }
-        Integer id = Integer.valueOf(ID);
-        return userService.editUser(id, avatorUrl, name, signature);
+        Integer id = Integer.valueOf(userID);
+        return userService.editUser(id, avatorUrl, nickname, saying);
     }
 
 
