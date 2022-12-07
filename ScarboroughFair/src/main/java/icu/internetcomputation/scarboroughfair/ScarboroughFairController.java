@@ -20,5 +20,8 @@ public class ScarboroughFairController {
     public String homepage(Model model){
         return "index";
     }
-   
+
+    @GetMapping("/forum")
+    public String forum(Model model){ return "forum"; }
+
 }

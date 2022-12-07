@@ -3,29 +3,29 @@
     <head>
         <meta charset="UTF-8">
         <title>灌水论坛(゜-゜)つロ</title>
-        <link rel="stylesheet" href="../static/css/universal.css"/>
-        <link rel="stylesheet" href="../static/css/forum.css"/>
+        <link rel="stylesheet" href="/css/universal.css"/>
+        <link rel="stylesheet" href="/css/forum.css"/>
     </head>
     <body>
         <div class="headBar">
           <div class="logo">
-            <img src="../static/img/logo.png"/>
+            <img src="/img/logo.png"/>
           </div>
           <form class="searchBar">
             <input type="text" placeholder="翻翻集市里都有些什么叭~" onfocus="changeSearch(2)" onblur="changeSearch(3)"/>
-            <img src="../static/img/searchIcon.png" onmouseover="changeSearch(0)" onmouseleave="changeSearch(1)"/>
+            <img src="/img/searchIcon.png" onmouseover="changeSearch(0)" onmouseleave="changeSearch(1)"/>
           </form>
           <!--预留给附加功能-->
           <div class="settingBar">
             <ul>
-              <li><img src="../static/img/setting.png"/></li>
-              <li><a href="https://github.com/KYCoraxxx/NJU-SE-Internet-Computation-Project" target="_blank"><img src="../static/img/link.png"/></a><li>
-              <li onclick="changeMusic()"><img src="../static/img/music.png"/></li>
+              <li><img src="/img/setting.png"/></li>
+              <li><a href="https://github.com/KYCoraxxx/NJU-SE-Internet-Computation-Project" target="_blank"><img src="/img/link.png"/></a><li>
+              <li onclick="changeMusic()"><img src="/img/music.png"/></li>
             </ul>
           </div>
           <div class="userBox" onmouseleave="avatorScaler('50px')">
             <div class="avator">
-              <img src="../static/img/defaultUser.png" onmouseover="avatorScaler('100px')">
+              <img src="/img/defaultUser.png" onmouseover="avatorScaler('100px')">
             </div>
           </div>
           <!--预留给附加功能（如发布商品等）-->
@@ -37,7 +37,7 @@
         </div>
         <div class="navBar">
             <div style="height: 70px"></div>
-            <div class="optionBox">
+            <div class="optionBox" onclick="jumpLocation('/index')">
                 <img src="/img/homeIcon.png"/>
                 <span>主页</span>
             </div>
@@ -58,7 +58,7 @@
         <div class="container">
             <div class="bg">
                 <div class="returnTopBtn" onclick="returnTop()">
-                    <img src="../static/img/returnTopBtn.png" style="width: 50px;height: 50px;">
+                    <img src="/img/returnTopBtn.png" style="width: 50px;height: 50px;">
                 </div>
             </div>
             <div class="forumContent">
@@ -71,44 +71,44 @@
                             <div class="itemMain_header">
                                 <div class="itemMain_header_IMG">
                                     <!--todo: add link to personal page here-->
-                                    <a href="#" target="_blank"><img src="../static/img/defaultUser.png" style="width: 50px;height: 50px; border-radius: 50%;"></a>
+                                    <a href="#" target="_blank"><img src="/img/defaultUser.png" style="width: 50px;height: 50px; border-radius: 50%;"></a>
                                 </div>
                                 <div class="itemMain_header_details">
                                     <div class="itemMain_header_details_name">DefaultUser</div>
                                     <div class="itemMain_header_details_date">Published On 2022.12.04</div>
                                 </div>
                                 <div class="itemMain_header_report" onmouseover="appendReport(this)" onmouseleave="removeReport()">
-                                    <img src="../static/img/ellipsisVertical.png" style="width: 30px;height: 30px;margin-top: 10px;">
+                                    <img src="/img/ellipsisVertical.png" style="width: 30px;height: 30px;margin-top: 10px;">
                                 </div>
                             </div>
                             <div class="itemMain_body">
                                 <div class="itemMain_body_content">灌水灌水灌水灌水灌水灌水灌水灌水灌水灌水灌水灌水灌水灌水灌水灌水灌水灌水灌水灌水</div>
                                 <div class="itemMain_body_IMG">
                                     <!--todo:add an index to every item to ease the clearAll function-->
-                                    <img class="itemMain_body_IMG_singleIMG" src="../static/img/login.jpg" onclick="picRespond(this)" >
-                                    <img class="itemMain_body_IMG_singleIMG" src="../static/img/login.jpg" onclick="picRespond(this)">
-                                    <img class="itemMain_body_IMG_singleIMG" src="../static/img/login.jpg" onclick="picRespond(this)">
-                                    <img class="itemMain_body_IMG_singleIMG" src="../static/img/login.jpg" onclick="picRespond(this)">
-                                    <img class="itemMain_body_IMG_singleIMG" src="../static/img/login.jpg" onclick="picRespond(this)">
-                                    <img class="itemMain_body_IMG_singleIMG" src="../static/img/login.jpg" onclick="picRespond(this)">
-                                    <img class="itemMain_body_IMG_singleIMG" src="../static/img/login.jpg" onclick="picRespond(this)">
-                                    <img class="itemMain_body_IMG_singleIMG" src="../static/img/login.jpg" onclick="picRespond(this)">
-                                    <img class="itemMain_body_IMG_singleIMG" src="../static/img/login.jpg" onclick="picRespond(this)">
+                                    <img class="itemMain_body_IMG_singleIMG" src="/img/login.jpg" onclick="picRespond(this)" >
+                                    <img class="itemMain_body_IMG_singleIMG" src="/img/login.jpg" onclick="picRespond(this)">
+                                    <img class="itemMain_body_IMG_singleIMG" src="/img/login.jpg" onclick="picRespond(this)">
+                                    <img class="itemMain_body_IMG_singleIMG" src="/img/login.jpg" onclick="picRespond(this)">
+                                    <img class="itemMain_body_IMG_singleIMG" src="/img/login.jpg" onclick="picRespond(this)">
+                                    <img class="itemMain_body_IMG_singleIMG" src="/img/login.jpg" onclick="picRespond(this)">
+                                    <img class="itemMain_body_IMG_singleIMG" src="/img/login.jpg" onclick="picRespond(this)">
+                                    <img class="itemMain_body_IMG_singleIMG" src="/img/login.jpg" onclick="picRespond(this)">
+                                    <img class="itemMain_body_IMG_singleIMG" src="/img/login.jpg" onclick="picRespond(this)">
 
                                 </div>
                             </div>
                             <div class="itemMainFooter">
                                 <!--todo:This place should link with actual data-->
                                 <div class="itemMainFooter_share">
-                                    <img src="../static/img/shareInForum.png" style="width: 30px; height: 30px;">
+                                    <img src="/img/shareInForum.png" style="width: 30px; height: 30px;">
                                     <div class="itemMainFooter_share_data">1</div>
                                 </div>
                                 <div class="itemMainFooter_comment">
-                                    <img src="../static/img/commentInForum.png" style="width: 30px; height: 30px;">
+                                    <img src="/img/commentInForum.png" style="width: 30px; height: 30px;">
                                     <div class="itemMainFooter_comment_data">2</div>
                                 </div>
                                 <div class="itemMainFooter_like">
-                                    <img src="../static/img/likeInForum.png" style="width: 30px; height: 30px;">
+                                    <img src="/img/likeInForum.png" style="width: 30px; height: 30px;">
                                     <div class="itemMainFooter_like_data">3</div>
                                 </div>
                             </div>
@@ -116,7 +116,7 @@
                         </div>
                         <div class="itemCritics">
                             <form class="itemCritics_Form" action="#" method="post">
-                                <div class="itemCritics_Form_user"><img src="../static/img/defaultUser.png" style="width:50px;height: 50px"></div>
+                                <div class="itemCritics_Form_user"><img src="/img/defaultUser.png" style="width:50px;height: 50px"></div>
                                 <!--todo:add an index to every item to ease the clearAll function-->
                                 <textarea name="itemCriticsForm" id="itemCriticsForm"  rows="4" placeholder="灌下你的水" minlength="1" maxlength="80" ></textarea>
                                 <button class="commentSubmit" type="submit">灌水</button>
@@ -127,7 +127,7 @@
                                 <div class="itemCritics_criticsList">
                                     <div class="itemCritics_criticsList_item">
                                         <div class="itemCritics_criticsList_item_user">
-                                            <a href="#" target="_blank"><img src="../static/img/defaultUser.png" style="width: 40px;height: 40px;"></a>
+                                            <a href="#" target="_blank"><img src="/img/defaultUser.png" style="width: 40px;height: 40px;"></a>
                                         </div>
                                         <div class="itemCritics_criticsList_item_details">
                                             <div class="itemCritics_criticsList_item_name">DefaultUser</div>
@@ -135,15 +135,15 @@
                                             <div class="itemCritics_criticsList_item_foot">
                                                 <div class="itemCritics_criticsList_item_foot_time">Published on 2022.12.5</div>
                                                 <div class="itemCritics_criticsList_item_foot_like">
-                                                    <img src="../static/img/likeInCritic.png" style="width: 15px; height: 15px; margin-right: 15px;margin-top: 5px">
+                                                    <img src="/img/likeInCritic.png" style="width: 15px; height: 15px; margin-right: 15px;margin-top: 5px">
                                                     <div class="itemCritics_criticsList_item_foot_like_data">1</div>
                                                 </div>
                                                 <div class="itemCritics_criticsList_item_foot_dislike">
-                                                    <img src="../static/img/dislikeInCritic.png" style="width: 15px; height: 15px; margin-right: 15px;margin-top: 5px">
+                                                    <img src="/img/dislikeInCritic.png" style="width: 15px; height: 15px; margin-right: 15px;margin-top: 5px">
                                                     <div class="itemCritics_criticsList_item_foot_dislike_data">2</div>
                                                 </div>
                                                 <div class="itemCritics_criticsList_item_foot_report" onmouseover="appendReport(this)" >
-                                                    <img src="../static/img/ellipsisVertical.png" style="width: 20px; height: 20px; margin-top: 5px">
+                                                    <img src="/img/ellipsisVertical.png" style="width: 20px; height: 20px; margin-top: 5px">
                                                 </div>
                                             </div>
                                             <hr style="width: 90%; margin-left: -2%;">
@@ -151,7 +151,7 @@
                                     </div>
                                     <div class="itemCritics_criticsList_item">
                                         <div class="itemCritics_criticsList_item_user">
-                                            <a href="#" target="_blank"><img src="../static/img/defaultUser.png" style="width: 40px;height: 40px;"></a>
+                                            <a href="#" target="_blank"><img src="/img/defaultUser.png" style="width: 40px;height: 40px;"></a>
                                         </div>
                                         <div class="itemCritics_criticsList_item_details">
                                             <div class="itemCritics_criticsList_item_name">DefaultUser</div>
@@ -159,15 +159,15 @@
                                             <div class="itemCritics_criticsList_item_foot">
                                                 <div class="itemCritics_criticsList_item_foot_time">Published on 2022.12.5</div>
                                                 <div class="itemCritics_criticsList_item_foot_like">
-                                                    <img src="../static/img/likeInCritic.png" style="width: 15px; height: 15px; margin-right: 15px;margin-top: 5px">
+                                                    <img src="/img/likeInCritic.png" style="width: 15px; height: 15px; margin-right: 15px;margin-top: 5px">
                                                     <div class="itemCritics_criticsList_item_foot_like_data">1</div>
                                                 </div>
                                                 <div class="itemCritics_criticsList_item_foot_dislike">
-                                                    <img src="../static/img/dislikeInCritic.png" style="width: 15px; height: 15px; margin-right: 15px;margin-top: 5px">
+                                                    <img src="/img/dislikeInCritic.png" style="width: 15px; height: 15px; margin-right: 15px;margin-top: 5px">
                                                     <div class="itemCritics_criticsList_item_foot_dislike_data">2</div>
                                                 </div>
                                                 <div class="itemCritics_criticsList_item_foot_report" onmouseover="appendReport(this)" >
-                                                    <img src="../static/img/ellipsisVertical.png" style="width: 20px; height: 20px; margin-top: 5px">
+                                                    <img src="/img/ellipsisVertical.png" style="width: 20px; height: 20px; margin-top: 5px">
                                                 </div>
                                             </div>
                                             <hr style="width: 90%; margin-left: -2%;">
@@ -175,7 +175,7 @@
                                     </div>
                                     <div class="itemCritics_criticsList_item">
                                         <div class="itemCritics_criticsList_item_user">
-                                            <a href="#" target="_blank"><img src="../static/img/defaultUser.png" style="width: 40px;height: 40px;"></a>
+                                            <a href="#" target="_blank"><img src="/img/defaultUser.png" style="width: 40px;height: 40px;"></a>
                                         </div>
                                         <div class="itemCritics_criticsList_item_details">
                                             <div class="itemCritics_criticsList_item_name">DefaultUser</div>
@@ -183,15 +183,15 @@
                                             <div class="itemCritics_criticsList_item_foot">
                                                 <div class="itemCritics_criticsList_item_foot_time">Published on 2022.12.5</div>
                                                 <div class="itemCritics_criticsList_item_foot_like">
-                                                    <img src="../static/img/likeInCritic.png" style="width: 15px; height: 15px; margin-right: 15px;margin-top: 5px">
+                                                    <img src="/img/likeInCritic.png" style="width: 15px; height: 15px; margin-right: 15px;margin-top: 5px">
                                                     <div class="itemCritics_criticsList_item_foot_like_data">1</div>
                                                 </div>
                                                 <div class="itemCritics_criticsList_item_foot_dislike">
-                                                    <img src="../static/img/dislikeInCritic.png" style="width: 15px; height: 15px; margin-right: 15px;margin-top: 5px">
+                                                    <img src="/img/dislikeInCritic.png" style="width: 15px; height: 15px; margin-right: 15px;margin-top: 5px">
                                                     <div class="itemCritics_criticsList_item_foot_dislike_data">2</div>
                                                 </div>
                                                 <div class="itemCritics_criticsList_item_foot_report" onmouseover="appendReport(this)">
-                                                    <img src="../static/img/ellipsisVertical.png" style="width: 20px; height: 20px; margin-top: 5px">
+                                                    <img src="/img/ellipsisVertical.png" style="width: 20px; height: 20px; margin-top: 5px">
                                                 </div>
                                             </div>
                                             <hr style="width: 90%; margin-left: -2%;">
@@ -206,44 +206,44 @@
                             <div class="itemMain_header">
                                 <div class="itemMain_header_IMG">
                                     <!--todo: add link to personal page here-->
-                                    <a href="#" target="_blank"><img src="../static/img/defaultUser.png" style="width: 50px;height: 50px; border-radius: 50%;"></a>
+                                    <a href="#" target="_blank"><img src="/img/defaultUser.png" style="width: 50px;height: 50px; border-radius: 50%;"></a>
                                 </div>
                                 <div class="itemMain_header_details">
                                     <div class="itemMain_header_details_name">DefaultUser</div>
                                     <div class="itemMain_header_details_date">Published On 2022.12.04</div>
                                 </div>
                                 <div class="itemMain_header_report" onmouseover="appendReport(this)" onmouseleave="removeReport()">
-                                    <img src="../static/img/ellipsisVertical.png" style="width: 30px;height: 30px;margin-top: 10px;">
+                                    <img src="/img/ellipsisVertical.png" style="width: 30px;height: 30px;margin-top: 10px;">
                                 </div>
                             </div>
                             <div class="itemMain_body">
                                 <div class="itemMain_body_content">灌水灌水灌水灌水灌水灌水灌水灌水灌水灌水灌水灌水灌水灌水灌水灌水灌水灌水灌水灌水</div>
                                 <div class="itemMain_body_IMG">
                                     <!--todo:add an index to every item to ease the clearAll function-->
-                                    <img class="itemMain_body_IMG_singleIMG" src="../static/img/login.jpg" onclick="picRespond(this)" >
-                                    <img class="itemMain_body_IMG_singleIMG" src="../static/img/login.jpg" onclick="picRespond(this)">
-                                    <img class="itemMain_body_IMG_singleIMG" src="../static/img/login.jpg" onclick="picRespond(this)">
-                                    <img class="itemMain_body_IMG_singleIMG" src="../static/img/login.jpg" onclick="picRespond(this)">
-                                    <img class="itemMain_body_IMG_singleIMG" src="../static/img/login.jpg" onclick="picRespond(this)">
-                                    <img class="itemMain_body_IMG_singleIMG" src="../static/img/login.jpg" onclick="picRespond(this)">
-                                    <img class="itemMain_body_IMG_singleIMG" src="../static/img/login.jpg" onclick="picRespond(this)">
-                                    <img class="itemMain_body_IMG_singleIMG" src="../static/img/login.jpg" onclick="picRespond(this)">
-                                    <img class="itemMain_body_IMG_singleIMG" src="../static/img/login.jpg" onclick="picRespond(this)">
+                                    <img class="itemMain_body_IMG_singleIMG" src="/img/login.jpg" onclick="picRespond(this)" >
+                                    <img class="itemMain_body_IMG_singleIMG" src="/img/login.jpg" onclick="picRespond(this)">
+                                    <img class="itemMain_body_IMG_singleIMG" src="/img/login.jpg" onclick="picRespond(this)">
+                                    <img class="itemMain_body_IMG_singleIMG" src="/img/login.jpg" onclick="picRespond(this)">
+                                    <img class="itemMain_body_IMG_singleIMG" src="/img/login.jpg" onclick="picRespond(this)">
+                                    <img class="itemMain_body_IMG_singleIMG" src="/img/login.jpg" onclick="picRespond(this)">
+                                    <img class="itemMain_body_IMG_singleIMG" src="/img/login.jpg" onclick="picRespond(this)">
+                                    <img class="itemMain_body_IMG_singleIMG" src="/img/login.jpg" onclick="picRespond(this)">
+                                    <img class="itemMain_body_IMG_singleIMG" src="/img/login.jpg" onclick="picRespond(this)">
 
                                 </div>
                             </div>
                             <div class="itemMainFooter">
                                 <!--todo:This place should link with actual data-->
                                 <div class="itemMainFooter_share">
-                                    <img src="../static/img/shareInForum.png" style="width: 30px; height: 30px;">
+                                    <img src="/img/shareInForum.png" style="width: 30px; height: 30px;">
                                     <div class="itemMainFooter_share_data">1</div>
                                 </div>
                                 <div class="itemMainFooter_comment">
-                                    <img src="../static/img/commentInForum.png" style="width: 30px; height: 30px;">
+                                    <img src="/img/commentInForum.png" style="width: 30px; height: 30px;">
                                     <div class="itemMainFooter_comment_data">2</div>
                                 </div>
                                 <div class="itemMainFooter_like">
-                                    <img src="../static/img/likeInForum.png" style="width: 30px; height: 30px;">
+                                    <img src="/img/likeInForum.png" style="width: 30px; height: 30px;">
                                     <div class="itemMainFooter_like_data">3</div>
                                 </div>
                             </div>
@@ -251,7 +251,7 @@
                         </div>
                         <div class="itemCritics">
                             <form class="itemCritics_Form" action="#" method="post">
-                                <div class="itemCritics_Form_user"><img src="../static/img/defaultUser.png" style="width:50px;height: 50px"></div>
+                                <div class="itemCritics_Form_user"><img src="/img/defaultUser.png" style="width:50px;height: 50px"></div>
                                 <!--todo: the id of the textarea should be replaced-->
                                 <textarea name="itemCriticsForm" rows="4" placeholder="灌下你的水" minlength="1" maxlength="80" ></textarea>
                                 <button class="commentSubmit" type="submit">灌水</button>
@@ -262,7 +262,7 @@
                                 <div class="itemCritics_criticsList">
                                     <div class="itemCritics_criticsList_item">
                                         <div class="itemCritics_criticsList_item_user">
-                                            <a href="#" target="_blank"><img src="../static/img/defaultUser.png" style="width: 40px;height: 40px;"></a>
+                                            <a href="#" target="_blank"><img src="/img/defaultUser.png" style="width: 40px;height: 40px;"></a>
                                         </div>
                                         <div class="itemCritics_criticsList_item_details">
                                             <div class="itemCritics_criticsList_item_name">DefaultUser</div>
@@ -270,15 +270,15 @@
                                             <div class="itemCritics_criticsList_item_foot">
                                                 <div class="itemCritics_criticsList_item_foot_time">Published on 2022.12.5</div>
                                                 <div class="itemCritics_criticsList_item_foot_like">
-                                                    <img src="../static/img/likeInCritic.png" style="width: 15px; height: 15px; margin-right: 15px;margin-top: 5px">
+                                                    <img src="/img/likeInCritic.png" style="width: 15px; height: 15px; margin-right: 15px;margin-top: 5px">
                                                     <div class="itemCritics_criticsList_item_foot_like_data">1</div>
                                                 </div>
                                                 <div class="itemCritics_criticsList_item_foot_dislike">
-                                                    <img src="../static/img/dislikeInCritic.png" style="width: 15px; height: 15px; margin-right: 15px;margin-top: 5px">
+                                                    <img src="/img/dislikeInCritic.png" style="width: 15px; height: 15px; margin-right: 15px;margin-top: 5px">
                                                     <div class="itemCritics_criticsList_item_foot_dislike_data">2</div>
                                                 </div>
                                                 <div class="itemCritics_criticsList_item_foot_report" onmouseover="appendReport(this)" >
-                                                    <img src="../static/img/ellipsisVertical.png" style="width: 20px; height: 20px; margin-top: 5px">
+                                                    <img src="/img/ellipsisVertical.png" style="width: 20px; height: 20px; margin-top: 5px">
                                                 </div>
                                             </div>
                                             <hr style="width: 90%; margin-left: -2%;">
@@ -286,7 +286,7 @@
                                     </div>
                                     <div class="itemCritics_criticsList_item">
                                         <div class="itemCritics_criticsList_item_user">
-                                            <a href="#" target="_blank"><img src="../static/img/defaultUser.png" style="width: 40px;height: 40px;"></a>
+                                            <a href="#" target="_blank"><img src="/img/defaultUser.png" style="width: 40px;height: 40px;"></a>
                                         </div>
                                         <div class="itemCritics_criticsList_item_details">
                                             <div class="itemCritics_criticsList_item_name">DefaultUser</div>
@@ -294,15 +294,15 @@
                                             <div class="itemCritics_criticsList_item_foot">
                                                 <div class="itemCritics_criticsList_item_foot_time">Published on 2022.12.5</div>
                                                 <div class="itemCritics_criticsList_item_foot_like">
-                                                    <img src="../static/img/likeInCritic.png" style="width: 15px; height: 15px; margin-right: 15px;margin-top: 5px">
+                                                    <img src="/img/likeInCritic.png" style="width: 15px; height: 15px; margin-right: 15px;margin-top: 5px">
                                                     <div class="itemCritics_criticsList_item_foot_like_data">1</div>
                                                 </div>
                                                 <div class="itemCritics_criticsList_item_foot_dislike">
-                                                    <img src="../static/img/dislikeInCritic.png" style="width: 15px; height: 15px; margin-right: 15px;margin-top: 5px">
+                                                    <img src="/img/dislikeInCritic.png" style="width: 15px; height: 15px; margin-right: 15px;margin-top: 5px">
                                                     <div class="itemCritics_criticsList_item_foot_dislike_data">2</div>
                                                 </div>
                                                 <div class="itemCritics_criticsList_item_foot_report" onmouseover="appendReport(this)" >
-                                                    <img src="../static/img/ellipsisVertical.png" style="width: 20px; height: 20px; margin-top: 5px">
+                                                    <img src="/img/ellipsisVertical.png" style="width: 20px; height: 20px; margin-top: 5px">
                                                 </div>
                                             </div>
                                             <hr style="width: 90%; margin-left: -2%;">
@@ -310,7 +310,7 @@
                                     </div>
                                     <div class="itemCritics_criticsList_item">
                                         <div class="itemCritics_criticsList_item_user">
-                                            <a href="#" target="_blank"><img src="../static/img/defaultUser.png" style="width: 40px;height: 40px;"></a>
+                                            <a href="#" target="_blank"><img src="/img/defaultUser.png" style="width: 40px;height: 40px;"></a>
                                         </div>
                                         <div class="itemCritics_criticsList_item_details">
                                             <div class="itemCritics_criticsList_item_name">DefaultUser</div>
@@ -318,15 +318,15 @@
                                             <div class="itemCritics_criticsList_item_foot">
                                                 <div class="itemCritics_criticsList_item_foot_time">Published on 2022.12.5</div>
                                                 <div class="itemCritics_criticsList_item_foot_like">
-                                                    <img src="../static/img/likeInCritic.png" style="width: 15px; height: 15px; margin-right: 15px;margin-top: 5px">
+                                                    <img src="/img/likeInCritic.png" style="width: 15px; height: 15px; margin-right: 15px;margin-top: 5px">
                                                     <div class="itemCritics_criticsList_item_foot_like_data">1</div>
                                                 </div>
                                                 <div class="itemCritics_criticsList_item_foot_dislike">
-                                                    <img src="../static/img/dislikeInCritic.png" style="width: 15px; height: 15px; margin-right: 15px;margin-top: 5px">
+                                                    <img src="/img/dislikeInCritic.png" style="width: 15px; height: 15px; margin-right: 15px;margin-top: 5px">
                                                     <div class="itemCritics_criticsList_item_foot_dislike_data">2</div>
                                                 </div>
                                                 <div class="itemCritics_criticsList_item_foot_report" onmouseover="appendReport(this)">
-                                                    <img src="../static/img/ellipsisVertical.png" style="width: 20px; height: 20px; margin-top: 5px">
+                                                    <img src="/img/ellipsisVertical.png" style="width: 20px; height: 20px; margin-top: 5px">
                                                 </div>
                                             </div>
                                             <hr style="width: 90%; margin-left: -2%;">
@@ -341,44 +341,44 @@
                             <div class="itemMain_header">
                                 <div class="itemMain_header_IMG">
                                     <!--todo: add link to personal page here-->
-                                    <a href="#" target="_blank"><img src="../static/img/defaultUser.png" style="width: 50px;height: 50px; border-radius: 50%;"></a>
+                                    <a href="#" target="_blank"><img src="/img/defaultUser.png" style="width: 50px;height: 50px; border-radius: 50%;"></a>
                                 </div>
                                 <div class="itemMain_header_details">
                                     <div class="itemMain_header_details_name">DefaultUser</div>
                                     <div class="itemMain_header_details_date">Published On 2022.12.04</div>
                                 </div>
                                 <div class="itemMain_header_report" onmouseover="appendReport(this)" onmouseleave="removeReport()">
-                                    <img src="../static/img/ellipsisVertical.png" style="width: 30px;height: 30px;margin-top: 10px;">
+                                    <img src="/img/ellipsisVertical.png" style="width: 30px;height: 30px;margin-top: 10px;">
                                 </div>
                             </div>
                             <div class="itemMain_body">
                                 <div class="itemMain_body_content">灌水灌水灌水灌水灌水灌水灌水灌水灌水灌水灌水灌水灌水灌水灌水灌水灌水灌水灌水灌水</div>
                                 <div class="itemMain_body_IMG">
                                     <!--todo:add an index to every item to ease the clearAll function-->
-                                    <img class="itemMain_body_IMG_singleIMG" src="../static/img/login.jpg" onclick="picRespond(this)" >
-                                    <img class="itemMain_body_IMG_singleIMG" src="../static/img/login.jpg" onclick="picRespond(this)">
-                                    <img class="itemMain_body_IMG_singleIMG" src="../static/img/login.jpg" onclick="picRespond(this)">
-                                    <img class="itemMain_body_IMG_singleIMG" src="../static/img/login.jpg" onclick="picRespond(this)">
-                                    <img class="itemMain_body_IMG_singleIMG" src="../static/img/login.jpg" onclick="picRespond(this)">
-                                    <img class="itemMain_body_IMG_singleIMG" src="../static/img/login.jpg" onclick="picRespond(this)">
-                                    <img class="itemMain_body_IMG_singleIMG" src="../static/img/login.jpg" onclick="picRespond(this)">
-                                    <img class="itemMain_body_IMG_singleIMG" src="../static/img/login.jpg" onclick="picRespond(this)">
-                                    <img class="itemMain_body_IMG_singleIMG" src="../static/img/login.jpg" onclick="picRespond(this)">
+                                    <img class="itemMain_body_IMG_singleIMG" src="/img/login.jpg" onclick="picRespond(this)" >
+                                    <img class="itemMain_body_IMG_singleIMG" src="/img/login.jpg" onclick="picRespond(this)">
+                                    <img class="itemMain_body_IMG_singleIMG" src="/img/login.jpg" onclick="picRespond(this)">
+                                    <img class="itemMain_body_IMG_singleIMG" src="/img/login.jpg" onclick="picRespond(this)">
+                                    <img class="itemMain_body_IMG_singleIMG" src="/img/login.jpg" onclick="picRespond(this)">
+                                    <img class="itemMain_body_IMG_singleIMG" src="/img/login.jpg" onclick="picRespond(this)">
+                                    <img class="itemMain_body_IMG_singleIMG" src="/img/login.jpg" onclick="picRespond(this)">
+                                    <img class="itemMain_body_IMG_singleIMG" src="/img/login.jpg" onclick="picRespond(this)">
+                                    <img class="itemMain_body_IMG_singleIMG" src="/img/login.jpg" onclick="picRespond(this)">
 
                                 </div>
                             </div>
                             <div class="itemMainFooter">
                                 <!--todo:This place should link with actual data-->
                                 <div class="itemMainFooter_share">
-                                    <img src="../static/img/shareInForum.png" style="width: 30px; height: 30px;">
+                                    <img src="/img/shareInForum.png" style="width: 30px; height: 30px;">
                                     <div class="itemMainFooter_share_data">1</div>
                                 </div>
                                 <div class="itemMainFooter_comment">
-                                    <img src="../static/img/commentInForum.png" style="width: 30px; height: 30px;">
+                                    <img src="/img/commentInForum.png" style="width: 30px; height: 30px;">
                                     <div class="itemMainFooter_comment_data">2</div>
                                 </div>
                                 <div class="itemMainFooter_like">
-                                    <img src="../static/img/likeInForum.png" style="width: 30px; height: 30px;">
+                                    <img src="/img/likeInForum.png" style="width: 30px; height: 30px;">
                                     <div class="itemMainFooter_like_data">3</div>
                                 </div>
                             </div>
@@ -386,7 +386,7 @@
                         </div>
                         <div class="itemCritics">
                             <form class="itemCritics_Form" action="#" method="post">
-                                <div class="itemCritics_Form_user"><img src="../static/img/defaultUser.png" style="width:50px;height: 50px"></div>
+                                <div class="itemCritics_Form_user"><img src="/img/defaultUser.png" style="width:50px;height: 50px"></div>
                                 <textarea name="itemCriticsForm" rows="4" placeholder="灌下你的水" minlength="1" maxlength="80" ></textarea>
                                 <button class="commentSubmit" type="submit">灌水</button>
                             </form>
@@ -396,7 +396,7 @@
                                 <div class="itemCritics_criticsList">
                                     <div class="itemCritics_criticsList_item">
                                         <div class="itemCritics_criticsList_item_user">
-                                            <a href="#" target="_blank"><img src="../static/img/defaultUser.png" style="width: 40px;height: 40px;"></a>
+                                            <a href="#" target="_blank"><img src="/img/defaultUser.png" style="width: 40px;height: 40px;"></a>
                                         </div>
                                         <div class="itemCritics_criticsList_item_details">
                                             <div class="itemCritics_criticsList_item_name">DefaultUser</div>
@@ -404,15 +404,15 @@
                                             <div class="itemCritics_criticsList_item_foot">
                                                 <div class="itemCritics_criticsList_item_foot_time">Published on 2022.12.5</div>
                                                 <div class="itemCritics_criticsList_item_foot_like">
-                                                    <img src="../static/img/likeInCritic.png" style="width: 15px; height: 15px; margin-right: 15px;margin-top: 5px">
+                                                    <img src="/img/likeInCritic.png" style="width: 15px; height: 15px; margin-right: 15px;margin-top: 5px">
                                                     <div class="itemCritics_criticsList_item_foot_like_data">1</div>
                                                 </div>
                                                 <div class="itemCritics_criticsList_item_foot_dislike">
-                                                    <img src="../static/img/dislikeInCritic.png" style="width: 15px; height: 15px; margin-right: 15px;margin-top: 5px">
+                                                    <img src="/img/dislikeInCritic.png" style="width: 15px; height: 15px; margin-right: 15px;margin-top: 5px">
                                                     <div class="itemCritics_criticsList_item_foot_dislike_data">2</div>
                                                 </div>
                                                 <div class="itemCritics_criticsList_item_foot_report" onmouseover="appendReport(this)" >
-                                                    <img src="../static/img/ellipsisVertical.png" style="width: 20px; height: 20px; margin-top: 5px">
+                                                    <img src="/img/ellipsisVertical.png" style="width: 20px; height: 20px; margin-top: 5px">
                                                 </div>
                                             </div>
                                             <hr style="width: 90%; margin-left: -2%;">
@@ -420,7 +420,7 @@
                                     </div>
                                     <div class="itemCritics_criticsList_item">
                                         <div class="itemCritics_criticsList_item_user">
-                                            <a href="#" target="_blank"><img src="../static/img/defaultUser.png" style="width: 40px;height: 40px;"></a>
+                                            <a href="#" target="_blank"><img src="/img/defaultUser.png" style="width: 40px;height: 40px;"></a>
                                         </div>
                                         <div class="itemCritics_criticsList_item_details">
                                             <div class="itemCritics_criticsList_item_name">DefaultUser</div>
@@ -428,15 +428,15 @@
                                             <div class="itemCritics_criticsList_item_foot">
                                                 <div class="itemCritics_criticsList_item_foot_time">Published on 2022.12.5</div>
                                                 <div class="itemCritics_criticsList_item_foot_like">
-                                                    <img src="../static/img/likeInCritic.png" style="width: 15px; height: 15px; margin-right: 15px;margin-top: 5px">
+                                                    <img src="/img/likeInCritic.png" style="width: 15px; height: 15px; margin-right: 15px;margin-top: 5px">
                                                     <div class="itemCritics_criticsList_item_foot_like_data">1</div>
                                                 </div>
                                                 <div class="itemCritics_criticsList_item_foot_dislike">
-                                                    <img src="../static/img/dislikeInCritic.png" style="width: 15px; height: 15px; margin-right: 15px;margin-top: 5px">
+                                                    <img src="/img/dislikeInCritic.png" style="width: 15px; height: 15px; margin-right: 15px;margin-top: 5px">
                                                     <div class="itemCritics_criticsList_item_foot_dislike_data">2</div>
                                                 </div>
                                                 <div class="itemCritics_criticsList_item_foot_report" onmouseover="appendReport(this)" >
-                                                    <img src="../static/img/ellipsisVertical.png" style="width: 20px; height: 20px; margin-top: 5px">
+                                                    <img src="/img/ellipsisVertical.png" style="width: 20px; height: 20px; margin-top: 5px">
                                                 </div>
                                             </div>
                                             <hr style="width: 90%; margin-left: -2%;">
@@ -444,7 +444,7 @@
                                     </div>
                                     <div class="itemCritics_criticsList_item">
                                         <div class="itemCritics_criticsList_item_user">
-                                            <a href="#" target="_blank"><img src="../static/img/defaultUser.png" style="width: 40px;height: 40px;"></a>
+                                            <a href="#" target="_blank"><img src="/img/defaultUser.png" style="width: 40px;height: 40px;"></a>
                                         </div>
                                         <div class="itemCritics_criticsList_item_details">
                                             <div class="itemCritics_criticsList_item_name">DefaultUser</div>
@@ -452,15 +452,15 @@
                                             <div class="itemCritics_criticsList_item_foot">
                                                 <div class="itemCritics_criticsList_item_foot_time">Published on 2022.12.5</div>
                                                 <div class="itemCritics_criticsList_item_foot_like">
-                                                    <img src="../static/img/likeInCritic.png" style="width: 15px; height: 15px; margin-right: 15px;margin-top: 5px">
+                                                    <img src="/img/likeInCritic.png" style="width: 15px; height: 15px; margin-right: 15px;margin-top: 5px">
                                                     <div class="itemCritics_criticsList_item_foot_like_data">1</div>
                                                 </div>
                                                 <div class="itemCritics_criticsList_item_foot_dislike">
-                                                    <img src="../static/img/dislikeInCritic.png" style="width: 15px; height: 15px; margin-right: 15px;margin-top: 5px">
+                                                    <img src="/img/dislikeInCritic.png" style="width: 15px; height: 15px; margin-right: 15px;margin-top: 5px">
                                                     <div class="itemCritics_criticsList_item_foot_dislike_data">2</div>
                                                 </div>
                                                 <div class="itemCritics_criticsList_item_foot_report" onmouseover="appendReport(this)">
-                                                    <img src="../static/img/ellipsisVertical.png" style="width: 20px; height: 20px; margin-top: 5px">
+                                                    <img src="/img/ellipsisVertical.png" style="width: 20px; height: 20px; margin-top: 5px">
                                                 </div>
                                             </div>
                                             <hr style="width: 90%; margin-left: -2%;">
@@ -475,8 +475,9 @@
                 </div>
             </div>
         </div>
-        <script src="../static/js/forum.js"></script>
-        <script src="../static/js/universal.js"></script>
-        <script src="../static/js/jquery-3.6.1.js"></script>
+        <script src="/js/jquery-3.6.1.js"></script>
+        <script src="https://cdn.bootcdn.net/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.js"></script>
+        <script src="/js/universal.js"></script>
+        <script src="/js/forum.js"></script>
     </body>
 </html>

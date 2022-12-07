@@ -1,27 +1,28 @@
+var server = "http://172.24.17.172";
 var musicOpacity = 0;
 var userID;
 var userName;
 var userAvator;
 if($.cookie("userID") === undefined)
-    window.location.replace("http://172.24.17.172/login");
-$.ajax({
-    type:"post",
-    url:"http://172.24.17.172/userService/getData",
-    async: false,
-    data:{
-        "page": "universal",
-        "userID": $.cookie("userID")
-    },
-    success: function(data) {
-        userID = data.userID;
-        userName = data.userName;
-        userAvator = data.avator;
-    }
-});
-$(".avator img").prop("src", "http://172.24.17.172"+userAvator);
+    window.location.replace(server + "/login");
+else
+    $.ajax({
+        type:"post",
+        url: server + "/userService/getData",
+        async: false,
+        data:{
+            "page": "universal",
+            "userID": $.cookie("userID")
+        },
+        success: function(data) {
+            userID = data.userID;
+            userName = data.userName;
+            userAvator = data.avator;
+        }
+    });
+if(userAvator !== "null")
+    $(".avator img").prop("src", server + userAvator);
 var avatorScaler = function (size){
-    $(".avator").css("width", size);
-    $(".avator").css("height", size);
     $(".avator img").css("width", size);
     $(".avator img").css("height", size);
     if(size === "100px")
@@ -35,7 +36,7 @@ var deleteDropDown = function (){
 }
 var quitLogin = function (){
     $.removeCookie("userID", {path: "/"});
-    window.location.replace("http://172.24.17.172/index");
+    window.location.replace(server + "/index");
 }
 var appendDropDown = function (){
     if($(".dropDown").length > 0)return;
@@ -70,4 +71,7 @@ var changeMusic = function (){
         musicOpacity ^= 1;
         music.css("opacity", musicOpacity === 1 ? "1" : "0");
     }
+}
+var jumpLocation = function (location){
+    window.location.replace(server + location);
 }

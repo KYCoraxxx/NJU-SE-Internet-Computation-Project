@@ -32,10 +32,9 @@ public class UserController
     @RequestMapping(path = "/addUser", method = RequestMethod.POST)
     @ResponseBody
     @CrossOrigin
-    public Message addUser(@RequestParam(value="inputName") String userName , @RequestParam(value="inputPwd") String userPassword,
-     @RequestParam(value="inputPwd") String avatorUrl)
+    public Message addUser(@RequestParam(value="inputName") String userName , @RequestParam(value="inputPwd") String userPassword)
     {
-        return userService.addUser(userName, userPassword,avatorUrl);
+        return userService.addUser(userName, userPassword, "null");
     }
 
     @RequestMapping(path = "/editUser", method = RequestMethod.POST)

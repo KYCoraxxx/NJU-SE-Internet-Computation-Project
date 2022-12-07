@@ -37,8 +37,8 @@ public class User {
     public User()
     {
         this.id = 0;
-        this.name = "norman";
-        this.password = "nopassword";
-        this.avatorUrl = "noavator";
+        this.name = "null";
+        this.password = "null";
+        this.avatorUrl = "null";
     }
 }
