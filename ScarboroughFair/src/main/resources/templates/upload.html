@@ -75,16 +75,37 @@
                 <input type = "text" name = "description" placeholder = "例 原产地：哥伦比亚；保质期：10天；用途：佐料"/>
             </div>
             <div class = "uploadInput">
-                <div>封面：</div>
-                <!--todo:获取图片-->
+                <div style="padding-top: 50px;">封面：</div>
+                <div class = "uploadCover">
+                    <img id = "cover" src = "../static/img/demo5.jpg"/>
+                </div>
+                <div class="btn" style="background-color: deeppink; font-weight: bold; margin: 55px 30px;">
+                    上传封面
+                    <input id="upl_cover" type="file" style="opacity: 0; cursor: pointer" onchange="displayNewCover(this)" name="cover"/>
+                </div>
+                <!--todo:获取图片 改善UI-->
             </div>
             <div class = "uploadInput">
-                <div>图片：</div>
-                <!--todo:获取图片-->
+                <div style="padding-top: 50px;">图片：</div>
+                <div class = "uploadCover">
+                    <img id = "cover" src = "../static/img/demo5.jpg"/>
+                </div>
+                <div class = "btn" style="background-color: deeppink; font-weight: bold; margin: 55px 30px;">
+                    上传图片
+                    <input id="upl_cover" type="file" style="opacity: 0; cursor: pointer" onchange="displayNewPic(this)" name="cover"/>
+                </div>
+                <!--todo:获取图片 改善UI-->
             </div>
         </div>
+        <div style="width: 280px; display: flex; align-content: center">
+            <form style="height: 40px; width: 120px; margin: 20px auto; padding-bottom: 20px;">
+                <input type="button" value="上架商品" class="btn" style="background-color: deeppink; font-weight: bold;" onclick="postUploadInfo()"/>
+            </form>
+        </div>
     </div>
+
     <script src="../static/js/jquery-3.6.1.js"></script>
     <script src="../static/js/universal.js"></script>
+    <script src="../static/js/upload.js"></script>
 </body>
 </html>

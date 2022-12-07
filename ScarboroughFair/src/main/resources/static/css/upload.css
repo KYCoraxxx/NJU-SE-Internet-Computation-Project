@@ -7,9 +7,10 @@
     margin-top: 50px;
     justify-content: left;
     align-items: left;
+    text-align: center;
 }
 .uploadInput{
-    height: 40px;
+    height: auto;
     margin-left: 10%;
     padding-top: 20px;
     padding-bottom: 20px;
@@ -19,7 +20,6 @@
 }
 .uploadInput div{
     font-size: 20px;
-    padding-right: 30px;
     text-align: center;
     line-height: 200%;
 }
@@ -28,4 +28,13 @@
     font-size: 15px;
     border-radius: 8px;
     border: 1px solid mediumpurple;
+    margin-right: 30px;
+}
+.uploadInput img{
+    height: 150px;
+    width: 150px;
+    padding-left: 20px;
+}
+.uploadCover{
+
 }
