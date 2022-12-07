@@ -35,6 +35,10 @@ public class ImageController {
     @PostMapping(path="/upload")
     @ResponseBody
     public Message upload(@RequestParam(value = "file") MultipartFile fileUpload, Model model){
+        return Imgupload(fileUpload);
+    }
+
+    public Message Imgupload(MultipartFile fileUpload){
         String fileName = fileUpload.getOriginalFilename();
         String suffixName = fileName.substring(fileName.lastIndexOf("."));
         fileName = UUID.randomUUID()+suffixName;
