@@ -18,7 +18,7 @@
         <!--预留给附加功能-->
         <div class="settingBar">
             <ul>
-                <li><img src="/img/setting.png"/></li>
+                <li onclick="jumpLocation('/usercenter')"><img src="/img/setting.png"/></li>
                 <li><a href="https://github.com/KYCoraxxx/NJU-SE-Internet-Computation-Project" target="_blank"><img src="/img/link.png"/></a><li>
                 <li onclick="changeMusic()"><img src="/img/music.png"/></li>
             </ul>
@@ -58,21 +58,28 @@
 
     <div class="container">
         <!--更换请求url-->
-        <form enctype="multipart/form-data" method="post" action="/upload">
-            <div class="avatorBox">
-                <img id="avator" src="/img/defaultUser.png"/>
-                <input type="file" value="修改头像"/>
-            </div>
-            <div id="infoBox">
-                <div>
-                    <label style="padding: 0 2em 0 2em">昵称:</label>
-                    <input type="text" class="title" name="nickname"/>
+        <form enctype="multipart/form-data" method="post" action="/UserUpload">
+            <div style="display: flex; flex-direction: row">
+                <div class="avatorBox">
+                    <img id="avator" src="/img/defaultUser.png"/>
+                    <div class="btn" style="background-color: deeppink; font-weight: bold;">
+                        上传头像
+                        <input id="upl_avator" type="file" style="opacity: 0; cursor: pointer" onchange="displayNewAvator(this)" name="avator"/>
+                    </div>
                 </div>
-                <div>
-                    <label style="padding: 0 2em 0 0">我的签名:</label>
-                    <textarea class="multitext" name="saying"></textarea>
+                <div id="infoBox">
+                    <div>
+                        <label style="padding: 0 2em 0 2em">昵称:</label>
+                        <input type="text" class="title" name="nickname"/>
+                    </div>
+                    <div>
+                        <label style="padding: 0 2em 0 0">我的签名:</label>
+                        <textarea class="multitext" name="saying"></textarea>
+                    </div>
                 </div>
             </div>
+            <button class="btn" style="font-weight: bold;margin: auto auto">保存更改</button>
+            <input name="userID" id="getUserID" style="width: 0; height: 0;" />
         </form>
     </div>
     <script src="/js/jquery-3.6.1.js"></script>

@@ -28,8 +28,6 @@ input {
     height: 40px;
     border-radius: 10px;
     border: #9f9eff;
-}
-.btn:hover {
     cursor: pointer;
 }
 /*公用组件置于universal中*/

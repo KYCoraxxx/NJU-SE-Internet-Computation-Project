@@ -39,12 +39,16 @@ public class GoodController {
         return goodService.buyGood(id);
     }
 
+    /*
+     * <暂时废弃>，添加商品的接口在uploadcontroller
+     */
     @RequestMapping(value = "/addGood",method = RequestMethod.POST)
     @ResponseBody
     public Message addGood(@RequestParam("GoodName") String name ,@RequestParam("GoodPrice") Float price,@RequestParam("GoodPicUrl") String picture,@RequestParam("GoodDes") String description)
     {
         return goodService.addGood(name, price, picture, description);
     }
+
     @RequestMapping(value="/deleteById", method = RequestMethod.POST)
     @ResponseBody
     public Message deleteGood(@RequestParam("id") int id)
