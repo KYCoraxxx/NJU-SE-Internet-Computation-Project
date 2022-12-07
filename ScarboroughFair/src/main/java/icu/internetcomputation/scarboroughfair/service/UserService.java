@@ -84,7 +84,7 @@ public class UserService {
             {
                 user.setName(name);
             }
-            
+            user.setId(id);
             if(avatorUrl != null)
             {
                 user.setAvatorUrl(avatorUrl);
@@ -94,7 +94,7 @@ public class UserService {
                 user.setSignature(signature);
             }
         }
-        
+        userRepository.save(user);
         
         return new Message(true,"用户信息改好了~，多亏了八云紫大人(*/ω＼*)",avatorUrl);
     }
