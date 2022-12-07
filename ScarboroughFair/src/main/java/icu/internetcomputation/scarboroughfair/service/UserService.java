@@ -49,7 +49,7 @@ public class UserService {
         int id = (int)userRepository.count() + 1;
         User user = new User(id, userName, userPassword, avatorUrl);
         userRepository.save(user);
-        return new Message(true,"欢迎来到新世界o(*￣▽￣*)ブ",null,id);
+        return new Message(true,"欢迎来到☯幻想乡☯o(*￣▽￣*)ブ",null,id);
     }
 
     public Data getData(String page, int userID){
@@ -66,10 +66,10 @@ public class UserService {
         }
         if(!user.getPassword().equals(userPassword))
         {
-            return new Message(false,"咒语记错了啦……┭┮﹏┭┮");
+            return new Message(false,"符卡记错了……┭┮﹏┭┮");
         }else
         {
-            return new Message(true,String.format("欢迎回家！ %s さま~o(*￣▽￣*)ブ",user.getName()),null, user.getId());
+            return new Message(true,String.format("欢迎回家！要来杯红茶吗， %s sama~o(*￣▽￣*)ブ？",user.getName()),null, user.getId());
         }
     }
     
@@ -96,6 +96,6 @@ public class UserService {
         }
         
         
-        return new Message(true,"用户信息改好辣~(*/ω＼*)",avatorUrl);
+        return new Message(true,"用户信息改好了~，多亏了八云紫大人(*/ω＼*)",avatorUrl);
     }
 }
