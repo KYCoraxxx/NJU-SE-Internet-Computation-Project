@@ -82,7 +82,7 @@ public class UploadController {
     public Message UserUpload(@RequestParam(value = "avator") MultipartFile avator,
     @RequestParam(required = false) String nickname, @RequestParam(required = false) String saying,
     @RequestParam(required = false) String userID, Model model){
-        System.out.println(userID);
+        // System.out.println(userID);
         String avatorUrl = null;
         if(avator != null)
         {
@@ -103,7 +103,7 @@ public class UploadController {
     public String Imgupload(MultipartFile fileUpload){
         String fileName = fileUpload.getOriginalFilename();
         String suffixName = fileName.substring(fileName.lastIndexOf("."));
-        fileName = UUID.randomUUID()+suffixName;
+        fileName = UUID.randomUUID() + suffixName;
         //获取日期
         Date todayDate = new Date();
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
@@ -126,7 +126,7 @@ public class UploadController {
 
             fileUpload.transferTo(f.getAbsoluteFile());
 
-            return saveToPath+fileName;
+            return saveToPath + fileName;
         } catch (Exception e) {
             e.printStackTrace();
             return null;
@@ -140,7 +140,7 @@ public class UploadController {
     public Message OriginalImgupload(MultipartFile fileUpload){
         String fileName = fileUpload.getOriginalFilename();
         String suffixName = fileName.substring(fileName.lastIndexOf("."));
-        fileName = UUID.randomUUID()+suffixName;
+        fileName = UUID.randomUUID() + suffixName;
         //获取日期
         Date todayDate = new Date();
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");

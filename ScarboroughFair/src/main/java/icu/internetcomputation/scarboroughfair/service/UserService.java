@@ -52,9 +52,10 @@ public class UserService {
         return new Message(true,"欢迎来到☯幻想乡☯o(*￣▽￣*)ブ",null,id);
     }
 
+    // page是前端返回的页面的名字，如universal
     public Data getData(String page, int userID){
         User user = findById(userID);
-        return new Data(user.getId(), user.getName(), user.getAvatorUrl());
+        return new Data(user.getId(), user.getName(), user.getAvatorUrl(), user.getSignature());
     }
 
     public Message checkUser(String userName, String userPassword)
@@ -80,7 +81,7 @@ public class UserService {
         {
             return new Message(false, "啊咧，好像出错了(@ _ @;)");
         }else{
-            if(name != null)
+            if(name != "")
             {
                 user.setName(name);
             }
@@ -90,12 +91,12 @@ public class UserService {
                 user.setAvatorUrl(avatorUrl);
             }
             
-            if(signature != null){
+            if(signature != ""){
                 user.setSignature(signature);
             }
         }
         userRepository.save(user);
         
-        return new Message(true,"用户信息改好了~，多亏了八云紫大人(*/ω＼*)",avatorUrl);
+        return new Message(true,"用户信息改好了~，多亏了八云紫大人(*/ω＼*)", avatorUrl);
     }
 }

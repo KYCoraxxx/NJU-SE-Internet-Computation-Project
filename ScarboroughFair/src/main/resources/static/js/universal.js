@@ -3,6 +3,7 @@ var musicOpacity = 0;
 var userID;
 var userName;
 var userAvator;
+var userSaying;
 if($.cookie("userID") === undefined)
     window.location.replace(server + "/login");
 else
@@ -18,6 +19,7 @@ else
             userID = data.userID;
             userName = data.userName;
             userAvator = data.avator;
+            userSaying = data.saying;
         }
     });
 if(userAvator !== "null")
@@ -46,7 +48,8 @@ var appendDropDown = function (){
     userBox.append(dropDown);
     setTimeout(function () {
         dropDown.append($("<div class='article-subtitle' style='height: 10%'></div>").text(userName));
-        dropDown.append($("<div class='saying'>最怕你一生碌碌无为，还安慰自己平凡可贵</div>"));
+        // dropDown.append($("<div class='saying'>最怕你一生碌碌无为，还安慰自己平凡可贵</div>"));
+        dropDown.append($("<div class='saying'></div>").text(userSaying));
         dropDown.append($("<button class='dropDownBtn'><img src='/img/userCenter.png'/>个人中心</button>").bind("click", function (){
             window.location.replace(server + "/usercenter");
         }));
