@@ -21,6 +21,7 @@ var getScrollPos = function (){
 }
 
 var returnTop = function (){
+    console.log("@@@");
     var timer = setInterval(() => {
         var base = getScrollPos();
         if(base <= 1){
