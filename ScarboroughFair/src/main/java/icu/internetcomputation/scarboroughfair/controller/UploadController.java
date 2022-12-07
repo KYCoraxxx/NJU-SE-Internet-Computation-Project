@@ -68,7 +68,7 @@ public class UploadController {
     @RequestParam(value = "description") String description,Model model){
         String GoodUrl = Imgupload(fileUpload);
         if(GoodUrl == null){
-            return new Message(false, "图片好像上传失败了w(ﾟДﾟ)w");
+            return new Message(false, "图片好像上传失败了姆Q~w(ﾟДﾟ)w");
         }
         return goodService.addGood(name, Float.valueOf(price), GoodUrl, description);
     }
@@ -159,10 +159,10 @@ public class UploadController {
 
             fileUpload.transferTo(f.getAbsoluteFile());
 
-            return new Message(true,"好耶，图片上传成功ヽ(✿ﾟ▽ﾟ)/", saveToPath+fileName);
+            return new Message(true,"好耶，图片上传成功了ヽ(✿ﾟ▽ﾟ)/da☆ze", saveToPath+fileName);
         } catch (Exception e) {
             e.printStackTrace();
-            return new Message(false,"图片好像上传失败了w(ﾟДﾟ)w",null);
+            return new Message(false,"图片好像上传失败了姆Q~w(ﾟДﾟ)w",null);
         }
     }
 

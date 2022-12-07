@@ -96,6 +96,6 @@ public class UserService {
         }
         
         
-        return new Message(true,"用户信息改好辣~(*/ω＼*)");
+        return new Message(true,"用户信息改好辣~(*/ω＼*)",avatorUrl);
     }
 }
