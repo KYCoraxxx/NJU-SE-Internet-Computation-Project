@@ -37,10 +37,13 @@ public class UserController
         return userService.addUser(userName, userPassword, "null");
     }
 
+    /*
+     * <暂时废弃>，修改用户资料的接口在UploadController
+     */
     @RequestMapping(path = "/editUser", method = RequestMethod.POST)
     @ResponseBody
     public Message editUser(@RequestParam(value="inputName") String userName , @RequestParam(value="inputPwd") String userPassword){
-        // TODO:修改用户名和密码
+        
         return null;
     }
 

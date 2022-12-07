@@ -25,6 +25,13 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 @CrossOrigin
 public class UploadController {
 
+    // 
+    /*
+     * TODO: 有个问题，目前商品和用户信息的上传都在这个controller，
+     *       但按正常思路应该分别放在GoodController和UserController，
+     *       待定
+     */
+
     @Resource
     private GoodService goodService;
     @Resource
@@ -52,7 +59,7 @@ public class UploadController {
 
 
     /*
-     * 商品信息上传的接口，包括商品图片，商品名称，商品价格，商品描述
+     * 商品信息 <<<上传>>> 的接口，包括商品图片，商品名称，商品价格，商品描述
      */
     @PostMapping(path="/GoodUpload")
     @ResponseBody
@@ -68,7 +75,7 @@ public class UploadController {
 
 
     /*
-     * 用户个人信息上传的接口，包括头像，昵称，个性签名（不包括密码！！！）
+     * 用户个人信息 <<<修改>>> 的接口，包括头像，昵称，个性签名（不包括密码！！！）
      */
     @PostMapping(path="UserUpload")
     @ResponseBody
