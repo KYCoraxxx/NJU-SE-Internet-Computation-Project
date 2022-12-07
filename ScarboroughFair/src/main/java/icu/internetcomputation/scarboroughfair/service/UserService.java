@@ -76,9 +76,26 @@ public class UserService {
     public Message editUser(Integer id, String avatorUrl, String name, String signature)
     {
         User user = findById(id);
-        user.setName(name);
-        user.setAvatorUrl(avatorUrl);
-        user.setSignature(signature);
-        return new Message(true,"改好了~");
+        if(user == null)
+        {
+            return new Message(false, "啊咧，好像出错了(@ _ @;)");
+        }else{
+            if(name != null)
+            {
+                user.setName(name);
+            }
+            
+            if(avatorUrl != null)
+            {
+                user.setAvatorUrl(avatorUrl);
+            }
+            
+            if(signature != null){
+                user.setSignature(signature);
+            }
+        }
+        
+        
+        return new Message(true,"用户信息改好辣~(*/ω＼*)");
     }
 }

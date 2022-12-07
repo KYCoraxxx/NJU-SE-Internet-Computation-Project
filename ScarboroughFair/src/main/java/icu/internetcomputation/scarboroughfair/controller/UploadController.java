@@ -75,10 +75,14 @@ public class UploadController {
     public Message UserUpload(@RequestParam(value = "avator") MultipartFile fileUpload,
     @RequestParam(value = "nickname") String name, @RequestParam(value = "saying") String signature,
     @RequestParam(value = "userID") String ID, Model model){
-        String avatorUrl = Imgupload(fileUpload);
-        if(avatorUrl == null){
-            return new Message(false, "图片好像上传失败了w(ﾟДﾟ)w");
+        String avatorUrl = null;
+        if(fileUpload != null)
+        {
+            avatorUrl = Imgupload(fileUpload);
         }
+        // if(avatorUrl == null){
+        //     return new Message(false, "图片好像上传失败了w(ﾟДﾟ)w");
+        // }
         Integer id = Integer.valueOf(ID);
         return userService.editUser(id, avatorUrl, name, signature);
     }
