@@ -1,8 +1,11 @@
+body{
+    background-color: #eeeeee40;
+}
 .container form{
     width: 100%;
     height: auto;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     align-content: center;
     justify-content: center;
 }
