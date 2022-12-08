@@ -18,17 +18,17 @@ var uploadUserInfo = function (){
     formData.append("saying", saying.value);
     formData.append("userID", $.cookie("userID"));
     $.ajax({
-        type: "post",
+        type: "POST",
         url: server + "/userupload",
         data: formData,
+        async: false,
         cache: false,
-        processData:false,
-        contentType:false,
+        processData: false,
+        contentType: false,
         success: function (data){
-            var message = JSON.parse(data);
-            if(message.isSucceed) {
-                window.location.replace(server + "/index");
-                alert("用户信息修改成功！");
+            if(data.isSucceed) {
+                alert(data.message);
+                window.location.replace("/index");
             }
         }
     });

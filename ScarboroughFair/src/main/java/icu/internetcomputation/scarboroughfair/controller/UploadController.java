@@ -79,6 +79,7 @@ public class UploadController {
      */
     @PostMapping(path="/userupload")
     @ResponseBody
+    @CrossOrigin
     public Message UserUpload(@RequestParam(value = "avator") MultipartFile avator,
     @RequestParam(required = false) String nickname, @RequestParam(required = false) String saying,
     @RequestParam(required = false) String userID, Model model){
