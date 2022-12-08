@@ -1,4 +1,4 @@
-var server = "http://localhost:8080";
+var server = "http://localhost";
 var musicOpacity = 0;
 var userID;
 var userName;
