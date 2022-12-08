@@ -1,5 +1,5 @@
 let cover = true;
-var server = "http://172.25.185.215/";
+var server = "http://localhost:8080";
 var changePicture = function(flag){
     if(flag === 0)
         $("img").attr("src", "/img/psw.jpg");
@@ -68,7 +68,7 @@ var postInfo = function (){
             enpwd.css("border-color", "#25b3ff");
             $.ajax({
                     type:"post",
-                    url: server + "userService/addUser",
+                    url: server + "/userService/addUser",
                     data:{
                         "inputName": usr[0].value,
                         "inputPwd":pwd[0].value
@@ -117,7 +117,7 @@ var postInfo = function (){
             }
             $.ajax({
                     type:"post",
-                    url: server + "userService/checkUser",
+                    url: server + "/userService/checkUser",
                     data:{
                         "inputName": user[0].value,
                         "inputPwd": secretpwd
@@ -126,7 +126,7 @@ var postInfo = function (){
                         if(data.isSucceed)
                         {
                             $.cookie("userID", data.id);
-                            window.location.href = server + "index";
+                            window.location.href = server + "/index";
                         }
                         alert(data.message);
                     }
