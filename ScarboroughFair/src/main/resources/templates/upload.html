@@ -76,32 +76,20 @@
             </div>
             <div class = "uploadInput">
                 <div style="padding-top: 50px;">封面：</div>
-                <div class = "uploadCover">
-                    <img id = "cover" src = "../static/img/demo5.jpg"/>
+                <div class = "uploadPic">
+                    <img id = "cover" src = "../static/img/defaultUpload.png"/>
+                    <input id = "upl_cover" type="file" style="opacity: 0; cursor: pointer" onchange="displayNewCover(this)" name="cover"/>
                 </div>
-                <div class="btn" style="background-color: deeppink; font-weight: bold; margin: 55px 30px;">
-                    上传封面
-                    <input id="upl_cover" type="file" style="opacity: 0; cursor: pointer" onchange="displayNewCover(this)" name="cover"/>
-                </div>
-                <!--todo:获取图片 改善UI-->
             </div>
             <div class = "uploadInput">
                 <div style="padding-top: 50px;">图片：</div>
-                <div class = "uploadCover">
-                    <img id = "cover" src = "../static/img/demo5.jpg"/>
+                <div class = "uploadPic">
+                    <img id = "pic" src = "../static/img/defaultUpload.png"/>
+                    <input id = "upl_pic" type="file" style="opacity: 0; cursor: pointer" onchange="displayNewPic(this)" name="pic"/>
                 </div>
-                <div class = "btn" style="background-color: deeppink; font-weight: bold; margin: 55px 30px;">
-                    上传图片
-                    <input id="upl_cover" type="file" style="opacity: 0; cursor: pointer" onchange="displayNewPic(this)" name="cover"/>
-                </div>
-                <!--todo:获取图片 改善UI-->
             </div>
         </div>
-        <div style="width: 280px; display: flex; align-content: center">
-            <form style="height: 40px; width: 120px; margin: 20px auto; padding-bottom: 20px;">
-                <input type="button" value="上架商品" class="btn" style="background-color: deeppink; font-weight: bold;" onclick="postUploadInfo()"/>
-            </form>
-        </div>
+        <button class="btn" style="font-weight: bold;margin: 20px;background-color: deeppink;" onclick="postUploadInfo()">上架商品</button>
     </div>
 
     <script src="../static/js/jquery-3.6.1.js"></script>
