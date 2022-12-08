@@ -1,3 +1,5 @@
+$("#nickname").attr("value", userName);
+$("#saying").prop("value", userSaying);
 if(userAvator !== "null")
     $("#avator").prop("src", server + userAvator);
 var displayNewAvator = function (node){
