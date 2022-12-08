@@ -63,3 +63,30 @@ var loopStop = function (){
     clearInterval(timer);
 }
 
+// renew goodList here
+var goodList = $(".goodBar");
+
+if($.cookie("userID") === undefined)
+    window.location.replace(server + "/login");
+else{
+    $.ajax({
+        type:"post",
+        url: server + "/userService/getData",
+        async: false,
+        data:{
+            "page": "universal",
+            "userID": $.cookie("userID")
+        },
+        success: function(data) {
+            for(var i in data){
+                goodList.append("<div class='goodItem' id='" + i +"'>");
+                $("#"+i).append($("<img src='"+ i.picture +"'/>")).append("<div class='goodInfo' id='" + (10 + i) + "'></div>");
+                $("#" + (10 + i)).append($("<div class='article-subtitle'></div>").text(i.name));
+                $("#" + (10 + i)).append($("<div class='tag'></div>").text(i.description));
+                $("#" + (10 + i)).append($("<div class='price'></div>").text("￥" + i.price));
+                $("#" + (10 + i)).append($("<button class='details'>查看详情</button>"));
+            }
+        }
+    });
+}
+
