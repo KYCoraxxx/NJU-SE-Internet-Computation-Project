@@ -63,14 +63,16 @@ public class UploadController {
      */
     @PostMapping(path="/goodupload")
     @ResponseBody
-    public Message GoodUpload(@RequestParam(value = "file") MultipartFile fileUpload, 
+    public Message GoodUpload( 
     @RequestParam(value = "name") String name, @RequestParam(value = "price") String price,
-    @RequestParam(value = "description") String description,Model model){
-        String GoodUrl = Imgupload(fileUpload);
-        if(GoodUrl == null){
+    @RequestParam(value = "cover") MultipartFile coverUpload,@RequestParam(value = "pic") MultipartFile picUpload,
+    @RequestParam(value = "description") String description,@RequestParam(value = "tag") String tag,Model model){
+        String coverUrl = Imgupload(coverUpload);
+        String picUrl = Imgupload(picUpload);
+        if(coverUrl == null||picUrl == null){
             return new Message(false, "图片好像上传失败了姆Q~w(ﾟДﾟ)w");
         }
-        return goodService.addGood(name, Float.valueOf(price), GoodUrl, description);
+        return goodService.addGood(name, Float.valueOf(price), coverUrl ,picUrl, description, tag);
     }
 
 
