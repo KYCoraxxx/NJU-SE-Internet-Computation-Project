@@ -80,9 +80,10 @@ else{
         success: function(data) {
             for(var i in data){
                 goodList.append("<div class='goodItem' id='" + i +"'>");
-                $("#"+i).append($("<img src='"+ i.picture +"'/>")).append("<div class='goodInfo' id='" + (10 + i) + "'></div>");
+                $("#"+i).append($("<img src='"+ i.cover +"'/>")).append("<div class='goodInfo' id='" + (10 + i) + "'></div>");
                 $("#" + (10 + i)).append($("<div class='article-subtitle'></div>").text(i.name));
-                $("#" + (10 + i)).append($("<div class='tag'></div>").text(i.description));
+                
+                $("#" + (10 + i)).append($("<div class='tag'></div>").text(i.tag));
                 $("#" + (10 + i)).append($("<div class='price'></div>").text("￥" + i.price));
                 $("#" + (10 + i)).append($("<button class='details'>查看详情</button>"));
             }
