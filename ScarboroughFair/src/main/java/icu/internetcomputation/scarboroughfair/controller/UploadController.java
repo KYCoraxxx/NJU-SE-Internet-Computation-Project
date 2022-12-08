@@ -80,7 +80,7 @@ public class UploadController {
     @PostMapping(path="/userupload")
     @ResponseBody
     @CrossOrigin
-    public Message UserUpload(@RequestParam(value = "avator") MultipartFile avator,
+    public Message UserUpload(@RequestParam(value = "avator", required = false) MultipartFile avator,
     @RequestParam(required = false) String nickname, @RequestParam(required = false) String saying,
     @RequestParam(required = false) String userID, Model model){
         // System.out.println(userID);
