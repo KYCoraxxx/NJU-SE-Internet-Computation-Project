@@ -77,3 +77,4 @@ var removeReport = function (){
         $(".reportBtn").remove();
     }
 }
+
