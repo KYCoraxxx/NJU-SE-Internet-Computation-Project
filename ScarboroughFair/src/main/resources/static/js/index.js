@@ -64,30 +64,71 @@ var loopStop = function (){
 }
 
 // renew goodList here
-var goodList = $(".goodBar");
+var renewCount = 0;
+var goodBarCount = -1;
+var goodList = $(".goodBlock");
 
-if($.cookie("userID") === undefined)
-    window.location.replace(server + "/login");
-else{
-    $.ajax({
-        type:"post",
-        url: server + "/userService/getData",
-        async: false,
-        data:{
-            "page": "universal",
-            "userID": $.cookie("userID")
-        },
-        success: function(data) {
-            for(var i in data){
-                goodList.append("<div class='goodItem' id='" + i +"'>");
-                $("#"+i).append($("<img src='"+ i.cover +"'/>")).append("<div class='goodInfo' id='" + (10 + i) + "'></div>");
-                $("#" + (10 + i)).append($("<div class='article-subtitle'></div>").text(i.name));
-                
-                $("#" + (10 + i)).append($("<div class='tag'></div>").text(i.tag));
-                $("#" + (10 + i)).append($("<div class='price'></div>").text("￥" + i.price));
-                $("#" + (10 + i)).append($("<button class='details'>查看详情</button>"));
+var alreadyUploadIndex = -1;
+
+if(renewCount === 0){
+    if($.cookie("userID") === undefined)
+        window.location.replace(server + "/login");
+    else{
+        $.ajax({
+            type:"post",
+            url: server + "/userService/getData",
+            async: false,
+            data:{
+                "page": "universal",
+                "userID": $.cookie("userID")
+            },
+            success: function(data) {
+                var start = alreadyUploadIndex;
+                for(i = start;i < start + 4;i++){
+                    if(i % 4 === 0){
+                        goodBarCount++;
+                        goodList.append("<div class='goodBar' id='goodBar" + goodBarCount + "'></div>");
+                    }
+                    $("#goodBar" + goodBarCount).append("<div class='goodItem' id='goodItem" + i +"'>");
+                    $("#goodItem" + i).append($("<img src='"+ 111 +"'/>")).append("<div class='goodInfo' id='goodItem_goodInfo" + i + "'></div>");
+                    $("#goodItem_goodInfo" + i).append($("<div class='article-subtitle'></div>").text("data[i].name"));
+                    $("#goodItem_goodInfo" + i).append($("<div class='tag'></div>").text("data[i].tag"));
+                    $("#goodItem_goodInfo" + i).append($("<div class='price'></div>").text("￥" + "data[i].price"));
+                    $("#goodItem_goodInfo" + i).append($("<button class='details'>查看详情</button>"));
+                    alreadyUploadIndex++;
+                }
             }
-        }
-    });
+        });
+    }
+    console.log(renewCount);
+    renewCount++;
+}
+
+window.onscroll = function (){
+    
+}
+
+var addRenew = function(){// invoke when reach the end of the page
+    renewCount = 0;
+}
+
+var getScrollPos = function (){
+    var scrollTop = 0;
+    if(document.documentElement&&document.documentElement.scrollTop){
+        scrollTop = document.documentElement.scrollTop;
+    }else if(document.body){
+        scrollTop = document.body.scrollTop;
+    }
+    return scrollTop;
+}
+
+var getScrollHeight = function(){
+    var scrollHeight = 0;
+    if(document.documentElement&&document.documentElement.scrollHeight){
+        scrollHeight = document.documentElement.scrollHeight;
+    }else if(document.body){
+        scrollHeight = document.body.scrollHeight;
+    }
+    return scrollHeight;
 }
 

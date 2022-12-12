@@ -21,7 +21,6 @@ var getScrollPos = function (){
 }
 
 var returnTop = function (){
-    console.log("@@@");
     var timer = setInterval(() => {
         var base = getScrollPos();
         if(base <= 1){
@@ -55,6 +54,7 @@ var picRespond = function (obj){
 /*举报栏的添加------------------------------------------------*/
 var inCount = 0;
 var outCount = 0;
+
 var appendReport = function (obj){
     if(inCount === 1){
         return;
