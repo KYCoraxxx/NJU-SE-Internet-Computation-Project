@@ -127,7 +127,6 @@ if(renewCount === 0){
                 }
             }
         });*/
-        renewLock = 1;
         setTimeout(uploadGood,3000);
         goodList.append("<div class='renewIcon'><img src='/img/renewIcon.png' width='50px' height='50px' style='margin-top: 30px;'></div>");
     }
