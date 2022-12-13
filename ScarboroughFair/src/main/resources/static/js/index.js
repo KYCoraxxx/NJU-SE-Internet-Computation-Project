@@ -67,14 +67,43 @@ var loopStop = function (){
 var renewCount = 0;
 var goodBarCount = -1;
 var goodList = $(".goodBlock");
+var alreadyUploadIndex = 0;
+var renewLock = 0;
 
-var alreadyUploadIndex = -1;
+var uploadGood = function(){
+    $.ajax({
+        type:"post",
+        url: server + "/goodService/findAll",
+        async: false,
+        data:{
+        },
+        success: function(data) {
+            var start = alreadyUploadIndex;
+            for(i = start;i < start + 4;i++){
+                if(i % 4 === 0){
+                    goodBarCount++;
+                    goodList.append("<div class='goodBar' id='goodBar" + goodBarCount + "'></div>");
+                }
+                $("#goodBar" + goodBarCount).append("<div class='goodItem' id='goodItem" + i +"'>");
+                $("#goodItem" + i).append($("<img src='"+ 111 +"'/>")).append("<div class='goodInfo' id='goodItem_goodInfo" + i + "'></div>");
+                $("#goodItem_goodInfo" + i).append($("<div class='article-subtitle'></div>").text("data[i].name"));
+                $("#goodItem_goodInfo" + i).append($("<div class='tag'></div>").text("data[i].tag"));
+                $("#goodItem_goodInfo" + i).append($("<div class='price'></div>").text("￥" + "data[i].price"));
+                $("#goodItem_goodInfo" + i).append($("<button class='details'>查看详情</button>"));
+                alreadyUploadIndex++;
+            }
+        }
+    });
+    renewLock = 0;
+    $(".renewIcon").remove();
+    return 0;
+}
 
 if(renewCount === 0){
     if($.cookie("userID") === undefined)
         window.location.replace(server + "/login");
     else{
-        $.ajax({
+       /* $.ajax({
             type:"post",
             url: server + "/userService/getData",
             async: false,
@@ -83,8 +112,7 @@ if(renewCount === 0){
                 "userID": $.cookie("userID")
             },
             success: function(data) {
-                var start = alreadyUploadIndex;
-                for(i = start;i < start + 4;i++){
+                for(i = 0;i < 8;i++){
                     if(i % 4 === 0){
                         goodBarCount++;
                         goodList.append("<div class='goodBar' id='goodBar" + goodBarCount + "'></div>");
@@ -98,18 +126,24 @@ if(renewCount === 0){
                     alreadyUploadIndex++;
                 }
             }
-        });
+        });*/
+        renewLock = 1;
+        setTimeout(uploadGood,3000);
+        goodList.append("<div class='renewIcon'><img src='/img/renewIcon.png' width='50px' height='50px' style='margin-top: 30px;'></div>");
     }
-    console.log(renewCount);
     renewCount++;
 }
 
 window.onscroll = function (){
-    
-}
-
-var addRenew = function(){// invoke when reach the end of the page
-    renewCount = 0;
+    var scrollPos = getScrollPos();
+    var scrollHeight = getScrollHeight();
+    var windowHeight = getWindowHeight();
+    if(scrollPos + windowHeight >= scrollHeight && renewLock === 0){
+        renewLock = 1;
+        // this would invoke the renew function
+        setTimeout(uploadGood,3000);
+        goodList.append("<div class='renewIcon'><img src='/img/renewIcon.png' width='50px' height='50px' style='margin-top: 30px;'></div>");
+    }
 }
 
 var getScrollPos = function (){
@@ -131,4 +165,17 @@ var getScrollHeight = function(){
     }
     return scrollHeight;
 }
+
+var getWindowHeight = function(){
+    var windowHeight = 0;
+    if(document.compatMode === "CSS1Compat"){
+        windowHeight = document.documentElement.clientHeight;
+    }
+    else{
+        windowHeight = document.body.clientHeight;
+    }
+    return windowHeight;
+}
+
+
 
