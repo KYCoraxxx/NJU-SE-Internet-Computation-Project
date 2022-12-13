@@ -44,9 +44,11 @@ public class GoodController {
      */
     @RequestMapping(value = "/addGood",method = RequestMethod.POST)
     @ResponseBody
-    public Message addGood(@RequestParam("GoodName") String name ,@RequestParam("GoodPrice") Float price,@RequestParam("GoodPicUrl") String picture,@RequestParam("GoodDes") String description)
+    public Message addGood(@RequestParam("name") String name ,@RequestParam("tag") String tag,
+    @RequestParam("price") Float price,@RequestParam("cover") String cover, 
+    @RequestParam("pic") String picture,@RequestParam("description") String description)
     {
-        return goodService.addGood(name, price, picture, description);
+        return goodService.addGood(name, price, cover, picture, description, tag);
     }
 
     @RequestMapping(value="/deleteById", method = RequestMethod.POST)

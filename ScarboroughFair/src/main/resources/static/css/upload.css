@@ -35,6 +35,26 @@
     width: 150px;
     padding-left: 20px;
 }
-.uploadCover{
-
+.uploadPic img{
+    cursor: pointer;
+}
+.uploadPic input{
+    position: absolute;
+    margin-left: -150px;
+}
+#cover{
+    height: 150px;
+    width: 150px;
+}
+#pic{
+    height: 150px;
+    width: 150px;
+}
+#upl_cover{
+    height: 150px;
+    width: 150px;
+}
+#upl_pic{
+    height: 150px;
+    width: 150px;
 }

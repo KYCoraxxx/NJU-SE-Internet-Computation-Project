@@ -28,11 +28,19 @@ public class Good {
 
     @Getter
     @Setter
+    private String cover;
+
+    @Getter
+    @Setter
     private String picture;
 
     @Getter
     @Setter
     private String description;
+
+    @Getter
+    @Setter
+    private String tag;
 
     Good(){
         this.id = -1;
@@ -40,14 +48,18 @@ public class Good {
         this.price = null;
         this.picture = null;
         this.description = null;
+        this.cover = null;
+
     }
 
-    public Good(int id, String name, Float price, String picture, String description) {
+    public Good(int id, String name, Float price, String cover, String picture, String description, String tag) {
         this.id = id;
         this.name = name;
         this.price = price;
+        this.cover = cover;
         this.picture = picture; // TODO: picture ?
         this.description = description;
+        this.tag = tag;
     }
     
 }

@@ -17,6 +17,5 @@ var showDetailContent = function(type){
     }
     else if(type === 2){
         detailContent.append($("<img src = '../static/img/demo5.jpg'/>"));
-        detailContent.append($("<img src = '../static/img/demo5.jpg'/>"));
     }
 }

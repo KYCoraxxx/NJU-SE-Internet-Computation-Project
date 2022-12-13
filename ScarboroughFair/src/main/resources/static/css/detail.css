@@ -120,8 +120,8 @@
     flex-direction: column;
 }
 .detailContent img{
-    height: 400px;
-    width: 400px;
+    max-width: 70%;
+    height: auto;
     padding-top: 10px;
     padding-bottom: 10px;
 }
