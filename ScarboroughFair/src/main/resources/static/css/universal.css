@@ -130,6 +130,7 @@ input {
 }
 .optionBox:hover {
     cursor: pointer;
+    background-color: rgba(0,0,0,0.2);
 }
 .optionBox span{
     margin: auto 0;
@@ -139,6 +140,11 @@ input {
     width: 30px;
     height: 30px;
 }
+
+.optionBox.active{
+    background-color: rgba(0,0,0,0.2);
+}
+
 .dropDown {
     height: 350px;
     width: 300px;

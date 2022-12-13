@@ -77,6 +77,10 @@ var changeMusic = function (){
         music.css("opacity", musicOpacity === 1 ? "1" : "0");
     }
 }
-var jumpLocation = function (location){
+var jumpLocation = function (location,obj){
     window.location.replace(server + location);
+    var targetBox = $(obj);
+    var formerBox = $(".optionBox.active");
+    formerBox.classname = "optionBox";
+    targetBox.classname = "optionBox active";
 }

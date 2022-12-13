@@ -39,23 +39,23 @@
 
   <div class="navBar">
     <div style="height: 70px"></div>
-    <div class="optionBox" onclick="jumpLocation('/index')">
-      <img src="/img/homeIcon.png"/>
-      <span>主页</span>
+    <div class="optionBox active" onclick="jumpLocation('/index',this)">
+        <img src="/img/homeIcon.png"/>
+        <span style="color: mediumpurple">主页</span>
     </div>
-    <div class="optionBox" onclick="jumpLocation('/forum')">
-      <img src="/img/discussIcon.png"/>
-      <span>灌水</span>
-    </div>
-    <div class="optionBox">
-      <img src="/img/helpIcon.png"/>
-      <span>帮助</span>
+    <div class="optionBox" onclick="jumpLocation('/forum',this)">
+        <img src="/img/discussIcon.png"/>
+        <span>灌水</span>
     </div>
     <div class="optionBox">
-      <img src="/img/fireIcon.png"/>
-      <span>热门</span>
+        <img src="/img/helpIcon.png"/>
+        <span>帮助</span>
     </div>
-  </div>
+    <div class="optionBox">
+        <img src="/img/fireIcon.png"/>
+        <span>热门</span>
+    </div>
+</div>
 
   <div class="container">
     <img src="/img/todo.png" style="width: 20%; height: auto; margin-top: 210px; margin-bottom: 10px"/>

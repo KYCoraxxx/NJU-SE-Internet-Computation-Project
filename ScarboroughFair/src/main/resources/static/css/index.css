@@ -225,3 +225,16 @@
     border-width: thin;
     cursor: pointer;
 }
+
+@keyframes rotate{
+    0%{
+        transform: rotateZ(0deg);
+    }
+    100%{
+        transform: rotateZ(360deg);
+    }
+}
+
+.renewIcon img{
+    animation: rotate 6s infinite;
+}
