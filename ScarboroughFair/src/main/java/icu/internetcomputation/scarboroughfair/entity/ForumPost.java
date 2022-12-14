@@ -14,6 +14,8 @@ import lombok.*;
 @Table(name = "forumpost")
 public class ForumPost {
     // 论坛中的帖子类
+
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Getter
@@ -24,7 +26,7 @@ public class ForumPost {
     // 发帖者
     @Getter
     @Setter
-    private User forumUser; 
+    private User PostUser; 
     
 
     // 帖子内容
@@ -44,7 +46,7 @@ public class ForumPost {
     //发帖时间
     @Getter
     @Setter 
-    private Calendar postTime;
+    private Calendar PostTime;
 
 
     /*
