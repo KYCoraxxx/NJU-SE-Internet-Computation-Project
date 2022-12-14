@@ -106,16 +106,16 @@ var uploadGoodInfo = function (){
     var cover = $("#upl_cover")[0].files[0];
     var pic = $("#upl_pic")[0].files[0];
     formData.append("name", name.value);
-    formData.append("tag", tag.value);
     formData.append("price", price.value);
     formData.append("cover", cover);
     formData.append("pic", pic);
     formData.append("description", description.value);
+    formData.append("tag", tag.value);
     
     
     $.ajax({
         type: "POST",
-        url: server + "/GoodService/addGood", 
+        url: server + "/goodupload", 
         data: formData,
         async: false,
         cache: false,
