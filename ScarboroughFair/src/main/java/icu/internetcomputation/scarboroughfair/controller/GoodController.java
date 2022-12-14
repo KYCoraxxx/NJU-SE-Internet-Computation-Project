@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 
 @Controller
-@RequestMapping(path = "/GoodService", method = RequestMethod.POST, produces = "application/json")
+@RequestMapping(path = "/goodService", method = RequestMethod.POST, produces = "application/json")
 public class GoodController {
     @Resource
     private GoodService goodService;
