@@ -27,6 +27,9 @@ public class ScarboroughFairController {
     @GetMapping("/upload")
     public String upload(Model model){ return "upload"; }
 
+    @GetMapping("/detail")
+    public String detail(Model model){ return "detail"; }
+
     @GetMapping("/undone")
     public String undone(Model model){ return "undone"; }
 
