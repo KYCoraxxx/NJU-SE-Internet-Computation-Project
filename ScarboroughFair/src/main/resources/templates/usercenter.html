@@ -31,16 +31,16 @@
         <!--预留给附加功能（如发布商品等）-->
         <div style="width: 280px; display: flex; align-content: center">
             <form style="height: 40px; width: 120px; margin: auto auto;">
-                <input type="button" value="上架商品" class="btn" style="background-color: deeppink; font-weight: bold;"/>
+                <input type="button" value="上架商品" class="btn" style="background-color: deeppink; font-weight: bold;" onclick="jumpLocation('/upload')"/>
             </form>
         </div>
     </div>
 
     <div class="navBar">
         <div style="height: 70px"></div>
-        <div class="optionBox active" onclick="jumpLocation('/index',this)">
+        <div class="optionBox" onclick="jumpLocation('/index',this)">
             <img src="/img/homeIcon.png"/>
-            <span style="color: mediumpurple">主页</span>
+            <span>主页</span>
         </div>
         <div class="optionBox" onclick="jumpLocation('/forum',this)">
             <img src="/img/discussIcon.png"/>

@@ -112,9 +112,10 @@ var uploadGoodInfo = function (){
     formData.append("description", description.value);
     formData.append("tag", tag.value);
     
+    
     $.ajax({
         type: "POST",
-        url: server + "", //todo: Good upload url
+        url: server + "/goodupload", 
         data: formData,
         async: false,
         cache: false,

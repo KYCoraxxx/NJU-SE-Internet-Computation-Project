@@ -42,14 +42,14 @@ public class GoodController {
     /*
      * <暂时废弃>，添加商品的接口在uploadcontroller
      */
-    @RequestMapping(value = "/addGood",method = RequestMethod.POST)
-    @ResponseBody
-    public Message addGood(@RequestParam("name") String name ,@RequestParam("tag") String tag,
-    @RequestParam("price") Float price,@RequestParam("cover") String cover, 
-    @RequestParam("pic") String picture,@RequestParam("description") String description)
-    {
-        return goodService.addGood(name, price, cover, picture, description, tag);
-    }
+    // @RequestMapping(value = "/addGood",method = RequestMethod.POST)
+    // @ResponseBody
+    // public Message addGood(@RequestParam("name") String name ,@RequestParam("tag") String tag,
+    // @RequestParam("price") Float price,@RequestParam("cover") String cover, 
+    // @RequestParam("pic") String picture,@RequestParam("description") String description)
+    // {
+    //     return goodService.addGood(name, price, cover, picture, description, tag);
+    // }
 
     @RequestMapping(value="/deleteById", method = RequestMethod.POST)
     @ResponseBody
