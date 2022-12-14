@@ -73,7 +73,7 @@ var renewLock = 0;
 var uploadGood = function(){
     $.ajax({
         type:"post",
-        url: server + "/goodService/findAll",
+        url: server + "/GoodService/findAll",
         async: false,
         data:{
         },
@@ -103,30 +103,7 @@ if(renewCount === 0){
     if($.cookie("userID") === undefined)
         window.location.replace(server + "/login");
     else{
-       /* $.ajax({
-            type:"post",
-            url: server + "/userService/getData",
-            async: false,
-            data:{
-                "page": "universal",
-                "userID": $.cookie("userID")
-            },
-            success: function(data) {
-                for(i = 0;i < 8;i++){
-                    if(i % 4 === 0){
-                        goodBarCount++;
-                        goodList.append("<div class='goodBar' id='goodBar" + goodBarCount + "'></div>");
-                    }
-                    $("#goodBar" + goodBarCount).append("<div class='goodItem' id='goodItem" + i +"'>");
-                    $("#goodItem" + i).append($("<img src='"+ 111 +"'/>")).append("<div class='goodInfo' id='goodItem_goodInfo" + i + "'></div>");
-                    $("#goodItem_goodInfo" + i).append($("<div class='article-subtitle'></div>").text("data[i].name"));
-                    $("#goodItem_goodInfo" + i).append($("<div class='tag'></div>").text("data[i].tag"));
-                    $("#goodItem_goodInfo" + i).append($("<div class='price'></div>").text("￥" + "data[i].price"));
-                    $("#goodItem_goodInfo" + i).append($("<button class='details'>查看详情</button>"));
-                    alreadyUploadIndex++;
-                }
-            }
-        });*/
+        renewLock = 1;
         setTimeout(uploadGood,3000);
         goodList.append("<div class='renewIcon'><img src='/img/renewIcon.png' width='50px' height='50px' style='margin-top: 30px;'></div>");
     }
