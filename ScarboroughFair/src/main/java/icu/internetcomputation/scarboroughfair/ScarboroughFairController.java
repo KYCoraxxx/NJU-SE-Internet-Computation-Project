@@ -19,29 +19,29 @@ public class ScarboroughFairController {
     public String toPage(@PathVariable String page) {
         return page;
     }
-    
-    // @GetMapping("/login")
-    // public String login(Model model) {
-    //     return "login";
-    // }
 
-    // @RequestMapping(path="/index",method = RequestMethod.GET)
-    // public String homepage(Model model){
-    //     return "index";
-    // }
+    @GetMapping("/login")
+    public String login(Model model) {
+        return "login";
+    }
 
-    // @GetMapping("/forum")
-    // public String forum(Model model){ return "forum"; }
+    @RequestMapping(path="/index",method = RequestMethod.GET)
+    public String homepage(Model model){
+        return "index";
+    }
 
-    // @GetMapping("/upload")
-    // public String upload(Model model){ return "upload"; }
+    @GetMapping("/forum")
+    public String forum(Model model){ return "forum"; }
 
-    // @GetMapping("/detail")
-    // public String detail(Model model){ return "detail"; }
+    @GetMapping("/upload")
+    public String upload(Model model){ return "upload"; }
 
-    // @GetMapping("/undone")
-    // public String undone(Model model){ return "undone"; }
+    @GetMapping("/detail")
+    public String detail(Model model){ return "detail"; }
 
-    // @GetMapping("/usercenter")
-    // public String usercenter(Model model){ return "usercenter"; }
+    @GetMapping("/undone")
+    public String undone(Model model){ return "undone"; }
+
+    @GetMapping("/usercenter")
+    public String usercenter(Model model){ return "usercenter"; }
 }
