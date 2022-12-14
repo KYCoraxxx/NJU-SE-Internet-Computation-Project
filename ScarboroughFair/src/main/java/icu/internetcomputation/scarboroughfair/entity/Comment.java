@@ -15,13 +15,13 @@ import lombok.*;
 public class Comment {
     // 论坛中的评论类
 
-    
+
     // 与对应的帖子的id保持一致
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Getter
     @Setter
-    private int id;
+    private Integer id;
 
     @Getter
     @Setter
@@ -30,7 +30,7 @@ public class Comment {
     // 点赞数量
     @Getter
     @Setter
-    private int starNum;
+    private Integer starNum;
 
     @Getter
     @Setter
@@ -48,7 +48,7 @@ public class Comment {
         this.content = null;
     }
 
-    Comment(int id, User CommentUser, Calendar CommentTime, String content){
+    Comment(Integer id, User CommentUser, Calendar CommentTime, String content){
         this.id = id;
         this.CommentUser = CommentUser;
         this.CommentTime = CommentTime;

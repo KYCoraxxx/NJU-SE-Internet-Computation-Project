@@ -19,7 +19,7 @@ public class ForumPost {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Getter
     @Setter
-    private int id;
+    private Integer id;
 
 
     // 发帖者
@@ -41,7 +41,7 @@ public class ForumPost {
     // 点赞
     @Getter
     @Setter 
-    private int starNum;
+    private Integer starNum;
 
     //发帖时间
     @Getter
@@ -63,7 +63,7 @@ public class ForumPost {
         comment = null;
     }
 
-    public ForumPost(int id, User postUser, String content, String[] imgUrl, Calendar postTime){
+    public ForumPost(Integer id, User postUser, String content, String[] imgUrl, Calendar postTime){
         this.id = id;
         this.PostUser = postUser;
         this.content = content;
