@@ -15,7 +15,6 @@ import lombok.*;
 public class ForumPost {
     // 论坛中的帖子类
 
-
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Getter
@@ -41,13 +40,38 @@ public class ForumPost {
 
     // 点赞
     @Getter
-    @Setter int starNum;
+    @Setter 
+    private int starNum;
 
     //发帖时间
     @Getter
     @Setter 
     private Calendar PostTime;
 
+    //评论
+    @Setter
+    @Getter
+    private Comment[] comment;
+
+    public ForumPost(){
+        id = -1;
+        PostUser = null;
+        content = null;
+        imgUrl = null;
+        starNum = 0;
+        PostTime = null;
+        comment = null;
+    }
+
+    public ForumPost(int id, User postUser, String content, String[] imgUrl, Calendar postTime){
+        this.id = id;
+        this.PostUser = postUser;
+        this.content = content;
+        this.imgUrl = imgUrl;
+        this.starNum = 0;
+        this.PostTime = postTime;
+        this.comment = null;
+    }
 
     /*
      * # forum需求
@@ -60,6 +84,6 @@ public class ForumPost {
         1. 文字 commentContent
        √ 5. 发帖的，评论数记录，点赞数记录 commentNumber starNumber
         6. 评论的点赞数记录，点踩数记录 commentStarNumber commentDislikeNumber
-        7. 帖子和评论发出时间的记录 twitterTime commentTime
+       √ 7. 帖子和评论发出时间的记录 twitterTime commentTime
      */
 }

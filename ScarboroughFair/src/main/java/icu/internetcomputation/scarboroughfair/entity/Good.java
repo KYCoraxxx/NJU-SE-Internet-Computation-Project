@@ -42,7 +42,7 @@ public class Good {
     @Setter
     private String tag;
 
-    Good(){
+    public Good(){
         this.id = -1;
         this.name = null;
         this.price = null;
