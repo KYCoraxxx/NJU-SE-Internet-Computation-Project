@@ -16,7 +16,7 @@ public class Good {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Getter
     @Setter
-    private int id;
+    private Integer id;
 
     @Getter
     @Setter
@@ -42,7 +42,7 @@ public class Good {
     @Setter
     private String tag;
 
-    Good(){
+    public Good(){
         this.id = -1;
         this.name = null;
         this.price = null;
@@ -52,12 +52,12 @@ public class Good {
 
     }
 
-    public Good(int id, String name, Float price, String cover, String picture, String description, String tag) {
+    public Good(Integer id, String name, Float price, String cover, String picture, String description, String tag) {
         this.id = id;
         this.name = name;
         this.price = price;
         this.cover = cover;
-        this.picture = picture; // TODO: picture ?
+        this.picture = picture;
         this.description = description;
         this.tag = tag;
     }

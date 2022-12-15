@@ -11,6 +11,15 @@ import org.springframework.ui.Model;
 @Controller
 public class ScarboroughFairController {
 
+    /**
+     * 去到page.html页面
+     * @return
+     */
+    @RequestMapping("/{page}")
+    public String toPage(@PathVariable String page) {
+        return page;
+    }
+
     @GetMapping("/login")
     public String login(Model model) {
         return "login";
