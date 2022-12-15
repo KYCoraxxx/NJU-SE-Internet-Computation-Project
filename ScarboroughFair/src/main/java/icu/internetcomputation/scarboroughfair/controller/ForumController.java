@@ -8,12 +8,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import icu.internetcomputation.scarboroughfair.entity.Message;
+import icu.internetcomputation.scarboroughfair.service.ForumService;
 
 @Controller
 @RequestMapping(path = "/ForumService", method = RequestMethod.POST, produces = "application/json")
 public class ForumController {
     @Resource
-    private ForumController forumController;
+    private ForumService forumService;
 
     
 }

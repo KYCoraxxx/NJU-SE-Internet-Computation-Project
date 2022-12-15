@@ -23,9 +23,12 @@ public class ForumPost {
 
 
     // 发帖者
+    // @Getter
+    // @Setter
+    // private User PostUser; 
     @Getter
     @Setter
-    private User PostUser; 
+    private Integer PostUserID; 
     
 
     // 帖子内容
@@ -49,28 +52,28 @@ public class ForumPost {
     private Calendar PostTime;
 
     //评论
-    @Setter
-    @Getter
-    private Comment[] comment;
+    // @Setter
+    // @Getter
+    // private Comment[] comment;
 
     public ForumPost(){
         id = -1;
-        PostUser = null;
+        PostUserID = null;
         content = null;
         imgUrl = null;
         starNum = 0;
         PostTime = null;
-        comment = null;
+        // comment = null;
     }
 
-    public ForumPost(Integer id, User postUser, String content, String[] imgUrl, Calendar postTime){
+    public ForumPost(Integer id, Integer postUserID, String content, String[] imgUrl, Calendar postTime){
         this.id = id;
-        this.PostUser = postUser;
+        this.PostUserID = postUserID;
         this.content = content;
         this.imgUrl = imgUrl;
         this.starNum = 0;
         this.PostTime = postTime;
-        this.comment = null;
+        // this.comment = null;
     }
 
     /*

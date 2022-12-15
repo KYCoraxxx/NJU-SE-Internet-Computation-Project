@@ -23,9 +23,13 @@ public class Comment {
     @Setter
     private Integer id;
 
+    // @Getter
+    // @Setter
+    // private User CommentUser;
+    
     @Getter
     @Setter
-    private User CommentUser;
+    private Integer CommentUserID;
 
     // 点赞数量
     @Getter
@@ -43,14 +47,14 @@ public class Comment {
     Comment(){
         this.id = -1;
         this.starNum = 0;
-        this.CommentUser = null;
+        this.CommentUserID = null;
         this.CommentTime = null;
         this.content = null;
     }
 
-    Comment(Integer id, User CommentUser, Calendar CommentTime, String content){
+    Comment(Integer id,Integer CommentUserID, Calendar CommentTime, String content){
         this.id = id;
-        this.CommentUser = CommentUser;
+        this.CommentUserID = CommentUserID;
         this.CommentTime = CommentTime;
         this.content = content;
     }
