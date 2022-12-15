@@ -63,8 +63,11 @@
 
         <div class = "container">
             <div class = "goodBar">
-                <img src = "/img/demo5.jpg"/>
+                <div class = "goodCover">
+                    <img src = "/img/demo5.jpg"/>
+                </div>
                 <div class = "goodInfo">
+                    <!--测试后可删除默认内容-->
                     <div class = "goodName">迷迭香</div>
                     <div class = "goodTag">食材|香料</div>
                     <div class = "goodPrice">￥25</div>
@@ -81,9 +84,9 @@
                     <div class = "providerName" onmouseover = "changeProviderName(1)" onmouseleave = "changeProviderName(0)">root</div>
                     <!--todo: 获取商家id和主页链接-->
                     <div class = "saying">最怕你一生碌碌无为，还安慰自己平凡可贵</div>
-                    <div class = "providerInfo">商家信用分：100</div>
+                    <div class = "providerInfo">商家信用分：null</div>
                     <div class = "providerInfo">常售卖商品：null</div>
-                    <div class = "providerInfo">买家好评率：0%</div>
+                    <div class = "providerInfo">买家好评率：null</div>
                 </div>
             </div>
             <div class = "goodDetail">
@@ -101,6 +104,7 @@
 
 
         <script src="/js/jquery-3.6.1.js"></script>
+        <script src="https://cdn.bootcdn.net/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.js"></script>
         <script src="/js/detail.js"></script>
         <script src="/js/universal.js"></script>
         <script src="/js/index.js"></script>

@@ -1,3 +1,34 @@
+var goodName;
+var goodTag;
+var goodPrice;
+var goodDescription;
+var goodCover;
+var goodPic;
+
+$.ajax({
+    type:"post",
+    url: server + "/goodService/getData", // todo: check the url
+    async: false,
+    data:{
+        "page": "universal",
+        "goodID": $.cookie("goodID") // todo: check if goodID is valid
+    },
+    success: function(data) {
+        goodName = data.name;
+        goodTag = data.tag;
+        goodPrice = data.price;
+        goodDescription = data.description;
+        goodCover = data.cover;
+        goodPic = data.pic;
+    }
+});
+
+$(".goodName").append(goodName);
+$(".goodTag").append(goodTag);
+$(".goodPrice").append(goodPrice);
+$(".goodCover img").prop("src", server + goodCover);
+// !possibility of bug exists
+
 var changeProviderName = function (state){
     if (state === 0)
         $(".providerName").css("color", "#000000");
@@ -11,11 +42,10 @@ var showDetailContent = function(type){
     var goodDetail = $(".goodDetail")
     goodDetail.append(detailContent);
     if (type === 1){
-        detailContent.append($("<div class = 'article-subtitle'>原产地：null</div>"));
-        detailContent.append($("<div class = 'article-subtitle'>保质期：null</div>"));
-        detailContent.append($("<div class = 'article-subtitle'>用途：null</div>"));
+        detailContent.append($("<div class = 'article-subtitle'>" + goodDescription + "</div>"));
     }
     else if(type === 2){
-        detailContent.append($("<img src = '../static/img/demo5.jpg'/>"));
+        $(".detailContent img").prop("src", server + goodPic);
+        detailContent.append($("<img/>"));
     }
 }

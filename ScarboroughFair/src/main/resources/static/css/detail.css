@@ -8,11 +8,15 @@
     justify-content: left;
     align-items: center;
 }
-.goodBar img{
+.goodCover{
     height: 300px;
     width: 300px;
     padding-bottom: 30px;
     margin-left: 100px;
+}
+.goodBar img{
+    height: 300px;
+    width: 300px;
 }
 .goodInfo{
     height: 300px;
