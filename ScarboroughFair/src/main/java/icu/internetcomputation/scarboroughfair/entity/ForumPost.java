@@ -22,10 +22,7 @@ public class ForumPost {
     private Integer id;
 
 
-    // 发帖者
-    // @Getter
-    // @Setter
-    // private User PostUser; 
+    // 发帖者 ID
     @Getter
     @Setter
     private Integer PostUserID; 
@@ -52,9 +49,9 @@ public class ForumPost {
     private Calendar PostTime;
 
     //评论
-    // @Setter
-    // @Getter
-    // private Comment[] comment;
+    @Setter
+    @Getter
+    private Integer[] commentID;
 
     public ForumPost(){
         id = -1;

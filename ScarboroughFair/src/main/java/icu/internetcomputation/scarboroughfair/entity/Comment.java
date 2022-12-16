@@ -16,12 +16,22 @@ public class Comment {
     // 论坛中的评论类
 
 
-    // 与对应的帖子的id保持一致
+    /*
+     * 这里有两个ID CommentId是评论自身的编号， 而PostId是对应的post的编号
+     */
+
+    // 评论自身的编号
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Getter
     @Setter
-    private Integer id;
+    private Integer CommentId;
+
+
+    // 与对应的帖子的id保持一致
+    @Getter
+    @Setter
+    private Integer PostId;
 
     // @Getter
     // @Setter
@@ -45,15 +55,17 @@ public class Comment {
     private String content;
 
     Comment(){
-        this.id = -1;
+        this.PostId = -1;
+        this.CommentId = -1;
         this.starNum = 0;
         this.CommentUserID = null;
         this.CommentTime = null;
         this.content = null;
     }
 
-    Comment(Integer id,Integer CommentUserID, Calendar CommentTime, String content){
-        this.id = id;
+    Comment(Integer PostId,Integer CommentId, Integer CommentUserID, Calendar CommentTime, String content){
+        this.PostId = PostId;
+        this.CommentId = CommentId;
         this.CommentUserID = CommentUserID;
         this.CommentTime = CommentTime;
         this.content = content;
