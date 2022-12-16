@@ -1,3 +1,4 @@
+var server = "http://localhost";
 var goodName;
 var goodTag;
 var goodPrice;
@@ -12,11 +13,10 @@ console.log(goodId);
 
 $.ajax({
     type:"post",
-    url: server + "/GoodService/getData", // todo: check the url
+    url: server + "/GoodService/findById", // todo: check the url
     async: false,
     data:{
-        "page": "universal",
-        "goodID": $.cookie("goodID") // todo: check if goodID is valid
+        "id": goodId
     },
     success: function(data) {
         goodName = data.name;
@@ -32,7 +32,7 @@ $(".goodName").append(goodName);
 $(".goodTag").append(goodTag);
 $(".goodPrice").append(goodPrice);
 $(".goodCover img").prop("src", server + goodCover);
-// !possibility of bug exists
+$(".detailContent").append($("<div class = 'article-subtitle'>" + goodDescription + "</div>"));
 
 var changeProviderName = function (state){
     if (state === 0)
@@ -47,7 +47,7 @@ var showDetailContent = function(type){
     var goodDetail = $(".goodDetail")
     goodDetail.append(detailContent);
     if (type === 1){
-        //detailContent.append($("<div class = 'article-subtitle'>" + goodDescription + "</div>"));
+        detailContent.append($("<div class = 'article-subtitle'>" + goodDescription + "</div>"));
     }
     else if(type === 2){
         $(".detailContent img").prop("src", server + goodPic);

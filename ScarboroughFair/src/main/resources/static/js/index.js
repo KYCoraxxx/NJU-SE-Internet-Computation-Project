@@ -91,7 +91,7 @@ var uploadGood = function(){
                     goodList.append("<div class='goodBar' id='goodBar" + goodBarCount + "'></div>");
                 }
                 $("#goodBar" + goodBarCount).append("<div class='goodItem' id='goodItem" + i +"'>");
-                $("#goodItem" + i).append($("<img src='"+ data[i].picture +"'/>")).append("<div class='goodInfo' id='goodItem_goodInfo" + i + "'></div>");
+                $("#goodItem" + i).append($("<img src='"+ data[i].cover +"'/>")).append("<div class='goodInfo' id='goodItem_goodInfo" + i + "'></div>");
                 $("#goodItem_goodInfo" + i).append($("<div class='article-subtitle'></div>").text(data[i].name));
                 $("#goodItem_goodInfo" + i).append($("<div class='tag'></div>").text(data[i].tag));
                 $("#goodItem_goodInfo" + i).append($("<div class='price'></div>").text("￥" + data[i].price));
