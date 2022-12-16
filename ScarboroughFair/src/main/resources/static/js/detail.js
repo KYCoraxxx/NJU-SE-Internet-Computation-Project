@@ -7,7 +7,7 @@ var goodPic;
 
 $.ajax({
     type:"post",
-    url: server + "/goodService/getData", // todo: check the url
+    url: server + "/GoodService/getData", // todo: check the url
     async: false,
     data:{
         "page": "universal",
@@ -42,7 +42,7 @@ var showDetailContent = function(type){
     var goodDetail = $(".goodDetail")
     goodDetail.append(detailContent);
     if (type === 1){
-        detailContent.append($("<div class = 'article-subtitle'>" + goodDescription + "</div>"));
+        //detailContent.append($("<div class = 'article-subtitle'>" + goodDescription + "</div>"));
     }
     else if(type === 2){
         $(".detailContent img").prop("src", server + goodPic);
