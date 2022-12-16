@@ -65,6 +65,7 @@ var loopStop = function (){
 
 // renew goodList here
 var renewCount = 0;
+var totalGoods = -1;
 var goodBarCount = -1;
 var goodList = $(".goodBlock");
 var alreadyUploadIndex = 0;
@@ -78,17 +79,22 @@ var uploadGood = function(){
         data:{
         },
         success: function(data) {
+            if(totalGoods == -1){
+                for(var i in data){
+                    totalGoods++;
+                }
+            }
             var start = alreadyUploadIndex;
-            for(i = start;i < start + 4;i++){
+            for(i = start;i < start + 4 && i <= totalGoods;i++){
                 if(i % 4 === 0){
                     goodBarCount++;
                     goodList.append("<div class='goodBar' id='goodBar" + goodBarCount + "'></div>");
                 }
                 $("#goodBar" + goodBarCount).append("<div class='goodItem' id='goodItem" + i +"'>");
-                $("#goodItem" + i).append($("<img src='"+ 111 +"'/>")).append("<div class='goodInfo' id='goodItem_goodInfo" + i + "'></div>");
-                $("#goodItem_goodInfo" + i).append($("<div class='article-subtitle'></div>").text("data[i].name"));
-                $("#goodItem_goodInfo" + i).append($("<div class='tag'></div>").text("data[i].tag"));
-                $("#goodItem_goodInfo" + i).append($("<div class='price'></div>").text("￥" + "data[i].price"));
+                $("#goodItem" + i).append($("<img src='"+ data[i].picture +"'/>")).append("<div class='goodInfo' id='goodItem_goodInfo" + i + "'></div>");
+                $("#goodItem_goodInfo" + i).append($("<div class='article-subtitle'></div>").text(data[i].name));
+                $("#goodItem_goodInfo" + i).append($("<div class='tag'></div>").text(data[i].tag));
+                $("#goodItem_goodInfo" + i).append($("<div class='price'></div>").text("￥" + data[i].price));
                 $("#goodItem_goodInfo" + i).append($("<button class='details'>查看详情</button>"));
                 alreadyUploadIndex++;
             }
@@ -117,8 +123,13 @@ window.onscroll = function (){
     if(scrollPos + windowHeight >= scrollHeight && renewLock === 0){
         renewLock = 1;
         // this would invoke the renew function
-        setTimeout(uploadGood,3000);
-        goodList.append("<div class='renewIcon'><img src='/img/renewIcon.png' width='50px' height='50px' style='margin-top: 30px;'></div>");
+        if(alreadyUploadIndex <= totalGoods){
+            setTimeout(uploadGood,3000);
+            goodList.append("<div class='renewIcon'><img src='/img/renewIcon.png' width='50px' height='50px' style='margin-top: 30px;'></div>");
+        }
+        else{
+            goodList.append("<div class='renewIcon' style='font-size=10px;'>已经到底了QWQ</div>");
+        }
     }
 }
 
