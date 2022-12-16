@@ -5,6 +5,11 @@ var goodDescription;
 var goodCover;
 var goodPic;
 
+var localHerf = location.href;
+var targetIndex = localHerf.indexOf("=");
+var goodId = parseInt(localHerf.substring(targetIndex + 1));
+console.log(goodId);
+
 $.ajax({
     type:"post",
     url: server + "/GoodService/getData", // todo: check the url

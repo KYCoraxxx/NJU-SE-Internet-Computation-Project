@@ -95,7 +95,7 @@ var uploadGood = function(){
                 $("#goodItem_goodInfo" + i).append($("<div class='article-subtitle'></div>").text(data[i].name));
                 $("#goodItem_goodInfo" + i).append($("<div class='tag'></div>").text(data[i].tag));
                 $("#goodItem_goodInfo" + i).append($("<div class='price'></div>").text("￥" + data[i].price));
-                $("#goodItem_goodInfo" + i).append($("<button class='details'>查看详情</button>"));
+                $("#goodItem_goodInfo" + i).append("<button class='details' onclick=\"jumpLocation('/detail?goodId="+ data[i].id +"',this)\">查看详情</button>");
                 alreadyUploadIndex++;
             }
         }
