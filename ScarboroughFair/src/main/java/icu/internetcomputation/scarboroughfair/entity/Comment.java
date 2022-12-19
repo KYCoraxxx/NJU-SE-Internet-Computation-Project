@@ -1,6 +1,5 @@
 package icu.internetcomputation.scarboroughfair.entity;
 
-import java.util.Calendar;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -48,7 +47,7 @@ public class Comment {
 
     @Getter
     @Setter
-    private Calendar CommentTime;
+    private Long CommentTime;
 
     @Setter
     @Getter
@@ -63,7 +62,7 @@ public class Comment {
         this.content = null;
     }
 
-    Comment(Integer PostId,Integer CommentId, Integer CommentUserID, Calendar CommentTime, String content){
+    Comment(Integer PostId,Integer CommentId, Integer CommentUserID, Long CommentTime, String content){
         this.PostId = PostId;
         this.CommentId = CommentId;
         this.CommentUserID = CommentUserID;

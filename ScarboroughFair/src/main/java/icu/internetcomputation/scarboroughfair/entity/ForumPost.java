@@ -1,6 +1,5 @@
 package icu.internetcomputation.scarboroughfair.entity;
 
-import java.util.Calendar;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -33,6 +32,7 @@ public class ForumPost {
     @Setter
     private String content; 
 
+    
     // 帖子图片
     @Getter
     @Setter
@@ -46,7 +46,7 @@ public class ForumPost {
     //发帖时间
     @Getter
     @Setter 
-    private Calendar PostTime;
+    private Long PostTime;
 
     //评论
     @Setter
@@ -63,7 +63,7 @@ public class ForumPost {
         // comment = null;
     }
 
-    public ForumPost(Integer id, Integer postUserID, String content, String[] imgUrl, Calendar postTime){
+    public ForumPost(Integer id, Integer postUserID, String content, String[] imgUrl, Long postTime){
         this.id = id;
         this.PostUserID = postUserID;
         this.content = content;
