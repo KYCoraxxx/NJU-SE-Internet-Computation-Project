@@ -53,7 +53,7 @@ public class Comment {
     @Getter
     private String content;
 
-    Comment(){
+    public Comment(){
         this.PostId = -1;
         this.CommentId = -1;
         this.starNum = 0;
@@ -62,12 +62,13 @@ public class Comment {
         this.content = null;
     }
 
-    Comment(Integer PostId,Integer CommentId, Integer CommentUserID, Long CommentTime, String content){
+    public Comment(Integer PostId,Integer CommentId, Integer CommentUserID, Long CommentTime, String content){
         this.PostId = PostId;
         this.CommentId = CommentId;
         this.CommentUserID = CommentUserID;
         this.CommentTime = CommentTime;
         this.content = content;
+        this.starNum = 0;
     }
 
     /*
