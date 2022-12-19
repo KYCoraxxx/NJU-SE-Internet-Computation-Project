@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import java.text.SimpleDateFormat;
 import icu.internetcomputation.scarboroughfair.entity.Message;
+import icu.internetcomputation.scarboroughfair.service.ForumService;
 import icu.internetcomputation.scarboroughfair.service.GoodService;
 import icu.internetcomputation.scarboroughfair.service.UserService;
 
@@ -25,7 +26,6 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 @CrossOrigin
 public class UploadController {
 
-    // 
     /*
      * TODO: 有个问题，目前商品和用户信息的上传都在这个controller，
      *       但按正常思路应该分别放在GoodController和UserController，
@@ -34,8 +34,12 @@ public class UploadController {
 
     @Resource
     private GoodService goodService;
+
     @Resource
     private UserService userService;
+
+    @Resource
+    private ForumService forumService;
 
 
     @Value("${file.uploadFolder}")
@@ -43,13 +47,13 @@ public class UploadController {
     @Value("${file.accessPath}")
     private String accessPath;
 
+
+    // 测试接口
     @RequestMapping(path="/tmpupload",method = RequestMethod.GET)
     public String tmpupload(Model model){
         return "tmpupload";
     }
-    // 测试接口
-
-
+    
     // original 初始的upload上传接口
     @PostMapping(path="/upload")
     @ResponseBody
@@ -64,9 +68,14 @@ public class UploadController {
     @PostMapping(path="/goodupload")
     @ResponseBody
     public Message GoodUpload( 
-    @RequestParam(value = "name") String name, @RequestParam(value = "price") String price,
-    @RequestParam(value = "cover") MultipartFile coverUpload,@RequestParam(value = "pic") MultipartFile picUpload,
-    @RequestParam(value = "description") String description,@RequestParam(value = "tag") String tag,Model model){
+        @RequestParam(value = "name") String name, 
+        @RequestParam(value = "price") String price,
+        @RequestParam(value = "cover") MultipartFile coverUpload,
+        @RequestParam(value = "pic") MultipartFile picUpload,
+        @RequestParam(value = "description") String description,
+        @RequestParam(value = "tag") String tag,Model model)
+    {
+
         String coverUrl = Imgupload(coverUpload);
         String picUrl = Imgupload(picUpload);
         if(coverUrl == null||picUrl == null){
@@ -82,10 +91,13 @@ public class UploadController {
     @PostMapping(path="/userupload")
     @ResponseBody
     @CrossOrigin
-    public Message UserUpload(@RequestParam(value = "avator", required = false) MultipartFile avator,
-    @RequestParam(required = false) String nickname, @RequestParam(required = false) String saying,
-    @RequestParam(required = false) String userID, Model model){
-        // System.out.println(userID);
+    public Message UserUpload(
+        @RequestParam(value = "avator", required = false) MultipartFile avator,
+        @RequestParam(required = false) String nickname, 
+        @RequestParam(required = false) String saying,
+        @RequestParam(required = false) String userID, Model model)
+    {
+        
         String avatorUrl = null;
         if(avator != null)
         {
@@ -98,6 +110,20 @@ public class UploadController {
         return userService.editUser(id, avatorUrl, nickname, saying);
     }
 
+    /*
+     * 论坛发帖的接口
+     */
+    @PostMapping(path = "/postupload")
+    @ResponseBody
+    @CrossOrigin
+    public Message PostUpload(
+        @RequestParam(value = "pic", required = false) MultipartFile[] picUpload,
+        @RequestParam(required = false) String content, 
+        @RequestParam(required = false) String userID, Model model)
+    {
+        // TODO
+        return null;
+    }
 
 
     /*
