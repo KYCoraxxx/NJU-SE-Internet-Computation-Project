@@ -32,9 +32,6 @@ public class Comment {
     @Setter
     private Integer PostId;
 
-    // @Getter
-    // @Setter
-    // private User CommentUser;
     
     @Getter
     @Setter
