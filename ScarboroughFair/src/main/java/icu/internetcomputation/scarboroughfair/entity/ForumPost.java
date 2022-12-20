@@ -51,7 +51,7 @@ public class ForumPost {
     //评论
     @Setter
     @Getter
-    private Integer[] commentID;
+    private int[] commentID;
 
     public ForumPost(){
         id = -1;

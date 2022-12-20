@@ -26,6 +26,65 @@ public class ForumController {
         return forumService.findAllPost();
     }
 
+    @RequestMapping(path = "/findById", method = RequestMethod.POST)
+    @ResponseBody
+    public ForumPost findById(@RequestParam("id") int id){
+        return forumService.findForumPost(id);
+    }
+
+    // 废弃，使用uploadcontroller里面的
+    // @RequestMapping(path = "/addPost", method = RequestMethod.POST)
+    // @ResponseBody
+    // public Message addPost(){
+    //     return null;
+    // }
+
+
+    /*
+     * 点赞
+     */
+    @RequestMapping(path = "/Star", method = RequestMethod.POST)
+    @ResponseBody
+    public Message StarPost(){
+        return forumService.lovePost(1);
+    }
+
+    /*
+     * 评论
+     */
+    @RequestMapping(path = "/CommentPost", method = RequestMethod.POST)
+    @ResponseBody
+    public Message CommentPost(
+        @RequestParam("comment") String comment,
+        @RequestParam("userid") int userid,
+        @RequestParam("postid") int postid)
+    {
+        return forumService.addComment(userid, comment, postid);
+    }
+
+    /*
+     * 删除帖子
+     */
+    @RequestMapping(path = "/DelPost", method = RequestMethod.POST)
+    @ResponseBody
+    public Message DelPost(
+        @RequestParam("userid") int userid,
+        @RequestParam("postid") int postid)
+    {
+        return forumService.deletePost(userid, postid);
+    }
+
+    /*
+     * 删除评论
+     */
+    @RequestMapping(value="/DelComment", method=RequestMethod.POST)
+    public Message requestMethodName(
+        @RequestParam("userid") int userid,
+        @RequestParam("commentid") int commentid) 
+    {
+        return forumService.deleteComment(userid, commentid);
+    }
+    
     // TODO : 拉取帖子和评论
 
     // TODO : 查看帖子详情页
