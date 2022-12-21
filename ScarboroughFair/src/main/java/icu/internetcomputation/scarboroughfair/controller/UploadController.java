@@ -126,8 +126,12 @@ public class UploadController {
         @RequestParam(required = false) String content, 
         @RequestParam(required = false) String userID, Model model)
     {
-        // TODO
-        return null;
+        String[] imgUrl = new String[ picUpload.length ];
+        for(int i = 0; i < picUpload.length; i++){
+            imgUrl[i] = Imgupload(picUpload[i]);
+        }
+        Integer id = Integer.valueOf(userID);
+        return forumService.addPost(id, content, imgUrl);
     }
 
 
