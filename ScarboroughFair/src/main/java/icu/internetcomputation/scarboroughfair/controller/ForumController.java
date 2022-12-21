@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import icu.internetcomputation.scarboroughfair.entity.Comment;
 import icu.internetcomputation.scarboroughfair.entity.ForumPost;
 import icu.internetcomputation.scarboroughfair.entity.Message;
 import icu.internetcomputation.scarboroughfair.service.ForumService;
@@ -26,12 +27,29 @@ public class ForumController {
         return forumService.findAllPost();
     }
 
-    @RequestMapping(path = "/findById", method = RequestMethod.POST)
+    @RequestMapping(path = "/findPostById", method = RequestMethod.POST)
     @ResponseBody
-    public ForumPost findById(@RequestParam("id") int id){
+    public ForumPost findPostById(@RequestParam("id") int id){
         return forumService.findForumPost(id);
     }
 
+    @RequestMapping(path = "/findCommentById", method = RequestMethod.POST)
+    @ResponseBody
+    public Comment findCommentById(@RequestParam("id") int id){
+        return forumService.findComment(id);
+    }
+
+    /*
+     * 根据给定的帖子 返回帖子所有的评论的ID
+     */
+    @RequestMapping(path = "/findComment", method = RequestMethod.POST)
+    @ResponseBody
+    public int[] findComment(@RequestParam("id") int id){
+        ForumPost forumPost = forumService.findForumPost(id);
+        return forumPost.getCommentID();
+    }
+
+    
     // 废弃，使用uploadcontroller里面的
     // @RequestMapping(path = "/addPost", method = RequestMethod.POST)
     // @ResponseBody
