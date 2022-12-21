@@ -167,7 +167,7 @@ var uploadForum = function(){
         </div> \
     </div> \
 </div>");
-                uploadCrictics(i);
+                uploadCrictics(data[i].id,i);
                 alreadyUploadIndex++;
             }
         }
@@ -180,15 +180,16 @@ var uploadForum = function(){
 var alreadyUploadCritics = [];
 var totalCricticOfEachPost = [];
 
-var uploadCrictics = function(index){
+var uploadCrictics = function(targetId,index){
     $.ajax({
         type:"post",
-        url: server + "/GoodService/findAll",
+        url: server + "/ForumService/findById",
         async: false,
         data:{
-            //"postid":1,
+            "id":targetId,
         },
         success: function(data) {
+            var cirtics;
             if(alreadyUploadCritics.length <= index){// initialize the size of each post's critic
                 alreadyUploadCritics[index] = 1;
                 totalCricticOfEachPost[index] = -1;
@@ -207,7 +208,7 @@ var uploadCrictics = function(index){
                     <div class=\"itemCritics_criticsList_item_name\">DefaultUser</div> \
                     <div class=\"itemCritics_criticsList_item_content\">"+ ("           criticContent            ") +"</div> \
                     <div class=\"itemCritics_criticsList_item_foot\"> \
-                        <div class=\"itemCritics_criticsList_item_foot_time\">Published on "+ ("       date         ") +"</div> \
+                        <div class=\"itemCritics_criticsList_item_foot_time\">Published on "+ "time" +"</div> \
                         <div class=\"itemCritics_criticsList_item_foot_like\"> \
                             <img src=\"/img/likeInCritic.png\" style=\"width: 15px; height: 15px; margin-right: 15px;margin-top: 5px\"> \
                             <div class=\"itemCritics_criticsList_item_foot_like_data\">"+ ("             likeNumber             ") +"</div> \
@@ -226,7 +227,7 @@ var uploadCrictics = function(index){
             alreadyUploadCritics[index]++;
             }
             if(alreadyUploadCritics[index] < 100){
-                targetList.append("<div class='criticRenewIcon'><img src='/img/renewIcon.png' width='30px' height='30px' style='margin-top: 30px;' onclick='clickRenewCritcis("+ index +")'></div>");
+                targetList.append("<div class='criticRenewIcon' style=\"display: flex;flex-direction: row; justify-content: space-around;alignment: center;margin-bottom:15px\"><img src='/img/renewIcon.png' width='30px' height='30px' onclick='clickRenewCritcis("+ index +")'></div>");
             }
             else{
                 targetList.append("<div class='criticRenewIcon' style='font-size=10px;'>已经到底了QWQ</div>");
