@@ -32,7 +32,7 @@ public class Good {
 
     @Getter
     @Setter
-    private String picture;
+    private String[] picture;
 
     @Getter
     @Setter
@@ -52,7 +52,7 @@ public class Good {
 
     }
 
-    public Good(Integer id, String name, Float price, String cover, String picture, String description, String tag) {
+    public Good(Integer id, String name, Float price, String cover, String[] picture, String description, String tag) {
         this.id = id;
         this.name = name;
         this.price = price;
