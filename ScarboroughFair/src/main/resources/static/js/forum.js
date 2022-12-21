@@ -84,20 +84,26 @@ var renewCount = 0;
 var forumList = $(".forumList");
 var alreadyUploadIndex = 0;
 var renewLock = 0;
+var totalForum = -1;
 
 
 
-var uploadCritic = function(){
+
+var uploadForum = function(){
     $.ajax({
         type:"post",
-        url: server + "/GoodService/findAll",
+        url: server + "/ForumService/findAll",
         async: false,
         data:{
         },
         success: function(data) {
+            if(totalForum === -1){
+                for(var i in data){
+                    totalForum++;
+                }
+            }
             var start = alreadyUploadIndex;
             for(i = start;i < start + 1;i++){
-                console.log("####");
                 forumList.append(
                     "<div class=\"forumItem\" id=\"forumItem" + i + "\"> \
     <div class=\"itemMain\"> \
@@ -156,35 +162,12 @@ var uploadCritic = function(){
         <div class=\"itemCritics_critics\"> \
             <hr style=\"width: 72%;margin-left: 18%;\"> \
             <!--todo:grab latest remarks--> \
-            <div class=\"itemCritics_criticsList\"> \
-                <div class=\"itemCritics_criticsList_item\"> \
-                    <div class=\"itemCritics_criticsList_item_user\"> \
-                        <a href=\"#\" target=\"_blank\"><img src=\""+ ("           imgSrc             ") +"\" style=\"width: 40px;height: 40px;\"></a> \
-                    </div> \
-                    <div class=\"itemCritics_criticsList_item_details\"> \
-                        <div class=\"itemCritics_criticsList_item_name\">DefaultUser</div> \
-                        <div class=\"itemCritics_criticsList_item_content\">"+ ("           criticContent            ") +"</div> \
-                        <div class=\"itemCritics_criticsList_item_foot\"> \
-                            <div class=\"itemCritics_criticsList_item_foot_time\">Published on "+ ("       date         ") +"</div> \
-                            <div class=\"itemCritics_criticsList_item_foot_like\"> \
-                                <img src=\"/img/likeInCritic.png\" style=\"width: 15px; height: 15px; margin-right: 15px;margin-top: 5px\"> \
-                                <div class=\"itemCritics_criticsList_item_foot_like_data\">"+ ("             likeNumber             ") +"</div> \
-                            </div> \
-                            <div class=\"itemCritics_criticsList_item_foot_dislike\"> \
-                                <img src=\"/img/dislikeInCritic.png\" style=\"width: 15px; height: 15px; margin-right: 15px;margin-top: 5px\"> \
-                                <div class=\"itemCritics_criticsList_item_foot_dislike_data\">"+ ("             dislikeNumber             ") +"</div> \
-                            </div> \
-                            <div class=\"itemCritics_criticsList_item_foot_report\" onmouseover=\"appendReport(this)\" > \
-                                <img src=\"/img/ellipsisVertical.png\" style=\"width: 20px; height: 20px; margin-top: 5px\"> \
-                            </div> \
-                        </div> \
-                        <hr style=\"width: 90%; margin-left: -2%;\"> \
-                    </div> \
-                </div> \
+            <div class=\"itemCritics_criticsList\" id='itemCritics_criticsList" + i + "'> \
             </div> \
         </div> \
     </div> \
 </div>");
+                uploadCrictics(i);
                 alreadyUploadIndex++;
             }
         }
@@ -194,13 +177,76 @@ var uploadCritic = function(){
     return 0;
 }
 
+var alreadyUploadCritics = [];
+var totalCricticOfEachPost = [];
+
+var uploadCrictics = function(index){
+    $.ajax({
+        type:"post",
+        url: server + "/GoodService/findAll",
+        async: false,
+        data:{
+            //"postid":1,
+        },
+        success: function(data) {
+            if(alreadyUploadCritics.length <= index){// initialize the size of each post's critic
+                alreadyUploadCritics[index] = 1;
+                totalCricticOfEachPost[index] = -1;
+                for(var i in data){
+                    totalCricticOfEachPost[index]++;
+                }
+            }
+            var targetList = $("#itemCritics_criticsList"+index);
+            var start = alreadyUploadCritics[index];
+            for(var i = start;i < start + 2;i++){
+                targetList.append("<div class=\"itemCritics_criticsList_item\"> \
+                <div class=\"itemCritics_criticsList_item_user\"> \
+                    <a href=\"#\" target=\"_blank\"><img src=\""+ ("           imgSrc             ") +"\" style=\"width: 40px;height: 40px;\"></a> \
+                </div> \
+                <div class=\"itemCritics_criticsList_item_details\"> \
+                    <div class=\"itemCritics_criticsList_item_name\">DefaultUser</div> \
+                    <div class=\"itemCritics_criticsList_item_content\">"+ ("           criticContent            ") +"</div> \
+                    <div class=\"itemCritics_criticsList_item_foot\"> \
+                        <div class=\"itemCritics_criticsList_item_foot_time\">Published on "+ ("       date         ") +"</div> \
+                        <div class=\"itemCritics_criticsList_item_foot_like\"> \
+                            <img src=\"/img/likeInCritic.png\" style=\"width: 15px; height: 15px; margin-right: 15px;margin-top: 5px\"> \
+                            <div class=\"itemCritics_criticsList_item_foot_like_data\">"+ ("             likeNumber             ") +"</div> \
+                        </div> \
+                        <div class=\"itemCritics_criticsList_item_foot_dislike\"> \
+                            <img src=\"/img/dislikeInCritic.png\" style=\"width: 15px; height: 15px; margin-right: 15px;margin-top: 5px\"> \
+                            <div class=\"itemCritics_criticsList_item_foot_dislike_data\">"+ ("             dislikeNumber             ") +"</div> \
+                        </div> \
+                        <div class=\"itemCritics_criticsList_item_foot_report\" onmouseover=\"appendReport(this)\" > \
+                            <img src=\"/img/ellipsisVertical.png\" style=\"width: 20px; height: 20px; margin-top: 5px\"> \
+                        </div> \
+                    </div> \
+                    <hr style=\"width: 90%; margin-left: -2%;\"> \
+                </div> \
+            </div>");
+            alreadyUploadCritics[index]++;
+            }
+            if(alreadyUploadCritics[index] < 100){
+                targetList.append("<div class='criticRenewIcon'><img src='/img/renewIcon.png' width='30px' height='30px' style='margin-top: 30px;' onclick='clickRenewCritcis("+ index +")'></div>");
+            }
+            else{
+                targetList.append("<div class='criticRenewIcon' style='font-size=10px;'>已经到底了QWQ</div>");
+            }
+        }
+    })
+}
+
+var clickRenewCritcis = function(index){// todo connect with postId
+    var targetList = $("#itemCritics_criticsList"+index);
+    $(".criticRenewIcon").remove();
+    uploadCrictics(index);
+}
+
 if(renewCount === 0){
     if($.cookie("userID") === undefined)
         window.location.replace(server + "/login");
     else{
         renewLock = 1;
-        console.log("!!!");
-        setTimeout(uploadCritic,3000);
+        setTimeout(uploadForum,3000);
         forumList.append("<div class='renewIcon'><img src='/img/renewIcon.png' width='50px' height='50px' style='margin-top: 30px; '></div>");
     }
     renewCount++;
@@ -210,11 +256,10 @@ window.onscroll = function (){
     var scrollPos = getScrollPos();
     var scrollHeight = getScrollHeight();
     var windowHeight = getWindowHeight();
-    if(scrollPos + windowHeight >= scrollHeight && renewLock === 0){
-        console.log("@@@@");
+    if(scrollPos + windowHeight + 1 >= scrollHeight && renewLock === 0){
         renewLock = 1;
         // this would invoke the renew function
-        setTimeout(uploadCritic,3000);
+        setTimeout(uploadForum,3000);
         forumList.append("<div class='renewIcon'><img src='/img/renewIcon.png' width='50px' height='50px' style='margin-top: 30px;'></div>");
     }
 }

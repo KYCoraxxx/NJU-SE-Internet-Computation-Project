@@ -482,6 +482,13 @@
     background-color: rgba(0,0,0,0.2);
 }
 
+.criticsRenewIcon{
+    cursor: pointer;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
 
 
 

@@ -120,6 +120,7 @@ window.onscroll = function (){
     var scrollPos = getScrollPos();
     var scrollHeight = getScrollHeight();
     var windowHeight = getWindowHeight();
+
     if(scrollPos + windowHeight >= scrollHeight && renewLock === 0){
         renewLock = 1;
         // this would invoke the renew function
