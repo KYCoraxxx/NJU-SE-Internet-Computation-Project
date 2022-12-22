@@ -103,36 +103,28 @@ var uploadForum = function(){
                 }
             }
             var start = alreadyUploadIndex;
-            for(i = start;i < start + 1;i++){
+            for(i = start;i < start + 1 && i <= totalForum;i++){
+                var targetUser = upLoadUserById(data[i].PostUserID);
                 forumList.append(
                     "<div class=\"forumItem\" id=\"forumItem" + i + "\"> \
     <div class=\"itemMain\"> \
         <div class=\"itemMain_header\"> \
             <div class=\"itemMain_header_IMG\"> \
                 <!--todo: add link to personal page here--> \
-                <a href=\"#\" target=\"_blank\"><img src=\""+ ("       imgsrc       ") + "\" style=\"width: 50px;height: 50px; border-radius: 50%;\"></a> \
+                <a href=\"#\" target=\"_blank\"><img src=\""+ (targetUser.avator) + "\" style=\"width: 50px;height: 50px; border-radius: 50%;\"></a> \
             </div> \
             <div class=\"itemMain_header_details\"> \
-                <div class=\"itemMain_header_details_name\">"+ ( "             userName              "  )  +"</div> \
-                <div class=\"itemMain_header_details_date\">Published On "+  ("     date    ")  +"</div> \
+                <div class=\"itemMain_header_details_name\">"+ (targetUser.userName)  +"</div> \
+                <div class=\"itemMain_header_details_date\">Published On "+  (data[i].PostTime)  +"</div> \
             </div> \
             <div class=\"itemMain_header_report\" onmouseover=\"appendReport(this)\" onmouseleave=\"removeReport()\"> \
                 <img src=\"/img/ellipsisVertical.png\" style=\"width: 30px;height: 30px;margin-top: 10px;\"> \
             </div> \
         </div> \
         <div class=\"itemMain_body\"> \
-            <div class=\"itemMain_body_content\">"+ ("             infoContent                ") +"</div> \
-            <div class=\"itemMain_body_IMG\"> \
+            <div class=\"itemMain_body_content\">"+ (data[i].content) +"</div> \
+            <div class=\"itemMain_body_IMG\" id='itemMain_body_IMG"+ i +"'> \
                 <!--todo:add an index to every item to ease the clearAll function--> \
-                <img class=\"itemMain_body_IMG_singleIMG\" src=\""+ ("           imgSrc             ") +"\" onclick=\"picRespond(this)\" > \
-                <img class=\"itemMain_body_IMG_singleIMG\" src=\""+ ("           imgSrc             ") +"\" onclick=\"picRespond(this)\"> \
-                <img class=\"itemMain_body_IMG_singleIMG\" src=\""+ ("           imgSrc             ") +"\" onclick=\"picRespond(this)\"> \
-                <img class=\"itemMain_body_IMG_singleIMG\" src=\""+ ("           imgSrc             ") +"\" onclick=\"picRespond(this)\"> \
-                <img class=\"itemMain_body_IMG_singleIMG\" src=\""+ ("           imgSrc             ") +"\" onclick=\"picRespond(this)\"> \
-                <img class=\"itemMain_body_IMG_singleIMG\" src=\""+ ("           imgSrc             ") +"\" onclick=\"picRespond(this)\"> \
-                <img class=\"itemMain_body_IMG_singleIMG\" src=\""+ ("           imgSrc             ") +"\" onclick=\"picRespond(this)\"> \
-                <img class=\"itemMain_body_IMG_singleIMG\" src=\""+ ("           imgSrc             ") +"\" onclick=\"picRespond(this)\"> \
-                <img class=\"itemMain_body_IMG_singleIMG\" src=\""+ ("           imgSrc             ") +"\" onclick=\"picRespond(this)\"> \
             </div> \
         </div> \
         <div class=\"itemMainFooter\"> \
@@ -143,11 +135,11 @@ var uploadForum = function(){
             </div> \
             <div class=\"itemMainFooter_comment\"> \
                 <img src=\"/img/commentInForum.png\" style=\"width: 30px; height: 30px;\"> \
-                <div class=\"itemMainFooter_comment_data\">"+ ("             criticNumber             ") +"</div> \
+                <div class=\"itemMainFooter_comment_data\">"+ (data[i].commentId.length) +"</div> \
             </div> \
             <div class=\"itemMainFooter_like\"> \
                 <img src=\"/img/likeInForum.png\" style=\"width: 30px; height: 30px;\"> \
-                <div class=\"itemMainFooter_like_data\">"+ ("             likeNumber             ") +"</div> \
+                <div class=\"itemMainFooter_like_data\">"+ (data[i].starNum) +"</div> \
             </div> \
         </div> \
         <hr style=\"width: 80%; margin-left: 10%;\"> \
@@ -167,6 +159,10 @@ var uploadForum = function(){
         </div> \
     </div> \
 </div>");
+                var imgUpload = $("#itemMain_body_IMG" + i);// upload imgs
+                for(var j = 0;j < data[i].imgUrl.length;j++){
+                    imgUpload.append("<img class=\"itemMain_body_IMG_singleIMG\" src=\""+ (data[i].imgUrl[j]) +"\" onclick=\"picRespond(this)\" >");
+                }
                 uploadCrictics(data[i].id,i);
                 alreadyUploadIndex++;
             }
@@ -177,13 +173,30 @@ var uploadForum = function(){
     return 0;
 }
 
+var upLoadUserById = function(targetId){
+    var result;
+    $.ajax({
+        type:"post",
+        url: server + "/userService/getData",
+        async: false,
+        data:{
+            "page": "forum",
+            "userID": targetId
+        },
+        success: function(data) {
+            result = data;
+        }
+    })
+    return result;
+}
+
 var alreadyUploadCritics = [];
 var totalCricticOfEachPost = [];
 
 var uploadCrictics = function(targetId,index){
     $.ajax({
         type:"post",
-        url: server + "/ForumService/findById",
+        url: server + "/ForumService/findComment",
         async: false,
         data:{
             "id":targetId,
@@ -199,23 +212,20 @@ var uploadCrictics = function(targetId,index){
             }
             var targetList = $("#itemCritics_criticsList"+index);
             var start = alreadyUploadCritics[index];
-            for(var i = start;i < start + 2;i++){
+            for(var i = start;i < start + 2 && i <= totalCricticOfEachPost[index];i++){
+                var targetUser = upLoadUserById(data[i].CommentUserID);
                 targetList.append("<div class=\"itemCritics_criticsList_item\"> \
                 <div class=\"itemCritics_criticsList_item_user\"> \
-                    <a href=\"#\" target=\"_blank\"><img src=\""+ ("           imgSrc             ") +"\" style=\"width: 40px;height: 40px;\"></a> \
+                    <a href=\"#\" target=\"_blank\"><img src=\""+ (targetUser.avator) +"\" style=\"width: 40px;height: 40px;\"></a> \
                 </div> \
                 <div class=\"itemCritics_criticsList_item_details\"> \
-                    <div class=\"itemCritics_criticsList_item_name\">DefaultUser</div> \
-                    <div class=\"itemCritics_criticsList_item_content\">"+ ("           criticContent            ") +"</div> \
+                    <div class=\"itemCritics_criticsList_item_name\">" + (targetUser.userName) + "</div> \
+                    <div class=\"itemCritics_criticsList_item_content\">"+ (data[i].content) +"</div> \
                     <div class=\"itemCritics_criticsList_item_foot\"> \
-                        <div class=\"itemCritics_criticsList_item_foot_time\">Published on "+ "time" +"</div> \
+                        <div class=\"itemCritics_criticsList_item_foot_time\">Published on "+ (data[i].CommentTime) +"</div> \
                         <div class=\"itemCritics_criticsList_item_foot_like\"> \
                             <img src=\"/img/likeInCritic.png\" style=\"width: 15px; height: 15px; margin-right: 15px;margin-top: 5px\"> \
-                            <div class=\"itemCritics_criticsList_item_foot_like_data\">"+ ("             likeNumber             ") +"</div> \
-                        </div> \
-                        <div class=\"itemCritics_criticsList_item_foot_dislike\"> \
-                            <img src=\"/img/dislikeInCritic.png\" style=\"width: 15px; height: 15px; margin-right: 15px;margin-top: 5px\"> \
-                            <div class=\"itemCritics_criticsList_item_foot_dislike_data\">"+ ("             dislikeNumber             ") +"</div> \
+                            <div class=\"itemCritics_criticsList_item_foot_like_data\">"+ (data[i].starNum) +"</div> \
                         </div> \
                         <div class=\"itemCritics_criticsList_item_foot_report\" onmouseover=\"appendReport(this)\" > \
                             <img src=\"/img/ellipsisVertical.png\" style=\"width: 20px; height: 20px; margin-top: 5px\"> \
@@ -226,11 +236,11 @@ var uploadCrictics = function(targetId,index){
             </div>");
             alreadyUploadCritics[index]++;
             }
-            if(alreadyUploadCritics[index] < 100){
+            if(alreadyUploadCritics[index] < totalCricticOfEachPost[index]){
                 targetList.append("<div class='criticRenewIcon' style=\"display: flex;flex-direction: row; justify-content: space-around;alignment: center;margin-bottom:15px\"><img src='/img/renewIcon.png' width='30px' height='30px' onclick='clickRenewCritcis("+ index +")'></div>");
             }
             else{
-                targetList.append("<div class='criticRenewIcon' style='font-size=10px;'>已经到底了QWQ</div>");
+                targetList.append("<div class='criticRenewIcon' style='font-size=10px;display: flex;flex-direction: row; justify-content: space-around;alignment: center;margin-bottom:15px'>已经到底了QWQ</div>");
             }
         }
     })
@@ -248,7 +258,7 @@ if(renewCount === 0){
     else{
         renewLock = 1;
         setTimeout(uploadForum,3000);
-        forumList.append("<div class='renewIcon'><img src='/img/renewIcon.png' width='50px' height='50px' style='margin-top: 30px; '></div>");
+        forumList.append("<div class='criticRenewIcon' style=\"display: flex;flex-direction: row; justify-content: space-around;alignment: center;margin-bottom:15px\"><img src='/img/renewIcon.png' width='40px' height='40px'></div>");
     }
     renewCount++;
 }
@@ -261,7 +271,7 @@ window.onscroll = function (){
         renewLock = 1;
         // this would invoke the renew function
         setTimeout(uploadForum,3000);
-        forumList.append("<div class='renewIcon'><img src='/img/renewIcon.png' width='50px' height='50px' style='margin-top: 30px;'></div>");
+        forumList.append("<div class='criticRenewIcon' style=\"display: flex;flex-direction: row; justify-content: space-around;alignment: center;margin-bottom:15px\"><img src='/img/renewIcon.png' width='40px' height='40px'></div>");
     }
 }
 
