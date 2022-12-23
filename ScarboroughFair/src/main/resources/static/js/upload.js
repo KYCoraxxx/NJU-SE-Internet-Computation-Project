@@ -115,7 +115,7 @@ var uploadGoodInfo = function (){
     
     $.ajax({
         type: "POST",
-        url: server + "/GoodService/addGood", 
+        url: server + "/goodupload", 
         data: formData,
         async: false,
         cache: false,
