@@ -1,4 +1,4 @@
-var server = "http://localhost";
+var server = "http://110.42.252.167";
 var musicOpacity = 0;
 var userID;
 var userName;
@@ -78,7 +78,7 @@ var changeMusic = function (){
     }
 }
 var jumpLocation = function (location,obj){
-    window.location.replace(server + location);
+    window.location.href = server + location;
     var targetBox = $(obj);
     var formerBox = $(".optionBox.active");
     formerBox.classname = "optionBox";

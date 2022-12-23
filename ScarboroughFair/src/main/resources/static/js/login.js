@@ -1,5 +1,5 @@
 let cover = true;
-var server = "http://localhost";
+var server = "http://110.42.252.167";
 var changePicture = function(flag){
     if(flag === 0)
         $("img").attr("src", "/img/psw.jpg");
