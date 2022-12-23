@@ -236,6 +236,16 @@ input {
     }
 }
 
+.renewIcon{
+    height: 50px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    text-align: center;
+}
+
 .renewIcon img{
     animation: rotate 6s infinite;
 }

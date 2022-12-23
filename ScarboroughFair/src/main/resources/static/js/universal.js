@@ -1,5 +1,4 @@
 var server = "http://110.42.252.167";
-// var server="http://localhost";
 var musicOpacity = 0;
 var userID;
 var userName;

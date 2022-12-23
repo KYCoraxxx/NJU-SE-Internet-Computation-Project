@@ -32,7 +32,7 @@
             <!--预留给附加功能（如发布商品等）-->
             <div style="width: 280px; display: flex; align-content: center">
                 <form style="height: 40px; width: 120px; margin: auto auto;">
-                    <input type="button" value="上架商品" class="btn" style="background-color: deeppink; font-weight: bold;"/>
+                    <input type="button" value="上架商品" class="btn" style="background-color: deeppink; font-weight: bold;" onclick="jumpLocation('/upload')"/>
                 </form>
             </div>
         </div>
@@ -59,7 +59,7 @@
         <!--todo: the textarea in the critical zone lacks of ids-->
         <div class="container">
             <div class="bg">
-                <div class="returnTopBtn" onclick="returnTop()">
+                <div class="returnTopBtn" style="background: #00000000" onclick="returnTop()">
                     <img src="/img/returnTopBtn.png" style="width: 50px;height: 50px;">
                 </div>
             </div>
@@ -70,7 +70,7 @@
                 <div class="forumUpload">
                     <form class="forumUpload_Body" action="#" target="_self">
                         <textarea class="forumUpload_Body_Input" name="" id="" cols="30" rows="5" placeholder="分享你的乐趣" maxlength="80" minlength="1"></textarea>
-                        <button class="forumUpload_Body_Submit" type="submit">发布</button>
+                        <button class="forumUpload_Body_Submit" type="submit">发布动态</button>
                     </form>
                     <div class="forumUpload_Footer">
                         <form class="forumUpload_Footer_Form" action="#" target="_self">
