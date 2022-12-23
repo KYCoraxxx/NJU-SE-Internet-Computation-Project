@@ -1,4 +1,3 @@
-var server = "http://localhost";
 var goodName;
 var goodTag;
 var goodPrice;
@@ -13,7 +12,7 @@ console.log(goodId);
 
 $.ajax({
     type:"post",
-    url: server + "/GoodService/findById", // todo: check the url
+    url: server + "/GoodService/findById",
     async: false,
     data:{
         "id": goodId
