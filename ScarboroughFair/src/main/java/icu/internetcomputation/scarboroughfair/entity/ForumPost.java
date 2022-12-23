@@ -1,11 +1,18 @@
 package icu.internetcomputation.scarboroughfair.entity;
 
 
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+
+import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
 
 import lombok.*;
 
@@ -46,12 +53,18 @@ public class ForumPost {
     //发帖时间
     @Getter
     @Setter 
-    private Long PostTime;
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
+    private Date PostTime;
 
     //评论
     @Setter
     @Getter
     private int[] commentID;
+
+    @Setter
+    @Getter
+    @ElementCollection
+    private List<Integer> commentsId;
 
     public ForumPost(){
         id = -1;
@@ -60,17 +73,17 @@ public class ForumPost {
         imgUrl = null;
         starNum = 0;
         PostTime = null;
-        // comment = null;
+        commentsId = new ArrayList<Integer>();
     }
 
-    public ForumPost(Integer id, Integer postUserID, String content, String[] imgUrl, Long postTime){
+    public ForumPost(Integer id, Integer postUserID, String content, String[] imgUrl){
         this.id = id;
         this.PostUserID = postUserID;
         this.content = content;
         this.imgUrl = imgUrl;
         this.starNum = 0;
-        this.PostTime = postTime;
-        // this.comment = null;
+        this.PostTime = new Date();
+        commentsId = new ArrayList<Integer>();
     }
 
     /*

@@ -43,7 +43,7 @@ public class ForumService {
     public Message addPost(int userid, String content, String[] imgUrl){
         int postid = (int) (forumPostRepository.count() + 1);
         Long time = System.currentTimeMillis();
-        ForumPost post = new ForumPost(postid, userid, content, imgUrl, time);
+        ForumPost post = new ForumPost(postid, userid, content, imgUrl);
         forumPostRepository.save(post);
         return new Message(true, "帖子发布成功o(￣ε￣*)", null, postid);
     }

@@ -48,7 +48,7 @@ public class ForumController {
         ForumPost forumPost = forumService.findForumPost(id);
         return forumPost.getCommentID();
     }
-
+    
     
     // 废弃，使用uploadcontroller里面的
     // @RequestMapping(path = "/addPost", method = RequestMethod.POST)
