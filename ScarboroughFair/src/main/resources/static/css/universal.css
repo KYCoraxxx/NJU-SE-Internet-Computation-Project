@@ -248,4 +248,5 @@ input {
 
 .renewIcon img{
     animation: rotate 6s infinite;
+    margin: 0 auto;
 }
