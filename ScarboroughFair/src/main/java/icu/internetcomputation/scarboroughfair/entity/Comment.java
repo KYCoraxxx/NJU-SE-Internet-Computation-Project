@@ -1,11 +1,15 @@
 package icu.internetcomputation.scarboroughfair.entity;
 
 
+import java.util.Date;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
 
 import lombok.*;
 
@@ -44,7 +48,8 @@ public class Comment {
 
     @Getter
     @Setter
-    private Long CommentTime;
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
+    private Date CommentTime;
 
     @Setter
     @Getter
@@ -59,7 +64,7 @@ public class Comment {
         this.content = null;
     }
 
-    public Comment(Integer PostId,Integer CommentId, Integer CommentUserID, Long CommentTime, String content){
+    public Comment(Integer PostId,Integer CommentId, Integer CommentUserID, Date CommentTime, String content){
         this.PostId = PostId;
         this.CommentId = CommentId;
         this.CommentUserID = CommentUserID;
