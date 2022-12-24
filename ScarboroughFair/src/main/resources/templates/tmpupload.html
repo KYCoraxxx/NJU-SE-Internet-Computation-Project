@@ -15,6 +15,7 @@
 
         .uploadForm_Head{
             display: flex;
+            padding: 10px 10px;
             flex-direction: row;
             justify-content: right;
             align-items: center;
@@ -24,13 +25,14 @@
             opacity: 0;
             position: absolute;
             z-index: 999;
-            width: 100px;
-            height: 50px;
+            width: 180px;
+            height: 180px;
         }
 
         .inputButton_IMG{
+            margin: 40px 40px;
             width: 100px;
-            height: 50px;
+            height: 100px;
         }
 
         .submitButton{
@@ -48,30 +50,38 @@
 
         .uploadIMG{
             width: 600px;
-            min-height: 20px;
+            height: auto;
             display: flex;
-            flex-direction: row;
+            flex-direction: column;
             justify-content: flex-start;
             flex-wrap: wrap;
         }
 
+        .uploadRow{
+            width: 600px;
+            height: 200px;
+            display: flex;
+            flex-direction: row;
+        }
+
         .singleIMG{
-            width: 190px;
-            height: 190px;
-            min-width: 190px;
-            min-height: 190px;
-            flex-grow: 0.5;
-            flex-shrink: 1;
-            margin: 5px 5px 5px 5px;
+            width: 180px;
+            height: 180px;
+            margin: 10px 10px;
+            align-content: center;
+            justify-content: center;
+            overflow: hidden;
             position: relative;
         }
 
         .deleteIcon{
             position: absolute;
             right: 0;
+            top: 0;
             z-index: 990;
             width: 20px;
             height: 20px;
+            background: #FFFFFF;
         }
 
         .deleteIcon:hover{
@@ -82,113 +92,41 @@
 <body>
 选择图片：
 <form class="uploadForm" enctype="multipart/form-data" method="post" action="/upload">
-
-
-    <div class="uploadForm_Head">
-        <div class="inputDiv">
-            <input class="inputButton" type="file" name="file" multiple="multiple"/>
-            <img class="inputButton_IMG" src="/img/info.jpg" width="100px" height="50px">
-        </div>
-
-        <div class="submitDiv">
-            <input class="submitButton" type="submit" value="上传">
+    <div class="uploadIMG">
+        <div class="uploadRow" id="row0">
+            <div class="singleIMG">
+                <input class="inputButton" type="file" name="file" multiple="multiple" id="input0" onchange="addPicture(this)"/>
+                <img class="inputButton_IMG" id="img0" src="../static/img/defaultUpload.png">
+            </div>
         </div>
     </div>
-
-    <span th:text="${error}" style="color: red;"></span>
-
-    <div class="uploadIMG">
-        <div class="singleIMG" id="singleIMG0" >
-            <img src="../img/1.jpg" width="100%" height="100%" onclick="addDeleteIcon(0)">
-            <img class="deleteIcon" src="../img/prev.png" onclick="deleteIMG(0)">
-        </div>
-        <div class="singleIMG">
-            <img src="../img/1.jpg" width="100%" height="100%">
+    <div class="uploadForm_Head">
+        <div class="submitDiv">
+            <input class="submitButton" type="submit" value="上传" onsubmit="uploadAllInfo()">
         </div>
     </div>
     <script>
-        var imgSrcs = [];
-        var imgFiles = [];
+        var index = 0;
 
-
-        //获取文件数据流,添加图片时调用
-        var fileList = this.files;
-        for(var i = 0;i < fileList.length;i++){
-            var imgSrc = getObjectURL(fileList[i]);
-            imgSrc.push(imgSrc);
-            imgFiles.push(fileList[i]);
-            if(i === fileList.length - 1){
-                clearAll();
-                renovateUploadIMG();
+        var addPicture = function (node){
+            var reader = new FileReader();
+            var file = node.files[0];
+            index++;
+            var goal = "#img" + node.id[5];
+            reader.readAsDataURL(file);
+            reader.onload = function (){
+                $(goal).prop("src", this.result);
+                $(goal).css("width", "180px");
+                $(goal).css("height", "180px");
+                $(goal).css("margin", "0 0");
             }
+            var add = $('<div class=\"singleIMG\">' +
+                '<input class=\"inputButton\" type=\"file\" name=\"file\" multiple=\"multiple\" id=\"input' + index +
+                '\" onchange=\"addPicture(this)\"/>' + '<img class=\"inputButton_IMG\" id=\"img'+ index +
+                '\" src=\"../static/img/defaultUpload.png\">' +
+                '</div>');
+            $("#row0").append(add);
         }
-
-        var getObjectURL = function (file) {
-            var url = null ;
-            if (window.createObjectURL !== undefined) { // basic
-                url = window.createObjectURL(file) ;
-            } else if (window.URL !== undefined) { // mozilla(firefox)
-                url = window.URL.createObjectURL(file) ;
-            } else if (window.webkitURL !== undefined) { // webkit or chrome
-                url = window.webkitURL.createObjectURL(file) ;
-            }
-            return url ;
-        }
-
-
-        var singleImg = $(".singleIMG");
-        // adapt the photos' size
-        if(imgSrcs.length === 1){
-            singleImg.css("width","500px");
-            singleImg.css("height","500px");
-            singleImg.css("margin-left","50px");
-        }
-
-        if(imgSrcs.length === 2){
-            singleImg.css("width","290px");
-            singleImg.css("height","290px");
-            singleImg.css("margin-left","5px");
-        }
-
-        if(imgSrcs.length >= 3){
-            singleImg.css("width","190px");
-            singleImg.css("height","190px");
-            singleImg.css("margin-left","5px");
-        }
-
-        //删除按钮
-        var addDeleteIcon = function (tag){
-            $("#singleIMG" + tag).append("<img class=\"deleteIcon\" src=\"/img/info.png\" onclick=\"deleteIMG(" + tag + ")\">\n");
-        }
-
-        var removeDeleteIcon = function (){
-            $(".deleteIcon").remove();
-        }
-
-        var deleteIMG = function (tag){
-            imgSrcs.splice(tag,1);
-            imgFiles.splice(tag,1);
-            removeDeleteIcon();
-            clearAll();
-            renovateUploadIMG();
-        }
-
-        //刷新图片预览
-        var clearAll = function (){
-            $(".singleIMG").remove();//todo: 可以删除所有图片元素吗?
-        }
-
-        //        <div class="singleIMG">
-        //
-        //</div>
-        var imgList = $(".uploadIMG");
-
-        var renovateUploadIMG = function (){
-            for(var i = 0;i < imgSrcs.length;i++){
-                imgList.append("<div class=\"singleIMG\" id='singleIMG" + i + "'><img src=\"" + imgSrcs[i] + "\" width=\"100%\" height=\"100%\" onclick='addDeleteIcon(" + i + ")'></div>>")
-            }
-        }
-
         //点击发布上传后端
         var uploadAllInfo = function (){
             var formData = new FormData();
@@ -209,7 +147,7 @@
             });
         }
     </script>
-    <script src="/js/jquery-3.6.1.js"></script>
+    <script src="../static/js/jquery-3.6.1.js"></script>
     <script src="https://cdn.bootcdn.net/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.js"></script>
 
 </form>
