@@ -1,6 +1,8 @@
 package icu.internetcomputation.scarboroughfair.service;
 
 import java.util.Calendar;
+import java.util.Date;
+import java.util.List;
 
 import javax.annotation.Resource;
 
@@ -39,7 +41,10 @@ public class ForumService {
     public Comment findComment(int id){
         return commentRepository.findById(id).orElse(null);
     }
-
+    public Iterable<Comment> findComments(List<Integer> ids){
+        if(ids.size()==0) return null;
+        return commentRepository.findAllById(ids);
+    }
     public Message addPost(int userid, String content, String[] imgUrl){
         int postid = (int) (forumPostRepository.count() + 1);
         Long time = System.currentTimeMillis();
@@ -60,7 +65,7 @@ public class ForumService {
 
     public Message addComment(int userid, String content, Integer postId){
         int commentid = (int) (commentRepository.count() + 1);
-        Long time = System.currentTimeMillis();
+        Date time = new Date();
         Comment comment = new Comment(postId, commentid, userid, time, content);
         commentRepository.save(comment);
         ForumPost forumPost = findForumPost(postId);
