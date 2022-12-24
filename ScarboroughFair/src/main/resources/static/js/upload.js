@@ -2,7 +2,7 @@ var upl_error;
 //todo: 未上传封面时的处理
 var postUploadInfo = function(){
     var name = $("input[name='name']");
-    var tag = $("input[name='tag']");
+    var tag = $("select[name='tag']");
     var price = $("input[name='price']");
     var description = $("input[name='description']");
     var cover = $("#upl_cover")[0].files[0];
@@ -16,7 +16,7 @@ var postUploadInfo = function(){
         price.css("border-color", "mediumpurple");
         description.css("border-color", "mediumpurple");
     }
-    else if (tag[0].value === ""){
+    else if (tag[0].value === "-请选择-"){
         if (upl_error !== undefined)
             upl_error.remove();
         upl_error = $('<span>这篇大地的商品并非不需要被分类</span>');
@@ -100,7 +100,7 @@ var displayNewPic = function(node){
 var uploadGoodInfo = function (){
     var formData = new FormData();
     var name = $("input[name='name']")[0];
-    var tag = $("input[name='tag']")[0];
+    var tag = $("select[name='tag']")[0];
     var price = $("input[name='price']")[0];
     var description = $("input[name='description']")[0];
     var cover = $("#upl_cover")[0].files[0];

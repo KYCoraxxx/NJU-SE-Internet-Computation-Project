@@ -30,6 +30,13 @@
     border: 1px solid mediumpurple;
     margin-right: 30px;
 }
+select{
+    font-size: 15px;
+    border-radius: 8px;
+    border: 1px solid;
+    margin-right: 30px;
+    border-color: mediumpurple;
+}
 .uploadInput img{
     height: 150px;
     width: 150px;
