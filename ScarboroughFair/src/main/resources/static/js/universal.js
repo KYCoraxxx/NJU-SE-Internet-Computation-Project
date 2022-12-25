@@ -85,6 +85,7 @@ var jumpLocation = function (location,obj){
     targetBox.classname = "optionBox active";
 }
 
+
 //上传
 var imgIndex = 0;
 
@@ -96,21 +97,24 @@ var addPicture = function (node){
     reader.readAsDataURL(file);
     reader.onload = function (){
         $(goal).prop("src", this.result);
-        $(goal).css("width", "180px");
-        $(goal).css("height", "180px");
+        $(goal).css("width", "220px");
+        $(goal).css("height", "220px");
         $(goal).css("margin", "0 0");
+        $(goal).css("border-radius", "5px");
     }
-    var add = $('<div class=\"singleIMG\">' +
-        '<input class=\"inputButton\" type=\"file\" name=\"file\" multiple=\"multiple\" id=\"input' + imgIndex +
-        '\" onchange=\"addPicture(this)\"/>' + '<img class=\"inputButton_IMG\" id=\"img'+ imgIndex +
-        '\" src=\"/img/defaultUpload.png\">' +
-        '</div>');
-    $("#row0").append(add);
+    if(imgIndex < 9) {
+        var add = $('<div class=\"singleIMG\">' +
+            '<input class=\"inputButton\" type=\"file\" name=\"file\" multiple=\"multiple\" id=\"input' + imgIndex +
+            '\" onchange=\"addPicture(this)\"/>' + '<img class=\"inputButton_IMG\" id=\"img' + imgIndex +
+            '\" src=\"/img/defaultUpload.png\">' +
+            '</div>');
+        $(".uploadIMG").append(add);
+    }
 }
 //点击发布上传后端
 var uploadAllInfo = function (){
 
-    var imgURLs = $("#theUploadForm");
+    var imgURLs = $("#theUploadForm")[0];
     var formData = new FormData(imgURLs);
     $.ajax({
         type: "POST",
