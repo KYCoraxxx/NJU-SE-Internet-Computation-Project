@@ -4,11 +4,9 @@ import icu.internetcomputation.scarboroughfair.UserRepository;
 import icu.internetcomputation.scarboroughfair.entity.Data;
 import icu.internetcomputation.scarboroughfair.entity.User;
 import icu.internetcomputation.scarboroughfair.entity.Message;
-import java.util.Optional;
 
 import javax.annotation.Resource;
 
-import lombok.Getter;
 import org.springframework.stereotype.Service;
 
 @Service

@@ -1,7 +1,5 @@
 package icu.internetcomputation.scarboroughfair.service;
 
-import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
@@ -14,7 +12,6 @@ import icu.internetcomputation.scarboroughfair.ForumPostRepository;
 import icu.internetcomputation.scarboroughfair.entity.Comment;
 import icu.internetcomputation.scarboroughfair.entity.ForumPost;
 import icu.internetcomputation.scarboroughfair.entity.Message;
-import icu.internetcomputation.scarboroughfair.entity.User;
 
 @Service
 public class ForumService {
@@ -91,7 +88,6 @@ public class ForumService {
         if(userid != delComment.getCommentUserID()){
             return new Message(false, "删除评论的权力被我夺舍了!");
         }
-        int delCommentId = delComment.getCommentId();
         ForumPost forumPost = findForumPost(delComment.getPostId());
         List<Integer> commentsID = forumPost.getCommentsId();
         for(int i=0;i<commentsID.size();i++)

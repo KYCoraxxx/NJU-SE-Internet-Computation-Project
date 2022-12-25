@@ -40,7 +40,7 @@ public class GoodService {
     public Message deleteGood(int id)
     {
         goodRepository.deleteById(id);
-        return new Message(true,"下架成功！");
+        return new Message(true,"商品下架了，怎会如此......");
     }
 
 
