@@ -103,7 +103,7 @@ var addPicture = function (node){
     var add = $('<div class=\"singleIMG\">' +
         '<input class=\"inputButton\" type=\"file\" name=\"file\" multiple=\"multiple\" id=\"input' + imgIndex +
         '\" onchange=\"addPicture(this)\"/>' + '<img class=\"inputButton_IMG\" id=\"img'+ imgIndex +
-        '\" src=\"../static/img/defaultUpload.png\">' +
+        '\" src=\"/img/defaultUpload.png\">' +
         '</div>');
     $("#row0").append(add);
 }
