@@ -59,9 +59,10 @@
 
         .uploadRow{
             width: 600px;
-            height: 200px;
+            min-height: 200px;
             display: flex;
             flex-direction: row;
+            flex-wrap: wrap;
         }
 
         .singleIMG{
@@ -91,7 +92,7 @@
 </head>
 <body>
 选择图片：
-<form class="uploadForm" enctype="multipart/form-data" method="post" action="/upload">
+<form class="uploadForm" id="theUploadForm" enctype="multipart/form-data" method="post" action="/upload">
     <div class="uploadIMG">
         <div class="uploadRow" id="row0">
             <div class="singleIMG">
@@ -129,10 +130,9 @@
         }
         //点击发布上传后端
         var uploadAllInfo = function (){
-            var formData = new FormData();
-            //todo: unrealized yet
-            //imgSrcs and img imgFiles are ready to be uploaded
 
+            var imgURLs = $("#theUploadForm");
+            var formData = new FormData(imgURLs);
             $.ajax({
                 type: "POST",
                 url: server + "/goodupload",
@@ -142,7 +142,9 @@
                 processData: false,
                 contentType: false,
                 success: function (data){
-
+                    if(data.isSucceed) {
+                        alert(data.message);
+                    }
                 }
             });
         }
