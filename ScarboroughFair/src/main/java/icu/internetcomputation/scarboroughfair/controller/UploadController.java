@@ -115,6 +115,7 @@ public class UploadController {
         return userService.editUser(id, avatorUrl, nickname, saying);
     }
 
+
     /*
      * 论坛发帖的接口
      */
@@ -133,7 +134,7 @@ public class UploadController {
         Integer id = Integer.valueOf(userID);
         return forumService.addPost(id, content, imgUrl);
     }
-
+    //添加comment的接口在forumController里面
 
     /*
      * 负责将图片上传至数据库指定路径，并返回一个虚拟路径的Url

@@ -44,14 +44,22 @@ public class ForumController {
     /*
      * 根据给定的帖子 返回帖子所有的评论的ID
      */
-    @RequestMapping(path = "/findComments", method = RequestMethod.POST)
+    @RequestMapping(path = "/findCommentsId", method = RequestMethod.POST)
     @ResponseBody
-    public List<Integer> findComments(@RequestParam("id") int id){
-        ForumPost forumPost = forumService.findForumPost(id);
+    public List<Integer> findCommentsId(@RequestParam("postid") int postid){
+        ForumPost forumPost = forumService.findForumPost(postid);
         return forumPost.getCommentsId();
     }
     
-    
+    /*
+     * 获取帖子所有评论
+     */
+    @RequestMapping(path="/findComments",method = RequestMethod.POST)
+    @ResponseBody
+    public Iterable<Comment> findComments(@RequestParam("postid") int postid){
+        List<Integer> ids=findCommentsId(postid);
+        return forumService.findComments(ids);
+    }
     // 废弃，使用uploadcontroller里面的
     // @RequestMapping(path = "/addPost", method = RequestMethod.POST)
     // @ResponseBody
@@ -65,12 +73,15 @@ public class ForumController {
      */
     @RequestMapping(path = "/Star", method = RequestMethod.POST)
     @ResponseBody
-    public Message StarPost(){
-        return forumService.lovePost(1);
+    public Message StarPost(
+        @RequestParam("postid") int postid
+    ){
+        
+        return forumService.lovePost(postid);
     }
 
     /*
-     * 评论
+     * 添加评论
      */
     @RequestMapping(path = "/CommentPost", method = RequestMethod.POST)
     @ResponseBody
@@ -105,7 +116,8 @@ public class ForumController {
         return forumService.deleteComment(userid, commentid);
     }
     
-    // TODO : 拉取帖子和评论
+    
+
 
     // TODO : 查看帖子详情页
 
