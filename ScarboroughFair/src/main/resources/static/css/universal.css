@@ -250,3 +250,76 @@ input {
     animation: rotate 6s infinite;
     margin: 0 auto;
 }
+
+
+/* 上传图片*/
+.uploadForm{
+    margin: 0 auto;
+    width: 600px;
+    border: 1px solid;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+}
+
+.uploadForm_Head{
+    display: flex;
+    padding: 10px 10px;
+    flex-direction: row;
+    justify-content: right;
+    align-items: center;
+}
+
+.inputButton{
+    opacity: 0;
+    position: absolute;
+    z-index: 999;
+    width: 180px;
+    height: 180px;
+}
+
+.inputButton_IMG{
+    margin: 40px 40px;
+    width: 100px;
+    height: 100px;
+}
+
+.submitButton{
+    width: 100px;
+    height: 50px;
+    border: none;
+    border-radius: 5px;
+    background-color: cornflowerblue;
+    transition: 0.6s ease-in-out;
+}
+
+.submitButton:hover{
+    background-color: rgba(100, 149, 237, 80%);
+}
+
+.uploadIMG{
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+}
+
+.uploadRow{
+    width: 100%;
+    min-height: 200px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.singleIMG{
+    width: 180px;
+    height: 180px;
+    margin: 10px 10px;
+    align-content: center;
+    justify-content: center;
+    overflow: hidden;
+    position: relative;
+}

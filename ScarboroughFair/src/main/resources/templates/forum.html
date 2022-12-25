@@ -67,18 +67,33 @@
                 <div class="forumTitle">
                     <div class="forumTitle_IMG"></div>
                 </div>
-                <div class="forumUpload">
+                <!--<div class="forumUpload">
                     <form class="forumUpload_Body" action="#" target="_self">
                         <textarea class="forumUpload_Body_Input" name="" id="" cols="30" rows="5" placeholder="分享你的乐趣" maxlength="80" minlength="1"></textarea>
                         <button class="forumUpload_Body_Submit" type="submit">发布动态</button>
                     </form>
                     <div class="forumUpload_Footer">
                         <form class="forumUpload_Footer_Form" action="#" target="_self">
-                            <input class="forumUpload_Footer_input" type="file" multiple="multiple"><!--Img upload-->
+                            <input class="forumUpload_Footer_input" type="file" multiple="multiple">
                             <img class="forumUpload_Footer_IMG" src="/img/forumUploadIMG.png">
                         </form>
                     </div>
-                </div>
+                </div>-->
+                <form class="uploadForm" id="theUploadForm" enctype="multipart/form-data" method="post" action="/upload">
+                    <div class="uploadIMG">
+                        <div class="uploadRow" id="row0">
+                            <div class="singleIMG">
+                                <input class="inputButton" type="file" name="file" multiple="multiple" id="input0" onchange="addPicture(this)"/>
+                                <img class="inputButton_IMG" id="img0" src="../static/img/defaultUpload.png">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="uploadForm_Head">
+                        <div class="submitDiv">
+                            <input class="submitButton" type="submit" value="上传" onsubmit="uploadAllInfo()">
+                        </div>
+                    </div>
+                </form>
                 <div class="forumList">
                     <div class="forumItem">
                         <div class="itemMain">

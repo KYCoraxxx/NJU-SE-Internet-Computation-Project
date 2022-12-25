@@ -305,3 +305,4 @@ var getWindowHeight = function(){
     }
     return windowHeight;
 }
+

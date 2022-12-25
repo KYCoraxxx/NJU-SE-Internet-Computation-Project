@@ -84,3 +84,46 @@ var jumpLocation = function (location,obj){
     formerBox.classname = "optionBox";
     targetBox.classname = "optionBox active";
 }
+
+//上传
+var imgIndex = 0;
+
+var addPicture = function (node){
+    var reader = new FileReader();
+    var file = node.files[0];
+    imgIndex++;
+    var goal = "#img" + node.id[5];
+    reader.readAsDataURL(file);
+    reader.onload = function (){
+        $(goal).prop("src", this.result);
+        $(goal).css("width", "180px");
+        $(goal).css("height", "180px");
+        $(goal).css("margin", "0 0");
+    }
+    var add = $('<div class=\"singleIMG\">' +
+        '<input class=\"inputButton\" type=\"file\" name=\"file\" multiple=\"multiple\" id=\"input' + imgIndex +
+        '\" onchange=\"addPicture(this)\"/>' + '<img class=\"inputButton_IMG\" id=\"img'+ imgIndex +
+        '\" src=\"../static/img/defaultUpload.png\">' +
+        '</div>');
+    $("#row0").append(add);
+}
+//点击发布上传后端
+var uploadAllInfo = function (){
+
+    var imgURLs = $("#theUploadForm");
+    var formData = new FormData(imgURLs);
+    $.ajax({
+        type: "POST",
+        url: server + "/goodupload",
+        data: formData,
+        async: false,
+        cache: false,
+        processData: false,
+        contentType: false,
+        success: function (data){
+            if(data.isSucceed) {
+                alert(data.message);
+            }
+        }
+    });
+}
