@@ -1,5 +1,7 @@
 package icu.internetcomputation.scarboroughfair.controller;
 
+import java.util.List;
+
 import javax.annotation.Resource;
 
 import org.springframework.stereotype.Controller;
@@ -42,11 +44,11 @@ public class ForumController {
     /*
      * 根据给定的帖子 返回帖子所有的评论的ID
      */
-    @RequestMapping(path = "/findComment", method = RequestMethod.POST)
+    @RequestMapping(path = "/findComments", method = RequestMethod.POST)
     @ResponseBody
-    public int[] findComment(@RequestParam("id") int id){
+    public List<Integer> findComments(@RequestParam("id") int id){
         ForumPost forumPost = forumService.findForumPost(id);
-        return forumPost.getCommentID();
+        return forumPost.getCommentsId();
     }
     
     
