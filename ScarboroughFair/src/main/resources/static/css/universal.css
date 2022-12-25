@@ -255,11 +255,11 @@ input {
 /* 上传图片*/
 .uploadForm{
     margin: 0 auto;
-    width: 600px;
-    border: 1px solid;
+    width: 100%;
     border-radius: 5px;
     display: flex;
     flex-direction: column;
+    background-color: whitesmoke;
 }
 
 .uploadForm_Head{
@@ -274,14 +274,14 @@ input {
     opacity: 0;
     position: absolute;
     z-index: 999;
-    width: 180px;
-    height: 180px;
+    width: 100%;
+    height: 100%;
 }
 
 .inputButton_IMG{
-    margin: 40px 40px;
-    width: 100px;
-    height: 100px;
+    margin: 10%;
+    width: 60px;
+    height: 60px;
 }
 
 .submitButton{
@@ -301,25 +301,33 @@ input {
     width: 100%;
     height: auto;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: flex-start;
     flex-wrap: wrap;
 }
 
-.uploadRow{
-    width: 100%;
-    min-height: 200px;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-}
-
 .singleIMG{
-    width: 180px;
-    height: 180px;
-    margin: 10px 10px;
+    width: 25%;
+    margin: 1% 0 0 3%;
     align-content: center;
     justify-content: center;
     overflow: hidden;
     position: relative;
+}
+
+.uploadContent{
+    margin: 2% auto 0;
+    font-size: 20px;
+    font-weight: bold;
+    color: grey;
+    border: none;
+    background-color: rgba(0,0,0,5%);
+    border-radius: 10px;
+    width: 90%;
+    resize: none;
+    line-height: 80%;
+    align-items: center;
+    text-indent: 2em;
+    padding-top: 20px;
+    outline: none;
 }

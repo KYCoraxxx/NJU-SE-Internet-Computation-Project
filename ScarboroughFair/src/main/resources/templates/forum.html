@@ -80,12 +80,11 @@
                     </div>
                 </div>-->
                 <form class="uploadForm" id="theUploadForm" enctype="multipart/form-data" method="post" action="/upload">
+                    <textarea class="uploadContent" name="uploadContent" id="" cols="30" rows="5" placeholder="分享你的乐趣" maxlength="80" minlength="1"></textarea>
                     <div class="uploadIMG">
-                        <div class="uploadRow" id="row0">
-                            <div class="singleIMG">
-                                <input class="inputButton" type="file" name="file" multiple="multiple" id="input0" onchange="addPicture(this)"/>
-                                <img class="inputButton_IMG" id="img0" src="/img/defaultUpload.png">
-                            </div>
+                        <div class="singleIMG">
+                            <input class="inputButton" type="file" name="file" multiple="multiple" id="input0" onchange="addPicture(this)"/>
+                            <img class="inputButton_IMG" id="img0" src="/img/defaultUpload.png">
                         </div>
                     </div>
                     <div class="uploadForm_Head">
