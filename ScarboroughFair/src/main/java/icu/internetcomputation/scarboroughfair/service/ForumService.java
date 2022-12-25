@@ -1,5 +1,6 @@
 package icu.internetcomputation.scarboroughfair.service;
 
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
@@ -41,14 +42,16 @@ public class ForumService {
     public Comment findComment(int id){
         return commentRepository.findById(id).orElse(null);
     }
+
     public Iterable<Comment> findComments(List<Integer> ids){
         if(ids.size()==0) return null;
         return commentRepository.findAllById(ids);
     }
+
     public Message addPost(int userid, String content, String[] imgUrl){
         int postid = (int) (forumPostRepository.count() + 1);
-        Long time = System.currentTimeMillis();
-        ForumPost post = new ForumPost(postid, userid, content, imgUrl);
+        Date time = new Date();
+        ForumPost post = new ForumPost(postid, userid, content, imgUrl,time);
         forumPostRepository.save(post);
         return new Message(true, "帖子发布成功o(￣ε￣*)", null, postid);
     }
@@ -69,13 +72,9 @@ public class ForumService {
         Comment comment = new Comment(postId, commentid, userid, time, content);
         commentRepository.save(comment);
         ForumPost forumPost = findForumPost(postId);
-        int[] oldCommentID = forumPost.getCommentID();
-        int[] newCommentID = new int[oldCommentID.length + 1];
-        for(int i = 0; i < oldCommentID.length; i++){
-            newCommentID[i] = oldCommentID[i];
-        }
-        newCommentID[oldCommentID.length] = commentid;
-        forumPost.setCommentID(newCommentID);
+        List<Integer> commentsID = forumPost.getCommentsId();
+        commentsID.add(commentid);
+        forumPost.setCommentsId(commentsID);
         forumPostRepository.save(forumPost);
         return new Message(true, "您的评论已经传达到辣d=====(￣▽￣*)b");
     }
@@ -94,17 +93,13 @@ public class ForumService {
         }
         int delCommentId = delComment.getCommentId();
         ForumPost forumPost = findForumPost(delComment.getPostId());
-        int[] oldCommentID = forumPost.getCommentID();
-        int[] newCommentID = new int[oldCommentID.length - 1];
-        int i = 0, j = 0;
-        while(i != oldCommentID.length - 1){
-            if(oldCommentID[j] != delCommentId){
-                newCommentID[i] = oldCommentID[j];
-                i++;
+        List<Integer> commentsID = forumPost.getCommentsId();
+        for(int i=0;i<commentsID.size();i++)
+            if(commentsID.get(i).equals(commentid)){
+                commentsID.remove(i);
+                break;
             }
-            j++;
-        }
-        forumPost.setCommentID(newCommentID);
+        forumPost.setCommentsId(commentsID);
         forumPostRepository.save(forumPost);
         commentRepository.delete(delComment);
         return new Message(true, "评论帮你删好了，再多夸夸我也没关系哦!");

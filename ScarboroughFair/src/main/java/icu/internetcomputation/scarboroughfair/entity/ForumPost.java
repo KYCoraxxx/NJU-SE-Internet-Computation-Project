@@ -57,9 +57,9 @@ public class ForumPost {
     private Date PostTime;
 
     //评论
-    @Setter
-    @Getter
-    private int[] commentID;
+    // @Setter
+    // @Getter
+    // private int[] commentID;
 
     @Setter
     @Getter
@@ -76,13 +76,13 @@ public class ForumPost {
         commentsId = new ArrayList<Integer>();
     }
 
-    public ForumPost(Integer id, Integer postUserID, String content, String[] imgUrl){
+    public ForumPost(Integer id, Integer postUserID, String content, String[] imgUrl,Date time){
         this.id = id;
         this.PostUserID = postUserID;
         this.content = content;
         this.imgUrl = imgUrl;
         this.starNum = 0;
-        this.PostTime = new Date();
+        this.PostTime = time;
         commentsId = new ArrayList<Integer>();
     }
 
