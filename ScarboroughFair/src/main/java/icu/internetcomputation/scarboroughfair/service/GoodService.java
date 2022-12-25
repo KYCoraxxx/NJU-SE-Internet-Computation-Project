@@ -1,5 +1,7 @@
 package icu.internetcomputation.scarboroughfair.service;
 
+import java.util.List;
+
 import javax.annotation.Resource;
 import icu.internetcomputation.scarboroughfair.GoodRepository;
 import icu.internetcomputation.scarboroughfair.entity.Good;
@@ -21,7 +23,7 @@ public class GoodService {
         return goodRepository.findById(id).orElse(null);
     }
 
-    public Message addGood(String name ,Float price, String cover, String[] picture, String description, String tag)
+    public Message addGood(String name ,Float price, String cover, List<String> picture, String description, String tag)
     {
         int id = (int)goodRepository.count()+1;
         Good good = new Good(id, name, price, cover, picture, description, tag);

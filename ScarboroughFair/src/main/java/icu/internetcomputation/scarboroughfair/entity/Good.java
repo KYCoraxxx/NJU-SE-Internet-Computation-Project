@@ -3,6 +3,9 @@ package icu.internetcomputation.scarboroughfair.entity;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.List;
+
+import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -32,7 +35,8 @@ public class Good {
 
     @Getter
     @Setter
-    private String[] picture;
+    @ElementCollection(targetClass=String.class)
+    private List<String> picture;
 
     @Getter
     @Setter
@@ -52,7 +56,7 @@ public class Good {
 
     }
 
-    public Good(Integer id, String name, Float price, String cover, String[] picture, String description, String tag) {
+    public Good(Integer id, String name, Float price, String cover, List<String> picture, String description, String tag) {
         this.id = id;
         this.name = name;
         this.price = price;

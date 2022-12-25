@@ -63,7 +63,7 @@ public class ForumPost {
 
     @Setter
     @Getter
-    @ElementCollection
+    @ElementCollection(targetClass=Integer.class)
     private List<Integer> commentsId;
 
     public ForumPost(){

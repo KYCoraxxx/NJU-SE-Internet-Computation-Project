@@ -16,7 +16,11 @@ import java.util.UUID;
 import javax.annotation.Resource;
 
 import org.springframework.beans.factory.annotation.Value;
+
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
+
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
@@ -77,9 +81,9 @@ public class UploadController {
     {
 
         String coverUrl = Imgupload(coverUpload);
-        String[] picUrl = new String[ picUpload.length ];
+        List<String> picUrl=new ArrayList<String>();
         for(int i = 0; i < picUpload.length; i++){
-            picUrl[i] = Imgupload(picUpload[i]);
+            picUrl.add(Imgupload(picUpload[i]));
         }
 
         if(coverUrl == null||picUrl == null){
