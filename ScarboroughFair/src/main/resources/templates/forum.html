@@ -79,7 +79,7 @@
                         </form>
                     </div>
                 </div>-->
-                <form class="uploadForm" id="theUploadForm" enctype="multipart/form-data" method="post" action="/upload">
+                <div class="uploadForm" id="theUploadForm">
                     <textarea class="uploadContent" id="uploadContent" cols="30" rows="5" placeholder="分享你的乐趣" maxlength="80" minlength="1"></textarea>
                     <div class="uploadIMG">
                         <div class="singleIMG">
@@ -89,10 +89,10 @@
                     </div>
                     <div class="uploadForm_Head">
                         <div class="submitDiv">
-                            <input class="submitButton" type="submit" value="上传" onsubmit="uploadAllInfo()">
+                            <input class="submitButton" type="submit" value="上传" onclick="uploadAllInfo()">
                         </div>
                     </div>
-                </form>
+                </div>
                 <div class="forumList">
                     <div class="forumItem">
                         <div class="itemMain">
@@ -143,12 +143,12 @@
                             <hr style="width: 80%; margin-left: 10%;">
                         </div>
                         <div class="itemCritics">
-                            <form class="itemCritics_Form" action="#" method="post">
+                            <div class="itemCritics_Form" action="#" method="post">
                                 <div class="itemCritics_Form_user"><img src="/img/defaultUser.png" style="width:50px;height: 50px"></div>
                                 <!--todo:add an index to every item to ease the clearAll function-->
-                                <textarea name="itemCriticsForm" rows="4" placeholder="灌下你的水" minlength="1" maxlength="80" ></textarea>
-                                <button class="commentSubmit" type="submit">灌水</button>
-                            </form>
+                                <textarea name="itemCriticsForm" id="itemCriticsForm0" rows="4" placeholder="灌下你的水" minlength="1" maxlength="80" ></textarea>
+                                <button class="commentSubmit" type="submit" onclick="uploadComment(0)">灌水</button>
+                            </div>
                             <div class="itemCritics_critics">
                                 <hr style="width: 72%;margin-left: 18%;">
                                 <!--todo:grab latest remarks-->
@@ -278,12 +278,12 @@
                             <hr style="width: 80%; margin-left: 10%;">
                         </div>
                         <div class="itemCritics">
-                            <form class="itemCritics_Form" action="#" method="post">
+                            <div class="itemCritics_Form" action="#" method="post">
                                 <div class="itemCritics_Form_user"><img src="/img/defaultUser.png" style="width:50px;height: 50px"></div>
                                 <!--todo: the id of the textarea should be replaced-->
                                 <textarea name="itemCriticsForm" rows="4" placeholder="灌下你的水" minlength="1" maxlength="80" ></textarea>
-                                <button class="commentSubmit" type="submit">灌水</button>
-                            </form>
+                                <button class="commentSubmit" type="submit" onclick="uploadComment(0)">灌水</button>
+                            </div>
                             <div class="itemCritics_critics">
                                 <hr style="width: 72%;margin-left: 18%;">
                                 <!--todo:grab latest remarks-->
@@ -413,11 +413,11 @@
                             <hr style="width: 80%; margin-left: 10%;">
                         </div>
                         <div class="itemCritics">
-                            <form class="itemCritics_Form" action="#" method="post">
+                            <div class="itemCritics_Form" action="#" method="post">
                                 <div class="itemCritics_Form_user"><img src="/img/defaultUser.png" style="width:50px;height: 50px"></div>
                                 <textarea name="itemCriticsForm" rows="4" placeholder="灌下你的水" minlength="1" maxlength="80" ></textarea>
-                                <button class="commentSubmit" type="submit">灌水</button>
-                            </form>
+                                <button class="commentSubmit" type="submit" onclick="uploadComment(0)">灌水</button>
+                            </div>
                             <div class="itemCritics_critics">
                                 <hr style="width: 72%;margin-left: 18%;">
                                 <!--todo:grab latest remarks-->

@@ -59,11 +59,11 @@ public class UploadController {
     }
     
     // original 初始的upload上传接口
-    @PostMapping(path="/upload")
-    @ResponseBody
-    public Message upload(@RequestParam(value = "file") MultipartFile fileUpload, Model model){
-        return OriginalImgupload(fileUpload);
-    }
+  // @PostMapping(path="/upload")
+  // @ResponseBody
+  // public Message upload(@RequestParam(value = "file") MultipartFile fileUpload, Model model){
+  //     return OriginalImgupload(fileUpload);
+  // }
 
 
     /*

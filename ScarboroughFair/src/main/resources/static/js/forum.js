@@ -145,12 +145,12 @@ var uploadForum = function(){
         <hr style=\"width: 80%; margin-left: 10%;\"> \
     </div> \
     <div class=\"itemCritics\"> \
-        <form class=\"itemCritics_Form\" action=\"#\" method=\"post\"> \
+        <div class=\"itemCritics_Form\" action=\"#\" method=\"post\"> \
             <div class=\"itemCritics_Form_user\"><img src=\"/img/defaultUser.png\" style=\"width:50px;height: 50px\"></div> \
             <!--todo:add an index to every item to ease the clearAll function--> \
             <textarea name=\"itemCriticsForm\" id=\"itemCriticsForm" + i + "\"  rows=\"4\" placeholder=\"灌下你的水\" minlength=\"1\" maxlength=\"80\" ></textarea> \
-            <button class=\"commentSubmit\" type=\"submit\" onsubmit='uploadComment(" + i + ")'>灌水</button> \
-        </form> \
+            <button class=\"commentSubmit\" type=\"submit\" onclick='uploadComment(" + i + ")'>灌水</button> \
+        </div> \
         <div class=\"itemCritics_critics\"> \
             <hr style=\"width: 72%;margin-left: 18%;\"> \
             <!--todo:grab latest remarks--> \
@@ -309,7 +309,6 @@ var getWindowHeight = function(){
 //评论上传
 
 var uploadComment = function(tag){
-
     var formData = new FormData();
     var comment = $("#itemCriticsForm" + tag)[0];
     formData.append("comment",comment.value);
