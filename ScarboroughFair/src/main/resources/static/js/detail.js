@@ -1,3 +1,4 @@
+var server="http://localhost:8080";
 var goodName;
 var goodTag;
 var goodPrice;
@@ -23,16 +24,21 @@ $.ajax({
         goodPrice = data.price;
         goodDescription = data.description;
         goodCover = data.cover;
-        goodPic = data.pic;
+        goodPic = data.picture;
+        $(".goodName").append("<div class = 'goodName'>" + goodName + "</div>");
+        $(".goodTag").append("<div class = 'goodTag'>" + goodTag + "</div>");
+        $(".goodPrice").append("<div class = 'goodPrice'>" + goodPrice + "</div>");
+        $(".goodCover").append("<img src = '" + goodCover + "'/>");
+        $(".detailContent").append($("<div class = 'article-subtitle'>" + goodDescription + "</div>"));
     }
 });
-
+/*
 $(".goodName").append(goodName);
 $(".goodTag").append(goodTag);
 $(".goodPrice").append(goodPrice);
 $(".goodCover img").prop("src", server + goodCover);
 $(".detailContent").append($("<div class = 'article-subtitle'>" + goodDescription + "</div>"));
-
+*/
 var changeProviderName = function (state){
     if (state === 0)
         $(".providerName").css("color", "#000000");
@@ -49,7 +55,6 @@ var showDetailContent = function(type){
         detailContent.append($("<div class = 'article-subtitle'>" + goodDescription + "</div>"));
     }
     else if(type === 2){
-        $(".detailContent img").prop("src", server + goodPic);
-        detailContent.append($("<img/>"));
+        detailContent.append("<img src = '" + goodPic + "'/>");
     }
 }
