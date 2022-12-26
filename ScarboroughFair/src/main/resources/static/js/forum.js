@@ -148,8 +148,8 @@ var uploadForum = function(){
         <form class=\"itemCritics_Form\" action=\"#\" method=\"post\"> \
             <div class=\"itemCritics_Form_user\"><img src=\"/img/defaultUser.png\" style=\"width:50px;height: 50px\"></div> \
             <!--todo:add an index to every item to ease the clearAll function--> \
-            <textarea name=\"itemCriticsForm\" id=\"itemCriticsForm\"  rows=\"4\" placeholder=\"灌下你的水\" minlength=\"1\" maxlength=\"80\" ></textarea> \
-            <button class=\"commentSubmit\" type=\"submit\">灌水</button> \
+            <textarea name=\"itemCriticsForm\" id=\"itemCriticsForm" + i + "\"  rows=\"4\" placeholder=\"灌下你的水\" minlength=\"1\" maxlength=\"80\" ></textarea> \
+            <button class=\"commentSubmit\" type=\"submit\" onsubmit='uploadComment(" + i + ")'>灌水</button> \
         </form> \
         <div class=\"itemCritics_critics\"> \
             <hr style=\"width: 72%;margin-left: 18%;\"> \
@@ -304,5 +304,30 @@ var getWindowHeight = function(){
         windowHeight = document.body.clientHeight;
     }
     return windowHeight;
+}
+
+//评论上传
+
+var uploadComment = function(tag){
+
+    var formData = new FormData();
+    var comment = $("#itemCriticsForm" + tag)[0];
+    formData.append("comment",comment.value);
+    formData.append("postid",tag);
+    formData.append("userid", $.cookie("userID"));
+    $.ajax({
+        type: "POST",
+        url: server + "/forumService/addComment",
+        data: formData,
+        async: false,
+        cache: false,
+        processData: false,
+        contentType: false,
+        success: function (data){
+            if(data.isSucceed) {
+                alert(data.message);
+            }
+        }
+    });
 }
 
