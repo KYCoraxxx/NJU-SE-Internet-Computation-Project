@@ -43,7 +43,7 @@ public class ForumPost {
     // 帖子图片
     @Getter
     @Setter
-    private String[] imgUrl;
+    private Li<String> imgUrl;
 
     // 点赞
     @Getter
@@ -76,7 +76,7 @@ public class ForumPost {
         commentsId = new ArrayList<Integer>();
     }
 
-    public ForumPost(Integer id, Integer postUserID, String content, String[] imgUrl,Date time){
+    public ForumPost(Integer id, Integer postUserID, String content, ArrayList<String> imgUrl,Date time){
         this.id = id;
         this.PostUserID = postUserID;
         this.content = content;
