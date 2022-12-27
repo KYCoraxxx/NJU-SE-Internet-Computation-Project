@@ -203,16 +203,20 @@ var uploadCrictics = function(targetId,index){
             "postid":targetId,
         },
         success: function(data) {
+            console.log(targetId);
+
+            console.log(data);
+
+            console.log(index);
+
             var cirtics;
             if(alreadyUploadCritics.length <= index){// initialize the size of each post's critic
-                alreadyUploadCritics[index] = 1;
+                alreadyUploadCritics.push(0);
                 totalCricticOfEachPost[index] = -1;
                 for(var i in data){
                     totalCricticOfEachPost[index]++;
                 }
             }
-            console.log(targetId);
-            console.log(data);
             var targetList = $("#itemCritics_criticsList"+index);
             var start = alreadyUploadCritics[index];
             for(var i = start;i < start + 2 && i <= totalCricticOfEachPost[index];i++){
@@ -317,6 +321,7 @@ var uploadComment = function(tag,index){
     formData.append("comment",comment.value);
     formData.append("postid",tag);
     formData.append("userid", $.cookie("userID"));
+    console.log(comment.value);
     $.ajax({
         type: "POST",
         url: server + "/ForumService/CommentPost",
