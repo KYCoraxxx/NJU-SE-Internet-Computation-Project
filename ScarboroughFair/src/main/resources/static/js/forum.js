@@ -102,11 +102,9 @@ var uploadForum = function(){
                     totalForum++;
                 }
             }
-            console.log(data);
             var start = alreadyUploadIndex;
             for(i = start;i < start + 1 && i <= totalForum;i++){
                 var targetUser = upLoadUserById(data[i].postUserID);
-                console.log(targetUser);
                 forumList.append(
                     "<div class=\"forumItem\" id=\"forumItem" + i + "\"> \
     <div class=\"itemMain\"> \
@@ -150,8 +148,8 @@ var uploadForum = function(){
         <div class=\"itemCritics_Form\" action=\"#\" method=\"post\"> \
             <div class=\"itemCritics_Form_user\"><img src=\"/img/defaultUser.png\" style=\"width:50px;height: 50px\"></div> \
             <!--todo:add an index to every item to ease the clearAll function--> \
-            <textarea name=\"itemCriticsForm\" id=\"itemCriticsForm" + i + "\"  rows=\"4\" placeholder=\"灌下你的水\" minlength=\"1\" maxlength=\"80\" ></textarea> \
-            <button class=\"commentSubmit\" type=\"submit\" onclick='uploadComment(" + i + ")'>灌水</button> \
+            <textarea name=\"itemCriticsForm\" id=\"itemCriticsForm" + data[i].id + "\"  rows=\"4\" placeholder=\"灌下你的水\" minlength=\"1\" maxlength=\"80\" ></textarea> \
+            <button class=\"commentSubmit\" type=\"submit\" onclick='uploadComment(" + data[i].id + "," + i + ")'>灌水</button> \
         </div> \
         <div class=\"itemCritics_critics\"> \
             <hr style=\"width: 72%;margin-left: 18%;\"> \
@@ -199,10 +197,10 @@ var totalCricticOfEachPost = [];
 var uploadCrictics = function(targetId,index){
     $.ajax({
         type:"post",
-        url: server + "/ForumService/findComment",
+        url: server + "/ForumService/findComments",
         async: false,
         data:{
-            "id":targetId,
+            "postid":targetId,
         },
         success: function(data) {
             var cirtics;
@@ -213,6 +211,8 @@ var uploadCrictics = function(targetId,index){
                     totalCricticOfEachPost[index]++;
                 }
             }
+            console.log(targetId);
+            console.log(data);
             var targetList = $("#itemCritics_criticsList"+index);
             var start = alreadyUploadCritics[index];
             for(var i = start;i < start + 2 && i <= totalCricticOfEachPost[index];i++){
@@ -311,7 +311,7 @@ var getWindowHeight = function(){
 
 //评论上传
 
-var uploadComment = function(tag){
+var uploadComment = function(tag,index){
     var formData = new FormData();
     var comment = $("#itemCriticsForm" + tag)[0];
     formData.append("comment",comment.value);
@@ -331,5 +331,6 @@ var uploadComment = function(tag){
             }
         }
     });
+    uploadCrictics(tag,index);
 }
 
