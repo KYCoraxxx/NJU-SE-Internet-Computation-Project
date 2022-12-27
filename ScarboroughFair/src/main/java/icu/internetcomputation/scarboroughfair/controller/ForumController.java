@@ -1,6 +1,8 @@
 package icu.internetcomputation.scarboroughfair.controller;
 
 import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.StreamSupport;
 
 import javax.annotation.Resource;
 
@@ -53,11 +55,19 @@ public class ForumController {
     /*
      * 获取帖子所有评论
      */
+    // @RequestMapping(path="/findComments",method = RequestMethod.POST)
+    // @ResponseBody
+    // public Iterable<Comment> findComments(@RequestParam("postid") int postid){
+    //     List<Integer> ids=findCommentsId(postid);
+    //     return forumService.findComments(ids);
+    // }
     @RequestMapping(path="/findComments",method = RequestMethod.POST)
     @ResponseBody
-    public Iterable<Comment> findComments(@RequestParam("postid") int postid){
+    public List<Comment> findComments(@RequestParam("postid") int postid){
         List<Integer> ids=findCommentsId(postid);
-        return forumService.findComments(ids);
+        Iterable<Comment> iterable = forumService.findComments(ids);
+        List<Comment> ret = StreamSupport.stream(iterable.spliterator(), false).collect(Collectors.toList());
+        return ret;
     }
     // 废弃，使用uploadcontroller里面的
     // @RequestMapping(path = "/addPost", method = RequestMethod.POST)
