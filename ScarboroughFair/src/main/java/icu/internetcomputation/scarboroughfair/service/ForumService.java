@@ -1,5 +1,6 @@
 package icu.internetcomputation.scarboroughfair.service;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -45,7 +46,7 @@ public class ForumService {
         return commentRepository.findAllById(ids);
     }
 
-    public Message addPost(int userid, String content, String[] imgUrl){
+    public Message addPost(int userid, String content, ArrayList<String> imgUrl){
         int postid = (int) (forumPostRepository.count() + 1);
         Date time = new Date();
         ForumPost post = new ForumPost(postid, userid, content, imgUrl,time);

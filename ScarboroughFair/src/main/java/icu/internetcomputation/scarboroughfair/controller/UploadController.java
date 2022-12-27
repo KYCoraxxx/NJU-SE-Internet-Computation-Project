@@ -127,13 +127,13 @@ public class UploadController {
     @ResponseBody
     @CrossOrigin
     public Message PostUpload(
-        @RequestParam(value = "pic", required = false) MultipartFile[] picUpload,
+        @RequestParam(value="picUpload", required = false) MultipartFile[] picUpload,
         @RequestParam(required = false) String content, 
         @RequestParam(required = false) String userID, Model model)
     {
-        String[] imgUrl = new String[ picUpload.length ];
+        ArrayList<String> imgUrl = new ArrayList<>();
         for(int i = 0; i < picUpload.length; i++){
-            imgUrl[i] = Imgupload(picUpload[i]);
+            imgUrl.add(Imgupload(picUpload[i]));
         }
         Integer id = Integer.valueOf(userID);
         return forumService.addPost(id, content, imgUrl);

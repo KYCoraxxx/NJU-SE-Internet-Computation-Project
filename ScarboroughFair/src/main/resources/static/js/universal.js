@@ -111,18 +111,18 @@ var addPicture = function (node){
             '</div>');
         $(".uploadIMG").append(add);
     }
+
+
 }
 //点击发布上传后端
 var uploadAllInfo = function (){
 
     var formData = new FormData();
     var content = $("#uploadContent")[0];
-    var picList = $("input[name='file']");
-    var pic = [];
-    for(var i = 0;i < picList.length - 1;i++){
-        pic.push(picList[i].files[0]);
+    for(var i = 0;i < imgIndex;i++){
+        //picUpload.push($("#input" + i)[0].files[0]);
+        formData.append("picUpload",$("#input"+i)[0].files[0]);
     }
-    formData.append("pic",pic);
     formData.append("content",content.value);
     formData.append("userID", $.cookie("userID"));
     $.ajax({

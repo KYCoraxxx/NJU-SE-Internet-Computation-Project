@@ -102,9 +102,11 @@ var uploadForum = function(){
                     totalForum++;
                 }
             }
+            console.log(data);
             var start = alreadyUploadIndex;
             for(i = start;i < start + 1 && i <= totalForum;i++){
-                var targetUser = upLoadUserById(data[i].PostUserID);
+                var targetUser = upLoadUserById(data[i].postUserID);
+                console.log(targetUser);
                 forumList.append(
                     "<div class=\"forumItem\" id=\"forumItem" + i + "\"> \
     <div class=\"itemMain\"> \
@@ -135,7 +137,7 @@ var uploadForum = function(){
             </div> \
             <div class=\"itemMainFooter_comment\"> \
                 <img src=\"/img/commentInForum.png\" style=\"width: 30px; height: 30px;\"> \
-                <div class=\"itemMainFooter_comment_data\">"+ (data[i].commentId.length) +"</div> \
+                <div class=\"itemMainFooter_comment_data\">"+ (data[i].commentsId.length) +"</div> \
             </div> \
             <div class=\"itemMainFooter_like\"> \
                 <img src=\"/img/likeInForum.png\" style=\"width: 30px; height: 30px;\"> \
@@ -160,6 +162,7 @@ var uploadForum = function(){
     </div> \
 </div>");
                 var imgUpload = $("#itemMain_body_IMG" + i);// upload imgs
+                console.log(data[i].imgUrl.length);
                 for(var j = 0;j < data[i].imgUrl.length;j++){
                     imgUpload.append("<img class=\"itemMain_body_IMG_singleIMG\" src=\""+ (data[i].imgUrl[j]) +"\" onclick=\"picRespond(this)\" >");
                 }
@@ -316,7 +319,7 @@ var uploadComment = function(tag){
     formData.append("userid", $.cookie("userID"));
     $.ajax({
         type: "POST",
-        url: server + "/forumService/addComment",
+        url: server + "/ForumService/CommentPost",
         data: formData,
         async: false,
         cache: false,
