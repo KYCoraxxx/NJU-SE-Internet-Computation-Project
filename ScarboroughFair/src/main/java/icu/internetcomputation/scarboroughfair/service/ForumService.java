@@ -46,7 +46,7 @@ public class ForumService {
         return commentRepository.findAllById(ids);
     }
 
-    public Message addPost(int userid, String content, ArrayList<String> imgUrl){
+    public Message addPost(int userid, String content, List<String> imgUrl){
         int postid = (int) (forumPostRepository.count() + 1);
         Date time = new Date();
         ForumPost post = new ForumPost(postid, userid, content, imgUrl,time);

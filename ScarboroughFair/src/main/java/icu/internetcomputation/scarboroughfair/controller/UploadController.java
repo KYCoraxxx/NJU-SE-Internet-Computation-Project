@@ -131,7 +131,7 @@ public class UploadController {
         @RequestParam(required = false) String content, 
         @RequestParam(required = false) String userID, Model model)
     {
-        ArrayList<String> imgUrl = new ArrayList<>();
+        List<String> imgUrl = new ArrayList<>();
         for(int i = 0; i < picUpload.length; i++){
             imgUrl.add(Imgupload(picUpload[i]));
         }
