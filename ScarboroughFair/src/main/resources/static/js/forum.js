@@ -163,6 +163,7 @@ var uploadForum = function(){
                 for(var j = 0;j < data[i].imgUrl.length;j++){
                     imgUpload.append("<img class=\"itemMain_body_IMG_singleIMG\" src=\""+ (data[i].imgUrl[j]) +"\" onclick=\"picRespond(this)\" >");
                 }
+                console.log(data[i].id);
                 uploadCrictics(data[i].id,i);
                 alreadyUploadIndex++;
             }
@@ -202,11 +203,6 @@ var uploadCrictics = function(targetId,index){
             "postid":targetId,
         },
         success: function(data) {
-            console.log("consolelog");
-            console.log(targetId);
-
-            console.log(data);
-
             var cirtics;
             if(alreadyUploadCritics.length <= index){// initialize the size of each post's critic
                 alreadyUploadCritics.push(0);
@@ -215,10 +211,16 @@ var uploadCrictics = function(targetId,index){
                     totalCricticOfEachPost[index]++;
                 }
             }
+            else{
+                totalCricticOfEachPost[index] = -1;
+                for(var i in data){
+                    totalCricticOfEachPost[index]++;
+                }
+            }
             var targetList = $("#itemCritics_criticsList"+index);
             var start = alreadyUploadCritics[index];
-            for(var i = start;i < start + 2 && i <= totalCricticOfEachPost[index];i++){
-                var targetUser = upLoadUserById(data[i].CommentUserID);
+            for(var i = start;alreadyUploadCritics[index] < start + 2 && i <= totalCricticOfEachPost[index];i++){
+                var targetUser = upLoadUserById(data[i].commentUserID);
                 targetList.append("<div class=\"itemCritics_criticsList_item\"> \
                 <div class=\"itemCritics_criticsList_item_user\"> \
                     <a href=\"#\" target=\"_blank\"><img src=\""+ (targetUser.avator) +"\" style=\"width: 40px;height: 40px;\"></a> \
@@ -241,8 +243,8 @@ var uploadCrictics = function(targetId,index){
             </div>");
             alreadyUploadCritics[index]++;
             }
-            if(alreadyUploadCritics[index] < totalCricticOfEachPost[index]){
-                targetList.append("<div class='criticRenewIcon' style=\"display: flex;flex-direction: row; justify-content: space-around;alignment: center;margin-bottom:15px\"><img src='/img/renewIcon.png' width='30px' height='30px' onclick='clickRenewCritcis("+ index +")'></div>");
+            if(alreadyUploadCritics[index] <= totalCricticOfEachPost[index]){
+                targetList.append("<div class='criticRenewIcon' style=\"display: flex;flex-direction: row; justify-content: space-around;alignment: center;margin-bottom:15px\"><img src='/img/renewIcon.png' width='30px' height='30px' onclick='clickRenewCritcis(" + targetId + "," + index +")'></div>");
             }
             else{
                 targetList.append("<div class='criticRenewIcon' style='font-size=10px;display: flex;flex-direction: row; justify-content: space-around;alignment: center;margin-bottom:15px'>已经到底了QWQ</div>");
@@ -251,10 +253,9 @@ var uploadCrictics = function(targetId,index){
     })
 }
 
-var clickRenewCritcis = function(index){// todo connect with postId
-    var targetList = $("#itemCritics_criticsList"+index);
+var clickRenewCritcis = function(targetId,index){// todo connect with postId
     $(".criticRenewIcon").remove();
-    uploadCrictics(index);
+    uploadCrictics(targetId,index);
 }
 
 if(renewCount === 0){
@@ -314,6 +315,8 @@ var getWindowHeight = function(){
 //评论上传
 
 var uploadComment = function(tag,index){
+    $(".criticRenewIcon").remove();
+    
     var formData = new FormData();
     var comment = $("#itemCriticsForm" + tag)[0];
     formData.append("comment",comment.value);
