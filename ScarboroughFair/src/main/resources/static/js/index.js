@@ -84,6 +84,7 @@ var uploadGood = function(tag){
         data:{
         },
         success: function(data) {
+            console.log(tag);
             if(totalGoods == -1){
                 for(var i in data){
                     if(tag === "Any" || data[i].tag === tag){

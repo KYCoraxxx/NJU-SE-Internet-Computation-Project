@@ -1,14 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
-    <title>一键成为集市摊主(゜-゜)つロ</title>
-    <link rel="stylesheet" type="text/css" href="/css/universal.css" />
-    <link rel="stylesheet" type="text/css" href="/css/upload.css" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
 </head>
-
 <body>
+
     <div class="headBar">
         <div class="logo" onclick="jumpLocation('/index')">
             <img src="/img/logo.png"/>
@@ -48,7 +47,7 @@
             <img src="/img/discussIcon.png"/>
             <span style="color: mediumpurple">灌水</span>
         </div>
-        <div class="optionBox" onclick="jumpLocation('/help',this)">
+        <div class="optionBox active" onclick="jumpLocation('/help',this)">
             <img src="/img/helpIcon.png" >
             <span>帮助</span>
         </div>
@@ -57,58 +56,12 @@
             <span>热门</span>
         </div>
     </div>
-
     <div class="container">
-        <div class="uploadBar">
-            <div class="uploadInput">
-                <div>名称：</div>
-                <input type="text" name="name" placeholder="例 迷迭香" />
-            </div>
-            <div class="uploadInput">
-                <div>分类：</div>
-                <select type="text" name="tag">
-                    <option selected="selected">-请选择-</option>
-                    <option value="食品">食品</option>
-                    <option value="数码">数码</option>
-                    <option value="家居">家居</option>
-                    <option value="服装">服装</option>
-                    <option value="美妆">美妆</option>
-                    <option value="箱包">箱包</option>
-                </select>
-            </div>
-            <div class="uploadInput">
-                <div>价格：</div>
-                <input type="text" name="price" placeholder="例 25（单位：LMB）" />
-            </div>
-            <div class="uploadInput">
-                <div>描述：</div>
-                <input type="text" name="description" placeholder="例 原产地：哥伦比亚；保质期：10天；用途：佐料" />
-            </div>
-            <div class="uploadInput">
-                <div style="padding-top: 50px;">封面：</div>
-                <div class="uploadPic">
-                    <img id="cover" src="/img/defaultUpload.png" />
-                    <input id="upl_cover" type="file" style="opacity: 0; cursor: pointer"
-                        onchange="displayNewCover(this)" name="cover" />
-                </div>
-            </div>
-            <div class="uploadInput">
-                <div style="padding-top: 50px;">图片：</div>
-                <div class="uploadPic">
-                    <img id="pic" src="/img/defaultUpload.png" />
-                    <input id="upl_pic" type="file" style="opacity: 0; cursor: pointer" onchange="displayNewPic(this)"
-                        name="pic" />
-                </div>
-            </div>
-        </div>
-        <button class="btn" style="font-weight: bold;margin: 20px;background-color: deeppink;"
-            onclick="postUploadInfo()">上架商品</button>
     </div>
+    
 
     <script src="/js/jquery-3.6.1.js"></script>
     <script src="https://cdn.bootcdn.net/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.js"></script>
     <script src="/js/universal.js"></script>
-    <script src="/js/upload.js"></script>
 </body>
-
 </html>

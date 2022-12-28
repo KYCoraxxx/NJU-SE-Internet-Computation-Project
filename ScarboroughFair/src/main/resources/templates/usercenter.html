@@ -7,13 +7,14 @@
     <link rel="stylesheet" type="text/css" href="/css/usercenter.css">
 </head>
 <body>
+
     <div class="headBar">
         <div class="logo" onclick="jumpLocation('/index')">
             <img src="/img/logo.png"/>
         </div>
         <form class="searchBar">
             <input type="text" placeholder="翻翻集市里都有些什么叭~" onfocus="changeSearch(2)" onblur="changeSearch(3)"/>
-            <img src="/img/searchIcon.png" onmouseover="changeSearch(0)" onmouseleave="changeSearch(1)"/>
+            <img src="/img/searchIcon.png" onmouseover="changeSearch(0)" onmouseleave="changeSearch(1)" onclick="jumpLocation('/undone',this)"/>
         </form>
         <!--预留给附加功能-->
         <div class="settingBar">
@@ -44,14 +45,14 @@
         </div>
         <div class="optionBox" onclick="jumpLocation('/forum',this)">
             <img src="/img/discussIcon.png"/>
-            <span>灌水</span>
+            <span style="color: mediumpurple">灌水</span>
         </div>
-        <div class="optionBox">
-            <img src="/img/helpIcon.png"/>
+        <div class="optionBox" onclick="jumpLocation('/help',this)">
+            <img src="/img/helpIcon.png" >
             <span>帮助</span>
         </div>
-        <div class="optionBox">
-            <img src="/img/fireIcon.png"/>
+        <div class="optionBox" onclick="jumpLocation('/undone',this)">
+            <img src="/img/fireIcon.png" >
             <span>热门</span>
         </div>
     </div>

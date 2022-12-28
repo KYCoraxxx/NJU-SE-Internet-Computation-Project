@@ -10,53 +10,52 @@
 
   <div class="headBar">
     <div class="logo" onclick="jumpLocation('/index')">
-      <img src="/img/logo.png"/>
+        <img src="/img/logo.png"/>
     </div>
     <form class="searchBar">
-      <input type="text" placeholder="翻翻集市里都有些什么叭~" onfocus="changeSearch(2)" onblur="changeSearch(3)"/>
-      <img src="/img/searchIcon.png" onmouseover="changeSearch(0)" onmouseleave="changeSearch(1)"/>
+        <input type="text" placeholder="翻翻集市里都有些什么叭~" onfocus="changeSearch(2)" onblur="changeSearch(3)"/>
+        <img src="/img/searchIcon.png" onmouseover="changeSearch(0)" onmouseleave="changeSearch(1)" onclick="jumpLocation('/undone',this)"/>
     </form>
     <!--预留给附加功能-->
     <div class="settingBar">
-      <ul>
-        <li onclick="jumpLocation('/usercenter')"><img src="/img/setting.png"/></li>
-        <li><a href="https://github.com/KYCoraxxx/NJU-SE-Internet-Computation-Project" target="_blank"><img src="/img/link.png"/></a><li>
-        <li onclick="changeMusic()"><img src="/img/music.png"/></li>
-      </ul>
+        <ul>
+            <li onclick="jumpLocation('/usercenter')"><img src="/img/setting.png"/></li>
+            <li><a href="https://github.com/KYCoraxxx/NJU-SE-Internet-Computation-Project" target="_blank"><img src="/img/link.png"/></a><li>
+            <li onclick="changeMusic()"><img src="/img/music.png"/></li>
+        </ul>
     </div>
     <div class="userBox" onmouseleave="avatorScaler('50px')">
-      <div class="avator">
-        <img src="/img/defaultUser.png" onmouseover="avatorScaler('100px')">
-      </div>
+        <div class="avator">
+            <img src="/img/defaultUser.png" onmouseover="avatorScaler('100px')">
+        </div>
     </div>
     <!--预留给附加功能（如发布商品等）-->
     <div style="width: 280px; display: flex; align-content: center">
-      <form style="height: 40px; width: 120px; margin: auto auto;">
-        <input type="button" value="上架商品" class="btn" style="background-color: deeppink; font-weight: bold;" onclick="jumpLocation('/upload')"/>
-      </form>
+        <form style="height: 40px; width: 120px; margin: auto auto;">
+            <input type="button" value="上架商品" class="btn" style="background-color: deeppink; font-weight: bold;" onclick="jumpLocation('/upload')"/>
+        </form>
     </div>
-  </div>
+</div>
 
-  <div class="navBar">
+<div class="navBar">
     <div style="height: 70px"></div>
     <div class="optionBox" onclick="jumpLocation('/index',this)">
         <img src="/img/homeIcon.png"/>
         <span>主页</span>
     </div>
-    <div class="optionBox" onclick="jumpLocation('/forum',this)">
+    <div class="optionBox active" onclick="jumpLocation('/forum',this)">
         <img src="/img/discussIcon.png"/>
-        <span>灌水</span>
+        <span style="color: mediumpurple">灌水</span>
     </div>
-    <div class="optionBox">
-        <img src="/img/helpIcon.png"/>
+    <div class="optionBox" onclick="jumpLocation('/help',this)">
+        <img src="/img/helpIcon.png" >
         <span>帮助</span>
     </div>
-    <div class="optionBox">
-        <img src="/img/fireIcon.png"/>
+    <div class="optionBox" onclick="jumpLocation('/undone',this)">
+        <img src="/img/fireIcon.png" >
         <span>热门</span>
     </div>
 </div>
-
   <div class="container">
     <img src="/img/todo.png" style="width: 20%; height: auto; margin-top: 210px; margin-bottom: 10px"/>
     <div style="font-size: 30px; font-weight: bold">前面的区域以后再来探索叭~</div>
