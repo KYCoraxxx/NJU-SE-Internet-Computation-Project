@@ -201,11 +201,13 @@ var carouselLoad = function(){
         data:{
         },
         success: function(data) {
+            console.log(data);
             for(var i in data){
                 var tmpSave = [];
                 for(var i in data){
                     tmpSave.push(data[i].id);
                 }
+                console.log(tmpSave);
 
                 for(var i = 0;i < tmpSave.length;i++){
                     for(var j = i;j < tmpSave.length;j++){
