@@ -11,37 +11,50 @@ import org.springframework.ui.Model;
 @Controller
 public class ScarboroughFairController {
 
+    String[] existsPage = {
+        "login", "index", "forum",
+        "upload", "detail", "usercenter",
+        "undone"
+    };
+
     /**
      * 去到page.html页面
      * @return
      */
-    // @RequestMapping("/{page}")
-    // public String toPage(@PathVariable String page) {
-    //     return page;
+    @RequestMapping("/{page}")
+    public String toPage(@PathVariable String page) {
+        for(String i : existsPage){
+            if(page.equals(i)) return page;
+        }
+        return "undone";
+    }
+
+    // @GetMapping("/login")
+    // public String login(Model model) {
+    //     return "login";
     // }
 
-    @GetMapping("/login")
-    public String login(Model model) {
-        return "login";
-    }
+    // @RequestMapping(path="/index",method = RequestMethod.GET)
+    // public String homepage(Model model){
+    //     return "index";
+    // }
 
-    @RequestMapping(path="/index",method = RequestMethod.GET)
-    public String homepage(Model model){
-        return "index";
-    }
+    // @GetMapping("/forum")
+    // public String forum(Model model){ return "forum"; }
 
-    @GetMapping("/forum")
-    public String forum(Model model){ return "forum"; }
+    // @GetMapping("/upload")
+    // public String upload(Model model){ return "upload"; }
 
-    @GetMapping("/upload")
-    public String upload(Model model){ return "upload"; }
+    // @GetMapping("/detail")
+    // public String detail(Model model){ return "detail"; }
 
-    @GetMapping("/detail")
-    public String detail(Model model){ return "detail"; }
+    // @GetMapping("/undone")
+    // public String undone(Model model){ return "undone"; }
 
-    @GetMapping("/undone")
-    public String undone(Model model){ return "undone"; }
+    // @GetMapping("/usercenter")
+    // public String usercenter(Model model){ return "usercenter"; }
 
-    @GetMapping("/usercenter")
-    public String usercenter(Model model){ return "usercenter"; }
+    // @GetMapping("/help")
+    // public String help(Model model){ return "undone"; }
+
 }

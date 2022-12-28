@@ -20,6 +20,8 @@ public class GoodController {
     @Resource
     private GoodService goodService;
 
+
+
     @RequestMapping(path = "/findAll", method = RequestMethod.POST)
     @ResponseBody
     public Iterable<Good> findAll(){
@@ -31,7 +33,7 @@ public class GoodController {
     public Good findById(
         @RequestParam("id") int id){
         Good good=goodService.findById(id);
-        good.addClick();
+        
         return good;
     }
 

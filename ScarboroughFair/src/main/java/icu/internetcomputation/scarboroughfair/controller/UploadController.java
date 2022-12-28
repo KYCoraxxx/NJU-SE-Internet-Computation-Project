@@ -58,12 +58,6 @@ public class UploadController {
         return "tmpupload";
     }
     
-    // original 初始的upload上传接口
-  // @PostMapping(path="/upload")
-  // @ResponseBody
-  // public Message upload(@RequestParam(value = "file") MultipartFile fileUpload, Model model){
-  //     return OriginalImgupload(fileUpload);
-  // }
 
 
     /*
@@ -179,38 +173,7 @@ public class UploadController {
     }
 
 
-    /*
-     * 初始的Imgupload上传接口，负责将图片保存到数据库指定路径，并返回一个Message
-     */
-    public Message OriginalImgupload(MultipartFile fileUpload){
-        String fileName = fileUpload.getOriginalFilename();
-        String suffixName = fileName.substring(fileName.lastIndexOf("."));
-        fileName = UUID.randomUUID() + suffixName;
-        //获取日期
-        Date todayDate = new Date();
-        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-        String today = dateFormat.format(todayDate);
-        //域名访问的相对路径目录，通过浏览器访问的链接（虚拟路径）
-        String saveToPath = accessPath + today + "/";
-        // 真实的路径，实际储存的目录
-        String realPath = realBasePath + today + "/";
-        //储存文件的物理路径，建立在本地
-        String filepath = realPath + fileName;
-        try {
-            File f = new File(filepath);
-            
-            if (!f.getParentFile().exists()) {   //create parent file
-                f.getParentFile().mkdirs();
-            }
-
-            fileUpload.transferTo(f.getAbsoluteFile());
-
-            return new Message(true,"好耶，图片上传成功了ヽ(✿ﾟ▽ﾟ)/da☆ze", saveToPath+fileName);
-        } catch (Exception e) {
-            e.printStackTrace();
-            return new Message(false,"图片好像上传失败了姆Q~w(ﾟДﾟ)w",null);
-        }
-    }
+    
 
 
     // 地址映射配置
