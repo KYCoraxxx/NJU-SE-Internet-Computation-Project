@@ -42,7 +42,9 @@ public class ForumService {
     }
 
     public Iterable<Comment> findComments(List<Integer> ids){
-        if(ids.size()==0) return null;
+        if(ids.size()==0) {System.out.println("List ids is size of 0");return null;}
+        // List<Comment> comments=new ArrayList<>();
+        // for(Integer id : ids) comments.add(findComment(id));
         return commentRepository.findAllById(ids);
     }
 
@@ -65,13 +67,13 @@ public class ForumService {
     }
 
     public Message addComment(int userid, String content, Integer postId){
-        int commentid = (int) (commentRepository.count() + 1);
+        int id = (int)commentRepository.count() + 2;
         Date time = new Date();
-        Comment comment = new Comment(postId, commentid, userid, time, content);
+        Comment comment = new Comment(postId, id, userid, time, content);
         commentRepository.save(comment);
         ForumPost forumPost = findForumPost(postId);
         List<Integer> commentsID = forumPost.getCommentsId();
-        commentsID.add(commentid);
+        commentsID.add(id);
         forumPost.setCommentsId(commentsID);
         forumPostRepository.save(forumPost);
         return new Message(true, "您的评论已经传达到辣d=====(￣▽￣*)b");

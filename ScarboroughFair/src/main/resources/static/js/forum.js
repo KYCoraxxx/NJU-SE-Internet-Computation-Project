@@ -202,6 +202,7 @@ var uploadCrictics = function(targetId,index){
             "postid":targetId,
         },
         success: function(data) {
+            console.log("consolelog");
             console.log(targetId);
 
             console.log(data);

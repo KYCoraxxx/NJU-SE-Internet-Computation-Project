@@ -65,7 +65,11 @@ public class ForumController {
     @ResponseBody
     public List<Comment> findComments(@RequestParam("postid") int postid){
         List<Integer> ids=findCommentsId(postid);
+        System.out.println("from");
+        System.out.println(ids);
         Iterable<Comment> iterable = forumService.findComments(ids);
+        System.out.println(iterable);
+        System.out.println("end");
         List<Comment> ret = StreamSupport.stream(iterable.spliterator(), false).collect(Collectors.toList());
         for(Comment i : ret){
             System.out.println(i);

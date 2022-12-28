@@ -22,7 +22,6 @@ public class ForumPost {
     // 论坛中的帖子类
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     @Getter
     @Setter
     private Integer id;
