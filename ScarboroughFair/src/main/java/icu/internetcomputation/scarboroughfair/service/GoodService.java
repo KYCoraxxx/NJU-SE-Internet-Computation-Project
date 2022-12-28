@@ -67,4 +67,12 @@ public class GoodService {
         return list.subList(0, num);
     }
 
+    public Good search(String key){
+        for(var i : goodRepository.findAll()){
+            if(i.getName().matches("(.*)" + key+ "(.*)")){
+                return i;
+            }
+        }
+        return null;
+    }
 }
