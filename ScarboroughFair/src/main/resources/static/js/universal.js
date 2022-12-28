@@ -80,10 +80,7 @@ var changeMusic = function (){
 }
 var jumpLocation = function (location,obj){
     window.location.href = server + location;
-    var targetBox = $(obj);
-    var formerBox = $(".optionBox.active");
-    formerBox.classname = "optionBox";
-    targetBox.classname = "optionBox active";
+
 }
 
 

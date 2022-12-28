@@ -76,6 +76,8 @@ var renewLock = 0;
 
 //食品  数码  服装  家装  美妆  箱包
 
+var curTag = "Any";
+
 var uploadGood = function(tag){
     $.ajax({
         type:"post",
@@ -84,6 +86,7 @@ var uploadGood = function(tag){
         data:{
         },
         success: function(data) {
+            curTag = tag;
             if(totalGoods == -1){
                 for(var i in data){
                     if(tag === "Any" || data[i].tag === tag){
@@ -92,18 +95,20 @@ var uploadGood = function(tag){
                 }
             }
             var start = alreadyUploadIndex;
-            for(i = start;i < start + 4 && i <= totalGoods;i++){
+            for(i = start;alreadyUploadIndex < start + 4 && alreadyUploadIndex <= totalGoods && i < data.length;i++){
+                console.log(data[i].tag + " " + tag);
                 if(tag === "Any" || data[i].tag === tag){
-                    if(i % 4 === 0){
+                    console.log("@@@");
+                    if(alreadyUploadIndex % 4 === 0){
                         goodBarCount++;
                         goodList.append("<div class='goodBar' id='goodBar" + goodBarCount + "'></div>");
                     }
-                    $("#goodBar" + goodBarCount).append("<div class='goodItem' id='goodItem" + i +"'>");
-                    $("#goodItem" + i).append($("<img src='"+ data[i].cover +"'/>")).append("<div class='goodInfo' id='goodItem_goodInfo" + i + "'></div>");
-                    $("#goodItem_goodInfo" + i).append($("<div class='article-subtitle'></div>").text(data[i].name));
-                    $("#goodItem_goodInfo" + i).append($("<div class='tag'></div>").text(data[i].tag));
-                    $("#goodItem_goodInfo" + i).append($("<div class='price'></div>").text("￥" + data[i].price));
-                    $("#goodItem_goodInfo" + i).append("<button class='details' onclick=\"jumpLocation('/detail?goodId="+ data[i].id +"',this)\">查看详情</button>");
+                    $("#goodBar" + goodBarCount).append("<div class='goodItem' id='goodItem" + alreadyUploadIndex +"'>");
+                    $("#goodItem" + alreadyUploadIndex).append($("<img src='"+ data[i].cover +"'/>")).append("<div class='goodInfo' id='goodItem_goodInfo" + alreadyUploadIndex + "'></div>");
+                    $("#goodItem_goodInfo" + alreadyUploadIndex).append($("<div class='article-subtitle'></div>").text(data[i].name));
+                    $("#goodItem_goodInfo" + alreadyUploadIndex).append($("<div class='tag'></div>").text(data[i].tag));
+                    $("#goodItem_goodInfo" + alreadyUploadIndex).append($("<div class='price'></div>").text("￥" + data[i].price));
+                    $("#goodItem_goodInfo" + alreadyUploadIndex).append("<button class='details' onclick=\"jumpLocation('/detail?goodId="+ data[i].id +"',this)\">查看详情</button>");
                     alreadyUploadIndex++;
                 }
             }
@@ -111,7 +116,7 @@ var uploadGood = function(tag){
     });
     renewLock = 0;
     $(".renewIcon").remove();
-    if(alreadyUploadIndex >= totalGoods){
+    if(alreadyUploadIndex > totalGoods){
         goodList.append("<div class='renewIcon' style='font-size=10px;'>已经到底了QWQ</div>");
     }
     return 0;
@@ -122,7 +127,7 @@ if(renewCount === 0){
         window.location.replace(server + "/login");
     else{
         renewLock = 1;
-        setTimeout(function(){uploadGood("Any")},3000);
+        setTimeout(function(){uploadGood(curTag)},1000);
         goodList.append("<div class='renewIcon'><img src='/img/renewIcon.png' width='50px' height='50px' style='margin-top: 30px;'></div>");
     }
     renewCount++;
@@ -137,7 +142,7 @@ window.onscroll = function (){
         renewLock = 1;
         // this would invoke the renew function
         if(alreadyUploadIndex <= totalGoods){
-            setTimeout(function(){uploadGood("Any")},3000);
+            setTimeout(function(){uploadGood(curTag)},1000);
             goodList.append("<div class='renewIcon'><img src='/img/renewIcon.png' width='50px' height='50px' style='margin-top: 30px;'></div>");
         }
     }
@@ -182,7 +187,7 @@ var classify = function(tag){
     totalGoods = -1;
     goodBarCount = -1;
     goodList.empty();
-    setTimeout(function(){uploadGood(tag);},3000);
+    setTimeout(function(){uploadGood(tag);},1000);
     goodList.append("<div class='renewIcon'><img src='/img/renewIcon.png' width='50px' height='50px' style='margin-top: 30px;'></div>");
 
 }

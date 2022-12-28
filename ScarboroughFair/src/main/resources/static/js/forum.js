@@ -160,7 +160,6 @@ var uploadForum = function(){
     </div> \
 </div>");
                 var imgUpload = $("#itemMain_body_IMG" + i);// upload imgs
-                console.log(data[i].imgUrl.length);
                 for(var j = 0;j < data[i].imgUrl.length;j++){
                     imgUpload.append("<img class=\"itemMain_body_IMG_singleIMG\" src=\""+ (data[i].imgUrl[j]) +"\" onclick=\"picRespond(this)\" >");
                 }
@@ -197,18 +196,16 @@ var totalCricticOfEachPost = [];
 var uploadCrictics = function(targetId,index){
     $.ajax({
         type:"post",
-        url: server + "/ForumService/findComments",
+        url: server + "/ForumService/findCommentById",
         async: false,
         data:{
-            "postid":targetId,
+            "id":24,
         },
         success: function(data) {
             console.log("consolelog");
             console.log(targetId);
 
             console.log(data);
-
-            console.log(index);
 
             var cirtics;
             if(alreadyUploadCritics.length <= index){// initialize the size of each post's critic
@@ -265,8 +262,8 @@ if(renewCount === 0){
         window.location.replace(server + "/login");
     else{
         renewLock = 1;
-        setTimeout(uploadForum,3000);
-        forumList.append("<div class='criticRenewIcon' style=\"display: flex;flex-direction: row; justify-content: space-around;alignment: center;margin-bottom:15px\"><img src='/img/renewIcon.png' width='40px' height='40px'></div>");
+        setTimeout(uploadForum,1000);
+        forumList.append("<div class='renewIcon' style=\"display: flex;flex-direction: row; justify-content: space-around;alignment: center;margin-bottom:15px;margin-top:15px;\"><img src='/img/renewIcon.png' width='40px' height='40px'></div>");
     }
     renewCount++;
 }
@@ -278,8 +275,8 @@ window.onscroll = function (){
     if(scrollPos + windowHeight + 1 >= scrollHeight && renewLock === 0){
         renewLock = 1;
         // this would invoke the renew function
-        setTimeout(uploadForum,3000);
-        forumList.append("<div class='criticRenewIcon' style=\"display: flex;flex-direction: row; justify-content: space-around;alignment: center;margin-bottom:15px\"><img src='/img/renewIcon.png' width='40px' height='40px'></div>");
+        setTimeout(uploadForum,1000);
+        forumList.append("<div class='renewIcon' style=\"display: flex;flex-direction: row; justify-content: space-around;alignment: center;margin-bottom:15px;margin-top:15px;\"><img src='/img/renewIcon.png' width='40px' height='40px'></div>");
     }
 }
 
@@ -322,7 +319,7 @@ var uploadComment = function(tag,index){
     formData.append("comment",comment.value);
     formData.append("postid",tag);
     formData.append("userid", $.cookie("userID"));
-    console.log(comment.value);
+    console.log(tag);
     $.ajax({
         type: "POST",
         url: server + "/ForumService/CommentPost",

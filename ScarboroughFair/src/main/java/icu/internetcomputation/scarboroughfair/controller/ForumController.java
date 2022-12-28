@@ -71,6 +71,9 @@ public class ForumController {
         System.out.println(iterable);
         System.out.println("end");
         List<Comment> ret = StreamSupport.stream(iterable.spliterator(), false).collect(Collectors.toList());
+        for(Comment i : ret){
+            System.out.println(i);
+        }
         return ret;
     }
     // 废弃，使用uploadcontroller里面的
