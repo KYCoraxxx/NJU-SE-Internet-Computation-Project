@@ -29,10 +29,10 @@ public class GoodService {
         return goodRepository.findById(id).orElse(null);
     }
 
-    public Message addGood(String name ,Float price, String cover, List<String> picture, String description, String tag)
+    public Message addGood(String name ,Float price, String cover, List<String> picture, String description, String tag, Integer userid)
     {
         int id = (int)goodRepository.count()+1;
-        Good good = new Good(id, name, price, cover, picture, description, tag);
+        Good good = new Good(id, name, price, cover, picture, description, tag, userid);
         goodRepository.save(good);
         return new Message(true,"您的宝贝，堂堂上架！");
     }

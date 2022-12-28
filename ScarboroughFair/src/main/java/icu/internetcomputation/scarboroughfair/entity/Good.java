@@ -49,6 +49,10 @@ public class Good {
     @Setter
     private Integer click;
 
+    @Getter
+    @Setter
+    private Integer userID;
+
     public Good(){
         this.id = -1;
         this.name = null;
@@ -57,10 +61,10 @@ public class Good {
         this.description = null;
         this.cover = null;
         this.click=0;
-
+        this.userID=0;
     }
 
-    public Good(Integer id, String name, Float price, String cover, List<String> picture, String description, String tag) {
+    public Good(Integer id, String name, Float price, String cover, List<String> picture, String description, String tag,Integer userid) {
         this.id = id;
         this.name = name;
         this.price = price;
@@ -69,6 +73,7 @@ public class Good {
         this.description = description;
         this.tag = tag;
         this.click=0;
+        this.userID=userid;
     }
 
     public void addClick(){
