@@ -138,3 +138,7 @@ var uploadAllInfo = function (){
         }
     });
 }
+
+var getPicSize = function(){
+    return imgIndex;
+}

@@ -93,16 +93,19 @@
                 </div>
             </div>
             <div class="uploadInput">
-                <div style="padding-top: 50px;">图片：</div>
-                <div class="uploadPic">
-                    <img id="pic" src="/img/defaultUpload.png" />
-                    <input id="upl_pic" type="file" style="opacity: 0; cursor: pointer" onchange="displayNewPic(this)"
-                        name="pic" />
+                <div style="padding-top: 50px;width: 5%;">图片：</div>
+                <div class="uploadForm" id="theUploadForm">
+                    <div class="uploadIMG">
+                        <div class="singleIMG">
+                            <input class="inputButton" type="file" name="file" multiple="multiple" id="input0" onchange="addPicture(this)"/>
+                            <img class="inputButton_IMG" id="img0" src="/img/defaultUpload.png">
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
         <button class="btn" style="font-weight: bold;margin: 20px;background-color: deeppink;"
-            onclick="postUploadInfo()">上架商品</button>
+            onclick="postUploadInfo(getPicSize())">上架商品</button>
     </div>
 
     <script src="/js/jquery-3.6.1.js"></script>

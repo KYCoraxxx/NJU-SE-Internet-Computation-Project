@@ -1,12 +1,11 @@
 var upl_error;
 //todo: 未上传封面时的处理
-var postUploadInfo = function(){
+var postUploadInfo = function(picSize){
     var name = $("input[name='name']");
     var tag = $("select[name='tag']");
     var price = $("input[name='price']");
     var description = $("input[name='description']");
     var cover = $("#upl_cover")[0].files[0];
-    var pic = $("#upl_pic")[0].files[0];
     if (name[0].value === ""){
         if (upl_error !== undefined)
             upl_error.remove();
@@ -52,15 +51,6 @@ var postUploadInfo = function(){
         price.css("border-color", "mediumpurple");
         description.css("border-color", "mediumpurple");
     }
-    else if (pic === null){
-        if (upl_error !== undefined)
-            upl_error.remove();
-        upl_error = $('<span>这篇大地的商品并非不需要被展示</span>');
-        name.css("border-color", "mediumpurple");
-        tag.css("border-color", "mediumpurple");
-        price.css("border-color", "mediumpurple");
-        description.css("border-color", "mediumpurple");
-    }
     else {
         if (upl_error !== undefined){
             upl_error.remove();
@@ -77,7 +67,7 @@ var postUploadInfo = function(){
         $(".uploadBar").append(upl_error);
     }
     else{
-        uploadGoodInfo();
+        uploadGoodInfo(picSize);
     }
 }
 
@@ -97,19 +87,25 @@ var displayNewPic = function(node){
         $("#pic").prop("src", this.result);
     }
 }
-var uploadGoodInfo = function (){
+var uploadGoodInfo = function (picSize){
     var formData = new FormData();
     var name = $("input[name='name']")[0];
     var tag = $("select[name='tag']")[0];
     var price = $("input[name='price']")[0];
     var description = $("input[name='description']")[0];
     var cover = $("#upl_cover")[0].files[0];
-    var pic = $("#upl_pic")[0].files[0];
+    //var pic = $("#upl_pic")[0].files[0];
     var uploaderID = $.cookie("userID");
     formData.append("name", name.value);
     formData.append("price", price.value);
     formData.append("cover", cover);
-    formData.append("pic", pic);
+
+    //formData.append("pic", pic);
+    for(var i = 0;i < picSize;i++){
+        //picUpload.push($("#input" + i)[0].files[0]);
+        formData.append("pic",$("#input"+i)[0].files[0]);
+    }
+    
     formData.append("description", description.value);
     formData.append("tag", tag.value);
     formData.append("userid", uploaderID);
