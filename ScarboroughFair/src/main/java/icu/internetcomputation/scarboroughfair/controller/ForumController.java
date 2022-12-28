@@ -30,12 +30,18 @@ public class ForumController {
         return forumService.findAllPost();
     }
 
+    /*
+     * 根据给定的帖子ID, 返回该帖子
+     */
     @RequestMapping(path = "/findPostById", method = RequestMethod.POST)
     @ResponseBody
     public ForumPost findPostById(@RequestParam("id") int id){
         return forumService.findForumPost(id);
     }
 
+    /*
+     * 根据给定的评论ID, 返回该评论
+     */
     @RequestMapping(path = "/findCommentById", method = RequestMethod.POST)
     @ResponseBody
     public Comment findCommentById(@RequestParam("id") int id){
@@ -55,12 +61,6 @@ public class ForumController {
     /*
      * 获取帖子所有评论
      */
-    // @RequestMapping(path="/findComments",method = RequestMethod.POST)
-    // @ResponseBody
-    // public Iterable<Comment> findComments(@RequestParam("postid") int postid){
-    //     List<Integer> ids=findCommentsId(postid);
-    //     return forumService.findComments(ids);
-    // }
     @RequestMapping(path="/findComments",method = RequestMethod.POST)
     @ResponseBody
     public List<Comment> findComments(@RequestParam("postid") int postid){
@@ -76,13 +76,6 @@ public class ForumController {
         }
         return ret;
     }
-    // 废弃，使用uploadcontroller里面的
-    // @RequestMapping(path = "/addPost", method = RequestMethod.POST)
-    // @ResponseBody
-    // public Message addPost(){
-    //     return null;
-    // }
-
 
     /*
      * 点赞
@@ -142,6 +135,10 @@ public class ForumController {
     
 
 
-    // TODO : 查看帖子详情页
+
+
+
+
+
 
 }

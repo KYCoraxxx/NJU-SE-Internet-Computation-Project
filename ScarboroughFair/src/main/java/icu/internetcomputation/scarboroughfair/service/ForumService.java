@@ -42,9 +42,7 @@ public class ForumService {
     }
 
     public Iterable<Comment> findComments(List<Integer> ids){
-        if(ids.size()==0) {return null;}
-        // List<Comment> comments=new ArrayList<>();
-        // for(Integer id : ids) comments.add(findComment(id));
+        if(ids.size()==0) return null;
         return commentRepository.findAllById(ids);
     }
 
