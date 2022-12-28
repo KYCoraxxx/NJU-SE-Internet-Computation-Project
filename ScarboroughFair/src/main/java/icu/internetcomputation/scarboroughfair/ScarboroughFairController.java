@@ -44,4 +44,8 @@ public class ScarboroughFairController {
 
     @GetMapping("/usercenter")
     public String usercenter(Model model){ return "usercenter"; }
+
+    @GetMapping("/help")
+    public String help(Model model){ return "help"; }
+
 }
