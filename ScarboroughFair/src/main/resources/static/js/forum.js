@@ -137,7 +137,7 @@ var uploadForum = function(){
                 <img src=\"/img/commentInForum.png\" style=\"width: 30px; height: 30px;\"> \
                 <div class=\"itemMainFooter_comment_data\">"+ (data[i].commentsId.length) +"</div> \
             </div> \
-            <div class=\"itemMainFooter_like\"> \
+            <div class=\"itemMainFooter_like\" onclick='clickForumPostLike(" + data[i].id + ")'> \
                 <img src=\"/img/likeInForum.png\" style=\"width: 30px; height: 30px;\"> \
                 <div class=\"itemMainFooter_like_data\">"+ (data[i].starNum) +"</div> \
             </div> \
@@ -316,7 +316,7 @@ var getWindowHeight = function(){
 
 var uploadComment = function(tag,index){
     $(".criticRenewIcon").remove();
-    
+
     var formData = new FormData();
     var comment = $("#itemCriticsForm" + tag)[0];
     formData.append("comment",comment.value);
@@ -337,5 +337,34 @@ var uploadComment = function(tag,index){
         }
     });
     uploadCrictics(tag,index);
+}
+
+var clickForumPostLike = function(targetId){
+    $.ajax({
+        type: "POST",
+        url: server + "/ForumService/Star",
+        async: false,
+        data:{
+            "postid":targetId,
+        },
+        cache: false,
+        processData: false,
+        contentType: false,
+        success: function (data){
+        }
+    });
+}
+
+var clickCriticLike = function(targetCommentId){
+    $.ajax({
+        type: "POST",
+        url: server + "/ForumService/Star",
+        async: false,
+        cache: false,
+        processData: false,
+        contentType: false,
+        success: function (data){
+        }
+    });
 }
 
