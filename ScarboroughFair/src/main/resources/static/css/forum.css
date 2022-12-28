@@ -206,6 +206,8 @@
     font-family: 仿宋,serif;
     text-indent: 1.5em;
     line-height: 30px;
+    background-color: white;
+    border-radius: 5px;
 }
 
 .itemMain_body_IMG{

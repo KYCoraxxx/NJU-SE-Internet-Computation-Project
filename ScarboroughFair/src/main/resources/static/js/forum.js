@@ -244,7 +244,7 @@ var uploadCrictics = function(targetId,index){
             alreadyUploadCritics[index]++;
             }
             if(alreadyUploadCritics[index] <= totalCricticOfEachPost[index]){
-                targetList.append("<div class='criticRenewIcon' style=\"display: flex;flex-direction: row; justify-content: space-around;alignment: center;margin-bottom:15px\"><img src='/img/renewIcon.png' width='30px' height='30px' onclick='clickRenewCritcis(" + targetId + "," + index +")'></div>");
+                targetList.append("<div class='criticRenewIcon' style=\"display: flex;flex-direction: row; justify-content: space-around;alignment: center;margin-bottom:15px\"><img src='/img/criticLoadIcon.png' width='30px' height='30px' onclick='clickRenewCritcis(" + targetId + "," + index +")'></div>");
             }
             else{
                 targetList.append("<div class='criticRenewIcon' style='font-size=10px;display: flex;flex-direction: row; justify-content: space-around;alignment: center;margin-bottom:15px'>已经到底了QWQ</div>");
