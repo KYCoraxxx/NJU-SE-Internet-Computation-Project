@@ -70,5 +70,12 @@ public class GoodController {
         return goodService.deleteGood(id);
     }
     
+    @RequestMapping(path = "/search", method = RequestMethod.POST)
+    @ResponseBody
+    public Good search(
+        @RequestParam("key") String key
+    ){
+        return goodService.search(key);
+    }
 
 }
