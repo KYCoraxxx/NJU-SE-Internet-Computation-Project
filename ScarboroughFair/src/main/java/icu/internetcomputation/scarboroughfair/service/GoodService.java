@@ -68,7 +68,7 @@ public class GoodService {
     }
 
     public Good search(String key){
-        for(var i : goodRepository.findAll()){
+        for(Good i : goodRepository.findAll()){
             if(i.getName().matches("(.*)" + key+ "(.*)")){
                 return i;
             }
