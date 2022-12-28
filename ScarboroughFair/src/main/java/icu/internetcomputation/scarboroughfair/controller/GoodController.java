@@ -20,14 +20,15 @@ public class GoodController {
     @Resource
     private GoodService goodService;
 
-
-
     @RequestMapping(path = "/findAll", method = RequestMethod.POST)
     @ResponseBody
     public Iterable<Good> findAll(){
         return goodService.findAll();
     }
 
+    /*
+     * 给定ID返回对应商品
+     */
     @RequestMapping(value="/findById", method = RequestMethod.POST)
     @ResponseBody
     public Good findById(
@@ -37,6 +38,9 @@ public class GoodController {
         return good;
     }
 
+    /*
+     * 热门商品
+     */
     @RequestMapping(value="/findHot", method = RequestMethod.POST)
     @ResponseBody
     public List<Good> findHot(
@@ -44,6 +48,9 @@ public class GoodController {
         return goodService.findHot(number);
     }
 
+    /*
+     * 购买商品
+     */
     @RequestMapping(value="/buyById", method = RequestMethod.POST)
     @ResponseBody
     public Message buyById(
@@ -51,18 +58,10 @@ public class GoodController {
         return goodService.buyGood(id);
     }
 
+    
     /*
-     * <暂时废弃>，添加商品的接口在uploadcontroller
+     * 删除商品
      */
-    // @RequestMapping(value = "/addGood",method = RequestMethod.POST)
-    // @ResponseBody
-    // public Message addGood(@RequestParam("name") String name ,@RequestParam("tag") String tag,
-    // @RequestParam("price") Float price,@RequestParam("cover") String cover, 
-    // @RequestParam("pic") String picture,@RequestParam("description") String description)
-    // {
-    //     return goodService.addGood(name, price, cover, picture, description, tag);
-    // }
-
     @RequestMapping(value="/deleteById", method = RequestMethod.POST)
     @ResponseBody
     public Message deleteGood(
@@ -70,5 +69,15 @@ public class GoodController {
         return goodService.deleteGood(id);
     }
     
+    /*
+     * 搜索商品
+     */
+    @RequestMapping(path = "/search", method = RequestMethod.POST)
+    @ResponseBody
+    public Good search(
+        @RequestParam("key") String key
+    ){
+        return goodService.search(key);
+    }
 
 }

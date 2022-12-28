@@ -31,9 +31,8 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 public class UploadController {
 
     /*
-     * TODO: 有个问题，目前商品和用户信息的上传都在这个controller，
-     *       但按正常思路应该分别放在GoodController和UserController，
-     *       待定
+     * 按正常思路应该分别放在GoodController和UserController,
+     * 但避免重复使用图片上传的函数, 都塞到这里面
      */
 
     @Resource
@@ -52,13 +51,7 @@ public class UploadController {
     private String accessPath;
 
 
-    // 测试接口
-    @RequestMapping(path="/tmpupload",method = RequestMethod.GET)
-    public String tmpupload(Model model){
-        return "tmpupload";
-    }
     
-
 
     /*
      * 商品信息 <<<上传>>> 的接口，包括商品图片，商品名称，商品价格，商品描述
@@ -108,9 +101,7 @@ public class UploadController {
         {
             avatorUrl = Imgupload(avator);
         }
-        // if(avatorUrl == null){
-        //     return new Message(false, "图片好像上传失败了w(ﾟДﾟ)w");
-        // }
+
         Integer id = Integer.valueOf(userID);
         return userService.editUser(id, avatorUrl, nickname, saying);
     }
@@ -134,7 +125,7 @@ public class UploadController {
         Integer id = Integer.valueOf(userID);
         return forumService.addPost(id, content, imgUrl);
     }
-    //添加comment的接口在forumController里面
+    // PS：添加comment的接口在forumController里面
 
     /*
      * 负责将图片上传至数据库指定路径，并返回一个虚拟路径的Url
@@ -143,23 +134,24 @@ public class UploadController {
         String fileName = fileUpload.getOriginalFilename();
         String suffixName = fileName.substring(fileName.lastIndexOf("."));
         fileName = UUID.randomUUID() + suffixName;
-        //获取日期
+        
         Date todayDate = new Date();
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
         String today = dateFormat.format(todayDate);
 
-        //域名访问的相对路径目录，通过浏览器访问的链接（虚拟路径）
+        //相对路径目录（虚拟路径）
         String saveToPath = accessPath + today + "/";
 
-        // 真实的路径，实际储存的目录
+        // 真实的路径
         String realPath = realBasePath + today + "/";
 
-        //储存文件的物理路径，建立在本地
+        //储存的物理路径
         String filepath = realPath + fileName;
         try {
             File f = new File(filepath);
             
-            if (!f.getParentFile().exists()) {   //create parent file
+            if (!f.getParentFile().exists()) 
+            {
                 f.getParentFile().mkdirs();
             }
 
@@ -173,10 +165,9 @@ public class UploadController {
     }
 
 
-    
-
-
-    // 地址映射配置
+    /*
+     * 地址映射配置
+     */
     @Configuration
     public class UploadConfig implements WebMvcConfigurer{
         @Value("${file.staticAccessPath}")
@@ -191,6 +182,5 @@ public class UploadController {
             registry.addResourceHandler(staticAccessPath).addResourceLocations("file:" + uploadFolder);
         }
     }
-
 
 }
