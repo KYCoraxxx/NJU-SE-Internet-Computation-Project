@@ -207,7 +207,7 @@ var uploadCrictics = function(targetId,index){
 
             console.log(data);
 
-            console.log(index);
+
 
             var cirtics;
             if(alreadyUploadCritics.length <= index){// initialize the size of each post's critic
@@ -321,7 +321,7 @@ var uploadComment = function(tag,index){
     formData.append("comment",comment.value);
     formData.append("postid",tag);
     formData.append("userid", $.cookie("userID"));
-    console.log(comment.value);
+    console.log(tag);
     $.ajax({
         type: "POST",
         url: server + "/ForumService/CommentPost",

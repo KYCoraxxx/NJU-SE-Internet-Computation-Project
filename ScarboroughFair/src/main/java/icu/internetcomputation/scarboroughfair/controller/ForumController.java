@@ -67,6 +67,9 @@ public class ForumController {
         List<Integer> ids=findCommentsId(postid);
         Iterable<Comment> iterable = forumService.findComments(ids);
         List<Comment> ret = StreamSupport.stream(iterable.spliterator(), false).collect(Collectors.toList());
+        for(Comment i : ret){
+            System.out.println(i);
+        }
         return ret;
     }
     // 废弃，使用uploadcontroller里面的
