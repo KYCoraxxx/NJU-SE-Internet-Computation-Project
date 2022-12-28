@@ -303,6 +303,11 @@
     background-color: rgba(100,149,237,0.5);
 }
 
+
+.submitButton{
+    color: white;
+}
+
 /*评论栏----------------------------------------*/
 
 .itemCritics_criticsList{
