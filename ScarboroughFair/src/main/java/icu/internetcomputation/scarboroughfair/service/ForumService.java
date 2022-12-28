@@ -1,6 +1,5 @@
 package icu.internetcomputation.scarboroughfair.service;
 
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -42,7 +41,7 @@ public class ForumService {
     }
 
     public Iterable<Comment> findComments(List<Integer> ids){
-        if(ids.size()==0) return null;
+        if(ids.size() == 0) return null;
         return commentRepository.findAllById(ids);
     }
 
@@ -80,13 +79,14 @@ public class ForumService {
         ForumPost post = findForumPost(postid);
         post.setStarNum(post.getStarNum() + 1);
         forumPostRepository.save(post);
-        return new Message(true, "非常好内容, 爱来自陶瓷");
+        return new Message(true, "非常好内容, 爱来自瓷器");
     }
+
     public Message loveComment(Integer commentid){
         Comment comment = findComment(commentid);
         comment.setStarNum(comment.getStarNum()+1);
         commentRepository.save(comment);
-        return new Message(true, "非常好内容, 爱来自陶瓷~");
+        return new Message(true, "非常好评论, 爱来自陶瓷~");
     }
 
     public Message deleteComment(int userid, int commentid){
