@@ -45,6 +45,10 @@ public class Good {
     @Setter
     private String tag;
 
+    @Getter
+    @Setter
+    private Integer click;
+
     public Good(){
         this.id = -1;
         this.name = null;
@@ -52,6 +56,7 @@ public class Good {
         this.picture = null;
         this.description = null;
         this.cover = null;
+        this.click=0;
 
     }
 
@@ -63,6 +68,11 @@ public class Good {
         this.picture = picture;
         this.description = description;
         this.tag = tag;
+        this.click=0;
+    }
+
+    public void addClick(){
+        this.click++;
     }
     
 }

@@ -76,13 +76,13 @@ public class ForumPost {
         commentsId = new ArrayList<Integer>();
     }
 
-    public ForumPost(Integer id, Integer postUserID, String content, List<String> imgUrl,Date time){
+    public ForumPost(Integer id, Integer postUserID, String content, List<String> imgUrl){
         this.id = id;
         this.PostUserID = postUserID;
         this.content = content;
         this.imgUrl = imgUrl;
         this.starNum = 0;
-        this.PostTime = time;
+        this.PostTime = new Date();
         commentsId = new ArrayList<Integer>();
     }
 

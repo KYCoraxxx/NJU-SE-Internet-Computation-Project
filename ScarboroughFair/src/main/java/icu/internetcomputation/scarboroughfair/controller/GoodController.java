@@ -1,5 +1,7 @@
 package icu.internetcomputation.scarboroughfair.controller;
 
+import java.util.List;
+
 import javax.annotation.Resource;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -20,22 +22,30 @@ public class GoodController {
 
     @RequestMapping(path = "/findAll", method = RequestMethod.POST)
     @ResponseBody
-    public Iterable<Good> findAll()
-    {
+    public Iterable<Good> findAll(){
         return goodService.findAll();
     }
 
     @RequestMapping(value="/findById", method = RequestMethod.POST)
     @ResponseBody
-    public Good findById(@RequestParam("id") int id)
-    {
-        return goodService.findById(id);
+    public Good findById(
+        @RequestParam("id") int id){
+        Good good=goodService.findById(id);
+        good.addClick();
+        return good;
+    }
+
+    @RequestMapping(value="/findHot", method = RequestMethod.POST)
+    @ResponseBody
+    public List<Good> findHot(
+        @RequestParam("number") int number){
+        return goodService.findHot(number);
     }
 
     @RequestMapping(value="/buyById", method = RequestMethod.POST)
     @ResponseBody
-    public Message buyById(@RequestParam("id") int id)
-    {
+    public Message buyById(
+        @RequestParam("id") int id){
         return goodService.buyGood(id);
     }
 
@@ -53,8 +63,8 @@ public class GoodController {
 
     @RequestMapping(value="/deleteById", method = RequestMethod.POST)
     @ResponseBody
-    public Message deleteGood(@RequestParam("id") int id)
-    {
+    public Message deleteGood(
+        @RequestParam("id") int id){
         return goodService.deleteGood(id);
     }
     
