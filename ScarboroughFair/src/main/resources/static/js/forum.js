@@ -146,7 +146,7 @@ var uploadForum = function(){
     </div> \
     <div class=\"itemCritics\"> \
         <div class=\"itemCritics_Form\" action=\"#\" method=\"post\"> \
-            <div class=\"itemCritics_Form_user\"><img src=\"/img/defaultUser.png\" style=\"width:50px;height: 50px\"></div> \
+            <div class=\"itemCritics_Form_user\"><img src=\"" + targetUser.avatorUrl + "\" style=\"width:50px;height: 50px\"></div> \
             <!--todo:add an index to every item to ease the clearAll function--> \
             <textarea name=\"itemCriticsForm\" id=\"itemCriticsForm" + data[i].id + "\"  rows=\"4\" placeholder=\"灌下你的水\" minlength=\"1\" maxlength=\"80\" ></textarea> \
             <button class=\"commentSubmit\" type=\"submit\" onclick='uploadComment(" + data[i].id + "," + i + ")'>灌水</button> \

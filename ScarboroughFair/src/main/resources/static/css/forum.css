@@ -101,7 +101,7 @@
 .forumItem{
     width: 100%;
     height: auto;
-    background-color: whitesmoke;
+    background-color: white;
     line-height: 200px;
     margin-top: 3%;
     border-radius: 3%;
@@ -301,6 +301,11 @@
 .commentSubmit:hover{
     border: 1px solid darkslateblue;
     background-color: rgba(100,149,237,0.5);
+}
+
+
+.submitButton{
+    color: white;
 }
 
 /*评论栏----------------------------------------*/
