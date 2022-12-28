@@ -230,7 +230,7 @@ var uploadCrictics = function(targetId,index){
                     <div class=\"itemCritics_criticsList_item_content\">"+ (data[i].content) +"</div> \
                     <div class=\"itemCritics_criticsList_item_foot\"> \
                         <div class=\"itemCritics_criticsList_item_foot_time\">Published on "+ (data[i].CommentTime) +"</div> \
-                        <div class=\"itemCritics_criticsList_item_foot_like\"> \
+                        <div class=\"itemCritics_criticsList_item_foot_like\" onclick='clickCommentLike(" + data[i].id + ")'> \
                             <img src=\"/img/likeInCritic.png\" style=\"width: 15px; height: 15px; margin-right: 15px;margin-top: 5px\"> \
                             <div class=\"itemCritics_criticsList_item_foot_like_data\">"+ (data[i].starNum) +"</div> \
                         </div> \
@@ -340,6 +340,7 @@ var uploadComment = function(tag,index){
 }
 
 var clickForumPostLike = function(targetId){
+    console.log(targetId);
     $.ajax({
         type: "POST",
         url: server + "/ForumService/Star",
@@ -347,23 +348,27 @@ var clickForumPostLike = function(targetId){
         data:{
             "postid":targetId,
         },
-        cache: false,
-        processData: false,
-        contentType: false,
         success: function (data){
+            if(data.isSucceed) {
+                alert(data.message);
+            }
         }
     });
 }
 
-var clickCriticLike = function(targetCommentId){
+var clickCommentLike = function(targetCommentId){
+    console.log(targetCommentId);
     $.ajax({
         type: "POST",
-        url: server + "/ForumService/Star",
+        url: server + "/ForumService/CommentStar",
         async: false,
-        cache: false,
-        processData: false,
-        contentType: false,
+        data:{
+            "commentid":targetCommentId,
+        },
         success: function (data){
+            if(data.isSucceed) {
+                alert(data.message);
+            }
         }
     });
 }
