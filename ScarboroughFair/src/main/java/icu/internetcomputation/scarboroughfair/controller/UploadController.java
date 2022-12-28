@@ -77,7 +77,9 @@ public class UploadController {
         @RequestParam(value = "cover") MultipartFile coverUpload,
         @RequestParam(value = "pic") MultipartFile[] picUpload,
         @RequestParam(value = "description") String description,
-        @RequestParam(value = "tag") String tag,Model model)
+        @RequestParam(value = "tag") String tag,
+        @RequestParam(value = "userid") int userid,
+        Model model)
     {
 
         String coverUrl = Imgupload(coverUpload);
@@ -90,7 +92,7 @@ public class UploadController {
             return new Message(false, "图片好像上传失败了姆Q~w(ﾟДﾟ)w");
         }
 
-        return goodService.addGood(name, Float.valueOf(price), coverUrl, picUrl, description, tag);
+        return goodService.addGood(name, Float.valueOf(price), coverUrl, picUrl, description, tag, userid);
     }
 
 

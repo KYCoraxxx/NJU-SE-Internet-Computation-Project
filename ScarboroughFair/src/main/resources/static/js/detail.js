@@ -5,6 +5,11 @@ var goodPrice;
 var goodDescription;
 var goodCover;
 var goodPic;
+var uploaderID;
+var uploader;
+var uploaderAvator;
+var uploaderName;
+var uploaderSaying;
 
 var localHerf = location.href;
 var targetIndex = localHerf.indexOf("=");
@@ -19,12 +24,15 @@ $.ajax({
         "id": goodId
     },
     success: function(data) {
+        console.log(data);
         goodName = data.name;
         goodTag = data.tag;
         goodPrice = data.price;
         goodDescription = data.description;
         goodCover = data.cover;
         goodPic = data.picture;
+        uploaderID = data.userID;
+        console.log(uploaderID);
         $(".goodName").append("<div class = 'goodName'>" + goodName + "</div>");
         $(".goodTag").append("<div class = 'goodTag'>" + goodTag + "</div>");
         $(".goodPrice").append("<div class = 'goodPrice'>" + goodPrice + "</div>");
@@ -32,6 +40,24 @@ $.ajax({
         $(".detailContent").append($("<div class = 'article-subtitle'>" + goodDescription + "</div>"));
     }
 });
+$.ajax({
+    type:"post",
+    url: server + "/userService/getData",
+    async: false,
+    data:{
+        "page": "detail",
+        "userID": "" + uploaderID
+    },
+    success: function(data) {
+        console.log(data);
+        uploaderSaying = data.saying;
+        uploaderAvator = data.avator;
+        uploaderName = data.userName;
+        $(".saying").append(uploaderSaying);
+        $(".providerSculp").append("<img src = '" + uploaderAvator + "'/>");
+        $(".providerName").append(uploaderName);
+    }
+})
 /*
 $(".goodName").append(goodName);
 $(".goodTag").append(goodTag);
