@@ -1,4 +1,4 @@
-var server="http://localhost:8080";
+var server="http://110.42.252.167";
 var goodName;
 var goodTag;
 var goodPrice;
