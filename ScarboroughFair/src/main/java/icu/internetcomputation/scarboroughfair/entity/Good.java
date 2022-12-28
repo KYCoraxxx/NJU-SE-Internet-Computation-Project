@@ -16,7 +16,6 @@ import javax.persistence.Table;
 @Table(name = "good")
 public class Good {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     @Getter
     @Setter
     private Integer id;

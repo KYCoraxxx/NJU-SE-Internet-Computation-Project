@@ -14,7 +14,7 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.*;
 
 @Entity
-@Table(name = "comment")
+@Table(name = "comment_test")
 public class Comment {
     // 论坛中的评论类
 
@@ -25,10 +25,9 @@ public class Comment {
 
     // 评论自身的编号
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     @Getter
     @Setter
-    private Integer CommentId;
+    private Integer id;
 
 
     // 与对应的帖子的id保持一致
@@ -57,16 +56,16 @@ public class Comment {
 
     public Comment(){
         this.PostId = -1;
-        this.CommentId = -1;
+        this.id = -1;
         this.starNum = 0;
         this.CommentUserID = null;
         this.CommentTime = null;
         this.content = null;
     }
 
-    public Comment(Integer PostId,Integer CommentId, Integer CommentUserID, Date CommentTime, String content){
+    public Comment(Integer PostId,Integer Id, Integer CommentUserID, Date CommentTime, String content){
         this.PostId = PostId;
-        this.CommentId = CommentId;
+        this.id = Id;
         this.CommentUserID = CommentUserID;
         this.CommentTime = CommentTime;
         this.content = content;
