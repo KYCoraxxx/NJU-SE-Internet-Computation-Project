@@ -24,7 +24,12 @@ public class GoodService {
 
     public Good findById(int id)
     {
-        return goodRepository.findById(id).orElse(null);
+        Good good = goodRepository.findById(id).orElse(null);
+        if(good != null){
+            good.addClick();
+            goodRepository.save(good);
+        }
+        return good;
     }
 
     public Message addGood(String name ,Float price, String cover, List<String> picture, String description, String tag, Integer userid)
