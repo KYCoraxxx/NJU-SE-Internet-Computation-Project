@@ -1,4 +1,4 @@
-var server="http://localhost:8080";
+var server = "http://110.42.252.167";
 var goodName;
 var goodTag;
 var goodPrice;
@@ -17,13 +17,13 @@ var goodId = parseInt(localHerf.substring(targetIndex + 1));
 console.log(goodId);
 
 $.ajax({
-    type:"post",
+    type: "post",
     url: server + "/GoodService/findById",
     async: false,
-    data:{
+    data: {
         "id": goodId
     },
-    success: function(data) {
+    success: function (data) {
         console.log(data);
         goodName = data.name;
         goodTag = data.tag;
@@ -41,14 +41,14 @@ $.ajax({
     }
 });
 $.ajax({
-    type:"post",
+    type: "post",
     url: server + "/userService/getData",
     async: false,
-    data:{
+    data: {
         "page": "detail",
         "userID": "" + uploaderID
     },
-    success: function(data) {
+    success: function (data) {
         console.log(data);
         uploaderSaying = data.saying;
         uploaderAvator = data.avator;
@@ -65,22 +65,24 @@ $(".goodPrice").append(goodPrice);
 $(".goodCover img").prop("src", server + goodCover);
 $(".detailContent").append($("<div class = 'article-subtitle'>" + goodDescription + "</div>"));
 */
-var changeProviderName = function (state){
+var changeProviderName = function (state) {
     if (state === 0)
         $(".providerName").css("color", "#000000");
     else if (state === 1)
         $(".providerName").css("color", "lightskyblue");
 }
 
-var showDetailContent = function(type){
+var showDetailContent = function (type) {
     $(".detailContent").remove();
     var detailContent = $("<div class = 'detailContent'></div>")
     var goodDetail = $(".goodDetail")
     goodDetail.append(detailContent);
-    if (type === 1){
+    if (type === 1) {
         detailContent.append($("<div class = 'article-subtitle'>" + goodDescription + "</div>"));
     }
-    else if(type === 2){
-        detailContent.append("<img src = '" + goodPic + "'/>");
+    else if (type === 2) {
+        for (var i = 0; i < goodPic.length; i++) {
+            detailContent.append("<img src = '" + goodPic[i] + "'/>");
+        }
     }
 }
