@@ -53,7 +53,9 @@ var appendDropDown = function (){
         dropDown.append($("<button class='dropDownBtn'><img src='/img/userCenter.png'/>个人中心</button>").bind("click", function (){
             window.location.replace(server + "/usercenter");
         }));
-        dropDown.append($("<button class='dropDownBtn'><img src='/img/good.png'/>上架管理</button>"));
+        dropDown.append($("<button class='dropDownBtn'><img src='/img/good.png'/>上架管理</button>")).bind("click", function (){
+            window.location.replace(server + "/undone");
+        });
         dropDown.append($("<button class='dropDownBtn' onclick='quitLogin()'><img src='/img/exit.png'/>退出登录</button>"));
     }, 300);
 }
