@@ -192,3 +192,39 @@ var classify = function(tag){
 
 }
 
+//轮播图加载
+var carouselLoad = function(){
+    $.ajax({
+        type:"post",
+        url: server + "/GoodService/findAll",
+        async: false,
+        data:{
+        },
+        success: function(data) {
+            for(var i in data){
+                var tmpSave = [];
+                for(var i in data){
+                    tmpSave.push(data[i].id);
+                }
+
+                for(var i = 0;i < tmpSave.length;i++){
+                    for(var j = i;j < tmpSave.length;j++){
+                        if(data[tmpSave[i]].click < data[tmpSave[j]].click){
+                            var temp = tmpSave[i];
+                            tmpSave[i] = tmpSave[j];
+                            tmpSave[j] = temp;
+                        }
+                    }
+                }
+
+            }
+
+            for(var i = 0;i < 5;i++){
+                $(".loopItem:nth-child("+ i +")").css("background-image",data[tmpSave[i]].cover);
+            }
+        }
+    });
+}
+
+carouselLoad();
+
