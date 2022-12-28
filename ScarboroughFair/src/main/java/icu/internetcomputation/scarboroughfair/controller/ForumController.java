@@ -95,6 +95,13 @@ public class ForumController {
         
         return forumService.lovePost(postid);
     }
+    @RequestMapping(path="/CommentStar",method=RequestMethod.POST)
+    @ResponseBody
+    public Message StarComment(
+        @RequestParam("commentid") int commentid
+    ){
+        return forumService.loveComment(commentid);
+    }
 
     /*
      * 添加评论

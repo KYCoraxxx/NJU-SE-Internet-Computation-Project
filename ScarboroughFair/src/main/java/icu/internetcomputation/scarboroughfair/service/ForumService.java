@@ -85,6 +85,12 @@ public class ForumService {
         forumPostRepository.save(post);
         return new Message(true, "非常好内容, 爱来自陶瓷");
     }
+    public Message loveComment(Integer commentid){
+        Comment comment = findComment(commentid);
+        comment.setStarNum(comment.getStarNum()+1);
+        commentRepository.save(comment);
+        return new Message(true, "非常好内容, 爱来自陶瓷~");
+    }
 
     public Message deleteComment(int userid, int commentid){
         Comment delComment = findComment(commentid);
