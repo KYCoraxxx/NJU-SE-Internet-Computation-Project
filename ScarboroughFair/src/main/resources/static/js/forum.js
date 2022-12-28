@@ -196,10 +196,10 @@ var totalCricticOfEachPost = [];
 var uploadCrictics = function(targetId,index){
     $.ajax({
         type:"post",
-        url: server + "/ForumService/findCommentById",
+        url: server + "/ForumService/findComments",
         async: false,
         data:{
-            "id":24,
+            "postid":targetId,
         },
         success: function(data) {
             console.log(targetId);
@@ -318,7 +318,6 @@ var uploadComment = function(tag,index){
     formData.append("comment",comment.value);
     formData.append("postid",tag);
     formData.append("userid", $.cookie("userID"));
-    console.log(tag);
     $.ajax({
         type: "POST",
         url: server + "/ForumService/CommentPost",
