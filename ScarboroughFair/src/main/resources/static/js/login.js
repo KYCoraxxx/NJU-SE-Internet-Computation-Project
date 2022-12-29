@@ -1,5 +1,5 @@
 let cover = true;
-var server = "http://110.42.252.167";
+var server = "http://project.internet-computation.icu";
 // var server = "http://localhost:8080";
 var changePicture = function(flag){
     if(flag === 0)
