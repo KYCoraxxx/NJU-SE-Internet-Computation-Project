@@ -212,9 +212,8 @@ var carouselLoad = function(){
                     }
                 }
             }
-
             for(var i = 0;i < Math.min(tmpSave.length, 5);i++){
-                $(".loopItem:nth-child("+ i+1 +")").css("background-image","url(" + tmpSave[i].cover + ")");
+                $("#pic"+(i+1)).css("background-image","url(" + tmpSave[i].cover + ")");
             }
         }
     });
