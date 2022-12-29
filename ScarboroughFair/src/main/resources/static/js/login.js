@@ -1,6 +1,6 @@
 let cover = true;
-var server = "http://project.internet-computation.icu";
-// var server = "http://localhost:8080";
+// var server = "http://project.internet-computation.icu";
+var server = "http://localhost:8080";
 var changePicture = function(flag){
     if(flag === 0)
         $("img").attr("src", "/img/psw.jpg");

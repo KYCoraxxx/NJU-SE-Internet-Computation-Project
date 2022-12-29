@@ -1,5 +1,5 @@
-// var server = "http://localhost:8080";
-var server = "http://project.internet-computation.icu";
+var server = "http://localhost:8080";
+// var server = "http://project.internet-computation.icu";
 var musicOpacity = 0;
 var userID;
 var userName;

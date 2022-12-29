@@ -14,7 +14,7 @@ public class ScarboroughFairController {
     String[] existsPage = {
         "login", "index", "forum",
         "upload", "detail", "usercenter",
-        "undone"
+        "undone", "help"
     };
 
     /**
