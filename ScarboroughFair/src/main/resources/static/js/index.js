@@ -86,16 +86,22 @@ var uploadGood = function(tag){
         data:{
         },
         success: function(data) {
-            curTag = tag;
-            if(totalGoods == -1){
+            if(totalGoods === -1){
                 for(var i in data){
                     if(tag === "Any" || data[i].tag === tag){
                         totalGoods++;
                     }
                 }
             }
-            var start = alreadyUploadIndex;
-            for(i = start;alreadyUploadIndex < start + 4 && alreadyUploadIndex <= totalGoods && i < data.length;i++){
+            var start = 0;
+            var count = 0;
+            while(count < alreadyUploadIndex){
+                if(tag === "Any" || data[start].tag === tag){
+                    count++;
+                }
+                start++;
+            }
+            for(var i = start;alreadyUploadIndex <= totalGoods && i < data.length;i++){
                 if(tag === "Any" || data[i].tag === tag){
                     if(alreadyUploadIndex % 4 === 0){
                         goodBarCount++;
@@ -108,6 +114,7 @@ var uploadGood = function(tag){
                     $("#goodItem_goodInfo" + alreadyUploadIndex).append($("<div class='price'></div>").text("￥" + data[i].price));
                     $("#goodItem_goodInfo" + alreadyUploadIndex).append("<button class='details' onclick=\"jumpLocation('/detail?goodId="+ data[i].id +"',this)\">查看详情</button>");
                     alreadyUploadIndex++;
+                    if(alreadyUploadIndex % 4 === 0)break;
                 }
             }
         }
@@ -184,6 +191,7 @@ var classify = function(tag){
     alreadyUploadIndex = 0;
     totalGoods = -1;
     goodBarCount = -1;
+    curTag = tag;
     goodList.empty();
     setTimeout(function(){uploadGood(tag);},1000);
     goodList.append("<div class='renewIcon'><img src='/img/renewIcon.png' width='50px' height='50px' style='margin-top: 30px;'></div>");
