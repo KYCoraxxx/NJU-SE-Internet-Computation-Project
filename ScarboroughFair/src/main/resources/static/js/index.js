@@ -202,23 +202,19 @@ var carouselLoad = function(){
         },
         success: function(data) {
             console.log(data);
+            var tmpSave = [];
             for(var i in data){
-                var tmpSave = [];
-                for(var i in data){
-                    tmpSave.push(data[i].id);
-                }
-                console.log(tmpSave);
-
-                for(var i = 0;i < tmpSave.length;i++){
-                    for(var j = i;j < tmpSave.length;j++){
-                        if(data[tmpSave[i]].click < data[tmpSave[j]].click){
-                            var temp = tmpSave[i];
-                            tmpSave[i] = tmpSave[j];
-                            tmpSave[j] = temp;
-                        }
+                tmpSave.push(data[i].id);
+            }
+            console.log(tmpSave);
+            for(var i = 0;i < tmpSave.length;i++){
+                for(var j = i;j < tmpSave.length;j++){
+                    if(data[tmpSave[i]].click < data[tmpSave[j]].click){
+                        var temp = tmpSave[i];
+                        tmpSave[i] = tmpSave[j];
+                        tmpSave[j] = temp;
                     }
                 }
-
             }
 
             for(var i = 0;i < 5;i++){
