@@ -1,3 +1,4 @@
+// var server = "http://localhost:8080";
 var server = "http://110.42.252.167";
 var musicOpacity = 0;
 var userID;
@@ -48,14 +49,13 @@ var appendDropDown = function (){
     userBox.append(dropDown);
     setTimeout(function () {
         dropDown.append($("<div class='article-subtitle' style='height: 10%'></div>").text(userName));
-        // dropDown.append($("<div class='saying'>最怕你一生碌碌无为，还安慰自己平凡可贵</div>"));
         dropDown.append($("<div class='saying'></div>").text(userSaying));
         dropDown.append($("<button class='dropDownBtn'><img src='/img/userCenter.png'/>个人中心</button>").bind("click", function (){
             window.location.replace(server + "/usercenter");
         }));
-        dropDown.append($("<button class='dropDownBtn'><img src='/img/good.png'/>上架管理</button>")).bind("click", function (){
+        dropDown.append($("<button class='dropDownBtn'><img src='/img/good.png'/>上架管理</button>").bind("click", function (){
             window.location.replace(server + "/undone");
-        });
+        }));
         dropDown.append($("<button class='dropDownBtn' onclick='quitLogin()'><img src='/img/exit.png'/>退出登录</button>"));
     }, 300);
 }

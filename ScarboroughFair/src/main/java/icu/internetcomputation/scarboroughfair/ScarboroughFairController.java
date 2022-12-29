@@ -29,32 +29,4 @@ public class ScarboroughFairController {
         return "undone";
     }
 
-    // @GetMapping("/login")
-    // public String login(Model model) {
-    //     return "login";
-    // }
-
-    // @RequestMapping(path="/index",method = RequestMethod.GET)
-    // public String homepage(Model model){
-    //     return "index";
-    // }
-
-    // @GetMapping("/forum")
-    // public String forum(Model model){ return "forum"; }
-
-    // @GetMapping("/upload")
-    // public String upload(Model model){ return "upload"; }
-
-    // @GetMapping("/detail")
-    // public String detail(Model model){ return "detail"; }
-
-    // @GetMapping("/undone")
-    // public String undone(Model model){ return "undone"; }
-
-    // @GetMapping("/usercenter")
-    // public String usercenter(Model model){ return "usercenter"; }
-
-    // @GetMapping("/help")
-    // public String help(Model model){ return "undone"; }
-
 }

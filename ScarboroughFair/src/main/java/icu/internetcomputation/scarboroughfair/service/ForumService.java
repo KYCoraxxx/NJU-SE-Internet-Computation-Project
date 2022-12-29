@@ -1,9 +1,6 @@
 package icu.internetcomputation.scarboroughfair.service;
 
-import java.util.Date;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Stack;
+import java.util.*;
 
 import javax.annotation.Resource;
 
@@ -31,7 +28,12 @@ public class ForumService {
         for(ForumPost i : information){
             stack.push(i);
         }
-        return stack;
+        List<ForumPost> res = new ArrayList<ForumPost>();
+        while(!stack.empty()){
+            res.add(stack.peek());
+            stack.pop();
+        }
+        return res;
     }
 
     public Iterable<Comment> findAllComment()

@@ -164,7 +164,6 @@ var uploadForum = function(){
                 for(var j = 0;j < data[i].imgUrl.length;j++){
                     imgUpload.append("<img class=\"itemMain_body_IMG_singleIMG\" src=\""+ (data[i].imgUrl[j]) +"\" onclick=\"picRespond(this)\" >");
                 }
-                console.log(data[i].id);
                 uploadCrictics(data[i].id,i);
                 alreadyUploadIndex++;
             }
@@ -274,7 +273,7 @@ window.onscroll = function (){
     var scrollPos = getScrollPos();
     var scrollHeight = getScrollHeight();
     var windowHeight = getWindowHeight();
-    if(scrollPos + windowHeight + 1 >= scrollHeight && renewLock === 0 && alreadyUploadIndex < totalForum){
+    if(scrollPos + windowHeight + 1 >= scrollHeight && renewLock === 0 && alreadyUploadIndex <= totalForum){
         renewLock = 1;
         // this would invoke the renew function
         setTimeout(uploadForum,1000);
@@ -341,7 +340,6 @@ var uploadComment = function(tag,index){
 }
 
 var clickForumPostLike = function(targetId){
-    console.log(targetId);
     $.ajax({
         type: "POST",
         url: server + "/ForumService/Star",
@@ -358,7 +356,6 @@ var clickForumPostLike = function(targetId){
 }
 
 var clickCommentLike = function(targetCommentId){
-    console.log(targetCommentId);
     $.ajax({
         type: "POST",
         url: server + "/ForumService/CommentStar",

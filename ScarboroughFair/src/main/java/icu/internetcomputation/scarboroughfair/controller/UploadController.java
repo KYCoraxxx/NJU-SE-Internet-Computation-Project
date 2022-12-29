@@ -119,9 +119,10 @@ public class UploadController {
         @RequestParam(required = false) String userID, Model model)
     {
         List<String> imgUrl = new ArrayList<>();
-        for(int i = 0; i < picUpload.length; i++){
-            imgUrl.add(Imgupload(picUpload[i]));
-        }
+        if(picUpload != null)
+            for(int i = 0; i < picUpload.length; i++){
+                imgUrl.add(Imgupload(picUpload[i]));
+            }
         Integer id = Integer.valueOf(userID);
         return forumService.addPost(id, content, imgUrl);
     }

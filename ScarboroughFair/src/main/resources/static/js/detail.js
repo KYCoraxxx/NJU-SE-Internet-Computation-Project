@@ -1,4 +1,5 @@
 var server = "http://110.42.252.167";
+// var server = "http://localhost:8080";
 var goodName;
 var goodTag;
 var goodPrice;
@@ -14,7 +15,6 @@ var uploaderSaying;
 var localHerf = location.href;
 var targetIndex = localHerf.indexOf("=");
 var goodId = parseInt(localHerf.substring(targetIndex + 1));
-console.log(goodId);
 
 $.ajax({
     type: "post",
@@ -24,7 +24,6 @@ $.ajax({
         "id": goodId
     },
     success: function (data) {
-        console.log(data);
         goodName = data.name;
         goodTag = data.tag;
         goodPrice = data.price;
@@ -32,7 +31,6 @@ $.ajax({
         goodCover = data.cover;
         goodPic = data.picture;
         uploaderID = data.userID;
-        console.log(uploaderID);
         $(".goodName").append("<div class = 'goodName'>" + goodName + "</div>");
         $(".goodTag").append("<div class = 'goodTag'>" + goodTag + "</div>");
         $(".goodPrice").append("<div class = 'goodPrice'>" + goodPrice + "</div>");
@@ -49,7 +47,6 @@ $.ajax({
         "userID": "" + uploaderID
     },
     success: function (data) {
-        console.log(data);
         uploaderSaying = data.saying;
         uploaderAvator = data.avator;
         uploaderName = data.userName;

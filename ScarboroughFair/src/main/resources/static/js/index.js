@@ -96,9 +96,7 @@ var uploadGood = function(tag){
             }
             var start = alreadyUploadIndex;
             for(i = start;alreadyUploadIndex < start + 4 && alreadyUploadIndex <= totalGoods && i < data.length;i++){
-                console.log(data[i].tag + " " + tag);
                 if(tag === "Any" || data[i].tag === tag){
-                    console.log("@@@");
                     if(alreadyUploadIndex % 4 === 0){
                         goodBarCount++;
                         goodList.append("<div class='goodBar' id='goodBar" + goodBarCount + "'></div>");
@@ -201,15 +199,13 @@ var carouselLoad = function(){
         data:{
         },
         success: function(data) {
-            console.log(data);
             var tmpSave = [];
             for(var i in data){
-                tmpSave.push(data[i].id);
+                tmpSave.push(data[i]);
             }
-            console.log(tmpSave);
             for(var i = 0;i < tmpSave.length;i++){
                 for(var j = i;j < tmpSave.length;j++){
-                    if(data[tmpSave[i]].click < data[tmpSave[j]].click){
+                    if(tmpSave[i].click < tmpSave[j].click){
                         var temp = tmpSave[i];
                         tmpSave[i] = tmpSave[j];
                         tmpSave[j] = temp;
@@ -217,8 +213,8 @@ var carouselLoad = function(){
                 }
             }
 
-            for(var i = 0;i < 5;i++){
-                $(".loopItem:nth-child("+ i +")").css("background-image",data[tmpSave[i]].cover);
+            for(var i = 0;i < Math.min(tmpSave.length, 5);i++){
+                $(".loopItem:nth-child("+ i +")").css("background-image","url(" + tmpSave[i].cover + ")");
             }
         }
     });
