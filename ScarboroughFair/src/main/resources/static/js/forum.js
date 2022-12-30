@@ -112,7 +112,7 @@ var uploadForum = function(){
         <div class=\"itemMain_header\"> \
             <div class=\"itemMain_header_IMG\"> \
                 <!--todo: add link to personal page here--> \
-                <a href=\"#\" target=\"_blank\"><img src=\""+ (targetUser.avator) + "\" style=\"width: 50px;height: 50px; border-radius: 50%;\"></a> \
+                <a href=\"#\" target=\"_blank\"><img src=\""+ server + (targetUser.avator) + "\" style=\"width: 50px;height: 50px; border-radius: 50%;\"></a> \
             </div> \
             <div class=\"itemMain_header_details\"> \
                 <div class=\"itemMain_header_details_name\">"+ (targetUser.userName)  +"</div> \
@@ -147,7 +147,7 @@ var uploadForum = function(){
     </div> \
     <div class=\"itemCritics\"> \
         <div class=\"itemCritics_Form\" action=\"#\" method=\"post\"> \
-            <div class=\"itemCritics_Form_user\"><img src=\"" + selfUser.avator + "\" style=\"width:50px;height: 50px\"></div> \
+            <div class=\"itemCritics_Form_user\"><img src=\"" + server + selfUser.avator + "\" style=\"width:50px;height: 50px\"></div> \
             <!--todo:add an index to every item to ease the clearAll function--> \
             <textarea name=\"itemCriticsForm\" id=\"itemCriticsForm" + data[i].id + "\"  rows=\"4\" placeholder=\"灌下你的水\" minlength=\"1\" maxlength=\"80\" ></textarea> \
             <button class=\"commentSubmit\" type=\"submit\" onclick='uploadComment(" + data[i].id + "," + i + ")'>灌水</button> \
@@ -162,7 +162,7 @@ var uploadForum = function(){
 </div>");
                 var imgUpload = $("#itemMain_body_IMG" + i);// upload imgs
                 for(var j = 0;j < data[i].imgUrl.length;j++){
-                    imgUpload.append("<img class=\"itemMain_body_IMG_singleIMG\" src=\""+ (data[i].imgUrl[j]) +"\" onclick=\"picRespond(this)\" >");
+                    imgUpload.append("<img class=\"itemMain_body_IMG_singleIMG\" src=\"" + server + (data[i].imgUrl[j]) +"\" onclick=\"picRespond(this)\" >");
                 }
                 uploadCrictics(data[i].id,i);
                 alreadyUploadIndex++;
@@ -223,7 +223,7 @@ var uploadCrictics = function(targetId,index){
                 var targetUser = upLoadUserById(data[i].commentUserID);
                 targetList.append("<div class=\"itemCritics_criticsList_item\"> \
                 <div class=\"itemCritics_criticsList_item_user\"> \
-                    <a href=\"#\" target=\"_blank\"><img src=\""+ (targetUser.avator) +"\" style=\"width: 40px;height: 40px;\"></a> \
+                    <a href=\"#\" target=\"_blank\"><img src=\"" + server + (targetUser.avator) +"\" style=\"width: 40px;height: 40px;\"></a> \
                 </div> \
                 <div class=\"itemCritics_criticsList_item_details\"> \
                     <div class=\"itemCritics_criticsList_item_name\">" + (targetUser.userName) + "</div> \

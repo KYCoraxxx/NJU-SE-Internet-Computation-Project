@@ -33,7 +33,7 @@ $.ajax({
         $(".goodName").append("<div class = 'goodName'>" + goodName + "</div>");
         $(".goodTag").append("<div class = 'goodTag'>" + goodTag + "</div>");
         $(".goodPrice").append("<div class = 'goodPrice'>" + goodPrice + "</div>");
-        $(".goodCover").append("<img src = '" + goodCover + "'/>");
+        $(".goodCover").append("<img src = '" + server + goodCover + "'/>");
         $(".detailContent").append($("<div class = 'article-subtitle'>" + goodDescription + "</div>"));
     }
 });
@@ -50,7 +50,7 @@ $.ajax({
         uploaderAvator = data.avator;
         uploaderName = data.userName;
         $(".saying").append(uploaderSaying);
-        $(".providerSculp").append("<img src = '" + uploaderAvator + "'/>");
+        $(".providerSculp").append("<img src = '" + server + uploaderAvator + "'/>");
         $(".providerName").append(uploaderName);
     }
 })
@@ -78,7 +78,7 @@ var showDetailContent = function (type) {
     }
     else if (type === 2) {
         for (var i = 0; i < goodPic.length; i++) {
-            detailContent.append("<img src = '" + goodPic[i] + "'/>");
+            detailContent.append("<img src = '" + server + goodPic[i] + "'/>");
         }
     }
 }

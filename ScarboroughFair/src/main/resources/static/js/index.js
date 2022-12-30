@@ -108,7 +108,7 @@ var uploadGood = function(tag){
                         goodList.append("<div class='goodBar' id='goodBar" + goodBarCount + "'></div>");
                     }
                     $("#goodBar" + goodBarCount).append("<div class='goodItem' id='goodItem" + alreadyUploadIndex +"'>");
-                    $("#goodItem" + alreadyUploadIndex).append($("<img src='"+ data[i].cover +"'/>")).append("<div class='goodInfo' id='goodItem_goodInfo" + alreadyUploadIndex + "'></div>");
+                    $("#goodItem" + alreadyUploadIndex).append($("<img src='"+ server + data[i].cover + "'/>")).append("<div class='goodInfo' id='goodItem_goodInfo" + alreadyUploadIndex + "'></div>");
                     $("#goodItem_goodInfo" + alreadyUploadIndex).append($("<div class='article-subtitle'></div>").text(data[i].name));
                     $("#goodItem_goodInfo" + alreadyUploadIndex).append($("<div class='tag'></div>").text(data[i].tag));
                     $("#goodItem_goodInfo" + alreadyUploadIndex).append($("<div class='price'></div>").text("￥" + data[i].price));
@@ -221,7 +221,7 @@ var carouselLoad = function(){
                 }
             }
             for(var i = 0;i < Math.min(tmpSave.length, 5);i++){
-                $("#pic"+(i+1)).css("background-image","url(" + tmpSave[i].cover + ")");
+                $("#pic"+(i+1)).css("background-image","url(" + server + tmpSave[i].cover + ")");
             }
         }
     });
