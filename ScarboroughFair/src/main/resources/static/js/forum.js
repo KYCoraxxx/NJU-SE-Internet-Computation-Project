@@ -260,7 +260,7 @@ var clickRenewCritcis = function(targetId,index){// todo connect with postId
 
 if(renewCount === 0){
     if($.cookie("userID") === undefined)
-        window.location.replace(server + "/login");
+        window.location.replace("/login");
     else{
         renewLock = 1;
         setTimeout(uploadForum,1000);

@@ -11,6 +11,7 @@ import icu.internetcomputation.scarboroughfair.GoodRepository;
 import icu.internetcomputation.scarboroughfair.entity.Good;
 import org.springframework.stereotype.Service;
 import icu.internetcomputation.scarboroughfair.entity.Message;
+import org.springframework.web.bind.annotation.CrossOrigin;
 
 @Service
 public class GoodService {

@@ -7,10 +7,7 @@ import java.util.stream.StreamSupport;
 import javax.annotation.Resource;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import icu.internetcomputation.scarboroughfair.entity.Comment;
 import icu.internetcomputation.scarboroughfair.entity.ForumPost;
@@ -19,6 +16,7 @@ import icu.internetcomputation.scarboroughfair.service.ForumService;
 
 @Controller
 @RequestMapping(path = "/ForumService", method = RequestMethod.POST, produces = "application/json")
+@CrossOrigin
 public class ForumController {
     @Resource
     private ForumService forumService;

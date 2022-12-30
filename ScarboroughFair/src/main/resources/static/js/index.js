@@ -129,7 +129,7 @@ var uploadGood = function(tag){
 
 if(renewCount === 0){
     if($.cookie("userID") === undefined)
-        window.location.replace(server + "/login");
+        window.location.replace("/login");
     else{
         renewLock = 1;
         setTimeout(function(){uploadGood(curTag)},1000);

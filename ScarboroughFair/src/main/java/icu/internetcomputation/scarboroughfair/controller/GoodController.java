@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 @RequestMapping(path = "/GoodService", method = RequestMethod.POST, produces = "application/json")
+@CrossOrigin
 public class GoodController {
     @Resource
     private GoodService goodService;

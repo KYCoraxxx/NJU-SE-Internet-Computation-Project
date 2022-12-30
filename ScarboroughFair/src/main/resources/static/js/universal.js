@@ -1,12 +1,11 @@
-var server = "http://localhost:8080";
-// var server = "http://project.internet-computation.icu";
+var server = "http://project.internet-computation.icu";
 var musicOpacity = 0;
 var userID;
 var userName;
 var userAvator;
 var userSaying;
 if($.cookie("userID") === undefined)
-    window.location.replace(server + "/login");
+    window.location.replace("/login");
 else
     $.ajax({
         type:"post",
@@ -39,7 +38,7 @@ var deleteDropDown = function (){
 }
 var quitLogin = function (){
     $.removeCookie("userID", {path: "/"});
-    window.location.replace(server + "/index");
+    window.location.replace("/index");
 }
 var appendDropDown = function (){
     if($(".dropDown").length > 0)return;
@@ -51,10 +50,10 @@ var appendDropDown = function (){
         dropDown.append($("<div class='article-subtitle' style='height: 10%'></div>").text(userName));
         dropDown.append($("<div class='saying'></div>").text(userSaying));
         dropDown.append($("<button class='dropDownBtn'><img src='/img/userCenter.png'/>个人中心</button>").bind("click", function (){
-            window.location.replace(server + "/usercenter");
+            window.location.replace("/usercenter");
         }));
         dropDown.append($("<button class='dropDownBtn'><img src='/img/good.png'/>上架管理</button>").bind("click", function (){
-            window.location.replace(server + "/undone");
+            window.location.replace("/undone");
         }));
         dropDown.append($("<button class='dropDownBtn' onclick='quitLogin()'><img src='/img/exit.png'/>退出登录</button>"));
     }, 300);
@@ -80,7 +79,7 @@ var changeMusic = function (){
     }
 }
 var jumpLocation = function (location,obj){
-    window.location.href = server + location;
+    window.location.replace(location);
 
 }
 
