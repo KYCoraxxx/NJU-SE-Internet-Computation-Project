@@ -98,7 +98,7 @@ github仓库地址：https://github.com/KYCoraxxx/NJU-SE-Internet-Computation-Pr
 ```
 即可通过在浏览器中输入网址`localhost:8080`或`127.0.0.1:8080`运行。
 
-如果要在本地运行mysql数据库而不继承云端服务器的数据，请在`detail.js`，`universal.js`和`login.js`中将前几行的`server`变量赋值为存储图片的服务器ip地址，并在`./src/main/resources/application.properties`中将`file.uploadFolder`的值改为存储图片的文件夹路径，将`server.port`改为自己想要的端口号，将`spring.datasource.url`中的ip地址改为数据库地址，并自行配置下面两行的`username`和`password`。
+如果要在本地运行mysql数据库而不继承云端服务器的数据，请在`detail.js`，`universal.js`和`login.js`中将前几行的`server`变量赋值为存储图片的服务器ip地址，并在`./src/main/resources/application.properties`中将`file.uploadFolder`的值改为存储图片的文件夹路径，将`server.port`改为自己想要的端口号，将`spring.datasource.url`中的ip地址改为数据库地址，并自行配置下面两行的`username`和`password`。如果要运行本地mysql数据库并且想要继承现有的数据库数据，请在`ScarboroughFair`文件夹下找到`user_table.sql`并导入使用。
 
 ### 项目介绍
 
